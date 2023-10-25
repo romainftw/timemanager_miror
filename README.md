@@ -9,13 +9,16 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-
 # Database
 
 mix phx.gen.schema User users first_name:string last_name:string
 mix phx.gen.schema Task tasks title:string description:string status:string user_id:references:users
 mix ecto.migrate
 
+# Start postgres
+
+sudo systemctl start postgresql
+or ./start.sh
 
 ## Learn more
 
