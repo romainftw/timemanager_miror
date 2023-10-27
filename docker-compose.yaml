@@ -1,0 +1,43 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./Front/time-manager
+      dockerfile: Dockerfile
+    ports:
+      - 3000:8080
+    depends_on:
+      - backend
+    restart: always
+  backend:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - 8080:4000
+    depends_on:
+      - db
+    restart: always
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app_dev
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: nicolas1.caron@epitech.eu
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - 5050:80
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+volumes:
+  postgres_data: 
+  pgadmin_data:
