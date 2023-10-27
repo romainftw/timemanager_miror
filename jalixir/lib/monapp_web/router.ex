@@ -9,15 +9,22 @@ defmodule TodolistWeb.Router do
   scope "/api", TodolistWeb do
     pipe_through :api
     resources "/users", UserController, except: [:new, :edit]
-
-    scope "/tasks", TaskController do
-      get "/", TaskController, :show
-      get "/:id", TaskController, :show
-      post "/", TaskController, :create
-      put "/:id", TaskController, :update
-      delete "/:id", TaskController, :delete
-    end
+    resources "/clocks", ClockController, except: [:new, :edit]
+    resources "/workingtimes", WorkingtimeController, except: [:new, :edit]
   end
+
+  #scope "/api", TodolistWeb do
+  #  pipe_through :api
+  #  resources "/users", UserController, except: [:new, :edit]
+#
+  #  scope "/tasks", TaskController do
+  #    get "/", TaskController, :show
+  #    get "/:id", TaskController, :show
+  #    post "/", TaskController, :create
+  #    put "/:id", TaskController, :update
+  #    delete "/:id", TaskController, :delete
+  #  end
+  #end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:monapp, :dev_routes) do
