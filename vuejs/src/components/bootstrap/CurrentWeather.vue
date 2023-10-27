@@ -10,11 +10,12 @@
     </div>
     <ReloadButton :reload="reloadData"/>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent } from 'vue'
 import ReloadButton from './ReloadButton.vue';
 
+// Bootstrap component
 export default defineComponent({
 
     name: 'CurrentWeather',
@@ -32,14 +33,12 @@ export default defineComponent({
     },
     methods: {
         reloadData() {
-            console.log(234567890)
-            //alert('Fonction du parent appelée depuis le bouton enfant');
             this.weather.temperature = randomNumber();
         }
     }
 })
 
-function getFrenchDate() {
+function getFrenchDate() :string{
     const date = new Date();
     const day = date.getDate();
     const month = date.getMonth() + 1;
@@ -47,7 +46,7 @@ function getFrenchDate() {
     return `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
 }
 
-function randomNumber() {
+function randomNumber() :number{
     const min = -20;
     const max = 50;
     const nombreAleatoire = Math.random() * (max - min) + min;

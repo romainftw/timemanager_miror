@@ -1,15 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
   <CurrentWeather/>
+  <User/>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import CurrentWeather from './components/CurrentWeather.vue';
+import User from './components/User.vue';
 
 @Options({
   components: {
-    CurrentWeather,
+    User
   },
 })
 export default class App extends Vue {}
