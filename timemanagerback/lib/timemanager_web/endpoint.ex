@@ -49,10 +49,9 @@ defmodule TimemanagerWeb.Endpoint do
   plug Plug.Session, @session_options
   plug TimemanagerWeb.Router
 
-  # Configuration CORS
   plug CORSPlug,
     origins: "*",
     methods: ~W(get post patch delete options),
     headers: "authorization,content-type,accept",
-    max_age: 86400
+    max_age: 1000
 end
