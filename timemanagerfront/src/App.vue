@@ -24,14 +24,10 @@ import UserView from './views/UserView.vue'
             <li class="nav-item">
               <RouterLink to="/" class="nav-link active" aria-current="page">Accueil</RouterLink>
             </li>
-            <li class="nav-item">
-              <RouterLink to="/user" class="nav-link active" aria-current="page"
-                >Accueil</RouterLink
-              >
-            </li>
-            <li class="nav-item">
+
+            <!-- <li class="nav-item">
               <RouterLink class="nav-link" to="/about">About</RouterLink>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -40,6 +36,7 @@ import UserView from './views/UserView.vue'
   <main class="container mt-5">
     <UserView />
     <RouterView />
+    <notifications />
   </main>
   <!-- <footer>
     <div class="text-center position-absolute bottom-0 d-flex justify-content-center">
