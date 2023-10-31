@@ -12,6 +12,7 @@ defmodule TimemanagerWeb.UserController do
     |> put_resp_header("access-control-allow-origin", "*")
     |> put_resp_header("access-control-allow-methods", "GET, POST, PUT, DELETE, OPTIONS")
     |> put_resp_header("access-control-allow-headers", "authorization, content-type, accept")
+    |> json(%{})
   end
 
   def user(conn, %{"email" => email, "username" => username}) do # create
