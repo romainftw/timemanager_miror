@@ -28,8 +28,8 @@ defmodule TimemanagerWeb.Router do
     get "/user", UserController, :user
     resources "/clocks", ClockController
     resources "/workingtimes", WorkingtimeController
-    get "/workingtimes/:userID/:id", WorkingtimeController, :showWorkingtimeByUser
     get "/workingtimes/:userID", WorkingtimeController, :index
+    get "/workingtimes/:userID/:id", WorkingtimeController, :showWorkingtimeByUser
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

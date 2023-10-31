@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios'
 import config from '../../config'
+import { RouterLink } from 'vue-router'
 export default {
   data() {
     return {
@@ -8,7 +9,8 @@ export default {
       newUser: {
         username: '',
         email: ''
-      }
+      },
+      editingUser: null
     }
   },
   methods: {
@@ -41,6 +43,19 @@ export default {
           type: 'error'
         })
       }
+    },
+    editUser: async function (userID) {
+      try {
+        const response = await axios.post(`${config.back_uri}/users/${userID}`, this.editingUser)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    openModal: function (userID) {
+      this.editingUser = this.users.find((user) => user.id === userID)
+    },
+    closeModal: function () {
+      this.editingUser = null
     }
   },
   created() {
@@ -53,7 +68,9 @@ export default {
   <section>
     <article class="d-flex justify-content-start align-items-center">
       <h1>Liste des utilisateurs</h1>
-      <button class="btn btn-info ms-3"><i class="bi bi-plus-lg fs-6"></i></button>
+      <RouterLink to="/user/add" class="btn btn-info ms-3"
+        ><i class="bi bi-plus-lg fs-6"></i
+      ></RouterLink>
     </article>
     <article class="mt-5">
       <table class="table">
@@ -74,7 +91,7 @@ export default {
             <td class="text-end">
               <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
               <button class="btn btn-danger ms-2" @click="deleteUser(user.id)">
-                <i class="bi bi-trash3-fill"></i>
+                <i class="bi bi-trash3-fill" @click="openModal(user.id)"></i>
               </button>
             </td>
           </tr>

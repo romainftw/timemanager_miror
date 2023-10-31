@@ -51,8 +51,9 @@ defmodule TimemanagerWeb.Endpoint do
 
   # Configuration CORS
   plug CORSPlug,
-    origins: "*",
-    methods: ~W(get post patch delete options),
-    headers: "authorization,content-type,accept",
-    max_age: 86400
+  origin: ["*"],
+  max_age: 86400,
+  methods: ["GET", "POST","DELETE","OPTIONS","PUT","PATCH"]
+
+
 end
