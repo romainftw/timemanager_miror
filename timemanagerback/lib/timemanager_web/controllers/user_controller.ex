@@ -1,6 +1,7 @@
 defmodule TimemanagerWeb.UserController do
   use TimemanagerWeb, :controller
 
+  @derive {Jason.Encoder, only: [:id, :username, :email, :inserted_at, :updated_at]}
   alias Timemanager.Users
   alias Timemanager.Users.User
 
@@ -25,11 +26,13 @@ defmodule TimemanagerWeb.UserController do
 
   def create(conn, %{"user" => user_params}) do
     with {:ok, %User{} = user} <- Users.create_user(user_params) do
-      conn
+     conn
       |> put_status(:created)
       |> put_resp_header("location", ~p"/api/users/#{user}")
-      |> render(:show, user: user)
+      |> render("show.json", user: user)
+
     end
+
   end
 
   def show(conn, %{"id" => id}) do

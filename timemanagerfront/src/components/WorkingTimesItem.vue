@@ -12,6 +12,11 @@ export default {
       userID: null,
       workingTimes: []
     }
+  },
+  mthods: {},
+  mounted() {
+    this.userID = this.$router.params.userID
+    console.log(this.userID)
   }
 }
 </script>
