@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  front:
+  back:
     runs-on: ubuntu-latest
     steps:
       -
@@ -28,8 +28,8 @@ jobs:
         with:
           context: "{{defaultContext}}:timemanagerback"
           push: true
-          tags: nickos0695/time-manager-back::Prod
-  back:
+          tags: nickos0695/time-manager-back:Prod
+  front:
     runs-on: ubuntu-latest
     steps:
       -
@@ -50,4 +50,4 @@ jobs:
         with:
           context: "{{defaultContext}}:timemanagerfront"
           push: true
-          tags: nickos0695/time-manager:Recette
+          tags: nickos0695/time-manager:Prod
