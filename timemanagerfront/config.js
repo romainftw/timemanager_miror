@@ -1,4 +1,4 @@
 const config = {
-  back_uri: 'http://localhost:4000/api'
+  back_uri: 'https://tim-manager-nissa-back.azurewebsites.net/api'
 }
 export default config
