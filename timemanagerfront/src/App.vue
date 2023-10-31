@@ -29,6 +29,9 @@ import UserView from './views/UserView.vue'
               <RouterLink class="nav-link" to="/about">About</RouterLink>
             </li> -->
           </ul>
+          <li class="d-flex">
+            <button class="btn btn-outline-info" type="submit">Badger</button>
+          </li>
         </div>
       </div>
     </nav>

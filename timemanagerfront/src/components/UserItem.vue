@@ -7,13 +7,18 @@ export default {
     return {
       users: [],
       newUser: {
-        username: '',
-        email: ''
+        user: {
+          username: '',
+          email: ''
+        }
       },
-      editingUser: null
+      addNewUser: false
     }
   },
   methods: {
+    goBack() {
+      this.$router.go(-1) // Redirige l'utilisateur vers la page précédente
+    },
     fetchUsers: async function () {
       try {
         const response = await axios.get(`${config.back_uri}/users`)
@@ -31,30 +36,10 @@ export default {
     },
     deleteUser: async function (userID) {
       try {
-        //const response = await axios.delete(`${config.back_uri}/users/${userID}`)
-        
-        const headers = {
-          'Content-Type': 'application/json'
-        };
-        axios({
-          method: 'delete',
-          url: `${config.back_uri}/users/${userID}`, 
-          headers: headers 
-        })
-          .then(response => {
-            this.fetchUsers();
-            console.log('Réponse de l\'API :', response.data);
-          })
-          .catch(error => {
-            console.error('Erreur de l\'API :', error);
-          });
+        const response = await axios.delete(`${config.back_uri}/users/${userID}`)
 
-        
-        //console.log(`${config.back_uri}/users/${userID}`)
-        //console.log(response)
-        // response && this.fetchUsers()
+        this.users = response && this.users.filter((user) => user.id !== userID)
       } catch (error) {
-        console.log(error)
         this.$notify({
           title: 'Erreur',
           text: "Une erreur s'est produite",
@@ -62,18 +47,33 @@ export default {
         })
       }
     },
-    editUser: async function (userID) {
+    createNewUser: async function () {
+      console.log(this.newUser)
       try {
-        const response = await axios.post(`${config.back_uri}/users/${userID}`, this.editingUser)
+        const response = await axios.post(`${config.back_uri}/users`, this.newUser)
+        console.log(response)
+        this.users.push(response.data.data)
+        this.newUser.user.username = ''
+        this.newUser.user.email = ''
+        this.addUser()
+        this.$notify({
+          text: "L'utilisateur a été rajouté",
+          type: 'success'
+        })
       } catch (error) {
-        console.log(error)
+        this.$notify({
+          title: 'Erreur',
+          text: "Une erreur s'est produite",
+          type: 'error'
+        })
       }
     },
-    openModal: function (userID) {
-      this.editingUser = this.users.find((user) => user.id === userID)
+    addUser: function () {
+      this.addNewUser = !this.addNewUser
     },
-    closeModal: function () {
-      this.editingUser = null
+    gotoUri: function (event) {
+      console.log(event.target.getAttribute('href'))
+      this.$router.push(event.target.getAttribute('href'))
     }
   },
   created() {
@@ -86,9 +86,26 @@ export default {
   <section>
     <article class="d-flex justify-content-start align-items-center">
       <h1>Liste des utilisateurs</h1>
-      <RouterLink to="/user/add" class="btn btn-info ms-3"
-        ><i class="bi bi-plus-lg fs-6"></i
-      ></RouterLink>
+      <button class="btn btn-info ms-3" @click="addUser"><i class="bi bi-plus-lg fs-6"></i></button>
+    </article>
+    <article v-if="addNewUser">
+      <form @submit.prevent="createNewUser">
+        <input
+          type="text"
+          v-model="newUser.user.username"
+          class="form-control mt-4"
+          placeholder="Nom"
+          required
+        />
+        <input
+          type="email"
+          v-model="newUser.user.email"
+          class="form-control mt-4"
+          placeholder="Email"
+          required
+        />
+        <button class="btn btn-info col-12 mt-4" type="submit">Ajouter</button>
+      </form>
     </article>
     <article class="mt-5">
       <table class="table">
@@ -111,6 +128,9 @@ export default {
               <button class="btn btn-danger ms-2" @click="deleteUser(user.id)">
                 <i class="bi bi-trash3-fill" @click="openModal(user.id)"></i>
               </button>
+              <RouterLink :to="`/workingTimes/${user.id}`" class="btn btn-outline-dark ms-2">
+                clock
+              </RouterLink>
             </td>
           </tr>
         </tbody>
