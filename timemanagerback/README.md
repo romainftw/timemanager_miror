@@ -1,5 +1,27 @@
 # Timemanager
 
+
+
+# Installation
+
+Install postgres, erlang and elixir
+
+CREATE DATABASE 'database name';
+
+mix ecto.migrate
+
+# Environment variables
+
+Install inotify-tools on your machine to read env file.
+
+Add the following variables to a .env file:
+
+`PG_USER` <br />
+`PG_PWD` <br />
+`PG_DATABASE` <br />
+
+
+# Run
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies

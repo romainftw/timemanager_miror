@@ -31,9 +31,27 @@ export default {
     },
     deleteUser: async function (userID) {
       try {
-        const response = await axios.delete(`${config.back_uri}/users/${userID}`)
-        console.log(`${config.back_uri}/users/${userID}`)
-        console.log(response)
+        //const response = await axios.delete(`${config.back_uri}/users/${userID}`)
+        
+        const headers = {
+          'Content-Type': 'application/json'
+        };
+        axios({
+          method: 'delete',
+          url: `${config.back_uri}/users/${userID}`, 
+          headers: headers 
+        })
+          .then(response => {
+            this.fetchUsers();
+            console.log('Réponse de l\'API :', response.data);
+          })
+          .catch(error => {
+            console.error('Erreur de l\'API :', error);
+          });
+
+        
+        //console.log(`${config.back_uri}/users/${userID}`)
+        //console.log(response)
         // response && this.fetchUsers()
       } catch (error) {
         console.log(error)

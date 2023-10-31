@@ -21,10 +21,10 @@ defmodule TimemanagerWeb.Router do
     get "/", PageController, :home
   end
 
-  # Other scopes may use custom stacks.
   scope "/api", TimemanagerWeb do
     pipe_through :api
     resources "/users", UserController
+    options "/users/:id", UserController, :options
     get "/user", UserController, :user
     resources "/clocks", ClockController
     resources "/workingtimes", WorkingtimeController

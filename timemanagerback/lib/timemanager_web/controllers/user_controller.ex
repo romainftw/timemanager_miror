@@ -6,8 +6,14 @@ defmodule TimemanagerWeb.UserController do
 
   action_fallback TimemanagerWeb.FallbackController
 
+  def options(conn, _params) do
+    conn
+    |> put_resp_header("access-control-allow-origin", "*")
+    |> put_resp_header("access-control-allow-methods", "GET, POST, PUT, DELETE, OPTIONS")
+    |> put_resp_header("access-control-allow-headers", "authorization, content-type, accept")
+  end
 
-  def user(conn, %{"email" => email, "username" => username}) do
+  def user(conn, %{"email" => email, "username" => username}) do # create
      user = Users.get_user_by_username!(username: username, email: email)
      #query = Timemanager.User |> Ecto.Query.where(email: email)
      render(conn, :show, user: user)
@@ -17,7 +23,6 @@ defmodule TimemanagerWeb.UserController do
     render(conn, :index, users: users)
   end
 
- 
   def create(conn, %{"user" => user_params}) do
     with {:ok, %User{} = user} <- Users.create_user(user_params) do
       conn
