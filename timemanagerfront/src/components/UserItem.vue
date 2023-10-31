@@ -126,7 +126,7 @@ export default {
             <td class="text-end">
               <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
               <button class="btn btn-danger ms-2" @click="deleteUser(user.id)">
-                <i class="bi bi-trash3-fill" @click="openModal(user.id)"></i>
+                <i class="bi bi-trash3-fill"></i>
               </button>
               <RouterLink :to="`/workingTimes/${user.id}`" class="btn btn-outline-dark ms-2">
                 clock

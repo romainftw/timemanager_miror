@@ -17,7 +17,13 @@ defmodule Timemanager.Workingtimes do
       [%Workingtime{}, ...]
 
   """
+ # def list_workingtimes do
+    #Repo.all(Workingtime)
+  #end
   def list_workingtimes do
+    # from(wt in Workingtime, select: wt)
+    # query = from wt in "workingtimes",
+    # select:  %{id: wt.id, start: wt.start, end: wt.end}
     Repo.all(Workingtime)
   end
 
@@ -35,26 +41,37 @@ defmodule Timemanager.Workingtimes do
       ** (Ecto.NoResultsError)
 
   """
-  def get_workingtime!(id), do: Repo.get!(Workingtime, id)
+  #def get_workingtime!(id), do: Repo.get!(Workingtime, id)
+  def get_workingtime!(id) do
+    query = from wt in "workingtimes",
+    where: wt.id == ^id,
+    select:  %{id: wt.id, start: wt.start, end: wt.end}
+    Repo.one(query)
+  end
   def get_working_time!(params), do: Repo.get_by!(Workingtime, params)
   def get_workingtime_by_user_id_and_dates!(user_id,start,enddate) do
     query =
       from wt in "workingtimes",
-     
+
       where: wt.user_id == ^user_id and wt.start >= ^start and wt.end <= ^enddate,
       select: wt
 
     Repo.one(query)
   end
-  
 
-  def get_workingtime_by_user_id!(user_id,id) do 
-    query = 
+
+  def get_workingtime_by_user_id!(user_id) do
+    parsed_user_id = String.to_integer(user_id)
+    query =
       from wt in "workingtimes",
-      where: wt.user_id == ^user_id and wt.id == ^id ,
-      select: wt
+      where: wt.user_id == ^parsed_user_id ,
+      select:  %{id: wt.id, start: wt.start, end: wt.end}
 
-    Repo.one(query)
+    Repo.all(query)
+  end
+
+  def get_workingtimes_by_user_id(user_id) do
+    from(w in Workingtime, where: w.user_id == ^user_id) |> Repo.all()
   end
 
   @doc """

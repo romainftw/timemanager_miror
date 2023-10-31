@@ -1,7 +1,7 @@
 defmodule TimemanagerWeb.UserController do
   use TimemanagerWeb, :controller
 
-  @derive {Jason.Encoder, only: [:id, :username, :email, :inserted_at, :updated_at]}
+ # @derive {Jason.Encoder, only: [:id, :username, :email, :inserted_at, :updated_at]}
   alias Timemanager.Users
   alias Timemanager.Users.User
 
@@ -12,6 +12,7 @@ defmodule TimemanagerWeb.UserController do
     |> put_resp_header("access-control-allow-origin", "*")
     |> put_resp_header("access-control-allow-methods", "GET, POST, PUT, DELETE, OPTIONS")
     |> put_resp_header("access-control-allow-headers", "authorization, content-type, accept")
+    |> json(%{})
   end
 
   def user(conn, %{"email" => email, "username" => username}) do # create
@@ -29,7 +30,7 @@ defmodule TimemanagerWeb.UserController do
      conn
       |> put_status(:created)
       |> put_resp_header("location", ~p"/api/users/#{user}")
-      |> render("show.json", user: user)
+      |> render(:show, user: user)
 
     end
 
