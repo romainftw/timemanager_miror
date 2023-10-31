@@ -15,8 +15,8 @@ export default {
   },
   mthods: {},
   mounted() {
-    this.userID = this.$router.params.userID
-    console.log(this.userID)
+    // this.userID = this.$router.params.userID
+    console.log("user id", this.userID)
   }
 }
 </script>

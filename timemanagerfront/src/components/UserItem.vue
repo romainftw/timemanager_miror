@@ -37,7 +37,6 @@ export default {
     deleteUser: async function (userID) {
       try {
         const response = await axios.delete(`${config.back_uri}/users/${userID}`)
-
         this.users = response && this.users.filter((user) => user.id !== userID)
       } catch (error) {
         this.$notify({
