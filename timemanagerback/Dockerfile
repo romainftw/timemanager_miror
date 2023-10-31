@@ -85,7 +85,7 @@ RUN chown nobody /app
 ENV MIX_ENV="dev"
 
 # Only copy the final release from the build stage
-COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/app ./
+COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/timemanager ./
 
 USER nobody
 
@@ -93,6 +93,7 @@ USER nobody
 # advised to add an init process such as tini via `apt-get install`
 # above and adding an entrypoint. See https://github.com/krallin/tini for details
 # ENTRYPOINT ["/tini", "--"]
+
 EXPOSE 4000
 
 CMD ["/app/bin/server"]
