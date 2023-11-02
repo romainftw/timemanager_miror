@@ -24,11 +24,13 @@ defmodule TimemanagerWeb.Router do
   scope "/api", TimemanagerWeb do
     pipe_through :api
 
-    options "/*users", UserController, :options
+    options "/*users", CommonController, :options
     resources "/users", UserController
     get "/user", UserController, :user
 
+    options "/*clocks", CommonController, :options
     resources "/clocks", ClockController
+    options "/*workingtimes", CommonController, :options
     resources "/workingtimes", WorkingtimeController
     get "/workingtimes/:userID", WorkingtimeController, :showWorkingTimeByUserStartAndEnd
     get "/workingtimesuser/:userID", WorkingtimeController, :showWorkingtimeByUser
