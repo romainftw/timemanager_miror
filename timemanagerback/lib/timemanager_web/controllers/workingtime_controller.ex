@@ -31,11 +31,13 @@ defmodule TimemanagerWeb.WorkingtimeController do
   end
 
   def show(conn, %{"id" => id }) do
+    id = String.to_integer(id)
     workingtime = Workingtimes.get_workingtime!(id)
     render(conn, :show, workingtime: workingtime)
   end
 
   def update(conn, %{"id" => id, "workingtime" => workingtime_params}) do
+    id = String.to_integer(id)
     workingtime = Workingtimes.get_workingtime!(id)
 
     with {:ok, %Workingtime{} = workingtime} <- Workingtimes.update_workingtime(workingtime, workingtime_params) do

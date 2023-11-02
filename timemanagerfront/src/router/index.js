@@ -23,7 +23,7 @@ const router = createRouter({
       component: WorkingTime
     },
     {
-      path: '/workigTime/:userID/:name',
+      path: '/workigTime/:userID/:id/:name',
       name: 'workigTime',
       component: WorkingTime
     },

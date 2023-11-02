@@ -43,10 +43,7 @@ defmodule Timemanager.Workingtimes do
   """
   #def get_workingtime!(id), do: Repo.get!(Workingtime, id)
   def get_workingtime!(id) do
-    query = from wt in "workingtimes",
-    where: wt.id == ^id,
-    select:  %{id: wt.id, start: wt.start, end: wt.end}
-    Repo.one(query)
+    Repo.get!(Workingtime, id)
   end
   def get_working_time!(params), do: Repo.get_by!(Workingtime, params)
   def get_workingtime_by_user_id_and_dates!(user_id,start,enddate) do
