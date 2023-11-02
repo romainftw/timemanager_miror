@@ -2,7 +2,14 @@
 import axios from 'axios'
 import config from '../../config'
 import { RouterLink } from 'vue-router'
+import Modale from './ModaleItem.vue'
+import WorkingTimes from './WorkingTimesItem.vue'
 export default {
+  name: 'UserItem',
+  components: {
+    modale: Modale,
+    workingTimes: WorkingTimes
+  },
   data() {
     return {
       users: [],
@@ -12,7 +19,9 @@ export default {
           email: ''
         }
       },
-      addNewUser: false
+      addNewUser: false,
+      showModale: false,
+      modaleData: null
     }
   },
   methods: {
@@ -70,9 +79,14 @@ export default {
     addUser: function () {
       this.addNewUser = !this.addNewUser
     },
+
     gotoUri: function (event) {
       console.log(event.target.getAttribute('href'))
       this.$router.push(event.target.getAttribute('href'))
+    },
+    toggleModale: function (userID) {
+      this.modaleData = this.users.find((user) => user.id === userID)
+      this.showModale = !this.showModale
     }
   },
   created() {
@@ -85,7 +99,9 @@ export default {
   <section>
     <article class="d-flex justify-content-start align-items-center">
       <h1>Liste des utilisateurs</h1>
-      <button class="btn btn-info ms-3" @click="addUser"><i class="bi bi-plus-lg fs-6"></i></button>
+      <button class="btn ms-3" @click="addUser">
+        <i class="bi bi-plus-lg fs-6 text-info"></i>
+      </button>
     </article>
     <article v-if="addNewUser">
       <form @submit.prevent="createNewUser">
@@ -123,17 +139,26 @@ export default {
             <td>{{ user.email }}</td>
             <td>{{ user.username }}</td>
             <td class="text-end">
-              <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-              <button class="btn btn-danger ms-2" @click="deleteUser(user.id)">
-                <i class="bi bi-trash3-fill"></i>
+              <button type="button" class="btn ms-2" @click="toggleModale(user.id)">
+                <i class="bi bi-clock"></i>
               </button>
-              <RouterLink :to="`/workingTimes/${user.id}`" class="btn btn-outline-dark ms-2">
-                clock
-              </RouterLink>
+              <button class="btn">
+                <i class="bi bi-pencil-square text-warning fs-5"></i>
+              </button>
+              <button class="btn ms-2" @click="deleteUser(user.id)">
+                <i class="bi bi-trash3-fill text-danger"></i>
+              </button>
             </td>
           </tr>
         </tbody>
       </table>
     </article>
+
+    <modale v-bind:show="showModale" v-bind:toggleModale="toggleModale"
+      ><workingTimes
+        v-bind:userID="this.modaleData.id"
+        v-bind:username="this.modaleData.username"
+      ></workingTimes>
+    </modale>
   </section>
 </template>

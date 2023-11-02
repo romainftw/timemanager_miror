@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import UserView from '../views/UserView.vue'
 import WorkingTimes from '../views/WorkingTimes.vue'
+import WorkingTime from '../components/workigTimeItem.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,6 +16,16 @@ const router = createRouter({
       path: '/user',
       name: 'user',
       component: UserView
+    },
+    {
+      path: '/workigTime',
+      name: 'workigTime',
+      component: WorkingTime
+    },
+    {
+      path: '/workigTime/:userID/:name',
+      name: 'workigTime',
+      component: WorkingTime
     },
     {
       path: '/workingTimes/:userID',
