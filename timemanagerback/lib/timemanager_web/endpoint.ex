@@ -47,11 +47,7 @@ defmodule TimemanagerWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug CORSPlug
   plug TimemanagerWeb.Router
 
-  plug CORSPlug,
-    origins: "*",
-    methods: ~W(get post patch delete options),
-    headers: "authorization,content-type,accept",
-    max_age: 1000
 end

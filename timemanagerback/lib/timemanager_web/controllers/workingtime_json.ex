@@ -19,7 +19,7 @@ defmodule TimemanagerWeb.WorkingtimeJSON do
     %{
       id: workingtime.id,
       start: workingtime.start,
-      end: workingtime.end
+      end: workingtime.end,
     }
   end
 end

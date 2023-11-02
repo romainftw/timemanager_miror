@@ -3,9 +3,9 @@ import Config
 # Configure your database
 config :timemanager, Timemanager.Repo,
   username: "postgres",
-  password: "Root0695",
-  hostname: "time-manager-db.postgres.database.azure.com",
-  database: "monapp_dev",
+  password: "postgres",
+  hostname: "host.docker.internal",
+  database: "timemanager_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

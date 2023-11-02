@@ -23,13 +23,17 @@ defmodule TimemanagerWeb.Router do
 
   scope "/api", TimemanagerWeb do
     pipe_through :api
+
+    options "/*users", CommonController, :options
     resources "/users", UserController
-    options "/users/:id", UserController, :options
     get "/user", UserController, :user
+
+    options "/*clocks", CommonController, :options
     resources "/clocks", ClockController
+    options "/*workingtimes", CommonController, :options
     resources "/workingtimes", WorkingtimeController
-    get "/workingtimes/:userID/:id", WorkingtimeController, :showWorkingtimeByUser
-    get "/workingtimes/:userID", WorkingtimeController, :index
+    get "/workingtimes_start_end/:userID", WorkingtimeController, :showWorkingTimeByUserStartAndEnd
+    get "/workingtime_by_user/:userID", WorkingtimeController, :showWorkingtimeByUser
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

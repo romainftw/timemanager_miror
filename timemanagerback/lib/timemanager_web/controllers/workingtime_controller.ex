@@ -6,14 +6,20 @@ defmodule TimemanagerWeb.WorkingtimeController do
 
   action_fallback TimemanagerWeb.FallbackController
 
-  def index(conn,  %{"userID"=> user_id, "end" => enddate, "start" => start}) do
+  def index(conn,  _params) do
+    workingtimes = Workingtimes.list_workingtimes()
+    render(conn, :index, workingtimes: workingtimes)
+  end
+
+  def showWorkingTimeByUserStartAndEnd(conn,  %{"userID"=> user_id, "end" => enddate, "start" => start}) do
 
     workingtimes = Workingtimes.get_workingtime_by_user_id_and_dates!(user_id,start,enddate)
-    
+
 
     render(conn, :index, workingtimes: workingtimes)
   end
-  
+
+
 
   def create(conn, %{"workingtime" => workingtime_params}) do
     with {:ok, %Workingtime{} = workingtime} <- Workingtimes.create_workingtime(workingtime_params) do
@@ -25,11 +31,13 @@ defmodule TimemanagerWeb.WorkingtimeController do
   end
 
   def show(conn, %{"id" => id }) do
+    id = String.to_integer(id)
     workingtime = Workingtimes.get_workingtime!(id)
     render(conn, :show, workingtime: workingtime)
   end
 
   def update(conn, %{"id" => id, "workingtime" => workingtime_params}) do
+    id = String.to_integer(id)
     workingtime = Workingtimes.get_workingtime!(id)
 
     with {:ok, %Workingtime{} = workingtime} <- Workingtimes.update_workingtime(workingtime, workingtime_params) do
@@ -45,9 +53,11 @@ defmodule TimemanagerWeb.WorkingtimeController do
     end
   end
 
-  def showWorkingtimeByUser(conn, %{"userID" => user_id, "id"=> id }) do
-    workingtime = Workingtimes.get_workingtime_by_user_id!(user_id,id)
-    render(conn, :show, workingtime: workingtime)
+
+  def showWorkingtimeByUser(conn, %{"userID" => user_id }) do
+    workingtimes =  Workingtimes.get_workingtimes_by_user_id(user_id)
+
+    render(conn, :index, workingtimes: workingtimes)
   end
 
 end

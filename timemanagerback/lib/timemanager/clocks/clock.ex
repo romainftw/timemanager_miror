@@ -15,6 +15,6 @@ defmodule Timemanager.Clocks.Clock do
     clock
     |> cast(attrs, [:time, :status])
     |> validate_required([:time, :status],message: "Champs obligatoire")
-  
+
   end
 end
