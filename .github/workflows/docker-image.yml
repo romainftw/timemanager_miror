@@ -1,45 +1,62 @@
-name: Elixir CI
+name: Docker Image CI and Elixir Tests
 
 on:
   push:
-    branches: [ "main" , "preprod"]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-permissions:
-  contents: read
-
 jobs:
-  build:
-    name: Build and test
+  tu_back:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-
-    - name: Install system dependencies
-      run: sudo apt-get update && sudo apt-get install -y libncurses5
-
-    - name: Set up Elixir
-      uses: erlef/setup-beam@61e01a43a562a89bfc54c7f9a378ff67b03e4a21 # v1.16.0
+    - name: Check out repository code
+      uses: actions/checkout@v2
+    - name: Setup Elixir
+      uses: actions/setup-elixir@v1
       with:
-        elixir-version: '1.15.2' # [Required] Define the Elixir version
-        otp-version: '24.0'      # Try using this version of Erlang/OTP
-
-    - name: Restore dependencies cache
-      uses: actions/cache@v3
-      with:
-        path: timemanagerback/deps
-        key: ${{ runner.os }}-mix-${{ hashFiles('timemanagerback/**/mix.lock') }}
-        restore-keys: ${{ runner.os }}-mix-
-
-    - name: Install dependencies
-      run: |
-        cd timemanagerback
-        mix deps.get
-
-    - name: Run tests
-      run: |
-        cd timemanagerback
-        mix test
+        elixir-version: 1.11.x
+        otp-version: 23.x
+    - name: Install Dependencies
+      run: mix deps.get
+    - name: Run Tests
+      run: mix test
       continue-on-error: true
+
+  back:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: nickos0695
+          password: Nissart06
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: "{{defaultContext}}:timemanagerback"
+          push: true
+          tags: nickos0695/time-manager-back:Prod
+
+  front:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: nickos0695
+          password: Nissart06
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: "{{defaultContext}}:timemanagerfront"
+          push: true
+          tags: nickos0695/time-manager:Prod
