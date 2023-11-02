@@ -1,13 +1,8 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Elixir CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" , "preprod"]
   pull_request:
     branches: [ "main" ]
 
@@ -16,7 +11,6 @@ permissions:
 
 jobs:
   build:
-
     name: Build and test
     runs-on: ubuntu-latest
 
@@ -30,11 +24,15 @@ jobs:
     - name: Restore dependencies cache
       uses: actions/cache@v3
       with:
-        path: deps
-        key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+        path: timemanagerback/deps
+        key: ${{ runner.os }}-mix-${{ hashFiles('timemanagerback/**/mix.lock') }}
         restore-keys: ${{ runner.os }}-mix-
     - name: Install dependencies
-      run: mix deps.get
+      run: |
+        cd timemanagerback
+        mix deps.get
     - name: Run tests
-      run: mix test
+      run: |
+        cd timemanagerback
+        mix test
       continue-on-error: true

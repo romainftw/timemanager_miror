@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI and Elixir Tests
 
 on:
   push:
@@ -7,45 +7,54 @@ on:
     branches: [ "main" ]
 
 jobs:
+  tu_back:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v2
+    - name: Setup Elixir
+      uses: actions/setup-elixir@v1
+      with:
+        elixir-version: 1.11.x
+        otp-version: 23.x
+    - name: Install Dependencies
+      run: mix deps.get
+    - name: Run Tests
+      run: mix test
+      continue-on-error: true
+
   back:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      -
-        name: Login to Docker Hub
+      - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: nickos0695
           password: Nissart06
-      -
-        name: Build and push
+      - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: "{{defaultContext}}:timemanagerback"
           push: true
           tags: nickos0695/time-manager-back:Prod
+
   front:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      -
-        name: Login to Docker Hub
+      - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: nickos0695
           password: Nissart06
-      -
-        name: Build and push
+      - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: "{{defaultContext}}:timemanagerfront"
