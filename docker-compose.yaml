@@ -14,7 +14,7 @@ services:
       context: ./timemanagerback
       dockerfile: Dockerfile
     ports:
-      - 8080:4000
+      - 4000:4000
     depends_on:
       - db
     restart: always
