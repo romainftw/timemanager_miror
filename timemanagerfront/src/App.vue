@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import UserView from './views/UserView.vue'
 </script>
 
 <template>
@@ -34,9 +33,6 @@ import UserView from './views/UserView.vue'
               >
             </li>
           </ul>
-          <li class="d-flex">
-            <button class="btn btn-outline-info" type="submit">Badger</button>
-          </li>
         </div>
       </div>
     </nav>

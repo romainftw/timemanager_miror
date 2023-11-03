@@ -54,7 +54,6 @@ defmodule Timemanager.MixProject do
       {:cors_plug, "~> 3.0"},
       {:timex, "~> 3.7.11"},
       {:ecto, "~> 3.0"}
-
     ]
   end
 

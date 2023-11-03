@@ -1,9 +1,9 @@
 <script>
 import axios from 'axios'
 import config from '../../config'
-import { RouterLink } from 'vue-router'
 import Modale from './ModaleItem.vue'
 import WorkingTimes from './WorkingTimesItem.vue'
+
 export default {
   name: 'UserItem',
   components: {
@@ -61,15 +61,40 @@ export default {
         })
       }
     },
+    clockAtWorkingTime: async function (userID) {
+      try {
+
+        const clock = {user_id: userID}
+        
+        const response = await axios.post(`${config.back_uri}/clocks`, {clock})
+
+        if(response){ 
+          this.$notify({
+            title: 'Succès',
+            text: "L'heure a été pointée pour l'utilisateur",
+            type: 'success'
+          })
+        }
+
+      } catch (error) {
+        console.log(error)
+        this.$notify({
+          title: 'Erreur',
+          text: "Une erreur s'est produite",
+          type: 'error'
+        })
+      }
+    },
     createNewUser: async function () {
+      console.log("new user", this.newUser)
       try {
         const response = await axios.post(`${config.back_uri}/users`, this.newUser)
-
         this.users.push(response.data.data)
         this.newUser.user.username = ''
         this.newUser.user.email = ''
         this.addUser()
         this.$notify({
+          title: 'Succès',
           text: "L'utilisateur a été rajouté",
           type: 'success'
         })
@@ -104,7 +129,6 @@ export default {
     addUser: function () {
       this.addNewUser = !this.addNewUser
     },
-
     gotoUri: function (event) {
       console.log(event.target.getAttribute('href'))
       this.$router.push(event.target.getAttribute('href'))
@@ -170,7 +194,6 @@ export default {
         <tbody>
           <tr v-for="user in users" :key="user.id">
             <th>{{ user.id }}</th>
-
             <td>{{ user.email }}</td>
             <td>{{ user.username }}</td>
             <td class="text-end">
@@ -185,6 +208,9 @@ export default {
               </button>
               <button class="btn ms-2" @click="deleteUser(user.id)">
                 <i class="bi bi-trash3-fill text-danger"></i>
+              </button>
+              <button class="btn btn-outline-dark ms-2" @click="clockAtWorkingTime(user.id)">
+                badger
               </button>
             </td>
           </tr>
