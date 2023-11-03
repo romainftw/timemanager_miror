@@ -63,6 +63,9 @@ config :phoenix, :json_library, Jason
 config :cors_plug,
   send_preflight_response?: false
 
+config :auth_me, TimemanagerWeb.Auth.Guardian,
+issuer: "auth_me",
+secret_key: "" # put the result of the mix command above here
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

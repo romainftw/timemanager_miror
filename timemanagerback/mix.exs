@@ -53,7 +53,9 @@ defmodule Timemanager.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:cors_plug, "~> 3.0"},
       {:timex, "~> 3.7.11"},
-      {:ecto, "~> 3.0"}
+      {:ecto, "~> 3.0"},
+      {:guardian, "~> 2.3"},
+      {:bcrypt_elixir, "~> 3.0"}
 
     ]
   end

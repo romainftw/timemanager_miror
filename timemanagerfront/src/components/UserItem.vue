@@ -41,6 +41,7 @@ export default {
         const response = await axios.get(`${config.back_uri}/users`)
         const users = await response.data.data
         this.users = users
+        this.users.sort((a, b) => (a.id > b.id ? 1 : -1))
       } catch (error) {
         this.$notify({
           title: 'Erreur',
