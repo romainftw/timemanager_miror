@@ -30,6 +30,7 @@ defmodule TimemanagerWeb.Router do
 
     options "/*clocks", CommonController, :options
     resources "/clocks", ClockController
+
     options "/*workingtimes", CommonController, :options
     resources "/workingtimes", WorkingtimeController
     get "/workingtimes_start_end/:userID/:start/:end", WorkingtimeController, :showWorkingTimeByUserStartAndEnd

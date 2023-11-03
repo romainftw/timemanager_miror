@@ -13,15 +13,9 @@ defmodule TimemanagerWeb.WorkingtimeController do
 
   def showWorkingTimeByUserStartAndEnd(conn,  %{"userID"=> user_id, "end" => enddate, "start" => start}) do
     user_id = String.to_integer(user_id)
-
-
-    workingtimes = Workingtimes.get_workingtime_by_user_id_and_dates!(user_id,start,enddate)
-
-
+    workingtimes = Workingtimes.get_workingtime_by_user_id_and_dates!(user_id, start, enddate)
     render(conn, :index, workingtimes: workingtimes)
   end
-
-
 
   def create(conn, %{"workingtime" => workingtime_params}) do
     with {:ok, %Workingtime{} = workingtime} <- Workingtimes.create_workingtime(workingtime_params) do
@@ -54,7 +48,6 @@ defmodule TimemanagerWeb.WorkingtimeController do
       send_resp(conn, :no_content, "")
     end
   end
-
 
   def showWorkingtimeByUser(conn, %{"userID" => user_id }) do
     workingtimes =  Workingtimes.get_workingtimes_by_user_id(user_id)

@@ -97,6 +97,7 @@ defmodule Timemanager.Workingtimes do
   end
 
   def get_working_time!(params), do: Repo.get_by!(Workingtime, params)
+
   def get_workingtime_by_user_id_and_dates!(user_id,start,enddate) do
     start_date =
       Ecto.DateTime.cast!(start, Ecto.DateTime)
@@ -107,13 +108,23 @@ defmodule Timemanager.Workingtimes do
       |> Ecto.DateTime.to_naive()
     query =
       from wt in "workingtimes",
-
       where: wt.user_id == ^user_id and wt.start >= ^start and wt.end <= ^enddate,
-      select: %{ id: wt.id, start: wt.start, end: wt.end }
+      select:  %{id: wt.id, start: wt.start, end: wt.end}
 
-    Repo.one(query)
+    Repo.all(query)
   end
 
+
+  def current_user_workingtime!(user_id) do
+    naive_datetime = NaiveDateTime.local_now()
+
+    query =
+      from wt in "workingtimes",
+      where: wt.user_id == ^user_id and wt.start <= ^naive_datetime and wt.end >= ^naive_datetime,
+      select:  %{id: wt.id, start: wt.start, end: wt.end}
+
+    Repo.all(query)
+  end
 
   def get_workingtime_by_user_id!(user_id) do
     parsed_user_id = String.to_integer(user_id)
