@@ -14,11 +14,7 @@
 <script>
 export default {
   name: 'Modale',
-  props: ['show', 'toggleModale'],
-
-  mounted() {
-    console.log(this.modaleData)
-  }
+  props: ['show', 'toggleModale']
 }
 </script>
 <style scoped>

@@ -12,6 +12,8 @@ defmodule TimemanagerWeb.WorkingtimeController do
   end
 
   def showWorkingTimeByUserStartAndEnd(conn,  %{"userID"=> user_id, "end" => enddate, "start" => start}) do
+    user_id = String.to_integer(user_id)
+
 
     workingtimes = Workingtimes.get_workingtime_by_user_id_and_dates!(user_id,start,enddate)
 

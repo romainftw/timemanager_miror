@@ -19,9 +19,17 @@ export default {
           email: ''
         }
       },
+      editUser: {
+        user: {
+          username: '',
+          email: ''
+        }
+      },
+      editUserId: null,
       addNewUser: false,
       showModale: false,
-      modaleData: null
+      modaleData: null,
+      showModaleEditUser: false
     }
   },
   methods: {
@@ -31,8 +39,6 @@ export default {
     fetchUsers: async function () {
       try {
         const response = await axios.get(`${config.back_uri}/users`)
-
-        console.log(response)
         const users = await response.data.data
         this.users = users
       } catch (error) {
@@ -56,10 +62,9 @@ export default {
       }
     },
     createNewUser: async function () {
-      console.log(this.newUser)
       try {
         const response = await axios.post(`${config.back_uri}/users`, this.newUser)
-        console.log(response)
+
         this.users.push(response.data.data)
         this.newUser.user.username = ''
         this.newUser.user.email = ''
@@ -70,8 +75,28 @@ export default {
         })
       } catch (error) {
         this.$notify({
-          title: 'Erreur',
           text: "Une erreur s'est produite",
+          type: 'error'
+        })
+      }
+    },
+    updateUser: async function () {
+      console.log('update')
+      try {
+        const response = await axios.put(
+          `${config.back_uri}/users/${this.editUserId}`,
+          this.editUser
+        )
+        console.log(response)
+        this.fetchUsers()
+        this.$notify({
+          text: "L'utilisateur a été mis à jour",
+          type: 'success'
+        })
+        this.showModaleEditUser = !this.showModaleEditUser
+      } catch (error) {
+        this.$notify({
+          text: "Impossible de mettre à jour l'utilisateur",
           type: 'error'
         })
       }
@@ -87,6 +112,16 @@ export default {
     toggleModale: function (userID) {
       this.modaleData = this.users.find((user) => user.id === userID)
       this.showModale = !this.showModale
+    },
+    toggleModaleEditUser: function (userID) {
+      this.users.map((user) => {
+        if (user.id === userID) {
+          this.editUser.user.email = user.email
+          this.editUser.user.username = user.username
+        }
+      })
+      this.editUserId = userID
+      this.showModaleEditUser = !this.showModaleEditUser
     }
   },
   created() {
@@ -145,7 +180,7 @@ export default {
               <RouterLink :to="`/chartManager/${user.id}`" class="btn">
                 <i class="bi bi-graph-up"></i>
               </RouterLink>
-              <button class="btn">
+              <button class="btn" @click="toggleModaleEditUser(user.id)">
                 <i class="bi bi-pencil-square text-warning fs-5"></i>
               </button>
               <button class="btn ms-2" @click="deleteUser(user.id)">
@@ -162,6 +197,26 @@ export default {
         v-bind:userID="this.modaleData.id"
         v-bind:username="this.modaleData.username"
       ></workingTimes>
+    </modale>
+    <!-- edit user modale  -->
+    <modale :show="showModaleEditUser" :toggleModale="toggleModaleEditUser">
+      <form @submit.prevent="updateUser()">
+        <input
+          type="text"
+          v-model="editUser.user.username"
+          class="form-control mt-4"
+          placeholder="Nom"
+          required
+        />
+        <input
+          type="email"
+          v-model="editUser.user.email"
+          class="form-control mt-4"
+          placeholder="Email"
+          required
+        />
+        <button class="btn btn-info col-12 mt-4" type="submit">Modifier</button>
+      </form>
     </modale>
   </section>
 </template>

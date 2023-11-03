@@ -4,6 +4,7 @@ defmodule Timemanager.Workingtimes do
   """
 
   import Ecto.Query, warn: false
+
   alias Timemanager.Repo
 
   alias Timemanager.Workingtimes.Workingtime
@@ -97,11 +98,18 @@ defmodule Timemanager.Workingtimes do
 
   def get_working_time!(params), do: Repo.get_by!(Workingtime, params)
   def get_workingtime_by_user_id_and_dates!(user_id,start,enddate) do
+    start_date =
+      Ecto.DateTime.cast!(start, Ecto.DateTime)
+      |> Ecto.DateTime.to_naive()
+
+    end_date =
+      Ecto.DateTime.cast!(enddate, Ecto.DateTime)
+      |> Ecto.DateTime.to_naive()
     query =
       from wt in "workingtimes",
 
       where: wt.user_id == ^user_id and wt.start >= ^start and wt.end <= ^enddate,
-      select: wt
+      select: %{ id: wt.id, start: wt.start, end: wt.end }
 
     Repo.one(query)
   end
