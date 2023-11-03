@@ -59,5 +59,21 @@ defmodule TimemanagerWeb.WorkingtimeController do
 
     render(conn, :index, workingtimes: workingtimes)
   end
+  def getUserWorkingHours(conn, %{"userID" => user_id}) do
+    user_id = String.to_integer(user_id)
+    result = Workingtimes.get_working_hours_of_user!(user_id)
+    render(conn, %{data: result})
+  end
 
+  def getUserWorkingHoursToday(conn, %{"userID" => user_id}) do
+    user_id = String.to_integer(user_id)
+    result = Workingtimes.get_current_day_working_hours!(user_id)
+    render(conn, %{data: result})
+  end
+
+  def getUserWorkingHoursThisWeek(conn, %{"userID" => user_id}) do
+    user_id = String.to_integer(user_id)
+    result = Workingtimes.get_current_week_working_hours_of_user!(user_id)
+    render(conn, %{data: result})
+  end
 end

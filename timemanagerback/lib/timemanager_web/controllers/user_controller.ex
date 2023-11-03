@@ -56,4 +56,5 @@ defmodule TimemanagerWeb.UserController do
       send_resp(conn, :no_content, "") |> halt
     end
   end
+
 end

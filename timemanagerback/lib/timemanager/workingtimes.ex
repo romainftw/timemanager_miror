@@ -45,6 +45,56 @@ defmodule Timemanager.Workingtimes do
   def get_workingtime!(id) do
     Repo.get!(Workingtime, id)
   end
+
+  # /récupérer les horaire de travail du mois courant
+  def get_working_hours_of_user!(user_id) do
+
+    start_date = DateTime.utc_now() |> DateTime.to_naive() |> Timex.beginning_of_month()
+    end_date = DateTime.utc_now() |> DateTime.to_naive() |> Timex.end_of_month()
+
+    query =
+      from wt in "workingtimes",
+      where: wt.user_id == ^user_id and
+            wt.start >= ^start_date and
+            wt.start <= ^end_date,
+      select: %{
+        date: fragment("date_trunc('day', ?)", wt.start),
+        total_hours: fragment("SUM(EXTRACT(EPOCH FROM (? - ?))/ 3600 )", wt.end, wt.start)
+      },
+      group_by: fragment("date_trunc('day', ?)", wt.start)
+
+    Repo.all(query)
+  end
+  # /récupérer les horaire de travail du mois courant
+  def get_current_week_working_hours_of_user!(user_id) do
+
+    start_date = DateTime.utc_now() |> DateTime.to_naive() |> Timex.beginning_of_week()
+    end_date = DateTime.utc_now() |> DateTime.to_naive() |> Timex.end_of_week()
+
+    query =
+      from wt in "workingtimes",
+      where: wt.user_id == ^user_id and
+            wt.start >= ^start_date and
+            wt.start <= ^end_date,
+      select: %{
+        date: fragment("date_trunc('day', ?)", wt.start),
+        total_hours: fragment("SUM(EXTRACT(EPOCH FROM (? - ?))/ 3600 )", wt.end, wt.start)
+      },
+      group_by: fragment("date_trunc('day', ?)", wt.start)
+
+    Repo.all(query)
+  end
+  # récupérer les horaire de tavail de du jour courant
+  def get_current_day_working_hours!(user_id) do
+    start_of_day = DateTime.utc_now() |> DateTime.to_naive() |> Timex.beginning_of_day()
+    end_of_day =  DateTime.utc_now() |> DateTime.to_naive() |> Timex.end_of_day()
+
+    query = from wt in "workingtimes",
+    where: wt.user_id == ^user_id and wt.start >= ^start_of_day and wt.end < ^end_of_day,
+    select: fragment("SUM(EXTRACT(EPOCH FROM (? - ?)) /3600)", wt.end, wt.start)
+    Repo.all(query)
+  end
+
   def get_working_time!(params), do: Repo.get_by!(Workingtime, params)
   def get_workingtime_by_user_id_and_dates!(user_id,start,enddate) do
     query =

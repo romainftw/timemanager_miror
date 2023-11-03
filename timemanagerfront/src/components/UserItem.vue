@@ -142,9 +142,9 @@ export default {
               <button type="button" class="btn ms-2" @click="toggleModale(user.id)">
                 <i class="bi bi-clock"></i>
               </button>
-              <!-- <RouterLink class="btn" :to="`/workigTime/${user.id}/${user.username}`">
-                <i class="bi bi-clock"></i>
-              </RouterLink> -->
+              <RouterLink :to="`/chartManager/${user.id}`" class="btn">
+                <i class="bi bi-graph-up"></i>
+              </RouterLink>
               <button class="btn">
                 <i class="bi bi-pencil-square text-warning fs-5"></i>
               </button>

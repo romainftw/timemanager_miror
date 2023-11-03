@@ -111,11 +111,8 @@ export default {
     getWorkingTime: async function () {
       try {
         const response = await axios.get(`${config.back_uri}/workingtimes/${this.workingTimeId}`)
-        console.log(`${config.back_uri}/workingtimes/${this.workingTimeId}`)
-        // console.log(response)
         this.showWorkingTime.workingtime = response.data.data
       } catch (error) {
-        console.log(error.response)
         this.$notify({
           text: "imppssible de récupérer l'horaire",
           type: 'error'
@@ -185,7 +182,7 @@ export default {
     },
 
     formattedDate: function (date) {
-      return formatDate(date)
+      return formatDate(date, 'D MMMM YYYY [à] hh:mm A')
     }
   },
   created() {
