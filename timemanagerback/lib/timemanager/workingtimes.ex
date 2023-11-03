@@ -108,7 +108,7 @@ defmodule Timemanager.Workingtimes do
       |> Ecto.DateTime.to_naive()
     query =
       from wt in "workingtimes",
-      where: wt.user_id == ^user_id and wt.start >= ^startdate and wt.end <= ^enddate,
+      where: wt.user_id == ^user_id and wt.start >= ^start and wt.end <= ^enddate,
       select:  %{id: wt.id, start: wt.start, end: wt.end}
 
     Repo.all(query)
