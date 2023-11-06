@@ -9,7 +9,8 @@ defmodule Timemanager.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      compilers: [:elixir_make] ++ Mix.compilers
     ]
   end
 
@@ -55,7 +56,8 @@ defmodule Timemanager.MixProject do
       {:timex, "~> 3.7.11"},
       {:ecto, "~> 3.0"},
       {:guardian, "~> 2.3"},
-      {:bcrypt_elixir, "~> 3.0"}
+      {:bcrypt_elixir, "~> 3.0"},
+      {:elixir_make, "~> 0.4", runtime: false}
 
     ]
   end
@@ -77,4 +79,5 @@ defmodule Timemanager.MixProject do
       "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
     ]
   end
+
 end
