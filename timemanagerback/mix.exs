@@ -53,16 +53,11 @@ defmodule Timemanager.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:plug_cowboy, "~> 2.5"},
       {:cors_plug, "~> 3.0"},
-<<<<<<< HEAD
-      {:guardian, "~> 2.3"},
-      {:bcrypt_elixir, "~> 3.0"},
-=======
       {:timex, "~> 3.7.11"},
       {:ecto, "~> 3.0"},
       {:guardian, "~> 2.3"},
       {:bcrypt_elixir, "~> 3.0"},
       {:elixir_make, "~> 0.4", runtime: false}
->>>>>>> e993103b2d8ba0c5344daf5564474ea74428f2b5
 
     ]
   end
