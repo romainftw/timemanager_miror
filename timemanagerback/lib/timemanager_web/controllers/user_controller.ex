@@ -1,7 +1,6 @@
 defmodule TimemanagerWeb.UserController do
   use TimemanagerWeb, :controller
 
- # @derive {Jason.Encoder, only: [:id, :username, :email, :inserted_at, :updated_at]}
   alias Timemanager.Users
   alias Timemanager.Users.User
 
@@ -56,4 +55,5 @@ defmodule TimemanagerWeb.UserController do
       send_resp(conn, :no_content, "") |> halt
     end
   end
+
 end

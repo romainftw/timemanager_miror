@@ -68,23 +68,8 @@ export default {
       }
     },
     formattedDate: function (date) {
-      return formatDate(date)
+      return formatDate(date, 'D MMMM YYYY [à] hh:mm A')
     }
-    // deleteWorkingTime: async function (id) {
-    //   try {
-    //     const response = await axios.delete(`${config.back_uri}/workingtimes/${id}`)
-    //     this.workingTimes = this.workingTimes.filter((workingtime) => workingtime.id !== id)
-    //     this.$notify({
-    //       text: 'Les horaires ont été supprimées',
-    //       type: 'success'
-    //     })
-    //   } catch (error) {
-    //     this.$notify({
-    //       text: "Une erreur s'est produite",
-    //       type: 'error'
-    //     })
-    //   }
-    // }
   },
   mounted() {},
   created() {

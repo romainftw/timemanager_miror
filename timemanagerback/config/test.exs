@@ -31,3 +31,5 @@ config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+# Note: Do not use this value in production
+config :bcrypt_elixir, log_rounds: 4

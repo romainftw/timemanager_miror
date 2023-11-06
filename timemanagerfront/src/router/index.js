@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import UserView from '../views/UserView.vue'
 import WorkingTimes from '../views/WorkingTimes.vue'
 import WorkingTime from '../components/workigTimeItem.vue'
+import ChartManager from '../components/ChartManager.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/workigTime/:userID/:id/:name',
       name: 'workigTime',
       component: WorkingTime
+    },
+    {
+      path: '/chartManager/:userID',
+      name: 'chartManager',
+      component: ChartManager
     },
     {
       path: '/workingTimes/:userID',

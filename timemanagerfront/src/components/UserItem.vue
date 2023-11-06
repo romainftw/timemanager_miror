@@ -1,9 +1,9 @@
 <script>
 import axios from 'axios'
 import config from '../../config'
-import { RouterLink } from 'vue-router'
 import Modale from './ModaleItem.vue'
 import WorkingTimes from './WorkingTimesItem.vue'
+
 export default {
   name: 'UserItem',
   components: {
@@ -19,9 +19,17 @@ export default {
           email: ''
         }
       },
+      editUser: {
+        user: {
+          username: '',
+          email: ''
+        }
+      },
+      editUserId: null,
       addNewUser: false,
       showModale: false,
-      modaleData: null
+      modaleData: null,
+      showModaleEditUser: false
     }
   },
   methods: {
@@ -31,10 +39,9 @@ export default {
     fetchUsers: async function () {
       try {
         const response = await axios.get(`${config.back_uri}/users`)
-
-        console.log(response)
         const users = await response.data.data
         this.users = users
+        this.users.sort((a, b) => (a.id > b.id ? 1 : -1))
       } catch (error) {
         this.$notify({
           title: 'Erreur',
@@ -55,20 +62,23 @@ export default {
         })
       }
     },
-    createNewUser: async function () {
-      console.log(this.newUser)
+    clockAtWorkingTime: async function (userID) {
       try {
-        const response = await axios.post(`${config.back_uri}/users`, this.newUser)
-        console.log(response)
-        this.users.push(response.data.data)
-        this.newUser.user.username = ''
-        this.newUser.user.email = ''
-        this.addUser()
-        this.$notify({
-          text: "L'utilisateur a été rajouté",
-          type: 'success'
-        })
+
+        const clock = {user_id: userID}
+        
+        const response = await axios.post(`${config.back_uri}/clocks`, {clock})
+
+        if(response){ 
+          this.$notify({
+            title: 'Succès',
+            text: "L'heure a été pointée pour l'utilisateur",
+            type: 'success'
+          })
+        }
+
       } catch (error) {
+        console.log(error)
         this.$notify({
           title: 'Erreur',
           text: "Une erreur s'est produite",
@@ -76,10 +86,50 @@ export default {
         })
       }
     },
+    createNewUser: async function () {
+      console.log("new user", this.newUser)
+      try {
+        const response = await axios.post(`${config.back_uri}/users`, this.newUser)
+        this.users.push(response.data.data)
+        this.newUser.user.username = ''
+        this.newUser.user.email = ''
+        this.addUser()
+        this.$notify({
+          title: 'Succès',
+          text: "L'utilisateur a été rajouté",
+          type: 'success'
+        })
+      } catch (error) {
+        this.$notify({
+          text: "Une erreur s'est produite",
+          type: 'error'
+        })
+      }
+    },
+    updateUser: async function () {
+      console.log('update')
+      try {
+        const response = await axios.put(
+          `${config.back_uri}/users/${this.editUserId}`,
+          this.editUser
+        )
+        console.log(response)
+        this.fetchUsers()
+        this.$notify({
+          text: "L'utilisateur a été mis à jour",
+          type: 'success'
+        })
+        this.showModaleEditUser = !this.showModaleEditUser
+      } catch (error) {
+        this.$notify({
+          text: "Impossible de mettre à jour l'utilisateur",
+          type: 'error'
+        })
+      }
+    },
     addUser: function () {
       this.addNewUser = !this.addNewUser
     },
-
     gotoUri: function (event) {
       console.log(event.target.getAttribute('href'))
       this.$router.push(event.target.getAttribute('href'))
@@ -87,6 +137,16 @@ export default {
     toggleModale: function (userID) {
       this.modaleData = this.users.find((user) => user.id === userID)
       this.showModale = !this.showModale
+    },
+    toggleModaleEditUser: function (userID) {
+      this.users.map((user) => {
+        if (user.id === userID) {
+          this.editUser.user.email = user.email
+          this.editUser.user.username = user.username
+        }
+      })
+      this.editUserId = userID
+      this.showModaleEditUser = !this.showModaleEditUser
     }
   },
   created() {
@@ -135,21 +195,23 @@ export default {
         <tbody>
           <tr v-for="user in users" :key="user.id">
             <th>{{ user.id }}</th>
-
             <td>{{ user.email }}</td>
             <td>{{ user.username }}</td>
             <td class="text-end">
               <button type="button" class="btn ms-2" @click="toggleModale(user.id)">
                 <i class="bi bi-clock"></i>
               </button>
-              <!-- <RouterLink class="btn" :to="`/workigTime/${user.id}/${user.username}`">
-                <i class="bi bi-clock"></i>
-              </RouterLink> -->
-              <button class="btn">
+              <RouterLink :to="`/chartManager/${user.id}`" class="btn">
+                <i class="bi bi-graph-up"></i>
+              </RouterLink>
+              <button class="btn" @click="toggleModaleEditUser(user.id)">
                 <i class="bi bi-pencil-square text-warning fs-5"></i>
               </button>
               <button class="btn ms-2" @click="deleteUser(user.id)">
                 <i class="bi bi-trash3-fill text-danger"></i>
+              </button>
+              <button class="btn btn-outline-dark ms-2" @click="clockAtWorkingTime(user.id)">
+                badger
               </button>
             </td>
           </tr>
@@ -162,6 +224,26 @@ export default {
         v-bind:userID="this.modaleData.id"
         v-bind:username="this.modaleData.username"
       ></workingTimes>
+    </modale>
+    <!-- edit user modale  -->
+    <modale :show="showModaleEditUser" :toggleModale="toggleModaleEditUser">
+      <form @submit.prevent="updateUser()">
+        <input
+          type="text"
+          v-model="editUser.user.username"
+          class="form-control mt-4"
+          placeholder="Nom"
+          required
+        />
+        <input
+          type="email"
+          v-model="editUser.user.email"
+          class="form-control mt-4"
+          placeholder="Email"
+          required
+        />
+        <button class="btn btn-info col-12 mt-4" type="submit">Modifier</button>
+      </form>
     </modale>
   </section>
 </template>
