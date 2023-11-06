@@ -1,6 +1,10 @@
 <template>
   <section>
-    <h5>Horaire de travail de {{ username }}</h5>
+    <h5>Horaires de travail de {{ username }}</h5>
+
+    <button class="btn" @click="toggleModale">
+        <i class="bi bi-plus-square text-info"></i>
+      </button>
     <article class="mt-5">
       <table class="table">
         <thead>
@@ -25,7 +29,7 @@
                 <i class="bi bi-trash3-fill text-danger"></i>
               </button> -->
               <RouterLink
-                :to="`/workigTime/${userID}/${workingtime.id}/${username}`"
+                :to="`/workingTime/${userID}/${workingtime.id}/${username}`"
                 class="btn btn-outline-dark"
               >
                 Voir
@@ -44,6 +48,7 @@ import axios from 'axios'
 import { formatDate } from '../../functions'
 import { RouterLink } from 'vue-router'
 import { watchEffect } from 'vue'
+
 export default {
   name: 'workingTimes',
   props: ['userID', 'username'],
@@ -55,17 +60,32 @@ export default {
 
   methods: {
     getWorkingTimes: async function () {
-      try {
-        const response = await axios.get(`${config.back_uri}/workingtime_by_user/${this.userID}`)
-        this.workingTimes = response.data.data
-        console.log(response.data)
-      } catch (error) {
-        this.$notify({
-          title: 'Erreur',
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+      if(!this.userID) {
+        try {
+          const response = await axios.get(`${config.back_uri}/workingtimes`)
+          this.workingTimes = response.data.data
+          console.log(response.data)
+        } catch (error) {
+          this.$notify({
+            title: 'Erreur',
+            text: "Une erreur s'est produite",
+            type: 'error'
+          })
+        }
+      } else {
+        try {
+          const response = await axios.get(`${config.back_uri}/workingtime_by_user/${this.userID}`)
+          this.workingTimes = response.data.data
+          console.log(response.data)
+        } catch (error) {
+          this.$notify({
+            title: 'Erreur',
+            text: "Une erreur s'est produite",
+            type: 'error'
+          })
+        }
       }
+      
     },
     formattedDate: function (date) {
       return formatDate(date, 'D MMMM YYYY [à] hh:mm A')

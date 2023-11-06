@@ -26,7 +26,7 @@ export default {
         }
       },
       editUserId: null,
-      addNewUser: false,
+      addingNewUser: false,
       showModale: false,
       modaleData: null,
       showModaleEditUser: false
@@ -64,9 +64,7 @@ export default {
     },
     clockAtWorkingTime: async function (userID) {
       try {
-
         const clock = {user_id: userID}
-        
         const response = await axios.post(`${config.back_uri}/clocks`, {clock})
 
         if(response){ 
@@ -76,7 +74,6 @@ export default {
             type: 'success'
           })
         }
-
       } catch (error) {
         console.log(error)
         this.$notify({
@@ -93,7 +90,11 @@ export default {
         this.users.push(response.data.data)
         this.newUser.user.username = ''
         this.newUser.user.email = ''
-        this.addUser()
+        const userKeys = Object.keys(this.newUser.user)
+        userKeys.forEach(key => { // Reset all formFields
+          this.newUser[key] = ""
+        })
+        this.addingUser()
         this.$notify({
           title: 'Succès',
           text: "L'utilisateur a été rajouté",
@@ -127,8 +128,8 @@ export default {
         })
       }
     },
-    addUser: function () {
-      this.addNewUser = !this.addNewUser
+    addingUser: function () {
+      this.addingNewUser = !this.addingNewUser
     },
     gotoUri: function (event) {
       console.log(event.target.getAttribute('href'))
@@ -159,11 +160,12 @@ export default {
   <section>
     <article class="d-flex justify-content-start align-items-center">
       <h1>Liste des utilisateurs</h1>
-      <button class="btn ms-3" @click="addUser">
+      <button class="btn ms-3" @click="addingUser">
         <i class="bi bi-plus-lg fs-6 text-info"></i>
       </button>
     </article>
-    <article v-if="addNewUser">
+    
+    <article v-if="addingNewUser">
       <form @submit.prevent="createNewUser">
         <input
           type="text"
@@ -179,9 +181,17 @@ export default {
           placeholder="Email"
           required
         />
+        <input
+          type="password"
+          v-model="newUser.user.password"
+          class="form-control mt-4"
+          placeholder="Mot de passe"
+          required
+        />
         <button class="btn btn-info col-12 mt-4" type="submit">Ajouter</button>
       </form>
     </article>
+
     <article class="mt-5">
       <table class="table">
         <thead>
