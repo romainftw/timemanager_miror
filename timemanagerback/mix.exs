@@ -10,7 +10,6 @@ defmodule Timemanager.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
-      compilers: [:elixir_make] ++ Mix.compilers
     ]
   end
 
@@ -57,7 +56,6 @@ defmodule Timemanager.MixProject do
       {:ecto, "~> 3.0"},
       {:guardian, "~> 2.3"},
       {:bcrypt_elixir, "~> 3.0"},
-      {:elixir_make, "~> 0.4", runtime: false}
 
     ]
   end

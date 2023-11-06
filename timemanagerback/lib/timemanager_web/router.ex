@@ -27,6 +27,7 @@ defmodule TimemanagerWeb.Router do
     options "/*users", CommonController, :options
     resources "/users", UserController
     get "/user", UserController, :user
+    post "/login", UserController, :login
 
     options "/*clocks", CommonController, :options
     resources "/clocks", ClockController
