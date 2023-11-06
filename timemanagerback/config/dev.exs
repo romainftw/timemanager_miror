@@ -2,11 +2,10 @@ import Config
 
 # Configure your database
 config :timemanager, Timemanager.Repo,
-  username: "narjes",
-  password: "narjes",
-  # hostname: "host.docker.internal",
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost",
-  database: "timemanager",
+  database: "timemanager_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
