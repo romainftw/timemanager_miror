@@ -1,0 +1,531 @@
+<module name="wxFlexGridSizer">
+<type>
+  <name>wxFlexGridSizer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxFlexGridSizer">wxFlexGridSizer()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>add</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>addGrowableCol</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>addGrowableCol(This, Idx) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+        <subtype><typename>Idx</typename><string>Idx = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Idx</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>addGrowableCol</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>addGrowableCol(This, Idx, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+        <subtype><typename>Idx</typename><string>Idx = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {proportion, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Idx</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>addGrowableRow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>addGrowableRow(This, Idx) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+        <subtype><typename>Idx</typename><string>Idx = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Idx</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>addGrowableRow</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>addGrowableRow(This, Idx, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+        <subtype><typename>Idx</typename><string>Idx = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {proportion, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Idx</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>addSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>addStretchSpacer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>addStretchSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>calcMin</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>detach</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fit</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fitInside</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCols</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getFlexibleDirection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFlexibleDirection(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getHGap</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMinSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getNonFlexibleGrowMode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getNonFlexibleGrowMode(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getRows</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getVGap</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insertSpacer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insertStretchSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insertStretchSpacer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isShown</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>layout</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Cols) -&gt; <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></head>
+      <guard>
+        <subtype><typename>Cols</typename><string>Cols = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cols</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Cols, Options :: [Option]) -&gt; <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></head>
+      <guard>
+        <subtype><typename>Cols</typename><string>Cols = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {gap, {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cols</anno>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>new(Cols, Vgap, Hgap) -&gt; <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></head>
+      <guard>
+        <subtype><typename>Cols</typename><string>Cols = Vgap = Hgap = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Vgap</typename><string></string></subtype>
+        <subtype><typename>Hgap</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cols</anno>
+  <anno>Hgap</anno>
+  <anno>Vgap</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>new(Rows, Cols, Gap) -&gt; <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></head>
+      <guard>
+        <subtype><typename>Rows</typename><string>Rows = Cols = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Cols</typename><string/></subtype>
+        <subtype><typename>Gap</typename><string>Gap = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cols</anno>
+  <anno>Gap</anno>
+  <anno>H</anno>
+  <anno>Rows</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>new(Rows, Cols, Vgap, Hgap) -&gt; <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></head>
+      <guard>
+        <subtype><typename>Rows</typename><string>Rows = Cols = Vgap = Hgap = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Cols</typename><string></string></subtype>
+        <subtype><typename>Vgap</typename><string></string></subtype>
+        <subtype><typename>Hgap</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cols</anno>
+  <anno>Hgap</anno>
+  <anno>Rows</anno>
+  <anno>Vgap</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prependSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prependStretchSpacer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prependStretchSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>recalcSizes</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>remove</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>removeGrowableCol</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>removeGrowableCol(This, Idx) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+        <subtype><typename>Idx</typename><string>Idx = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Idx</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>removeGrowableRow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>removeGrowableRow(This, Idx) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+        <subtype><typename>Idx</typename><string>Idx = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Idx</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>replace</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>replace</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCols</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDimension</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDimension</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFlexibleDirection</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFlexibleDirection(This, Direction) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+        <subtype><typename>Direction</typename><string>Direction = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Direction</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setHGap</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setItemMinSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setItemMinSize</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setNonFlexibleGrowMode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setNonFlexibleGrowMode(This, Mode) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFlexGridSizer">wxFlexGridSizer()</seetype></string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Mode</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setRows</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVGap</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVirtualSizeHints</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>showItems</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:30.</timestamp>
+</module>

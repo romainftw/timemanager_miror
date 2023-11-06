@@ -1,0 +1,498 @@
+<module name="lcnt">
+<type>
+  <name>category_atom</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-category_atom">category_atom()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>lock_counter_data</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-lock_counter_data">lock_counter_data()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option">option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{sort, Sort :: <seetype marker="#sort">sort()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reverse, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{locations, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{thresholds, Thresholds :: [<seetype marker="#threshold">threshold()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{print,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PrintOptions :: [<seetype marker="#print">print()</seetype> | {<seetype marker="#print">print()</seetype>, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_locks, MaxLocks :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | none} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{combine, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+  <anno>MaxLocks</anno>
+  <anno>PrintOptions</anno>
+  <anno>Sort</anno>
+  <anno>Thresholds</anno>
+</type>
+<type>
+  <name>print</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-print">print()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>colls | duration | entry | id | name | ratio | time | tries |<br/><nbsp/><nbsp/><nbsp/><nbsp/>type</typehead></typedecl>
+</type>
+<type>
+  <name>sort</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sort">sort()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>colls | entry | id | name | ratio | time | tries | type</typehead></typedecl>
+</type>
+<type>
+  <name>threshold</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-threshold">threshold()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{colls, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{time, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tries, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>all_conflicts</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>all_conflicts</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>apply</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>apply(Fun) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+</spec>
+<spec>
+  <name>apply</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>apply(Fun, Args) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Fun</anno>
+</spec>
+<spec>
+  <name>apply</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>apply(Module, Function, Args) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>clear() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clear(Node) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>collect</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>collect() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>collect</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>collect(Node) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>conflicts</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>conflicts() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>conflicts</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>conflicts(Options) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>histogram</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>histogram</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>information</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>information() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>inspect</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>inspect(Lock) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Lock</typename><string>Lock = Name | {Name, Id | [Id]}</string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype> | <seetype marker="erlang#port">port()</seetype></string></subtype>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#pid">pid()</seetype> | <seetype marker="erlang#port">port()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>Lock</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>inspect</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>inspect(Lock, Options) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Lock</typename><string>Lock = Name | {Name, Id | [Id]}</string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype> | <seetype marker="erlang#port">port()</seetype></string></subtype>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#pid">pid()</seetype> | <seetype marker="erlang#port">port()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>Lock</anno>
+  <anno>Name</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>load</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>load(Filename) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>locations</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>locations() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>locations</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>locations(Options) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>pid</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pid(Id, Serial) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = Serial = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Serial</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>Serial</anno>
+</spec>
+<spec>
+  <name>pid</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pid(Node, Id, Serial) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Id</typename><string>Id = Serial = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Serial</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>Node</anno>
+  <anno>Serial</anno>
+</spec>
+<spec>
+  <name>port</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>port(Id) -&gt; <seetype marker="erlang#port">port()</seetype></head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+</spec>
+<spec>
+  <name>port</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>port(Node, Id) -&gt; <seetype marker="erlang#port">port()</seetype></head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>raw</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rt_clear</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>rt_clear() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>rt_clear</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rt_clear(Node) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>rt_collect</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>rt_collect() -&gt; [<seetype marker="#lock_counter_data">lock_counter_data()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>rt_collect</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rt_collect(Node) -&gt; [<seetype marker="#lock_counter_data">lock_counter_data()</seetype>]</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>rt_mask</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>rt_mask() -&gt; [<seetype marker="#category_atom">category_atom()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>rt_mask</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rt_mask(Node) -&gt; [<seetype marker="#category_atom">category_atom()</seetype>]</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>rt_mask</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rt_mask(Categories) -&gt; ok | {error, copy_save_enabled}</head>
+      <guard>
+        <subtype><typename>Categories</typename><string>Categories = [<seetype marker="#category_atom">category_atom()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Categories</anno>
+</spec>
+<spec>
+  <name>rt_mask</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rt_mask(Node, Categories) -&gt; ok | {error, copy_save_enabled}</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Categories</typename><string>Categories = [<seetype marker="#category_atom">category_atom()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Categories</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>rt_opt</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rt_opt(Option) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = {Type, Value :: <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>Type</typename><string>Type = copy_save | process_locks</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Type</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>rt_opt</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rt_opt(Node, Option) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {Type, Value :: <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>Type</typename><string>Type = copy_save | process_locks</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Option</anno>
+  <anno>Type</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>save</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>save(Filename) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>set</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>set</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; {ok, Pid} | {error, {already_started, Pid}}</head>
+      <guard>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>swap_pid_keys</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>swap_pid_keys() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:03.</timestamp>
+</module>

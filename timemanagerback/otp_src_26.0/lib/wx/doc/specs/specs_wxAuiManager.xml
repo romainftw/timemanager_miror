@@ -1,0 +1,472 @@
+<module name="wxAuiManager">
+<type>
+  <name>wxAuiManager</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxAuiManager">wxAuiManager()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>addPane</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>addPane(This, Window) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>addPane</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>addPane(This, Window, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {direction, <seetype marker="erlang#integer">integer()</seetype>} | {caption, <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>addPane</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>addPane(This, Window, Pane_info) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Pane_info</typename><string>Pane_info = <seetype marker="wxAuiPaneInfo#wxAuiPaneInfo">wxAuiPaneInfo:wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pane_info</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>addPane</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>addPane(This, Window, Pane_info, Drop_pos) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Pane_info</typename><string>Pane_info = <seetype marker="wxAuiPaneInfo#wxAuiPaneInfo">wxAuiPaneInfo:wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Drop_pos</typename><string>Drop_pos = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Drop_pos</anno>
+  <anno>Pane_info</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxAuiManager">wxAuiManager()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>detachPane</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>detachPane(This, Window) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getAllPanes</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getAllPanes(This) -&gt; [<seetype marker="wxAuiPaneInfo#wxAuiPaneInfo">wxAuiPaneInfo:wxAuiPaneInfo()</seetype>]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getArtProvider</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getArtProvider(This) -&gt; <seetype marker="wxAuiDockArt#wxAuiDockArt">wxAuiDockArt:wxAuiDockArt()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDockSizeConstraint</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDockSizeConstraint(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Widthpct :: <seetype marker="erlang#number">number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Heightpct :: <seetype marker="erlang#number">number()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Heightpct</anno>
+  <anno>This</anno>
+  <anno>Widthpct</anno>
+</spec>
+<spec>
+  <name>getFlags</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFlags(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getManagedWindow</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getManagedWindow(This) -&gt; <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getManager</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getManager(Window) -&gt; <seetype marker="#wxAuiManager">wxAuiManager()</seetype></head>
+      <guard>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>getPane</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getPane(This, Name) -&gt; <seetype marker="wxAuiPaneInfo#wxAuiPaneInfo">wxAuiPaneInfo:wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPane</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getPane(This, Window) -&gt; <seetype marker="wxAuiPaneInfo#wxAuiPaneInfo">wxAuiPaneInfo:wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>hideHint</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hideHint(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertPane</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>insertPane(This, Window, Insert_location) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Insert_location</typename><string>Insert_location = <seetype marker="wxAuiPaneInfo#wxAuiPaneInfo">wxAuiPaneInfo:wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Insert_location</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>insertPane</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>insertPane(This, Window, Insert_location, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Insert_location</typename><string>Insert_location = <seetype marker="wxAuiPaneInfo#wxAuiPaneInfo">wxAuiPaneInfo:wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {insert_level, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Insert_location</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>loadPaneInfo</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>loadPaneInfo(This, Pane_part, Pane) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Pane_part</typename><string>Pane_part = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Pane</typename><string>Pane = <seetype marker="wxAuiPaneInfo#wxAuiPaneInfo">wxAuiPaneInfo:wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pane</anno>
+  <anno>Pane_part</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>loadPerspective</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>loadPerspective(This, Perspective) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Perspective</typename><string>Perspective = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Perspective</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>loadPerspective</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>loadPerspective(This, Perspective, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Perspective</typename><string>Perspective = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {update, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Perspective</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxAuiManager">wxAuiManager()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Options :: [Option]) -&gt; <seetype marker="#wxAuiManager">wxAuiManager()</seetype></head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{managed_wnd, <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype>} | {flags, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>savePaneInfo</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>savePaneInfo(This, Pane) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Pane</typename><string>Pane = <seetype marker="wxAuiPaneInfo#wxAuiPaneInfo">wxAuiPaneInfo:wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pane</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>savePerspective</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>savePerspective(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setArtProvider</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setArtProvider(This, Art_provider) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Art_provider</typename><string>Art_provider = <seetype marker="wxAuiDockArt#wxAuiDockArt">wxAuiDockArt:wxAuiDockArt()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Art_provider</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDockSizeConstraint</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setDockSizeConstraint(This, Widthpct, Heightpct) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Widthpct</typename><string>Widthpct = Heightpct = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Heightpct</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Heightpct</anno>
+  <anno>This</anno>
+  <anno>Widthpct</anno>
+</spec>
+<spec>
+  <name>setFlags</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFlags(This, Flags) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Flags</typename><string>Flags = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setManagedWindow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setManagedWindow(This, Managed_wnd) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Managed_wnd</typename><string>Managed_wnd = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Managed_wnd</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>showHint</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>showHint(This, Rect) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>unInit</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unInit(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>update(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiManager">wxAuiManager()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:21.</timestamp>
+</module>

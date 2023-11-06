@@ -1,0 +1,295 @@
+<module name="filename">
+<type>
+  <name>basedir_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-basedir_opts">basedir_opts()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{author =&gt; <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>os =&gt; windows | darwin | linux,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>version =&gt; <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>basedir_path_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-basedir_path_type">basedir_path_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>user_cache | user_config | user_data | user_log</typehead></typedecl>
+</type>
+<type>
+  <name>basedir_paths_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-basedir_paths_type">basedir_paths_type()</marker> = site_config | site_data</typehead></typedecl>
+</type>
+<spec>
+  <name>absname</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>absname(Filename) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>absname</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>absname(Filename, Dir) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = Dir = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>absname_join</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>absname_join(Dir, Filename) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = Filename = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>append</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>append(Dir :: <seetype marker="file#filename_all">file:filename_all()</seetype>, Name :: <seetype marker="file#name_all">file:name_all()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#filename_all">file:filename_all()</seetype></head></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>basedir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>basedir(PathType, Application) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>PathType</typename><string>PathType = <seetype marker="#basedir_path_type">basedir_path_type()</seetype></string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>PathType</anno>
+</spec>
+<spec>
+  <name>basedir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>basedir(PathsType, Application) -&gt; [<seetype marker="file#filename_all">file:filename_all()</seetype>]</head>
+      <guard>
+        <subtype><typename>PathsType</typename><string>PathsType = <seetype marker="#basedir_paths_type">basedir_paths_type()</seetype></string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>PathsType</anno>
+</spec>
+<spec>
+  <name>basedir</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>basedir(PathType, Application, Opts) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>PathType</typename><string>PathType = <seetype marker="#basedir_path_type">basedir_path_type()</seetype></string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = <seetype marker="#basedir_opts">basedir_opts()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Opts</anno>
+  <anno>PathType</anno>
+</spec>
+<spec>
+  <name>basedir</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>basedir(PathsType, Application, Opts) -&gt; [<seetype marker="file#filename_all">file:filename_all()</seetype>]</head>
+      <guard>
+        <subtype><typename>PathsType</typename><string>PathsType = <seetype marker="#basedir_paths_type">basedir_paths_type()</seetype></string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = <seetype marker="#basedir_opts">basedir_opts()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Opts</anno>
+  <anno>PathsType</anno>
+</spec>
+<spec>
+  <name>basename</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>basename(Filename) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>basename</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>basename(Filename, Ext) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = Ext = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>Ext</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ext</anno>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>dirname</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>dirname(Filename) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>extension</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>extension(Filename) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>flatten</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>flatten(Filename) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>join</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>join(Components) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Components</typename><string>Components = [<seetype marker="file#name_all">file:name_all()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Components</anno>
+</spec>
+<spec>
+  <name>join</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>join(Name1, Name2) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Name1</typename><string>Name1 = Name2 = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>Name2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name1</anno>
+  <anno>Name2</anno>
+</spec>
+<spec>
+  <name>nativename</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>nativename(Path) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>pathtype</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pathtype(Path) -&gt; absolute | relative | volumerelative</head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>rootname</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rootname(Filename) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>rootname</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rootname(Filename, Ext) -&gt; <seetype marker="file#filename_all">file:filename_all()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = Ext = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>Ext</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ext</anno>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>split</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>split(Filename) -&gt; Components</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>Components</typename><string>Components = [<seetype marker="file#name_all">file:name_all()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Components</anno>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>validate</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>validate(FileName) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:22.</timestamp>
+</module>

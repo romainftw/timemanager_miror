@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>edoc</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>edoc.xml</file></header>
+<module>edoc</module>
+<modulesummary>EDoc - the Erlang program documentation generator.</modulesummary>
+<description>
+<p>EDoc - the Erlang program documentation generator.</p>
+ 
+  <p>This module provides the main user interface to EDoc.
+  </p><list>
+    <item><p><seeguide marker="chapter">EDoc User Manual</seeguide></p></item>
+    <item><p><seeguide marker="chapter#Running_EDoc">Running EDoc</seeguide></p></item>
+  </list></description>
+<section><title>DATA TYPES</title><marker id="types"/>
+
+<taglist>
+<tag><marker id="type-comment"/>comment() = <seeerl marker="syntax_tools:erl_comment_scan#type-comment">erl_comment_scan:comment()</seeerl></tag>
+<item><p/> </item>
+<tag><marker id="type-edoc_module"/>edoc_module() = <seeerl marker="xmerl:xmerl_scan#type-xmlElement">xmerl_scan:xmlElement()</seeerl></tag>
+<item><p/>
+<p>  The EDoc documentation data for a module,
+  expressed as an XML document in <seeapp marker="xmerl:index">XMerL</seeapp> format. See
+  the file <url href="edoc.dtd">edoc.dtd</url> for details.</p>
+</item>
+<tag><marker id="type-entry"/>entry() = #entry{name=<seeerl marker="#type-function_name">function_name()</seeerl> | atom(), args=[atom() | list()], line=integer(), export=boolean(), data=<seeerl marker="#type-entry_data">entry_data()</seeerl>}</tag>
+<item><p/>
+<p>  Module Entries (one per function, plus module header and footer).</p>
+</item>
+<tag><marker id="type-entry_data"/>entry_data() = term()</tag>
+<item><p/> </item>
+<tag><marker id="type-env"/>env() = #env{}</tag>
+<item><p/>
+<p>  Environment information needed by EDoc for generating references.</p>
+</item>
+<tag><marker id="type-filename"/>filename() = <seeerl marker="kernel:file#type-filename">file:filename()</seeerl></tag>
+<item><p/> </item>
+<tag><marker id="type-function_name"/>function_name() = {atom(), integer()}</tag>
+<item><p/> </item>
+<tag><marker id="type-module_meta"/>module_meta() = #module{name=[] | atom(), parameters=none | [atom()], functions=ordset(<seeerl marker="#type-function_name">function_name()</seeerl>), exports=ordset(<seeerl marker="#type-function_name">function_name()</seeerl>), attributes=<seeerl marker="#type-ordset">ordset({atom(), term()})</seeerl>, records=[{atom(), [{atom(), term()}]}], encoding=<seeerl marker="stdlib:epp#type-source_encoding">epp:source_encoding()</seeerl>, file=<seeerl marker="kernel:file#type-filename">file:filename()</seeerl>}</tag>
+<item><p/>
+<p>  Module information.</p>
+</item>
+<tag><marker id="type-ordset"/>ordset(T) = <seeerl marker="stdlib:ordsets#type-ordset">ordsets:ordset(T)</seeerl></tag>
+<item><p/> </item>
+<tag><marker id="type-proplist"/>proplist() = <seeerl marker="stdlib:proplists#type-proplist">proplists:proplist()</seeerl></tag>
+<item><p/> </item>
+<tag><marker id="type-syntaxTree"/>syntaxTree() = <seeerl marker="syntax_tools:erl_syntax#type-syntaxTree">erl_syntax:syntaxTree()</seeerl></tag>
+<item><p/> </item>
+<tag><marker id="type-tag"/>tag() = #tag{name=atom(), line=integer(), origin=comment | code, data=term(), form=undefined | <seeerl marker="stdlib:erl_parse#type-abstract_form">erl_parse:abstract_form()</seeerl>}</tag>
+<item><p/>
+<p>  Generic tag information.
+  <c>#tag.form</c> is only defined if <c>#tag.origin</c> is <c>code</c>,
+  that is the <c>#tag{}</c> represents a code fragment, not a doc comment tag.</p>
+</item>
+</taglist></section>
+<funcs>
+<func>
+<name since="">application(App::atom()) -&gt; ok</name>
+<fsummary>Equivalent to application(Application, []).
+</fsummary>
+
+<desc><marker id="application-1"/>
+<p>Equivalent to <seemfa marker="#application/2">application(Application, [])</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">application(App, Options) -&gt; ok</name>
+<fsummary>Run EDoc on an application in its default app-directory.</fsummary>
+<type>
+<v>App = atom()</v><v>Options = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="application-2"/>
+
+<p>Run EDoc on an application in its default app-directory. See
+  <seemfa marker="#application/3">application/3</seemfa> for details.</p>
+<p><em>See also:</em> <seemfa marker="#application/1">application/1</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">application(App, Dir, Options) -&gt; ok</name>
+<fsummary>Run EDoc on an application located in the specified directory.</fsummary>
+<type>
+<v>App = atom()</v><v>Dir = <seeerl marker="#type-filename">filename()</seeerl></v><v>Options = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="application-3"/>
+
+<p>Run EDoc on an application located in the specified directory.
+  Tries to automatically set up good defaults. Unless the user
+  specifies otherwise:
+  </p><list>
+    <item><p>The <c>doc</c> subdirectory will be used as the target directory, if
+    it exists; otherwise the application directory is used.
+    </p></item>
+    <item><p>The source code is assumed to be located in the <c>src</c>
+    subdirectory, if it exists, or otherwise in the application
+    directory itself.
+    </p></item>
+    <item><p>The <seemfa marker="#run/2">subpackages</seemfa> option is turned on. All found
+    source files will be processed.
+    </p></item>
+    <item><p>The <c>include</c> subdirectory is automatically added to the
+    include path. (Only important if <seemfa marker="#read_source/2">    preprocessing</seemfa> is turned on.)
+    </p></item>
+  </list><p>
+ 
+  See <seemfa marker="#run/2">run/2</seemfa> for details, including options.
+ </p>
+<p><em>See also:</em> <seemfa marker="#application/2">application/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">file(Name::<seeerl marker="#type-filename">filename()</seeerl>) -&gt; ok</name>
+<fsummary>Equivalent to file(Name, []).
+</fsummary>
+
+<desc><marker id="file-1"/>
+<p><em>This function is deprecated: </em>See <seemfa marker="#file/2">file/2</seemfa> for details.</p>
+<p>Equivalent to <seemfa marker="#file/2">file(Name, [])</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">file(Name, Options) -&gt; ok</name>
+<fsummary>Reads a source code file and outputs formatted documentation to  
+a corresponding file.</fsummary>
+<type>
+<v>Name = <seeerl marker="#type-filename">filename()</seeerl></v><v>Options = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="file-2"/>
+<p><em>This function is deprecated: </em>This is part of the old interface to EDoc and is mainly
+  kept for backwards compatibility. The preferred way of generating
+  documentation is through one of the functions <seemfa marker="#application/2">application/2</seemfa>
+  and <seemfa marker="#files/2">files/2</seemfa>.
+ </p>
+
+<p>Reads a source code file and outputs formatted documentation to  
+a corresponding file.</p>
+ 
+  <p>Options:
+  </p><taglist>
+   <tag><c>{dir, filename()}</c>
+   </tag>
+   <item><p>Specifies the output directory for the created file. (By
+       default, the output is written to the directory of the source
+       file.)
+   </p></item>
+   <tag><c>{source_suffix, string()}</c>
+   </tag>
+   <item><p>Specifies the expected suffix of the input file. The default
+       value is <c>".erl"</c>.
+   </p></item>
+   <tag><c>{file_suffix, string()}</c>
+   </tag>
+   <item><p>Specifies the suffix for the created file. The default value is
+       <c>".html"</c>.
+   </p></item>
+  </taglist>
+ 
+  <p>See <seemfa marker="#get_doc/2">get_doc/2</seemfa> and <seemfa marker="#layout/2">layout/2</seemfa> for further  
+options.</p>
+ 
+  <p>For running EDoc from a Makefile or similar, see
+  <seemfa marker="edoc_run#file/1">edoc_run:file/1</seemfa>.
+ </p>
+<p><em>See also:</em> <seemfa marker="#read/2">read/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">files(Files::[<seeerl marker="#type-filename">filename()</seeerl>]) -&gt; ok</name>
+<fsummary> </fsummary>
+
+<desc><marker id="files-1"/>
+ </desc></func>
+<func>
+<name since="">files(Files, Options) -&gt; ok</name>
+<fsummary>Runs EDoc on a given set of source files.</fsummary>
+<type>
+<v>Files = [<seeerl marker="#type-filename">filename()</seeerl>]</v><v>Options = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="files-2"/>
+
+<p>Runs EDoc on a given set of source files. See <seemfa marker="#run/2">run/2</seemfa> for
+  details, including options.</p>
+</desc></func>
+<func>
+<name since="">get_doc(File::<seeerl marker="#type-filename">filename()</seeerl>) -&gt; {module(), <seeerl marker="#type-edoc_module">edoc_module()</seeerl>}</name>
+<fsummary>Equivalent to get_doc(File, []).
+</fsummary>
+
+<desc><marker id="get_doc-1"/>
+<p>Equivalent to <seemfa marker="#get_doc/2">get_doc(File, [])</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">get_doc(File, Options) -&gt; R</name>
+<fsummary>Reads a source code file and extracts EDoc documentation data.</fsummary>
+<type>
+<v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Options = <seeerl marker="#type-proplist">proplist()</seeerl></v><v>R = {module(), <seeerl marker="#type-edoc_module">edoc_module()</seeerl>} | {module(), <seeerl marker="#type-edoc_module">edoc_module()</seeerl>, [<seeerl marker="#type-entry">entry()</seeerl>]}</v></type>
+<desc><marker id="get_doc-2"/>
+
+<p>Reads a source code file and extracts EDoc documentation data.
+  Note that without an environment parameter (see <seemfa marker="#get_doc/3">get_doc/3</seemfa>),  
+hypertext links may not be correct.</p>
+ 
+  <p>Options:
+  </p><taglist>
+   <tag><c>{def, Macros}</c>
+   </tag>
+   <item><list>
+        <item><p><c>Macros</c> = <c>Macro | [Macro]</c></p></item>
+        <item><p><c>Macro</c> = <c>{Name::atom(), Text::string() | MacroFun}</c></p></item>
+        <item><p><c>MacroFun</c> = <c>fun((MacroArgument::string(), Line::integer(), edoc_lib:edoc_env()) -&gt; (Text::string()))</c></p></item>
+       </list><p>
+     Specifies a set of user-defined EDoc macros. The text
+     substituted for macro calls is specified as either a <c>string()</c> or a <c>function()</c>. The function is called with the
+     macro argument text, the current line number, and the current
+     environment. The fun is to return a <c>string()</c>.
+     See
+     <seeguide marker="chapter#Macro_expansion">Macro expansion</seeguide>
+     for details.
+   </p></item>
+   <tag><c>{hidden, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, documentation of hidden functions will
+       also be included. The default value is <c>false</c>.
+   </p></item>
+   <tag><c>{private, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, documentation of private functions will
+       also be included. The default value is <c>false</c>.
+   </p></item>
+   <tag><c>{todo, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, To-Do notes written using <c>@todo</c> or
+   <c>@TODO</c> tags will be included in the documentation. The default
+   value is <c>false</c>.
+   </p></item>
+  </taglist>
+ 
+  <p>See <seemfa marker="#read_source/2">read_source/2</seemfa>, <seemfa marker="#read_comments/2">read_comments/2</seemfa> and <seemfa marker="edoc_lib#get_doc_env/3">edoc_lib:get_doc_env/3</seemfa> for further options.
+ </p>
+<p><em>See also:</em> <seemfa marker="#get_doc/3">get_doc/3</seemfa>, <seemfa marker="#layout/2">layout/2</seemfa>, <seemfa marker="#read/2">read/2</seemfa>, <seemfa marker="#run/2">run/2</seemfa>, <seemfa marker="edoc_extract#source/5">edoc_extract:source/5</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">get_doc(File, Env, Options) -&gt; R</name>
+<fsummary>Like get_doc/2, but for a given environment
+  parameter.</fsummary>
+<type>
+<v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Env = <seeerl marker="#type-env">env()</seeerl></v><v>Options = <seeerl marker="#type-proplist">proplist()</seeerl></v><v>R = {module(), <seeerl marker="#type-edoc_module">edoc_module()</seeerl>} | {module(), <seeerl marker="#type-edoc_module">edoc_module()</seeerl>, [<seeerl marker="#type-entry">entry()</seeerl>]}</v></type>
+<desc><marker id="get_doc-3"/>
+
+<p>Like <seemfa marker="#get_doc/2">get_doc/2</seemfa>, but for a given environment
+  parameter. <c>Env</c> is an environment created by <seemfa marker="edoc_lib#get_doc_env/3">edoc_lib:get_doc_env/3</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">layout(Doc::<seeerl marker="#type-edoc_module">edoc_module()</seeerl>) -&gt; string()</name>
+<fsummary>Equivalent to layout(Doc, []).
+</fsummary>
+
+<desc><marker id="layout-1"/>
+<p>Equivalent to <seemfa marker="#layout/2">layout(Doc, [])</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">layout(Doc, Opts) -&gt; string()</name>
+<fsummary>Transforms EDoc module documentation data to text.</fsummary>
+<type>
+<v>Doc = <seeerl marker="#type-edoc_module">edoc_module()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="layout-2"/>
+
+<p>Transforms EDoc module documentation data to text. The default  
+layout creates an HTML document.</p>
+ 
+  <p>Options:
+  </p><taglist>
+   <tag><c>{layout, Module::atom()}</c>
+   </tag>
+   <item><p>Specifies a callback module to be used for formatting. The
+       module must export a function <c>module(Doc, Options)</c>. The
+       default callback module is <seeerl marker="edoc_layout">edoc_layout</seeerl>; see <seemfa marker="edoc_layout#module/2">edoc_layout:module/2</seemfa> for layout-specific options.
+   </p></item>
+  </taglist><p>
+ </p>
+<p><em>See also:</em> <seemfa marker="#file/2">file/2</seemfa>, <seemfa marker="#layout/1">layout/1</seemfa>, <seemfa marker="#read/2">read/2</seemfa>, <seemfa marker="#run/2">run/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">read(File::<seeerl marker="#type-filename">filename()</seeerl>) -&gt; string()</name>
+<fsummary>Equivalent to read(File, []).
+</fsummary>
+
+<desc><marker id="read-1"/>
+<p>Equivalent to <seemfa marker="#read/2">read(File, [])</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">read(File, Opts) -&gt; string()</name>
+<fsummary>Reads and processes a source file and returns the resulting
+  EDoc-text as a string.</fsummary>
+<type>
+<v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="read-2"/>
+
+<p>Reads and processes a source file and returns the resulting
+  EDoc-text as a string. See <seemfa marker="#get_doc/2">get_doc/2</seemfa> and <seemfa marker="#layout/2">layout/2</seemfa> for
+  options.
+ </p>
+<p><em>See also:</em> <seemfa marker="#file/2">file/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">read_comments(File::<seeerl marker="#type-filename">filename()</seeerl>) -&gt; [<seeerl marker="#type-comment">comment()</seeerl>]</name>
+<fsummary>Equivalent to read_comments(File, []).
+</fsummary>
+
+<desc><marker id="read_comments-1"/>
+<p>Equivalent to <seemfa marker="#read_comments/2">read_comments(File, [])</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">read_comments(File, Opts) -&gt; [<seeerl marker="#type-comment">comment()</seeerl>]</name>
+<fsummary>Extracts comments from an Erlang source code file.</fsummary>
+<type>
+<v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="read_comments-2"/>
+
+<p>Extracts comments from an Erlang source code file. See the
+  module <seeerl marker="syntax_tools:erl_comment_scan">erl_comment_scan(3)</seeerl> for details on the
+  representation of comments. Currently, no options are available.</p>
+</desc></func>
+<func>
+<name since="">read_source(Name::<seeerl marker="#type-filename">filename()</seeerl>) -&gt; [<seeerl marker="#type-syntaxTree">syntaxTree()</seeerl>]</name>
+<fsummary>Equivalent to read_source(File, []).
+</fsummary>
+
+<desc><marker id="read_source-1"/>
+<p>Equivalent to <seemfa marker="#read_source/2">read_source(File, [])</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">read_source(File, Opts) -&gt; [<seeerl marker="#type-syntaxTree">syntaxTree()</seeerl>]</name>
+<fsummary>Reads an Erlang source file and returns the list of "source code  
+form" syntax trees.</fsummary>
+<type>
+<v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="read_source-2"/>
+
+<p>Reads an Erlang source file and returns the list of "source code  
+form" syntax trees.</p>
+ 
+  <p>Options:
+  </p><taglist>
+   <tag><c>{preprocess, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, the source file will be read via the
+       Erlang preprocessor (<c>epp</c>). The default value is <c>false</c>.
+       <c>no_preprocess</c> is an alias for <c>{preprocess, false}</c>.</p>
+ 
+       <p>Normally, preprocessing is not necessary for EDoc to work, but
+       if a file contains too exotic definitions or uses of macros, it
+       will not be possible to read it without preprocessing. <em>Note:
+       comments in included files will not be available to EDoc, even
+       with this option enabled.</em>
+   </p></item>
+   <tag><c>{includes, Path::[string()]}</c>
+   </tag>
+   <item><p>Specifies a list of directory names to be searched for include
+       files, if the <c>preprocess</c> option is turned on. Also used with
+       the <c>@headerfile</c> tag. The default value is the empty list. The
+       directory of the source file is always automatically appended to
+       the search path.
+   </p></item>
+   <tag><c>{macros, [{atom(), term()}]}</c>
+   </tag>
+   <item><p>Specifies a list of pre-defined Erlang preprocessor (<c>epp</c>)
+       macro definitions, used if the <c>preprocess</c> option is turned on.
+       The default value is the empty list.</p></item>
+   <tag><c>{report_missing_types, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, warnings are issued for missing types.
+       The default value is <c>false</c>.
+       <c>no_report_missing_types</c> is an alias for
+       <c>{report_missing_types, false}</c>.
+   </p></item>
+   <tag><c>{link_predefined_types, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, all predefined data types will have a link
+       to the erlang module. This option is to be used when generating
+       documentation for the Erlang/OTP docs.
+       The default value is <c>false</c>.
+       <c>no_link_predefined_types</c> is an alias for
+       <c>{link_predefined_types, false}</c>.
+   </p></item>
+  </taglist><p>
+ </p>
+<p><em>See also:</em> <seeerl marker="syntax_tools:erl_syntax">erl_syntax(3)</seeerl>, <seemfa marker="#get_doc/2">get_doc/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">run(Files, Opts) -&gt; ok</name>
+<fsummary>Runs EDoc on a given set of source files.</fsummary>
+<type>
+<v>Files = [<seeerl marker="#type-filename">filename()</seeerl>]</v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="run-2"/>
+
+<p>Runs EDoc on a given set of source files. Note
+  that the doclet plugin module has its own particular options; see the
+  <c>doclet</c> option below.</p>
+ 
+  <p>Also see <seemfa marker="#layout/2">layout/2</seemfa> for layout-related options, and
+  <seemfa marker="#get_doc/2">get_doc/2</seemfa> for options related to reading source  
+files.</p>
+ 
+  <p>Options:
+  </p><taglist>
+   <tag><c>{app_default, string()}</c>
+   </tag>
+   <item><p>Specifies the default base URI for unknown applications.
+   </p></item>
+   <tag><c>{application, App::atom()}</c>
+   </tag>
+   <item><p>Specifies that the generated documentation describes the
+       application <c>App</c>. This mainly affects generated references.
+   </p></item>
+   <tag><c>{dir, filename()}</c>
+   </tag>
+   <item><p>Specifies the target directory for the generated documentation.
+   </p></item>
+   <tag><c>{doc_path, [string()]}</c>
+   </tag>
+   <item><p>Specifies a list of file system paths pointing to directories that
+       contain EDoc-generated documentation. All paths for applications
+       in the code path are automatically added.
+   </p></item>
+   <tag><c>{doclet, Module::atom()}</c>
+   </tag>
+   <item><p>Specifies a callback module to be used for creating the
+       documentation. The module must export a function <c>run(Cmd, Ctxt)</c>.
+       The default doclet module is <seeerl marker="edoc_doclet">edoc_doclet</seeerl>; see <seemfa marker="edoc_doclet#run/2">edoc_doclet:run/2</seemfa> for doclet-specific options.
+   </p></item>
+   <tag><c>{file_suffix, string()}</c>
+   </tag>
+   <item><p>Specifies the suffix used for output files. The default value is
+       <c>".html"</c>. Note that this also affects generated references.
+   </p></item>
+   <tag><c>{new, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, any existing <c>edoc-info</c> file in the
+       target directory will be ignored and overwritten. The default
+       value is <c>false</c>.
+   </p></item>
+   <tag><c>{source_path, [filename()]}</c>
+   </tag>
+   <item><p>Specifies a list of file system paths used to locate the source
+       code for packages.
+   </p></item>
+   <tag><c>{source_suffix, string()}</c>
+   </tag>
+   <item><p>Specifies the expected suffix of input files. The default
+       value is <c>".erl"</c>.
+   </p></item>
+   <tag><c>{subpackages, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, all subpackages of specified packages
+       will also be included in the documentation. The default value is
+       <c>false</c>. <c>no_subpackages</c> is an alias for <c>{subpackages,
+       false}</c>.</p>
+ 
+       <p>Subpackage source files are found by recursively searching
+       for source code files in subdirectories of the known source code
+       root directories. (Also see the <c>source_path</c> option.) Directory
+       names must begin with a lowercase letter and contain only
+       alphanumeric characters and underscore, or they will be ignored.
+       (For example, a subdirectory named <c>test-files</c> will not be
+       searched.)
+   </p></item>
+  </taglist><p>
+ </p>
+<p><em>See also:</em> <seemfa marker="#application/2">application/2</seemfa>, <seemfa marker="#files/2">files/2</seemfa>.</p>
+</desc></func></funcs>
+
+<authors>
+
+<aname>Richard Carlsson</aname>
+<email>carlsson.richard@gmail.com</email></authors></erlref>

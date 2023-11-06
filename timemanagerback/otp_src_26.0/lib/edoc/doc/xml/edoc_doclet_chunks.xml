@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>edoc_doclet_chunks</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>edoc_doclet_chunks.xml</file></header>
+<module>edoc_doclet_chunks</module>
+<modulesummary>Doclet generating standalone
+  EEP-48  
+doc chunk files.</modulesummary>
+<description>
+<p>Doclet generating standalone
+  <url href="https://www.erlang.org/erlang-enhancement-proposals/eep-0048.html">EEP-48</url>  
+doc chunk files.</p>
+ 
+  <p>Section <url href="chapter.html#Using_the_EDoc_API">Using the EDoc API</url>
+  in the EDoc User's Guide shows an example of using this module.</p></description>
+<funcs>
+<func>
+<name since="">run(Doclet_gen::<seeerl marker="edoc:edoc_doclet#type-command">edoc_doclet:command()</seeerl>, Ctxt::<seeerl marker="edoc:edoc_doclet#type-context">edoc_doclet:context()</seeerl>) -&gt; ok</name>
+<fsummary>Main doclet entry point.</fsummary>
+
+<desc><marker id="run-2"/>
+
+<p>Main doclet entry point.</p>
+ 
+  <p>This doclet is tightly coupled with <seeerl marker="edoc_layout_chunks">edoc_layout_chunks</seeerl>  
+and should be used together with it.</p>
+ 
+  <p>The only option this doclet accepts is <c>dir</c>, which controls
+  where the <c>chunks</c> subdirectory and the EEP-48 chunk files will be placed.</p>
+</desc></func></funcs>
+<section><title>See also</title><p><seeerl marker="edoc_layout_chunks">edoc_layout_chunks</seeerl>, <seeerl marker="stdlib:shell_docs">shell_docs(3)</seeerl></p></section>
+<authors>
+
+<aname>Radek Szymczyszyn</aname>
+<email>lavrin@gmail.com</email></authors></erlref>

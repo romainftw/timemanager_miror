@@ -1,0 +1,78 @@
+<module name="ct_hooks">
+<spec>
+  <name>all</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>end_tc</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>end_tc(Mod :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FuncSpec ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#atom">atom()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ConfigFunc :: init_per_testcase | end_per_testcase,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TestCase :: <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ConfigFunc :: init_per_group | end_per_group,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>GroupName :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Properties :: <seetype marker="erlang#list">list()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Args :: <seetype marker="erlang#list">list()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Return :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewConfig ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="proplists#proplist">proplists:proplist()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{skip, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{auto_skip, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{fail, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | '$ct_no_change'</head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>ConfigFunc</anno>
+  <anno>FuncSpec</anno>
+  <anno>GroupName</anno>
+  <anno>Mod</anno>
+  <anno>NewConfig</anno>
+  <anno>Properties</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+  <anno>Return</anno>
+  <anno>TestCase</anno>
+</spec>
+<spec>
+  <name>groups</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(State :: <seetype marker="erlang#term">term()</seetype>) -&gt; ok | {fail, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>init_tc</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>init_tc(Mod :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FuncSpec ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#atom">atom()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ConfigFunc :: init_per_testcase | end_per_testcase,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TestCase :: <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ConfigFunc :: init_per_group | end_per_group,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>GroupName :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Properties :: <seetype marker="erlang#list">list()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Args :: <seetype marker="erlang#list">list()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewConfig ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="proplists#proplist">proplists:proplist()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{skip, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{auto_skip, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{fail, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>ConfigFunc</anno>
+  <anno>FuncSpec</anno>
+  <anno>GroupName</anno>
+  <anno>Mod</anno>
+  <anno>NewConfig</anno>
+  <anno>Properties</anno>
+  <anno>Reason</anno>
+  <anno>TestCase</anno>
+</spec>
+<spec>
+  <name>on_tc_fail</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>on_tc_skip</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>terminate(Hooks :: <seetype marker="erlang#term">term()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Hooks</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:12.</timestamp>
+</module>

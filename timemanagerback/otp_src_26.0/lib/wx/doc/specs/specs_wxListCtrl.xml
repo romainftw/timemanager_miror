@@ -1,0 +1,2105 @@
+<module name="wxListCtrl">
+<type>
+  <name>wxListCtrl</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxListCtrl">wxListCtrl()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>arrange</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>arrange(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>arrange</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>arrange(This, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {flag, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>assignImageList</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>assignImageList(This, ImageList, Which) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>ImageList</typename><string>ImageList = <seetype marker="wxImageList#wxImageList">wxImageList:wxImageList()</seetype></string></subtype>
+        <subtype><typename>Which</typename><string>Which = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ImageList</anno>
+  <anno>This</anno>
+  <anno>Which</anno>
+</spec>
+<spec>
+  <name>cacheBestSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>canSetTransparent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>captureMouse</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>center</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>center</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnParent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnParent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clearAll</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clearAll(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>clearBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clientToScreen</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clientToScreen</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>convertDialogToPixels</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>convertPixelsToDialog</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>create(This, Parent) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Parent</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Parent</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>create(This, Parent, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Parent</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{winid, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{style, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{validator, <seetype marker="wx#wx_object">wx:wx_object()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{onGetItemText, <seetype marker="erlang#function">function()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{onGetItemAttr, <seetype marker="erlang#function">function()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{onGetItemColumnImage, <seetype marker="erlang#function">function()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Parent</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>deleteAllItems</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>deleteAllItems(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>deleteColumn</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>deleteColumn(This, Col) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>deleteItem</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>deleteItem(This, Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxListCtrl">wxListCtrl()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroyChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>dragAcceptFiles</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>editLabel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>editLabel(This, Item) -&gt; <seetype marker="wxTextCtrl#wxTextCtrl">wxTextCtrl:wxTextCtrl()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ensureVisible</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>ensureVisible(This, Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>findItem</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>findItem(This, Start, Str) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Start</typename><string>Start = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Str</typename><string>Str = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Start</anno>
+  <anno>Str</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>findItem</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>findItem(This, Start, Str, Options :: [Option]) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Start</typename><string>Start = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Str</typename><string>Str = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {partial, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Start</anno>
+  <anno>Str</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>findItem</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>findItem(This, Start, Pt, Direction) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Start</typename><string>Start = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Direction</typename><string>Direction = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Direction</anno>
+  <anno>Pt</anno>
+  <anno>Start</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>findWindow</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fit</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fitInside</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>freeze</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getAcceleratorTable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBackgroundColour</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBackgroundStyle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBestSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCaret</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCharHeight</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCharWidth</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getClientSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getColumn</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getColumn(This, Col, Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="wxListItem#wxListItem">wxListItem:wxListItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getColumnCount</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getColumnCount(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getColumnWidth</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getColumnWidth(This, Col) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getContainingSizer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getContentScaleFactor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCountPerPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getCountPerPage(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCursor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDPI</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDPIScaleFactor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDropTarget</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getEditControl</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getEditControl(This) -&gt; <seetype marker="wxTextCtrl#wxTextCtrl">wxTextCtrl:wxTextCtrl()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getExtraStyle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getFont</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getForegroundColour</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getGrandParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getHandle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getHelpText</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getId</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getImageList</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getImageList(This, Which) -&gt; <seetype marker="wxImageList#wxImageList">wxImageList:wxImageList()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Which</typename><string>Which = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Which</anno>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItem(This, Info) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="wxListItem#wxListItem">wxListItem:wxListItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Info</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemBackgroundColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItemBackgroundColour(This, Item) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemCount</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getItemCount(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemData</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItemData(This, Item) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemFont</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItemFont(This, Item) -&gt; <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemPosition</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItemPosition(This, Item) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Res :: <seetype marker="erlang#boolean">boolean()</seetype>, Pos :: {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}}</string></subtype>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Pos</anno>
+  <anno>Res</anno>
+  <anno>Result</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getItemRect</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItemRect(This, Item) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Res :: <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Rect ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}}</string></subtype>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Item</anno>
+  <anno>Rect</anno>
+  <anno>Res</anno>
+  <anno>Result</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getItemRect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getItemRect(This, Item, Options :: [Option]) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Res :: <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Rect ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}}</string></subtype>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {code, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Item</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Rect</anno>
+  <anno>Res</anno>
+  <anno>Result</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getItemSpacing</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getItemSpacing(This) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getItemState</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getItemState(This, Item, StateMask) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = StateMask = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>StateMask</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>StateMask</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemText</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItemText(This, Item) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemText</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getItemText(This, Item, Options :: [Option]) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {col, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemTextColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItemTextColour(This, Item) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLabel</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMaxSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMinSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getName</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getNextItem</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getNextItem(This, Item) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getNextItem</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getNextItem(This, Item, Options :: [Option]) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {geometry, <seetype marker="erlang#integer">integer()</seetype>} | {state, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getRect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScreenPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScreenRect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollPos</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollRange</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollThumb</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSelectedItemCount</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelectedItemCount(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSizer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getTextColour(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getThemeEnabled</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getToolTip</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTopItem</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getTopItem(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getUpdateRegion</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getViewRect</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getViewRect(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getVirtualSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getWindowStyleFlag</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getWindowVariant</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasCapture</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasScrollbar</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasTransparentBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hitTest</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hitTest(This, Point) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Res :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Flags :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PtrSubItem :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Point</typename><string>Point = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>Point</anno>
+  <anno>PtrSubItem</anno>
+  <anno>Res</anno>
+  <anno>Result</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>inheritAttributes</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>initDialog</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insertColumn</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>insertColumn(This, Col, Heading) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Heading</typename><string>Heading = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Heading</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertColumn</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>insertColumn(This, Col, Info) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="wxListItem#wxListItem">wxListItem:wxListItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Info</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertColumn</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>insertColumn(This, Col, Heading, Options :: [Option]) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Heading</typename><string>Heading = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {format, <seetype marker="erlang#integer">integer()</seetype>} | {width, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Heading</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertItem</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>insertItem(This, Info) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="wxListItem#wxListItem">wxListItem:wxListItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Info</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertItem</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>insertItem(This, Index, ImageIndex) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = ImageIndex = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>ImageIndex</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ImageIndex</anno>
+  <anno>Index</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertItem</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>insertItem(This, Index, Label) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>Label</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertItem</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>insertItem(This, Index, Label, ImageIndex) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>ImageIndex</typename><string>ImageIndex = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ImageIndex</anno>
+  <anno>Index</anno>
+  <anno>Label</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>invalidateBestSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isDoubleBuffered</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isEnabled</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isFrozen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isRetained</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isShown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isShownOnScreen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isTopLevel</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>layout</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lineDown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lineUp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lower</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveAfterInTabOrder</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveBeforeInTabOrder</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>navigate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>navigate</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxListCtrl">wxListCtrl()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Parent) -&gt; <seetype marker="#wxListCtrl">wxListCtrl()</seetype></head>
+      <guard>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Parent</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Parent, Options :: [Option]) -&gt; <seetype marker="#wxListCtrl">wxListCtrl()</seetype></head>
+      <guard>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{winid, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{style, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{validator, <seetype marker="wx#wx_object">wx:wx_object()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{onGetItemText, <seetype marker="erlang#function">function()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{onGetItemAttr, <seetype marker="erlang#function">function()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{onGetItemColumnImage, <seetype marker="erlang#function">function()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Parent</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>pageDown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>pageUp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>raise</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refresh</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refresh</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refreshItem</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>refreshItem(This, Item) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>refreshItems</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>refreshItems(This, ItemFrom, ItemTo) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>ItemFrom</typename><string>ItemFrom = ItemTo = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>ItemTo</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ItemFrom</anno>
+  <anno>ItemTo</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>refreshRect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refreshRect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>releaseMouse</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>removeChild</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>reparent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>screenToClient</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>screenToClient</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollLines</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollList</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>scrollList(This, Dx, Dy) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Dx</typename><string>Dx = Dy = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Dy</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dx</anno>
+  <anno>Dy</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>scrollPages</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollWindow</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollWindow</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setAcceleratorTable</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setAutoLayout</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBackgroundColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setBackgroundColour(This, Col) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setBackgroundStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCaret</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setClientSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setClientSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setColumn</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setColumn(This, Col, Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="wxListItem#wxListItem">wxListItem:wxListItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setColumnWidth</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setColumnWidth(This, Col, Width) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = Width = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>setContainingSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCursor</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDoubleBuffered</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDropTarget</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setExtraStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFocus</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFocusFromKbd</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFont</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setForegroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setHelpText</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setId</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setImageList</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setImageList(This, ImageList, Which) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>ImageList</typename><string>ImageList = <seetype marker="wxImageList#wxImageList">wxImageList:wxImageList()</seetype></string></subtype>
+        <subtype><typename>Which</typename><string>Which = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ImageList</anno>
+  <anno>This</anno>
+  <anno>Which</anno>
+</spec>
+<spec>
+  <name>setItem</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setItem(This, Info) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="wxListItem#wxListItem">wxListItem:wxListItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Info</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItem</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setItem(This, Index, Column, Label) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = Column = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Column</typename><string/></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Column</anno>
+  <anno>Index</anno>
+  <anno>Label</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItem</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>setItem(This, Index, Column, Label, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = Column = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Column</typename><string/></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {imageId, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Column</anno>
+  <anno>Index</anno>
+  <anno>Label</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemBackgroundColour</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setItemBackgroundColour(This, Item, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemColumnImage</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setItemColumnImage(This, Item, Column, Image) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = Column = Image = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Column</typename><string></string></subtype>
+        <subtype><typename>Image</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Column</anno>
+  <anno>Image</anno>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemCount</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setItemCount(This, Count) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Count</typename><string>Count = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Count</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemData</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setItemData(This, Item, Data) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = Data = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemFont</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setItemFont(This, Item, Font) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Font</anno>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemImage</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setItemImage(This, Item, Image) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = Image = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Image</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Image</anno>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemImage</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setItemImage(This, Item, Image, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = Image = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Image</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {selImage, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Image</anno>
+  <anno>Item</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemPosition</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setItemPosition(This, Item, Pos) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Pos</typename><string>Pos = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Pos</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setItemState</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setItemState(This, Item, State, StateMask) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = State = StateMask = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>State</typename><string></string></subtype>
+        <subtype><typename>StateMask</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>State</anno>
+  <anno>StateMask</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemText</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setItemText(This, Item, Text) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Text</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemTextColour</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setItemTextColour(This, Item, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setLabel</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMaxSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setName</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnBackgroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnFont</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnForegroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setPalette</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollPos</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollPos</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbar</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbar</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSingleStyle</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setSingleStyle(This, Style) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Style</typename><string>Style = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Style</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setSingleStyle</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setSingleStyle(This, Style, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Style</typename><string>Style = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {add, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Style</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizerAndFit</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizerAndFit</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTextColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setTextColour(This, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setThemeEnabled</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setToolTip</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTransparent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVirtualSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVirtualSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowStyleFlag</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setWindowStyleFlag(This, Style) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListCtrl">wxListCtrl()</seetype></string></subtype>
+        <subtype><typename>Style</typename><string>Style = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Style</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setWindowVariant</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>shouldInheritColours</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>sortItems</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>sortItems(This :: <seetype marker="#wxListCtrl">wxListCtrl()</seetype>, SortCallBack) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>SortCallBack</typename><string>SortCallBack = fun((<seetype marker="erlang#integer">integer()</seetype>, <seetype marker="erlang#integer">integer()</seetype>) -&gt; <seetype marker="erlang#integer">integer()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>SortCallBack</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>thaw</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transferDataFromWindow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transferDataToWindow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>updateWindowUI</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>updateWindowUI</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>validate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>warpPointer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:38.</timestamp>
+</module>

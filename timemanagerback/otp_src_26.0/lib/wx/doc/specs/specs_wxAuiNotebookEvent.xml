@@ -1,0 +1,204 @@
+<module name="wxAuiNotebookEvent">
+<type>
+  <name>wxAuiNotebook</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxAuiNotebook">wxAuiNotebook()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#wxAuiNotebook{type =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxAuiNotebookEvent#wxAuiNotebookEventType">wxAuiNotebookEvent:wxAuiNotebookEventType()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>old_selection = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>selection = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>drag_source = <seetype marker="wxAuiNotebook#wxAuiNotebook">wxAuiNotebook:wxAuiNotebook()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>wxAuiNotebookEvent</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxAuiNotebookEvent">wxAuiNotebookEvent()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>wxAuiNotebookEventType</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxAuiNotebookEventType">wxAuiNotebookEventType()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_page_close |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_page_changed |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_page_changing |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_button | command_auinotebook_begin_drag |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_end_drag |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_drag_motion |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_allow_dnd |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_tab_middle_down |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_tab_middle_up |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_tab_right_down |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_tab_right_up |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_page_closed |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_auinotebook_drag_done | command_auinotebook_bg_dclick</typehead></typedecl>
+</type>
+<spec>
+  <name>allow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getClientData</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDragSource</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDragSource(This) -&gt; <seetype marker="wxAuiNotebook#wxAuiNotebook">wxAuiNotebook:wxAuiNotebook()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebookEvent">wxAuiNotebookEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getExtraLong</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getId</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getInt</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getOldSelection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getOldSelection(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebookEvent">wxAuiNotebookEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSelection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelection(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebookEvent">wxAuiNotebookEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSkipped</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getString</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTimestamp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isAllowed</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isChecked</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isCommandEvent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isSelection</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>resumePropagation</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDragSource</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDragSource(This, S) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebookEvent">wxAuiNotebookEvent()</seetype></string></subtype>
+        <subtype><typename>S</typename><string>S = <seetype marker="wxAuiNotebook#wxAuiNotebook">wxAuiNotebook:wxAuiNotebook()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>S</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setInt</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOldSelection</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setOldSelection(This, Page) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebookEvent">wxAuiNotebookEvent()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setSelection</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setSelection(This, Page) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebookEvent">wxAuiNotebookEvent()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setString</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>shouldPropagate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>skip</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>skip</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>stopPropagation</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>veto</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:21.</timestamp>
+</module>

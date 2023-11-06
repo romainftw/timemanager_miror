@@ -1,0 +1,454 @@
+<module name="inet_res">
+<type>
+  <name>dns_class</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dns_class">dns_class()</marker> = in | chaos | hs | any</typehead></typedecl>
+</type>
+<type>
+  <name>dns_data</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dns_data">dns_data()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dns_name">dns_name()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#ip4_address">inet:ip4_address()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#ip6_address">inet:ip6_address()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{MName :: <seetype marker="#dns_name">dns_name()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>RName :: <seetype marker="#dns_name">dns_name()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Serial :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Refresh :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Retry :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Expiry :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Minimum :: <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="inet#ip4_address">inet:ip4_address()</seetype>, Proto :: <seetype marker="erlang#integer">integer()</seetype>, BitMap :: <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{CpuString :: <seetype marker="erlang#string">string()</seetype>, OsString :: <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{RM :: <seetype marker="#dns_name">dns_name()</seetype>, EM :: <seetype marker="#dns_name">dns_name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Prio :: <seetype marker="erlang#integer">integer()</seetype>, <seetype marker="#dns_name">dns_name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Prio :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Weight :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dns_name">dns_name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Order :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Preference :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Flags :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Services :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Regexp :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dns_name">dns_name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="erlang#string">string()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+  <anno>BitMap</anno>
+  <anno>CpuString</anno>
+  <anno>EM</anno>
+  <anno>Expiry</anno>
+  <anno>Flags</anno>
+  <anno>MName</anno>
+  <anno>Minimum</anno>
+  <anno>Order</anno>
+  <anno>OsString</anno>
+  <anno>Port</anno>
+  <anno>Preference</anno>
+  <anno>Prio</anno>
+  <anno>Proto</anno>
+  <anno>RM</anno>
+  <anno>RName</anno>
+  <anno>Refresh</anno>
+  <anno>Regexp</anno>
+  <anno>Retry</anno>
+  <anno>Serial</anno>
+  <anno>Services</anno>
+  <anno>Weight</anno>
+</type>
+<type>
+  <name>dns_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dns_msg">dns_msg()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dns_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dns_name">dns_name()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dns_rr_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dns_rr_type">dns_rr_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>a | aaaa | caa | cname | gid | hinfo | ns | mb | md | mg |<br/><nbsp/><nbsp/><nbsp/><nbsp/>mf | minfo | mx | naptr | null | ptr | soa | spf | srv | txt |<br/><nbsp/><nbsp/><nbsp/><nbsp/>uid | uinfo | unspec | uri | wks</typehead></typedecl>
+</type>
+<type>
+  <name>hostent</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hostent">hostent()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{hostent,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H_name :: <seetype marker="inet#hostname">inet:hostname()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H_aliases :: [<seetype marker="inet#hostname">inet:hostname()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H_addrtype :: <seetype marker="#dns_rr_type">dns_rr_type()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H_length :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H_addr_list :: [<seetype marker="#dns_data">dns_data()</seetype>]}</typehead></typedecl>
+  <anno>H_addr_list</anno>
+  <anno>H_addrtype</anno>
+  <anno>H_aliases</anno>
+  <anno>H_length</anno>
+  <anno>H_name</anno>
+</type>
+<type>
+  <name>nameserver</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-nameserver">nameserver()</marker> = {<seetype marker="inet#ip_address">inet:ip_address()</seetype>, Port :: 1..65535}</typehead></typedecl>
+  <anno>Port</anno>
+</type>
+<type>
+  <name>res_error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-res_error">res_error()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>formerr | qfmterror | servfail | nxdomain | notimp | refused |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badvers | timeout</typehead></typedecl>
+</type>
+<type>
+  <name>res_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-res_option">res_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{alt_nameservers, [<seetype marker="#nameserver">nameserver()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{edns, 0 | false} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{inet6, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{nameservers, [<seetype marker="#nameserver">nameserver()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{recurse, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{retry, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{timeout, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{udp_payload_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{dnssec_ok, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{usevc, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{nxdomain_reply, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>dns_msg</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getbyname</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getbyname(Name, Type) -&gt; {ok, Hostent} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Hostent</typename><string>Hostent = <seetype marker="inet#hostent">inet:hostent()</seetype> | <seetype marker="#hostent">hostent()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Hostent</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>getbyname</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getbyname(Name, Type, Timeout) -&gt; {ok, Hostent} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Hostent</typename><string>Hostent = <seetype marker="inet#hostent">inet:hostent()</seetype> | <seetype marker="#hostent">hostent()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Hostent</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Timeout</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>getbyname_tm</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>gethostbyaddr</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>gethostbyaddr(Address) -&gt; {ok, Hostent} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Address</typename><string>Address = <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Hostent</typename><string>Hostent = <seetype marker="inet#hostent">inet:hostent()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>Hostent</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>gethostbyaddr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>gethostbyaddr(Address, Timeout) -&gt; {ok, Hostent} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Address</typename><string>Address = <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Hostent</typename><string>Hostent = <seetype marker="inet#hostent">inet:hostent()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>Hostent</anno>
+  <anno>Reason</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>gethostbyaddr_tm</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>gethostbyname</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>gethostbyname(Name) -&gt; {ok, Hostent} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype></string></subtype>
+        <subtype><typename>Hostent</typename><string>Hostent = <seetype marker="inet#hostent">inet:hostent()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Hostent</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>gethostbyname</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>gethostbyname(Name, Family) -&gt; {ok, Hostent} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype></string></subtype>
+        <subtype><typename>Hostent</typename><string>Hostent = <seetype marker="inet#hostent">inet:hostent()</seetype></string></subtype>
+        <subtype><typename>Family</typename><string>Family = <seetype marker="inet#address_family">inet:address_family()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Family</anno>
+  <anno>Hostent</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>gethostbyname</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>gethostbyname(Name, Family, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Hostent} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype></string></subtype>
+        <subtype><typename>Hostent</typename><string>Hostent = <seetype marker="inet#hostent">inet:hostent()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Family</typename><string>Family = <seetype marker="inet#address_family">inet:address_family()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Family</anno>
+  <anno>Hostent</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>gethostbyname_tm</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lookup</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>lookup(Name, Class, Type) -&gt; [<seetype marker="#dns_data">dns_data()</seetype>]</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Name</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>lookup</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>lookup(Name, Class, Type, Opts) -&gt; [<seetype marker="#dns_data">dns_data()</seetype>]</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#res_option">res_option()</seetype> | verbose]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Name</anno>
+  <anno>Opts</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>lookup</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>lookup(Name, Class, Type, Opts, Timeout) -&gt; [<seetype marker="#dns_data">dns_data()</seetype>]</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#res_option">res_option()</seetype> | verbose]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Name</anno>
+  <anno>Opts</anno>
+  <anno>Timeout</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>nnslookup</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>nnslookup(Name, Class, Type, Nameservers) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#dns_msg">dns_msg()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Nameservers</typename><string>Nameservers = [<seetype marker="#nameserver">nameserver()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Name</anno>
+  <anno>Nameservers</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>nnslookup</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>nnslookup(Name, Class, Type, Nameservers, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#dns_msg">dns_msg()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Nameservers</typename><string>Nameservers = [<seetype marker="#nameserver">nameserver()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Name</anno>
+  <anno>Nameservers</anno>
+  <anno>Reason</anno>
+  <anno>Timeout</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>nslookup</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>nslookup(Name, Class, Type) -&gt; {ok, <seetype marker="#dns_msg">dns_msg()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>nslookup</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>nslookup(Name, Class, Type, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#dns_msg">dns_msg()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Timeout</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>nslookup</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>nslookup(Name, Class, Type, Nameservers) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#dns_msg">dns_msg()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Nameservers</typename><string>Nameservers = [<seetype marker="#nameserver">nameserver()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Name</anno>
+  <anno>Nameservers</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>resolve</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>resolve(Name, Class, Type) -&gt; {ok, <seetype marker="#dns_msg">dns_msg()</seetype>} | Error</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, Reason} | {error, {Reason, <seetype marker="#dns_msg">dns_msg()</seetype>}}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>resolve</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>resolve(Name, Class, Type, Opts) -&gt; {ok, <seetype marker="#dns_msg">dns_msg()</seetype>} | Error</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = <seetype marker="#res_option">res_option()</seetype> | verbose | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, Reason} | {error, {Reason, <seetype marker="#dns_msg">dns_msg()</seetype>}}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>resolve</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>resolve(Name, Class, Type, Opts, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#dns_msg">dns_msg()</seetype>} | Error</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#dns_name">dns_name()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Class</typename><string>Class = <seetype marker="#dns_class">dns_class()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#dns_rr_type">dns_rr_type()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = <seetype marker="#res_option">res_option()</seetype> | verbose | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, Reason} | {error, {Reason, <seetype marker="#dns_msg">dns_msg()</seetype>}}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="inet#posix">inet:posix()</seetype> | <seetype marker="#res_error">res_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Class</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+  <anno>Timeout</anno>
+  <anno>Type</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:49.</timestamp>
+</module>

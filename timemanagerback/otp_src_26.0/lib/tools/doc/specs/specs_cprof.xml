@@ -1,0 +1,300 @@
+<module name="cprof">
+<type>
+  <name>func_analysis_list</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-func_analysis_list">func_analysis_list()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="erlang#mfa">mfa()</seetype>, FuncCallCount :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}]</typehead></typedecl>
+  <anno>FuncCallCount</anno>
+</type>
+<type>
+  <name>mod_analysis</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mod_analysis">mod_analysis()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Mod :: <seetype marker="erlang#module">module()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ModCallCount :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FuncAnalysisList :: <seetype marker="#func_analysis_list">func_analysis_list()</seetype>}</typehead></typedecl>
+  <anno>FuncAnalysisList</anno>
+  <anno>Mod</anno>
+  <anno>ModCallCount</anno>
+</type>
+<type>
+  <name>mod_analysis_list</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mod_analysis_list">mod_analysis_list()</marker> = [<seetype marker="#mod_analysis">mod_analysis()</seetype>]</typehead></typedecl>
+</type>
+<spec>
+  <name>analyse</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>analyse() -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{AllCallCount :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ModAnalysisList :: <seetype marker="#mod_analysis_list">mod_analysis_list()</seetype>}</head></clause>
+  </contract>
+  <anno>AllCallCount</anno>
+  <anno>ModAnalysisList</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse(Limit) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{AllCallCount :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ModAnalysisList :: <seetype marker="#mod_analysis_list">mod_analysis_list()</seetype>}</head>
+      <guard>
+        <subtype><typename>Limit</typename><string>Limit = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AllCallCount</anno>
+  <anno>Limit</anno>
+  <anno>ModAnalysisList</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse(Mod) -&gt; ModAnalysis :: <seetype marker="#mod_analysis">mod_analysis()</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Mod</anno>
+  <anno>ModAnalysis</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>analyse(Mod, Limit) -&gt; ModAnalysis :: <seetype marker="#mod_analysis">mod_analysis()</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Limit</typename><string>Limit = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Limit</anno>
+  <anno>Mod</anno>
+  <anno>ModAnalysis</anno>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>pause</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>pause() -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>pause</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pause(FuncSpec) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>FuncSpec</typename><string>FuncSpec = (Mod :: <seetype marker="erlang#module">module()</seetype>) | <seetype marker="erlang#mfa">mfa()</seetype> | {FS :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FS</anno>
+  <anno>FuncSpec</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>pause</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pause(Mod, Func) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Func</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>pause</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pause(Mod, Func, Arity) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Func</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>restart</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>restart() -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>restart</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>restart(FuncSpec) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>FuncSpec</typename><string>FuncSpec = (Mod :: <seetype marker="erlang#module">module()</seetype>) | <seetype marker="erlang#mfa">mfa()</seetype> | {FS :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FS</anno>
+  <anno>FuncSpec</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>restart</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>restart(Mod, Func) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Func</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>restart</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>restart(Mod, Func, Arity) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Func</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(FuncSpec) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>FuncSpec</typename><string>FuncSpec = (Mod :: <seetype marker="erlang#module">module()</seetype>) | <seetype marker="erlang#mfa">mfa()</seetype> | {FS :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FS</anno>
+  <anno>FuncSpec</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start(Mod, Func) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Func</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>start(Mod, Func, Arity) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Func</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(FuncSpec) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>FuncSpec</typename><string>FuncSpec = (Mod :: <seetype marker="erlang#module">module()</seetype>) | <seetype marker="erlang#mfa">mfa()</seetype> | {FS :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FS</anno>
+  <anno>FuncSpec</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>stop(Mod, Func) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Func</anno>
+  <anno>Mod</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>stop(Mod, Func, Arity) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Func</anno>
+  <anno>Mod</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:03.</timestamp>
+</module>

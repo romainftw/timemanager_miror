@@ -1,0 +1,187 @@
+<module name="tags">
+<type>
+  <name>option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option">option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{outfile, NameOfTAGSFile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{outdir, NameOfDirectory :: <seetype marker="file#filename">file:filename()</seetype>}</typehead></typedecl>
+  <anno>NameOfDirectory</anno>
+  <anno>NameOfTAGSFile</anno>
+</type>
+<spec>
+  <name>dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>dir(Dir) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>dir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>dir(Dir, Options) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>dirs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>dirs(DirList) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>DirList</typename><string>DirList = [<seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DirList</anno>
+</spec>
+<spec>
+  <name>dirs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>dirs(DirList, Options) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>DirList</typename><string>DirList = [<seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DirList</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>file(File) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+</spec>
+<spec>
+  <name>file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>file(File, Options) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>files</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>files(FileList) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>FileList</typename><string>FileList = [<seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileList</anno>
+</spec>
+<spec>
+  <name>files</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>files(FileList, Options) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>FileList</typename><string>FileList = [<seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileList</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>root</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>root() -&gt; ok | error</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>root</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>root(Options) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>subdir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>subdir(Dir) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>subdir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>subdir(Dir, Options) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>subdirs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>subdirs(DirList) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>DirList</typename><string>DirList = [<seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DirList</anno>
+</spec>
+<spec>
+  <name>subdirs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>subdirs(DirList, Options) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>DirList</typename><string>DirList = [<seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DirList</anno>
+  <anno>Options</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:03.</timestamp>
+</module>

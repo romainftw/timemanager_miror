@@ -1,0 +1,630 @@
+<module name="proc_lib">
+<type>
+  <name>dict_or_pid</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dict_or_pid">dict_or_pid()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(ProcInfo :: [<seetype marker="erlang#term">term()</seetype>]) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>, Z :: <seetype marker="erlang#integer">integer()</seetype>}</typehead></typedecl>
+  <anno>ProcInfo</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+  <anno>Z</anno>
+</type>
+<type>
+  <name>spawn_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-spawn_option">spawn_option()</marker> = <seetype marker="erlang#spawn_opt_option">erlang:spawn_opt_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>start_spawn_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-start_spawn_option">start_spawn_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>link |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{priority, <seetype marker="erlang#priority_level">erlang:priority_level()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{fullsweep_after, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{min_heap_size, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{min_bin_vheap_size, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_heap_size, <seetype marker="erlang#max_heap_size">erlang:max_heap_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{message_queue_data, <seetype marker="erlang#message_queue_data">erlang:message_queue_data()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>format</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format(CrashReport) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>CrashReport</typename><string>CrashReport = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CrashReport</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format(CrashReport, Encoding) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>CrashReport</typename><string>CrashReport = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Encoding</typename><string>Encoding = latin1 | unicode | utf8</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CrashReport</anno>
+  <anno>Encoding</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>format(CrashReport, Encoding, Depth) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>CrashReport</typename><string>CrashReport = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Encoding</typename><string>Encoding = latin1 | unicode | utf8</string></subtype>
+        <subtype><typename>Depth</typename><string>Depth = unlimited | <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CrashReport</anno>
+  <anno>Depth</anno>
+  <anno>Encoding</anno>
+</spec>
+<spec>
+  <name>hibernate</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>hibernate(Module, Function, Args) -&gt; <seetype marker="erlang#no_return">no_return()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>init_ack</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init_ack(Ret) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ret</anno>
+</spec>
+<spec>
+  <name>init_ack</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>init_ack(Parent, Ret) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Parent</anno>
+  <anno>Ret</anno>
+</spec>
+<spec>
+  <name>init_fail</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>init_fail(Return :: <seetype marker="erlang#term">term()</seetype>, Exception :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>Exception</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>init_fail</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>init_fail(Parent :: <seetype marker="erlang#term">term()</seetype>, Return :: <seetype marker="erlang#term">term()</seetype>, Exception :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>Exception</anno>
+  <anno>Parent</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>init_p</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>init_p(Parent :: <seetype marker="erlang#pid">pid()</seetype>, Ancestors :: [<seetype marker="erlang#pid">pid()</seetype>], Fun :: <seetype marker="erlang#function">function()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Ancestors</anno>
+  <anno>Fun</anno>
+  <anno>Parent</anno>
+</spec>
+<spec>
+  <name>init_p</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>init_p(Parent :: <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Ancestors :: [<seetype marker="erlang#pid">pid()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>M :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>F :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>A :: [<seetype marker="erlang#term">term()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>A</anno>
+  <anno>Ancestors</anno>
+  <anno>F</anno>
+  <anno>M</anno>
+  <anno>Parent</anno>
+</spec>
+<spec>
+  <name>initial_call</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>initial_call(Process) -&gt; {Module, Function, Args} | false</head>
+      <guard>
+        <subtype><typename>Process</typename><string>Process = <seetype marker="#dict_or_pid">dict_or_pid()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Process</anno>
+</spec>
+<spec>
+  <name>report_cb</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>report_cb(CrashReport, FormatOpts) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>CrashReport</typename><string>CrashReport = #{label =&gt; {proc_lib, crash}, report =&gt; [<seetype marker="erlang#term">term()</seetype>]}</string></subtype>
+        <subtype><typename>FormatOpts</typename><string>FormatOpts = <seetype marker="logger#report_cb_config">logger:report_cb_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CrashReport</anno>
+  <anno>FormatOpts</anno>
+</spec>
+<spec>
+  <name>spawn</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>spawn(Fun) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+</spec>
+<spec>
+  <name>spawn</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>spawn(Node, Fun) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>spawn</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>spawn(Module, Function, Args) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>spawn</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>spawn(Node, Module, Function, Args) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>spawn_link</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>spawn_link(Fun) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+</spec>
+<spec>
+  <name>spawn_link</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>spawn_link(Node, Fun) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>spawn_link</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>spawn_link(Module, Function, Args) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>spawn_link</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>spawn_link(Node, Module, Function, Args) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>spawn_opt</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>spawn_opt(Fun, SpawnOpts) -&gt; <seetype marker="erlang#pid">pid()</seetype> | {<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#reference">reference()</seetype>}</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+        <subtype><typename>SpawnOpts</typename><string>SpawnOpts = [<seetype marker="#spawn_option">spawn_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>SpawnOpts</anno>
+</spec>
+<spec>
+  <name>spawn_opt</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>spawn_opt(Node, Function, SpawnOpts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> | {<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#reference">reference()</seetype>}</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#function">function()</seetype></string></subtype>
+        <subtype><typename>SpawnOpts</typename><string>SpawnOpts = [<seetype marker="#spawn_option">spawn_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Function</anno>
+  <anno>Node</anno>
+  <anno>SpawnOpts</anno>
+</spec>
+<spec>
+  <name>spawn_opt</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>spawn_opt(Module, Function, Args, SpawnOpts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> | {<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#reference">reference()</seetype>}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>SpawnOpts</typename><string>SpawnOpts = [<seetype marker="#spawn_option">spawn_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>SpawnOpts</anno>
+</spec>
+<spec>
+  <name>spawn_opt</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>spawn_opt(Node, Module, Function, Args, SpawnOpts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> | {<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#reference">reference()</seetype>}</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>SpawnOpts</typename><string>SpawnOpts = [<seetype marker="#spawn_option">spawn_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Node</anno>
+  <anno>SpawnOpts</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>start(Module, Function, Args) -&gt; Ret</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype> | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>Ret</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>start(Module, Function, Args, Time) -&gt; Ret</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype> | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>Ret</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>start(Module, Function, Args, Time, SpawnOpts) -&gt; Ret</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>SpawnOpts</typename><string>SpawnOpts = [<seetype marker="#start_spawn_option">start_spawn_option()</seetype>]</string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype> | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>Ret</anno>
+  <anno>SpawnOpts</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>start_link(Module, Function, Args) -&gt; Ret</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype> | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>Ret</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>start_link(Module, Function, Args, Time) -&gt; Ret</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype> | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>Ret</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>start_link(Module, Function, Args, Time, SpawnOpts) -&gt; Ret</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>SpawnOpts</typename><string>SpawnOpts = [<seetype marker="#start_spawn_option">start_spawn_option()</seetype>]</string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype> | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>Ret</anno>
+  <anno>SpawnOpts</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>start_monitor</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>start_monitor(Module, Function, Args) -&gt; {Ret, Mon}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Mon</typename><string>Mon = <seetype marker="erlang#reference">reference()</seetype></string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype> | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Mon</anno>
+  <anno>Reason</anno>
+  <anno>Ret</anno>
+</spec>
+<spec>
+  <name>start_monitor</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>start_monitor(Module, Function, Args, Time) -&gt; {Ret, Mon}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Mon</typename><string>Mon = <seetype marker="erlang#reference">reference()</seetype></string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype> | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Mon</anno>
+  <anno>Reason</anno>
+  <anno>Ret</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>start_monitor</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>start_monitor(Module, Function, Args, Time, SpawnOpts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Ret, Mon}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>SpawnOpts</typename><string>SpawnOpts = [<seetype marker="#start_spawn_option">start_spawn_option()</seetype>]</string></subtype>
+        <subtype><typename>Mon</typename><string>Mon = <seetype marker="erlang#reference">reference()</seetype></string></subtype>
+        <subtype><typename>Ret</typename><string>Ret = <seetype marker="erlang#term">term()</seetype> | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Mon</anno>
+  <anno>Reason</anno>
+  <anno>Ret</anno>
+  <anno>SpawnOpts</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(Process) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Process</typename><string>Process = <seetype marker="erlang#pid">pid()</seetype> | RegName | {RegName, <seetype marker="erlang#node">node()</seetype>}</string></subtype>
+        <subtype><typename>RegName</typename><string>RegName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Process</anno>
+  <anno>RegName</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>stop(Process, Reason, Timeout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Process</typename><string>Process = <seetype marker="erlang#pid">pid()</seetype> | RegName | {RegName, <seetype marker="erlang#node">node()</seetype>}</string></subtype>
+        <subtype><typename>RegName</typename><string>RegName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Process</anno>
+  <anno>Reason</anno>
+  <anno>RegName</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>translate_initial_call</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>translate_initial_call(Process) -&gt; {Module, Function, Arity}</head>
+      <guard>
+        <subtype><typename>Process</typename><string>Process = <seetype marker="#dict_or_pid">dict_or_pid()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#byte">byte()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Process</anno>
+</spec>
+<spec>
+  <name>wake_up</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>wake_up(M :: <seetype marker="erlang#atom">atom()</seetype>, F :: <seetype marker="erlang#atom">atom()</seetype>, A :: [<seetype marker="erlang#term">term()</seetype>]) -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>A</anno>
+  <anno>F</anno>
+  <anno>M</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:25.</timestamp>
+</module>

@@ -1,0 +1,193 @@
+<module name="erl_boot_server">
+<type>
+  <name>state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-state">state()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#state{priority = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>version = <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>udp_sock = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>udp_port = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>listen_sock = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>listen_port = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>slaves = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>bootp = <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>prim_state = <seetype marker="erlang#any">any()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>add_slave</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_slave(Slave) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Slave</typename><string>Slave = Host</string></subtype>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {badarg, Slave}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Reason</anno>
+  <anno>Slave</anno>
+</spec>
+<spec>
+  <name>add_subnet</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_subnet(Netmask :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Addr :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#any">any()</seetype>}</head></clause>
+  </contract>
+  <anno>Addr</anno>
+  <anno>Netmask</anno>
+</spec>
+<spec>
+  <name>boot_accept</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>boot_init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>boot_init(Tag :: <seetype marker="erlang#reference">reference()</seetype>) -&gt; <seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>Tag</anno>
+</spec>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>code_change(Vsn :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="#state">state()</seetype>, Extra :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Extra</anno>
+  <anno>State</anno>
+  <anno>Vsn</anno>
+</spec>
+<spec>
+  <name>delete_slave</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>delete_slave(Slave) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Slave</typename><string>Slave = Host</string></subtype>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {badarg, Slave}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Reason</anno>
+  <anno>Slave</anno>
+</spec>
+<spec>
+  <name>delete_subnet</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete_subnet(Netmask :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Addr :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Addr</anno>
+  <anno>Netmask</anno>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handle_call(X1 :: which | {add, <seetype marker="erlang#atom">atom()</seetype>} | {delete, <seetype marker="erlang#atom">atom()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>X2 :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>S0 :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, ok | [<seetype marker="erlang#atom">atom()</seetype>], <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>S0</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_cast(X1 :: <seetype marker="erlang#term">term()</seetype>, Slaves :: [<seetype marker="erlang#atom">atom()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply, [<seetype marker="erlang#atom">atom()</seetype>]}</head></clause>
+  </contract>
+  <anno>Slaves</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_info(Info :: <seetype marker="erlang#term">term()</seetype>, S0 :: <seetype marker="#state">state()</seetype>) -&gt; {noreply, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Info</anno>
+  <anno>S0</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(Slaves :: [<seetype marker="erlang#atom">atom()</seetype>]) -&gt; {ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Slaves</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(Slaves) -&gt; {ok, Pid} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Slaves</typename><string>Slaves = [Host]</string></subtype>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype></string></subtype>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {badarg, Slaves}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>Slaves</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start_link(Slaves) -&gt; {ok, Pid} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Slaves</typename><string>Slaves = [Host]</string></subtype>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype></string></subtype>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {badarg, Slaves}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>Slaves</anno>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>terminate(Reason :: <seetype marker="erlang#term">term()</seetype>, S0 :: <seetype marker="#state">state()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>S0</anno>
+</spec>
+<spec>
+  <name>which_slaves</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>which_slaves() -&gt; Slaves</head>
+      <guard>
+        <subtype><typename>Slaves</typename><string>Slaves = [Slave]</string></subtype>
+        <subtype><typename>Slave</typename><string>Slave = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Netmask :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>, Address :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>Netmask</anno>
+  <anno>Slave</anno>
+  <anno>Slaves</anno>
+</spec>
+<spec>
+  <name>would_be_booted</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:47.</timestamp>
+</module>

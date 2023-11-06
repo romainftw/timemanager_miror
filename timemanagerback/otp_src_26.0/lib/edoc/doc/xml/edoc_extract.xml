@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>edoc_extract</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>edoc_extract.xml</file></header>
+<module>edoc_extract</module>
+<modulesummary>EDoc documentation extraction.</modulesummary>
+<description>
+<p>EDoc documentation extraction.</p></description>
+<section><title>DATA TYPES</title><marker id="types"/>
+
+<taglist>
+<tag><marker id="type-context"/>context() = module | footer | function | overview | single</tag>
+<item><p/> </item>
+<tag><marker id="type-filename"/>filename() = <seeerl marker="kernel:file#type-filename">file:filename()</seeerl></tag>
+<item><p/> </item>
+<tag><marker id="type-proplist"/>proplist() = <seeerl marker="stdlib:proplists#type-proplist">proplists:proplist()</seeerl></tag>
+<item><p/> </item>
+</taglist></section>
+<funcs>
+<func>
+<name since="">file(File, Context, Env, Opts) -&gt; {ok, Tags} | {error, Reason}</name>
+<fsummary>Reads a text file and returns the list of tags in the file.</fsummary>
+<type>
+<v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Context = <seeerl marker="#type-context">context()</seeerl></v><v>Env = <seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v><v>Tags = [term()]</v><v>Reason = term()</v></type>
+<desc><marker id="file-4"/>
+
+<p>Reads a text file and returns the list of tags in the file. Any
+  lines of text before the first tag are ignored. <c>Env</c> is an
+  environment created by <seemfa marker="edoc_lib#get_doc_env/3">edoc_lib:get_doc_env/3</seemfa>. Upon error,
+  <c>Reason</c> is an atom returned from the call to <seemfa marker="kernel:file#read_file/1">file:read_file/1</seemfa> or the atom 'invalid_unicode'.</p>
+ 
+  <p>See <seemfa marker="#text/4">text/4</seemfa> for options.</p>
+</desc></func>
+<func>
+<name since="">header(File, Env, Opts) -&gt; <seeerl marker="edoc:edoc#type-entry_data">edoc:entry_data()</seeerl></name>
+<fsummary>Similar to header/5, but reads the syntax tree and the
+  comments from the specified file.</fsummary>
+<type>
+<v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Env = <seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="header-3"/>
+
+<p>Similar to <seemfa marker="#header/5">header/5</seemfa>, but reads the syntax tree and the
+  comments from the specified file.
+ </p>
+<p><em>See also:</em> <seemfa marker="#header/4">header/4</seemfa>, <seemfa marker="edoc#read_comments/2">edoc:read_comments/2</seemfa>, <seemfa marker="edoc#read_source/2">edoc:read_source/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">header(Forms, File, Env, Opts) -&gt; <seeerl marker="edoc:edoc#type-entry_data">edoc:entry_data()</seeerl></name>
+<fsummary>Extracts EDoc documentation from commented header file syntax
+  trees.</fsummary>
+<type>
+<v>Forms = <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl></v><v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Env = <seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="header-4"/>
+
+<p>Extracts EDoc documentation from commented header file syntax
+  trees. Similar to <seemfa marker="#source/5">source/5</seemfa>, but ignores any documentation
+  that occurs before a module declaration or a function definition.
+  (Warning messages are printed if content may be ignored.) <c>Env</c> is
+  assumed to already be set up with a suitable module context.
+ </p>
+<p><em>See also:</em> <seeerl marker="syntax_tools:erl_recomment">erl_recomment(3)</seeerl>, <seemfa marker="#header/5">header/5</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">header(Forms, Comments, File, Env, Opts) -&gt; <seeerl marker="edoc:edoc#type-entry_data">edoc:entry_data()</seeerl></name>
+<fsummary>Similar to header/4, but first inserts the given
+  comments in the syntax trees.</fsummary>
+<type>
+<v>Forms = <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl></v><v>Comments = [<seeerl marker="edoc:edoc#type-comment">edoc:comment()</seeerl>]</v><v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Env = <seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="header-5"/>
+
+<p>Similar to <seemfa marker="#header/4">header/4</seemfa>, but first inserts the given
+  comments in the syntax trees. The syntax trees must contain valid
+  position information. (Cf. <seemfa marker="edoc#read_comments/2">edoc:read_comments/2</seemfa>.)
+ </p>
+<p><em>See also:</em> <seeerl marker="syntax_tools:erl_recomment">erl_recomment(3)</seeerl>, <seemfa marker="#header/3">header/3</seemfa>, <seemfa marker="#header/4">header/4</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">source(File, Env, Opts) -&gt; R</name>
+<fsummary>Like source/5, but reads the syntax tree and the
+  comments from the specified file.</fsummary>
+<type>
+<v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Env = <seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v><v>R = {module(), <seeerl marker="edoc:edoc#type-edoc_module">edoc:edoc_module()</seeerl>} | {module(), <seeerl marker="edoc:edoc#type-edoc_module">edoc:edoc_module()</seeerl>, [<seeerl marker="edoc:edoc#type-entry">edoc:entry()</seeerl>]}</v></type>
+<desc><marker id="source-3"/>
+
+<p>Like <seemfa marker="#source/5">source/5</seemfa>, but reads the syntax tree and the
+  comments from the specified file.
+ </p>
+<p><em>See also:</em> <seemfa marker="#source/4">source/4</seemfa>, <seemfa marker="edoc#read_comments/2">edoc:read_comments/2</seemfa>, <seemfa marker="edoc#read_source/2">edoc:read_source/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">source(Forms, File, Env, Opts) -&gt; R</name>
+<fsummary>Extracts EDoc documentation from commented source code syntax
+  trees.</fsummary>
+<type>
+<v>Forms = <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl></v><v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Env = <seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v><v>R = {module(), <seeerl marker="edoc:edoc#type-edoc_module">edoc:edoc_module()</seeerl>} | {module(), <seeerl marker="edoc:edoc#type-edoc_module">edoc:edoc_module()</seeerl>, [<seeerl marker="edoc:edoc#type-entry">edoc:entry()</seeerl>]}</v></type>
+<desc><marker id="source-4"/>
+
+<p>Extracts EDoc documentation from commented source code syntax
+  trees. The given <c>Forms</c> must be a single syntax tree of
+  type <c>form_list</c>, or a list of syntax trees representing
+  "program forms" (cf. <seemfa marker="edoc#read_source/2">edoc:read_source/2</seemfa>.
+  <c>Env</c> is an environment created by <seemfa marker="edoc_lib#get_doc_env/3">edoc_lib:get_doc_env/3</seemfa>. The <c>File</c> argument is used for  
+error reporting and output file name generation only.</p>
+ 
+  <p>See <seemfa marker="edoc#get_doc/2">edoc:get_doc/2</seemfa> for descriptions of the <c>def</c>,
+  <c>hidden</c>, <c>private</c>, and <c>todo</c> options.
+ </p>
+<p><em>See also:</em> <seeerl marker="syntax_tools:erl_recomment">erl_recomment(3)</seeerl>, <seemfa marker="#source/5">source/5</seemfa>, <seemfa marker="edoc#read_comments/2">edoc:read_comments/2</seemfa>, <seemfa marker="edoc#read_source/2">edoc:read_source/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">source(Forms, Comments, File, Env, Opts) -&gt; R</name>
+<fsummary>Like source/4, but first inserts the given comments in
+  the syntax trees.</fsummary>
+<type>
+<v>Forms = <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl></v><v>Comments = [<seeerl marker="edoc:edoc#type-comment">edoc:comment()</seeerl>]</v><v>File = <seeerl marker="#type-filename">filename()</seeerl></v><v>Env = <seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v><v>R = {module(), <seeerl marker="edoc:edoc#type-edoc_module">edoc:edoc_module()</seeerl>} | {module(), <seeerl marker="edoc:edoc#type-edoc_module">edoc:edoc_module()</seeerl>, [<seeerl marker="edoc:edoc#type-entry">edoc:entry()</seeerl>]}</v></type>
+<desc><marker id="source-5"/>
+
+<p>Like <seemfa marker="#source/4">source/4</seemfa>, but first inserts the given comments in
+  the syntax trees. The syntax trees must contain valid position
+  information. (Cf. <seemfa marker="edoc#read_comments/2">edoc:read_comments/2</seemfa>.)
+ </p>
+<p><em>See also:</em> <seeerl marker="syntax_tools:erl_recomment">erl_recomment(3)</seeerl>, <seemfa marker="#source/3">source/3</seemfa>, <seemfa marker="#source/4">source/4</seemfa>, <seemfa marker="edoc#read_comments/2">edoc:read_comments/2</seemfa>, <seemfa marker="edoc#read_source/2">edoc:read_source/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">text(Text, Context, Env, Opts) -&gt; Tags</name>
+<fsummary>Returns the list of tags in the text.</fsummary>
+<type>
+<v>Text = string()</v><v>Context = <seeerl marker="#type-context">context()</seeerl></v><v>Env = <seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl></v><v>Opts = <seeerl marker="#type-proplist">proplist()</seeerl></v><v>Tags = [term()]</v></type>
+<desc><marker id="text-4"/>
+
+<p>Returns the list of tags in the text. Any lines of text before
+  the first tag are ignored. <c>Env</c> is an environment created by <seemfa marker="edoc_lib#get_doc_env/3">edoc_lib:get_doc_env/3</seemfa>.</p>
+ 
+  <p>See <seemfa marker="#source/4">source/4</seemfa> for a description of the <c>def</c> option.</p>
+</desc></func></funcs>
+<section><title>See also</title><p><seeerl marker="edoc">edoc</seeerl></p></section>
+<authors>
+
+<aname>Richard Carlsson</aname>
+<email>carlsson.richard@gmail.com</email></authors></erlref>

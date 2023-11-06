@@ -1,0 +1,552 @@
+<module name="digraph">
+<type>
+  <name>add_edge_err_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-add_edge_err_rsn">add_edge_err_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{bad_edge, Path :: [<seetype marker="#vertex">vertex()</seetype>]} | {bad_vertex, V :: <seetype marker="#vertex">vertex()</seetype>}</typehead></typedecl>
+  <anno>Path</anno>
+  <anno>V</anno>
+</type>
+<type>
+  <name>d_cyclicity</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-d_cyclicity">d_cyclicity()</marker> = acyclic | cyclic</typehead></typedecl>
+</type>
+<type>
+  <name>d_protection</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-d_protection">d_protection()</marker> = private | protected</typehead></typedecl>
+</type>
+<type>
+  <name>d_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-d_type">d_type()</marker> = <seetype marker="#d_cyclicity">d_cyclicity()</seetype> | <seetype marker="#d_protection">d_protection()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>edge</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-edge">edge()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>graph</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-graph">graph()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>label</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-label">label()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>vertex</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-vertex">vertex()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>add_edge</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_edge(G, V1, V2) -&gt; <seetype marker="#edge">edge()</seetype> | {error, <seetype marker="#add_edge_err_rsn">add_edge_err_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V1</typename><string>V1 = V2 = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>V2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V1</anno>
+  <anno>V2</anno>
+</spec>
+<spec>
+  <name>add_edge</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>add_edge(G, V1, V2, Label) -&gt; <seetype marker="#edge">edge()</seetype> | {error, <seetype marker="#add_edge_err_rsn">add_edge_err_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V1</typename><string>V1 = V2 = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>V2</typename><string/></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="#label">label()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>Label</anno>
+  <anno>V1</anno>
+  <anno>V2</anno>
+</spec>
+<spec>
+  <name>add_edge</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>add_edge(G, E, V1, V2, Label) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#edge">edge()</seetype> | {error, <seetype marker="#add_edge_err_rsn">add_edge_err_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>E</typename><string>E = <seetype marker="#edge">edge()</seetype></string></subtype>
+        <subtype><typename>V1</typename><string>V1 = V2 = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>V2</typename><string/></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="#label">label()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>E</anno>
+  <anno>G</anno>
+  <anno>Label</anno>
+  <anno>V1</anno>
+  <anno>V2</anno>
+</spec>
+<spec>
+  <name>add_vertex</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_vertex(G) -&gt; <seetype marker="#vertex">vertex()</seetype></head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+</spec>
+<spec>
+  <name>add_vertex</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_vertex(G, V) -&gt; <seetype marker="#vertex">vertex()</seetype></head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>add_vertex</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_vertex(G, V, Label) -&gt; <seetype marker="#vertex">vertex()</seetype></head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="#label">label()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>Label</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>del_edge</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>del_edge(G, E) -&gt; true</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>E</typename><string>E = <seetype marker="#edge">edge()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>E</anno>
+  <anno>G</anno>
+</spec>
+<spec>
+  <name>del_edges</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>del_edges(G, Edges) -&gt; true</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>Edges</typename><string>Edges = [<seetype marker="#edge">edge()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Edges</anno>
+  <anno>G</anno>
+</spec>
+<spec>
+  <name>del_path</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>del_path(G, V1, V2) -&gt; true</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V1</typename><string>V1 = V2 = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>V2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V1</anno>
+  <anno>V2</anno>
+</spec>
+<spec>
+  <name>del_vertex</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>del_vertex(G, V) -&gt; true</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>del_vertices</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>del_vertices(G, Vertices) -&gt; true</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>Vertices</typename><string>Vertices = [<seetype marker="#vertex">vertex()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>Vertices</anno>
+</spec>
+<spec>
+  <name>delete</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>delete(G) -&gt; true</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+</spec>
+<spec>
+  <name>edge</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>edge(G, E) -&gt; {E, V1, V2, Label} | false</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>E</typename><string>E = <seetype marker="#edge">edge()</seetype></string></subtype>
+        <subtype><typename>V1</typename><string>V1 = V2 = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>V2</typename><string/></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="#label">label()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>E</anno>
+  <anno>G</anno>
+  <anno>Label</anno>
+  <anno>V1</anno>
+  <anno>V2</anno>
+</spec>
+<spec>
+  <name>edges</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>edges(G) -&gt; Edges</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>Edges</typename><string>Edges = [<seetype marker="#edge">edge()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Edges</anno>
+  <anno>G</anno>
+</spec>
+<spec>
+  <name>edges</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>edges(G, V) -&gt; Edges</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Edges</typename><string>Edges = [<seetype marker="#edge">edge()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Edges</anno>
+  <anno>G</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>get_cycle</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_cycle(G, V) -&gt; Vertices | false</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Vertices</typename><string>Vertices = [<seetype marker="#vertex">vertex()</seetype>, ...]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V</anno>
+  <anno>Vertices</anno>
+</spec>
+<spec>
+  <name>get_path</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_path(G, V1, V2) -&gt; Vertices | false</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V1</typename><string>V1 = V2 = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>V2</typename><string/></subtype>
+        <subtype><typename>Vertices</typename><string>Vertices = [<seetype marker="#vertex">vertex()</seetype>, ...]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V1</anno>
+  <anno>V2</anno>
+  <anno>Vertices</anno>
+</spec>
+<spec>
+  <name>get_short_cycle</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_short_cycle(G, V) -&gt; Vertices | false</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Vertices</typename><string>Vertices = [<seetype marker="#vertex">vertex()</seetype>, ...]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V</anno>
+  <anno>Vertices</anno>
+</spec>
+<spec>
+  <name>get_short_path</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_short_path(G, V1, V2) -&gt; Vertices | false</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V1</typename><string>V1 = V2 = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>V2</typename><string/></subtype>
+        <subtype><typename>Vertices</typename><string>Vertices = [<seetype marker="#vertex">vertex()</seetype>, ...]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V1</anno>
+  <anno>V2</anno>
+  <anno>Vertices</anno>
+</spec>
+<spec>
+  <name>in_degree</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>in_degree(G, V) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>in_edges</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>in_edges(G, V) -&gt; Edges</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Edges</typename><string>Edges = [<seetype marker="#edge">edge()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Edges</anno>
+  <anno>G</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>in_neighbours</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>in_neighbours(G, V) -&gt; Vertex</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Vertex</typename><string>Vertex = [<seetype marker="#vertex">vertex()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V</anno>
+  <anno>Vertex</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(G) -&gt; InfoList</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>InfoList</typename><string>InfoList = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{cyclicity, Cyclicity :: <seetype marker="#d_cyclicity">d_cyclicity()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{memory, NoWords :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{protection, Protection :: <seetype marker="#d_protection">d_protection()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cyclicity</anno>
+  <anno>G</anno>
+  <anno>InfoList</anno>
+  <anno>NoWords</anno>
+  <anno>Protection</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#graph">graph()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Type) -&gt; <seetype marker="#graph">graph()</seetype></head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = [<seetype marker="#d_type">d_type()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>no_edges</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>no_edges(G) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+</spec>
+<spec>
+  <name>no_vertices</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>no_vertices(G) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+</spec>
+<spec>
+  <name>out_degree</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>out_degree(G, V) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>out_edges</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>out_edges(G, V) -&gt; Edges</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Edges</typename><string>Edges = [<seetype marker="#edge">edge()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Edges</anno>
+  <anno>G</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>out_neighbours</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>out_neighbours(G, V) -&gt; Vertices</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Vertices</typename><string>Vertices = [<seetype marker="#vertex">vertex()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>V</anno>
+  <anno>Vertices</anno>
+</spec>
+<spec>
+  <name>sink_vertices</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sink_vertices(G :: <seetype marker="#graph">graph()</seetype>) -&gt; [<seetype marker="#vertex">vertex()</seetype>]</head></clause>
+  </contract>
+  <anno>G</anno>
+</spec>
+<spec>
+  <name>source_vertices</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>source_vertices(G :: <seetype marker="#graph">graph()</seetype>) -&gt; [<seetype marker="#vertex">vertex()</seetype>]</head></clause>
+  </contract>
+  <anno>G</anno>
+</spec>
+<spec>
+  <name>vertex</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>vertex(G, V) -&gt; {V, Label} | false</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>V</typename><string>V = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="#label">label()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>Label</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>vertices</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>vertices(G) -&gt; Vertices</head>
+      <guard>
+        <subtype><typename>G</typename><string>G = <seetype marker="#graph">graph()</seetype></string></subtype>
+        <subtype><typename>Vertices</typename><string>Vertices = [<seetype marker="#vertex">vertex()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>Vertices</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:19.</timestamp>
+</module>

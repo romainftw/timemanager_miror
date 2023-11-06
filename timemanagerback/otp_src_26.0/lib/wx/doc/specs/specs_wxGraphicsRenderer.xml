@@ -1,0 +1,201 @@
+<module name="wxGraphicsRenderer">
+<type>
+  <name>wxGraphicsRenderer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxGraphicsRenderer">wxGraphicsRenderer()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>createBrush</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>createBrush(This, Brush) -&gt; <seetype marker="wxGraphicsBrush#wxGraphicsBrush">wxGraphicsBrush:wxGraphicsBrush()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+        <subtype><typename>Brush</typename><string>Brush = <seetype marker="wxBrush#wxBrush">wxBrush:wxBrush()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Brush</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>createContext</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>createContext(This, WindowDC) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGraphicsContext#wxGraphicsContext">wxGraphicsContext:wxGraphicsContext()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+        <subtype><typename>WindowDC</typename><string>WindowDC = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWindowDC#wxWindowDC">wxWindowDC:wxWindowDC()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMemoryDC#wxMemoryDC">wxMemoryDC:wxMemoryDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>WindowDC</anno>
+</spec>
+<spec>
+  <name>createFont</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>createFont(This, Font) -&gt; <seetype marker="wxGraphicsFont#wxGraphicsFont">wxGraphicsFont:wxGraphicsFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Font</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>createFont</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>createFont(This, SizeInPixels, Facename) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGraphicsFont#wxGraphicsFont">wxGraphicsFont:wxGraphicsFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+        <subtype><typename>SizeInPixels</typename><string>SizeInPixels = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Facename</typename><string>Facename = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Facename</anno>
+  <anno>SizeInPixels</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>createFont</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>createFont(This, Font, Facename :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGraphicsFont#wxGraphicsFont">wxGraphicsFont:wxGraphicsFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {col, <seetype marker="wx#wx_colour">wx:wx_colour()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Facename</anno>
+  <anno>Font</anno>
+  <anno>Option</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>createFont</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>createFont(This, SizeInPixels, Facename, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGraphicsFont#wxGraphicsFont">wxGraphicsFont:wxGraphicsFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+        <subtype><typename>SizeInPixels</typename><string>SizeInPixels = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Facename</typename><string>Facename = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {flags, <seetype marker="erlang#integer">integer()</seetype>} | {col, <seetype marker="wx#wx_colour">wx:wx_colour()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Facename</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>SizeInPixels</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>createLinearGradientBrush</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>createLinearGradientBrush(This, X1, Y1, X2, Y2, Stops) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGraphicsBrush#wxGraphicsBrush">wxGraphicsBrush:wxGraphicsBrush()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+        <subtype><typename>X1</typename><string>X1 = Y1 = X2 = Y2 = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y1</typename><string/></subtype>
+        <subtype><typename>X2</typename><string/></subtype>
+        <subtype><typename>Y2</typename><string/></subtype>
+        <subtype><typename>Stops</typename><string>Stops = <seetype marker="wxGraphicsGradientStops#wxGraphicsGradientStops">wxGraphicsGradientStops:wxGraphicsGradientStops()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Stops</anno>
+  <anno>This</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+  <anno>Y1</anno>
+  <anno>Y2</anno>
+</spec>
+<spec>
+  <name>createMatrix</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>createMatrix(This) -&gt; <seetype marker="wxGraphicsMatrix#wxGraphicsMatrix">wxGraphicsMatrix:wxGraphicsMatrix()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>createMatrix</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>createMatrix(This, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGraphicsMatrix#wxGraphicsMatrix">wxGraphicsMatrix:wxGraphicsMatrix()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{a, <seetype marker="erlang#number">number()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{b, <seetype marker="erlang#number">number()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{c, <seetype marker="erlang#number">number()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{d, <seetype marker="erlang#number">number()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tx, <seetype marker="erlang#number">number()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ty, <seetype marker="erlang#number">number()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>createPath</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>createPath(This) -&gt; <seetype marker="wxGraphicsPath#wxGraphicsPath">wxGraphicsPath:wxGraphicsPath()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>createRadialGradientBrush</name>
+  <arity>7</arity>
+  <contract>
+    <clause>
+      <head>createRadialGradientBrush(This, StartX, StartY, EndX, EndY,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Radius, Stops) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGraphicsBrush#wxGraphicsBrush">wxGraphicsBrush:wxGraphicsBrush()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></string></subtype>
+        <subtype><typename>StartX</typename><string>StartX = StartY = EndX = EndY = Radius = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>StartY</typename><string/></subtype>
+        <subtype><typename>EndX</typename><string/></subtype>
+        <subtype><typename>EndY</typename><string/></subtype>
+        <subtype><typename>Radius</typename><string/></subtype>
+        <subtype><typename>Stops</typename><string>Stops = <seetype marker="wxGraphicsGradientStops#wxGraphicsGradientStops">wxGraphicsGradientStops:wxGraphicsGradientStops()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EndX</anno>
+  <anno>EndY</anno>
+  <anno>Radius</anno>
+  <anno>StartX</anno>
+  <anno>StartY</anno>
+  <anno>Stops</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultRenderer</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getDefaultRenderer() -&gt; <seetype marker="#wxGraphicsRenderer">wxGraphicsRenderer()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:33.</timestamp>
+</module>

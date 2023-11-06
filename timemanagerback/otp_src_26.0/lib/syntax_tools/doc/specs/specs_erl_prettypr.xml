@@ -1,0 +1,173 @@
+<module name="erl_prettypr">
+<type>
+  <name>clause_t</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-clause_t">clause_t()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>case_expr | fun_expr | if_expr | maybe_expr | receive_expr |<br/><nbsp/><nbsp/><nbsp/><nbsp/>try_expr |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{function, <seetype marker="prettypr#document">prettypr:document()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>spec</typehead></typedecl>
+</type>
+<type>
+  <name>context</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-context">context()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#ctxt{prec = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>sub_indent = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>break_indent = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>clause = <seetype marker="#clause_t">clause_t()</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>hook = <seetype marker="#hook">hook()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>paper = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ribbon = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>user = <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>encoding = <seetype marker="epp#source_encoding">epp:source_encoding()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>empty_lines = <seetype marker="sets#set">sets:set</seetype>(<seetype marker="erlang#integer">integer()</seetype>)}</typehead></typedecl>
+</type>
+<type>
+  <name>hook</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hook">hook()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>none |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="erl_syntax#syntaxTree">erl_syntax:syntaxTree()</seetype>, <seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="prettypr#document">prettypr:document()</seetype>)</typehead></typedecl>
+</type>
+<spec>
+  <name>best</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>best(Node :: <seetype marker="erl_syntax#syntaxTree">erl_syntax:syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>empty | <seetype marker="prettypr#document">prettypr:document()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>best</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>best(Node :: <seetype marker="erl_syntax#syntaxTree">erl_syntax:syntaxTree()</seetype>, Options :: [<seetype marker="erlang#term">term()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>empty | <seetype marker="prettypr#document">prettypr:document()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format(Node :: <seetype marker="erl_syntax#syntaxTree">erl_syntax:syntaxTree()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format(Node :: <seetype marker="erl_syntax#syntaxTree">erl_syntax:syntaxTree()</seetype>, Options :: [<seetype marker="erlang#term">term()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>get_ctxt_hook</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_ctxt_hook(Ctxt :: <seetype marker="#context">context()</seetype>) -&gt; <seetype marker="#hook">hook()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+</spec>
+<spec>
+  <name>get_ctxt_linewidth</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_ctxt_linewidth(Ctxt :: <seetype marker="#context">context()</seetype>) -&gt; <seetype marker="erlang#integer">integer()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+</spec>
+<spec>
+  <name>get_ctxt_paperwidth</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_ctxt_paperwidth(Ctxt :: <seetype marker="#context">context()</seetype>) -&gt; <seetype marker="erlang#integer">integer()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+</spec>
+<spec>
+  <name>get_ctxt_precedence</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_ctxt_precedence(Ctxt :: <seetype marker="#context">context()</seetype>) -&gt; <seetype marker="erlang#integer">integer()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+</spec>
+<spec>
+  <name>get_ctxt_user</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_ctxt_user(Ctxt :: <seetype marker="#context">context()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+</spec>
+<spec>
+  <name>layout</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>layout(Node :: <seetype marker="erl_syntax#syntaxTree">erl_syntax:syntaxTree()</seetype>) -&gt; <seetype marker="prettypr#document">prettypr:document()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>layout</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>layout(Node :: <seetype marker="erl_syntax#syntaxTree">erl_syntax:syntaxTree()</seetype>, Options :: [<seetype marker="erlang#term">term()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="prettypr#document">prettypr:document()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>set_ctxt_hook</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_ctxt_hook(Ctxt :: <seetype marker="#context">context()</seetype>, Hook :: <seetype marker="#hook">hook()</seetype>) -&gt; <seetype marker="#context">context()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+  <anno>Hook</anno>
+</spec>
+<spec>
+  <name>set_ctxt_linewidth</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_ctxt_linewidth(Ctxt :: <seetype marker="#context">context()</seetype>, W :: <seetype marker="erlang#integer">integer()</seetype>) -&gt; <seetype marker="#context">context()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>set_ctxt_paperwidth</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_ctxt_paperwidth(Ctxt :: <seetype marker="#context">context()</seetype>, W :: <seetype marker="erlang#integer">integer()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#context">context()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>set_ctxt_precedence</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_ctxt_precedence(Ctxt :: <seetype marker="#context">context()</seetype>, Prec :: <seetype marker="erlang#integer">integer()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#context">context()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+  <anno>Prec</anno>
+</spec>
+<spec>
+  <name>set_ctxt_user</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_ctxt_user(Ctxt :: <seetype marker="#context">context()</seetype>, X :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="#context">context()</seetype></head></clause>
+  </contract>
+  <anno>Ctxt</anno>
+  <anno>X</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:23.</timestamp>
+</module>

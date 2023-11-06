@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>edoc_doclet</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>edoc_doclet.xml</file></header>
+<module>edoc_doclet</module>
+<modulesummary>Standard doclet module for EDoc.</modulesummary>
+<description>
+<p>Standard doclet module for EDoc.</p></description>
+<section><title>DATA TYPES</title><marker id="types"/>
+
+<taglist>
+<tag><marker id="type-command"/>command() = <seeerl marker="#type-doclet_gen">doclet_gen()</seeerl> | <seeerl marker="#type-doclet_toc">doclet_toc()</seeerl></tag>
+<item><p/>
+<p>  Doclet commands.</p>
+</item>
+<tag><marker id="type-context"/>context() = #doclet_context{dir=string(), env=<seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl>, opts=[term()]}</tag>
+<item><p/>
+<p>  Context for doclets.</p>
+</item>
+<tag><marker id="type-doclet_gen"/>doclet_gen() = #doclet_gen{sources=[string()], app=no_app | atom(), modules=[module()]}</tag>
+<item><p/>
+<p>  Doclet command.</p>
+</item>
+<tag><marker id="type-doclet_toc"/>doclet_toc() = #doclet_toc{paths=[string()], indir=string()}</tag>
+<item><p/>
+<p>  Doclet command.</p>
+</item>
+</taglist></section>
+<funcs>
+<func>
+<name since="">run(Doclet_gen::<seeerl marker="edoc:edoc_doclet#type-command">edoc_doclet:command()</seeerl>, Ctxt::<seeerl marker="edoc:edoc_doclet#type-context">edoc_doclet:context()</seeerl>) -&gt; ok</name>
+<fsummary>Main doclet entry point.</fsummary>
+
+<desc><marker id="run-2"/>
+
+<p>Main doclet entry point. See the file <url href="edoc_doclet.hrl">edoc_doclet.hrl</url> for the data  
+structures used for passing parameters.</p>
+ 
+  <p>Also see <seemfa marker="edoc#layout/2">edoc:layout/2</seemfa> for layout-related options, and
+  <seemfa marker="edoc#get_doc/2">edoc:get_doc/2</seemfa> for options related to reading source  
+files.</p>
+ 
+  <p>Options:
+  </p><taglist>
+   <tag><c>{file_suffix, string()}</c>
+   </tag>
+   <item><p>Specifies the suffix used for output files. The default value is
+       <c>".html"</c>.
+   </p></item>
+   <tag><c>{hidden, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, documentation of hidden modules and
+       functions will also be included. The default value is <c>false</c>.
+   </p></item>
+   <tag><c>{overview, edoc:filename()}</c>
+   </tag>
+   <item><p>Specifies the name of the overview-file. By default, this doclet
+       looks for a file <c>"overview.edoc"</c> in the target directory.
+   </p></item>
+   <tag><c>{private, boolean()}</c>
+   </tag>
+   <item><p>If the value is <c>true</c>, documentation of private modules and
+       functions will also be included. The default value is <c>false</c>.
+   </p></item>
+   <tag><c>{stylesheet, string()}</c>
+   </tag>
+   <item><p>Specifies the URI used for referencing the stylesheet. The
+       default value is <c>"stylesheet.css"</c>. If an empty string is
+       specified, no stylesheet reference will be generated.
+   </p></item>
+   <tag><c>{stylesheet_file, edoc:filename()}</c>
+   </tag>
+   <item><p>Specifies the name of the stylesheet file. By default, this
+       doclet uses the file <c>"stylesheet.css"</c> in the <c>priv</c>
+       subdirectory of the EDoc installation directory. The named file
+       will be copied to the target directory.
+   </p></item>
+   <tag><c>{title, string()}</c>
+   </tag>
+   <item><p>Specifies the title of the overview-page.
+   </p></item>
+  </taglist>
+</desc></func></funcs>
+<section><title>See also</title><p><seeerl marker="edoc">edoc</seeerl></p></section>
+<authors>
+
+<aname>Richard Carlsson</aname>
+<email>carlsson.richard@gmail.com</email></authors></erlref>

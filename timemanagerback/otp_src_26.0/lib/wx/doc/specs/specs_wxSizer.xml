@@ -1,0 +1,1091 @@
+<module name="wxSizer">
+<type>
+  <name>wxSizer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxSizer">wxSizer()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>add</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add(This, Window) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add(This, Width, Height) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add(This, Window, Flags) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Flags</typename><string>Flags = <seetype marker="wxSizerFlags#wxSizerFlags">wxSizerFlags:wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add(This, Window, Height :: [Option]) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{proportion, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{flag, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{border, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{userData, <seetype marker="wx#wx_object">wx:wx_object()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>add(This, Width, Height, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{proportion, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{flag, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{border, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{userData, <seetype marker="wx#wx_object">wx:wx_object()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>add(This, Width, Height, Flags) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Flags</typename><string>Flags = <seetype marker="wxSizerFlags#wxSizerFlags">wxSizerFlags:wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>Height</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>addSpacer</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>addSpacer(This, Size) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Size</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>addStretchSpacer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>addStretchSpacer(This) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>addStretchSpacer</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>addStretchSpacer(This, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {prop, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>calcMin</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>calcMin(This) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clear(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>clear(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {delete_windows, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>detach</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>detach(This, Window) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>detach</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>detach(This, Index) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>fit</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>fit(This, Window) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>fitInside</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>fitInside(This, Window) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>getChildren</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getChildren(This) -&gt; [<seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype>]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItem(This, Window) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getItem(This, Index) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getItem(This, Window, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {recursive, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>getMinSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMinSize(This) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getPosition</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPosition(This) -&gt; {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSize(This) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hide(This, Window) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hide(This, Index) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>hide(This, Window, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {recursive, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>insert(This, Index, Item) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>insert(This, Index, Width, Height) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Index</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>insert(This, Index, Window, Flags) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Flags</typename><string>Flags = <seetype marker="wxSizerFlags#wxSizerFlags">wxSizerFlags:wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>Index</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>insert(This, Index, Window, Height :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{proportion, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{flag, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{border, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{userData, <seetype marker="wx#wx_object">wx:wx_object()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Index</anno>
+  <anno>Option</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>insert(This, Index, Width, Height, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string/></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{proportion, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{flag, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{border, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{userData, <seetype marker="wx#wx_object">wx:wx_object()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Index</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>insert(This, Index, Width, Height, Flags) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string/></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Flags</typename><string>Flags = <seetype marker="wxSizerFlags#wxSizerFlags">wxSizerFlags:wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>Height</anno>
+  <anno>Index</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>insertSpacer</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>insertSpacer(This, Index, Size) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = Size = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertStretchSpacer</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>insertStretchSpacer(This, Index) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertStretchSpacer</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>insertStretchSpacer(This, Index, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {prop, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isShown</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>isShown(This, Window) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>isShown</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>isShown(This, Index) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>layout</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>layout(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>prepend(This, Item) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>prepend(This, Width, Height) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>prepend(This, Window, Flags) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Flags</typename><string>Flags = <seetype marker="wxSizerFlags#wxSizerFlags">wxSizerFlags:wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>prepend(This, Window, Height :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{proportion, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{flag, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{border, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{userData, <seetype marker="wx#wx_object">wx:wx_object()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>prepend(This, Width, Height, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{proportion, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{flag, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{border, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{userData, <seetype marker="wx#wx_object">wx:wx_object()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>prepend(This, Width, Height, Flags) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Flags</typename><string>Flags = <seetype marker="wxSizerFlags#wxSizerFlags">wxSizerFlags:wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>Height</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>prependSpacer</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>prependSpacer(This, Size) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Size</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>prependStretchSpacer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>prependStretchSpacer(This) -&gt; <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>prependStretchSpacer</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>prependStretchSpacer(This, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {prop, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>recalcSizes</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>recalcSizes(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>remove</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>remove(This, Index) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>remove</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>remove(This, Sizer) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = Sizer = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Sizer</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Sizer</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>replace</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>replace(This, Oldwin, Newwin) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Oldwin</typename><string>Oldwin = Newwin = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Newwin</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Newwin</anno>
+  <anno>Oldwin</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>replace</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>replace(This, Index, Newitem) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Newitem</typename><string>Newitem = <seetype marker="wxSizerItem#wxSizerItem">wxSizerItem:wxSizerItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>Newitem</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>replace</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>replace(This, Oldwin, Newwin, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Oldwin</typename><string>Oldwin = Newwin = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Newwin</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {recursive, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Newwin</anno>
+  <anno>Oldwin</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDimension</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setDimension(This, Pos, Size) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Pos</typename><string>Pos = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Pos</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setDimension</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>setDimension(This, X, Y, Width, Height) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+        <subtype><typename>Width</typename><string></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setItemMinSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setItemMinSize(This, Window, Size) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>setItemMinSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setItemMinSize(This, Index, Size) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Index</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>setItemMinSize</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setItemMinSize(This, Window, Width, Height) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>setItemMinSize</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setItemMinSize(This, Index, Width, Height) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Index</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMinSize(This, Size) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setMinSize(This, Width, Height) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setSizeHints(This, Window) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>setVirtualSizeHints</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setVirtualSizeHints(This, Window) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>show(This, Window) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>show(This, Index) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>show(This, Show) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Show</typename><string>Show = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Show</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>show(This, Window, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | <seetype marker="wxSizer#wxSizer">wxSizer:wxSizer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {show, <seetype marker="erlang#boolean">boolean()</seetype>} | {recursive, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>show(This, Index, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {show, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>showItems</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>showItems(This, Show) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizer">wxSizer()</seetype></string></subtype>
+        <subtype><typename>Show</typename><string>Show = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Show</anno>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:49.</timestamp>
+</module>

@@ -1,0 +1,3971 @@
+<module name="wxGrid">
+<type>
+  <name>wxGrid</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxGrid">wxGrid()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>appendCols</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>appendCols(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>appendCols</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>appendCols(This, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {numCols, <seetype marker="erlang#integer">integer()</seetype>} | {updateLabels, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>appendRows</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>appendRows(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>appendRows</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>appendRows(This, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {numRows, <seetype marker="erlang#integer">integer()</seetype>} | {updateLabels, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>autoSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>autoSize(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>autoSizeColumn</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>autoSizeColumn(This, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>autoSizeColumn</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>autoSizeColumn(This, Col, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {setAsMin, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>autoSizeColumns</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>autoSizeColumns(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>autoSizeColumns</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>autoSizeColumns(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {setAsMin, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>autoSizeRow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>autoSizeRow(This, Row) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>autoSizeRow</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>autoSizeRow(This, Row, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {setAsMin, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>autoSizeRows</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>autoSizeRows(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>autoSizeRows</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>autoSizeRows(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {setAsMin, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>beginBatch</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>beginBatch(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>blockToDeviceRect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>blockToDeviceRect(This, TopLeft, BottomRight) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>TopLeft</typename><string>TopLeft = BottomRight = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>BottomRight</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BottomRight</anno>
+  <anno>C</anno>
+  <anno>H</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+  <anno>TopLeft</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>cacheBestSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>calcScrolledPosition</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>calcScrolledPosition</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>calcUnscrolledPosition</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>calcUnscrolledPosition</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>canDragCell</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>canDragCell(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>canDragColMove</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>canDragColMove(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>canDragColSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>canDragColSize(This, Col) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>canDragGridRowEdges</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>canDragGridRowEdges(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>canDragGridSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>canDragGridSize(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>canDragRowSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>canDragRowSize(This, Row) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>canEnableCellControl</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>canEnableCellControl(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>canSetTransparent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>captureMouse</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>cellToRect</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cellToRect(This, Coords) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Coords</typename><string>Coords = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Coords</anno>
+  <anno>H</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>cellToRect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>cellToRect(This, Row, Col) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>H</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>center</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>center</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnParent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnParent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clearBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clearGrid</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clearGrid(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>clearSelection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clearSelection(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>clientToScreen</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clientToScreen</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>convertDialogToPixels</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>convertPixelsToDialog</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>createGrid</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>createGrid(This, NumRows, NumCols) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>NumRows</typename><string>NumRows = NumCols = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>NumCols</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>NumCols</anno>
+  <anno>NumRows</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>createGrid</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>createGrid(This, NumRows, NumCols, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>NumRows</typename><string>NumRows = NumCols = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>NumCols</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {selmode, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>NumCols</anno>
+  <anno>NumRows</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>deleteCols</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>deleteCols(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>deleteCols</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>deleteCols(This, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{numCols, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{updateLabels, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>deleteRows</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>deleteRows(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>deleteRows</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>deleteRows(This, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{numRows, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{updateLabels, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxGrid">wxGrid()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroyChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disableCellEditControl</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>disableCellEditControl(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>disableDragColSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>disableDragColSize(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>disableDragGridSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>disableDragGridSize(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>disableDragRowSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>disableDragRowSize(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>doPrepareDC</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>dragAcceptFiles</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>enableCellEditControl</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>enableCellEditControl(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableCellEditControl</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableCellEditControl(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {enable, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableDragColSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>enableDragColSize(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableDragColSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableDragColSize(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {enable, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableDragGridSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>enableDragGridSize(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableDragGridSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableDragGridSize(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {enable, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableDragRowSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>enableDragRowSize(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableDragRowSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableDragRowSize(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {enable, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableEditing</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableEditing(This, Edit) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Edit</typename><string>Edit = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Edit</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableGridLines</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>enableGridLines(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableGridLines</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableGridLines(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {enable, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableScrolling</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>endBatch</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>endBatch(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>findWindow</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fit</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>fit(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>fitInside</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>forceRefresh</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>forceRefresh(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>freeze</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getAcceleratorTable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBackgroundColour</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBackgroundStyle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBatchCount</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getBatchCount(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getBestSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCaret</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCellAlignment</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getCellAlignment(This, Row, Col) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Horiz :: <seetype marker="erlang#integer">integer()</seetype>, Vert :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Horiz</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+  <anno>Vert</anno>
+</spec>
+<spec>
+  <name>getCellBackgroundColour</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getCellBackgroundColour(This, Row, Col) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCellEditor</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getCellEditor(This, Row, Col) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridCellEditor#wxGridCellEditor">wxGridCellEditor:wxGridCellEditor()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCellFont</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getCellFont(This, Row, Col) -&gt; <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCellRenderer</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getCellRenderer(This, Row, Col) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridCellRenderer#wxGridCellRenderer">wxGridCellRenderer:wxGridCellRenderer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCellTextColour</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getCellTextColour(This, Row, Col) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCellValue</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getCellValue(This, Coords) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Coords</typename><string>Coords = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Coords</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCellValue</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getCellValue(This, Row, Col) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCharHeight</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCharWidth</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getClientSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getColLabelAlignment</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getColLabelAlignment(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Horiz :: <seetype marker="erlang#integer">integer()</seetype>, Vert :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Horiz</anno>
+  <anno>This</anno>
+  <anno>Vert</anno>
+</spec>
+<spec>
+  <name>getColLabelSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getColLabelSize(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getColLabelValue</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getColLabelValue(This, Col) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getColMinimalAcceptableWidth</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getColMinimalAcceptableWidth(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getContainingSizer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getContentScaleFactor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCursor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDPI</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDPIScaleFactor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDefaultCellAlignment</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultCellAlignment(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Horiz :: <seetype marker="erlang#integer">integer()</seetype>, Vert :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Horiz</anno>
+  <anno>This</anno>
+  <anno>Vert</anno>
+</spec>
+<spec>
+  <name>getDefaultCellBackgroundColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultCellBackgroundColour(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultCellFont</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultCellFont(This) -&gt; <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultCellTextColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultCellTextColour(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultColLabelSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultColLabelSize(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultColSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultColSize(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultEditor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultEditor(This) -&gt; <seetype marker="wxGridCellEditor#wxGridCellEditor">wxGridCellEditor:wxGridCellEditor()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultEditorForCell</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getDefaultEditorForCell(This, C) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridCellEditor#wxGridCellEditor">wxGridCellEditor:wxGridCellEditor()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>C</typename><string>C = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultEditorForCell</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getDefaultEditorForCell(This, Row, Col) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridCellEditor#wxGridCellEditor">wxGridCellEditor:wxGridCellEditor()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultEditorForType</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getDefaultEditorForType(This, TypeName) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridCellEditor#wxGridCellEditor">wxGridCellEditor:wxGridCellEditor()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>TypeName</typename><string>TypeName = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>TypeName</anno>
+</spec>
+<spec>
+  <name>getDefaultRenderer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultRenderer(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridCellRenderer#wxGridCellRenderer">wxGridCellRenderer:wxGridCellRenderer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultRendererForCell</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getDefaultRendererForCell(This, Row, Col) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridCellRenderer#wxGridCellRenderer">wxGridCellRenderer:wxGridCellRenderer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultRendererForType</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getDefaultRendererForType(This, TypeName) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridCellRenderer#wxGridCellRenderer">wxGridCellRenderer:wxGridCellRenderer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>TypeName</typename><string>TypeName = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>TypeName</anno>
+</spec>
+<spec>
+  <name>getDefaultRowLabelSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultRowLabelSize(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultRowSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultRowSize(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDropTarget</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getExtraStyle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getFont</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getForegroundColour</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getGrandParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getGridColLabelWindow</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getGridColLabelWindow(This) -&gt; <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getGridCornerLabelWindow</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getGridCornerLabelWindow(This) -&gt; <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getGridCursorCol</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getGridCursorCol(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getGridCursorRow</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getGridCursorRow(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getGridLineColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getGridLineColour(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getGridRowLabelWindow</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getGridRowLabelWindow(This) -&gt; <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getGridWindow</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getGridWindow(This) -&gt; <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getHandle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getHelpText</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getId</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getLabel</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getLabelBackgroundColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLabelBackgroundColour(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLabelFont</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLabelFont(This) -&gt; <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLabelTextColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLabelTextColour(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMaxSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMinSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getName</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getNumberCols</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getNumberCols(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getNumberRows</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getNumberRows(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getOrCreateCellAttr</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getOrCreateCellAttr(This, Row, Col) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridCellAttr#wxGridCellAttr">wxGridCellAttr:wxGridCellAttr()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getRect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getRowLabelAlignment</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getRowLabelAlignment(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Horiz :: <seetype marker="erlang#integer">integer()</seetype>, Vert :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Horiz</anno>
+  <anno>This</anno>
+  <anno>Vert</anno>
+</spec>
+<spec>
+  <name>getRowLabelSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getRowLabelSize(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getRowLabelValue</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getRowLabelValue(This, Row) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getRowMinimalAcceptableHeight</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getRowMinimalAcceptableHeight(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getRowSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getRowSize(This, Row) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getScreenPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScreenRect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollLineX</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getScrollLineX(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getScrollLineY</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getScrollLineY(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getScrollPixelsPerUnit</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollPos</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollRange</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollThumb</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSelectedCells</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelectedCells(This) -&gt; [{R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSelectedCols</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelectedCols(This) -&gt; [<seetype marker="erlang#integer">integer()</seetype>]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSelectedRows</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelectedRows(This) -&gt; [<seetype marker="erlang#integer">integer()</seetype>]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSelectionBackground</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelectionBackground(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSelectionBlockBottomRight</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelectionBlockBottomRight(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSelectionBlockTopLeft</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelectionBlockTopLeft(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSelectionForeground</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelectionForeground(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSizer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getThemeEnabled</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getToolTip</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getUpdateRegion</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getViewStart</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getVirtualSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getWindowStyleFlag</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getWindowVariant</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>gridLinesEnabled</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>gridLinesEnabled(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasCapture</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasScrollbar</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasTransparentBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hideCellEditControl</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hideCellEditControl(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>inheritAttributes</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>initDialog</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insertCols</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>insertCols(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertCols</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>insertCols(This, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{numCols, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{updateLabels, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertRows</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>insertRows(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertRows</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>insertRows(This, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{numRows, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{updateLabels, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>invalidateBestSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isCellEditControlEnabled</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isCellEditControlEnabled(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isCurrentCellReadOnly</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isCurrentCellReadOnly(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isDoubleBuffered</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isEditable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isEditable(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isEnabled</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isFrozen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isInSelection</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>isInSelection(This, Coords) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Coords</typename><string>Coords = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Coords</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isInSelection</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>isInSelection(This, Row, Col) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isReadOnly</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>isReadOnly(This, Row, Col) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isRetained</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isSelection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isSelection(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isShown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isShownOnScreen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isTopLevel</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isVisible</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>isVisible(This, Coords) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Coords</typename><string>Coords = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Coords</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isVisible</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>isVisible(This, Row, Col) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isVisible</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>isVisible(This, Coords, Col :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Coords</typename><string>Coords = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {wholeCellVisible, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Col</anno>
+  <anno>Coords</anno>
+  <anno>Option</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isVisible</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>isVisible(This, Row, Col, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {wholeCellVisible, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>layout</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lineDown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lineUp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lower</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>makeCellVisible</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>makeCellVisible(This, Coords) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Coords</typename><string>Coords = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Coords</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>makeCellVisible</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>makeCellVisible(This, Row, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveAfterInTabOrder</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveBeforeInTabOrder</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveCursorDown</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>moveCursorDown(This, ExpandSelection) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>ExpandSelection</typename><string>ExpandSelection = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExpandSelection</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>moveCursorDownBlock</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>moveCursorDownBlock(This, ExpandSelection) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>ExpandSelection</typename><string>ExpandSelection = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExpandSelection</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>moveCursorLeft</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>moveCursorLeft(This, ExpandSelection) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>ExpandSelection</typename><string>ExpandSelection = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExpandSelection</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>moveCursorLeftBlock</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>moveCursorLeftBlock(This, ExpandSelection) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>ExpandSelection</typename><string>ExpandSelection = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExpandSelection</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>moveCursorRight</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>moveCursorRight(This, ExpandSelection) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>ExpandSelection</typename><string>ExpandSelection = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExpandSelection</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>moveCursorRightBlock</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>moveCursorRightBlock(This, ExpandSelection) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>ExpandSelection</typename><string>ExpandSelection = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExpandSelection</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>moveCursorUp</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>moveCursorUp(This, ExpandSelection) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>ExpandSelection</typename><string>ExpandSelection = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExpandSelection</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>moveCursorUpBlock</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>moveCursorUpBlock(This, ExpandSelection) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>ExpandSelection</typename><string>ExpandSelection = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExpandSelection</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>movePageDown</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>movePageDown(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>movePageUp</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>movePageUp(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>navigate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>navigate</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxGrid">wxGrid()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Parent, Id) -&gt; <seetype marker="#wxGrid">wxGrid()</seetype></head>
+      <guard>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>Parent</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>new(Parent, Id, Options :: [Option]) -&gt; <seetype marker="#wxGrid">wxGrid()</seetype></head>
+      <guard>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{style, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Id</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Parent</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>pageDown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>pageUp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prepareDC</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>raise</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refresh</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refresh</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refreshRect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refreshRect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>registerDataType</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>registerDataType(This, TypeName, Renderer, Editor) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>TypeName</typename><string>TypeName = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Renderer</typename><string>Renderer = <seetype marker="wxGridCellRenderer#wxGridCellRenderer">wxGridCellRenderer:wxGridCellRenderer()</seetype></string></subtype>
+        <subtype><typename>Editor</typename><string>Editor = <seetype marker="wxGridCellEditor#wxGridCellEditor">wxGridCellEditor:wxGridCellEditor()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Editor</anno>
+  <anno>Renderer</anno>
+  <anno>This</anno>
+  <anno>TypeName</anno>
+</spec>
+<spec>
+  <name>releaseMouse</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>removeChild</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>reparent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>saveEditControlValue</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>saveEditControlValue(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>screenToClient</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>screenToClient</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scroll</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scroll</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollLines</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollPages</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollWindow</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollWindow</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>selectAll</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>selectAll(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>selectBlock</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>selectBlock(This, TopLeft, BottomRight) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>TopLeft</typename><string>TopLeft = BottomRight = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>BottomRight</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BottomRight</anno>
+  <anno>C</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+  <anno>TopLeft</anno>
+</spec>
+<spec>
+  <name>selectBlock</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>selectBlock(This, TopLeft, BottomRight, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>TopLeft</typename><string>TopLeft = BottomRight = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>BottomRight</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {addToSelected, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BottomRight</anno>
+  <anno>C</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+  <anno>TopLeft</anno>
+</spec>
+<spec>
+  <name>selectBlock</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>selectBlock(This, TopRow, LeftCol, BottomRow, RightCol) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>TopRow</typename><string>TopRow = LeftCol = BottomRow = RightCol = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>LeftCol</typename><string></string></subtype>
+        <subtype><typename>BottomRow</typename><string></string></subtype>
+        <subtype><typename>RightCol</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BottomRow</anno>
+  <anno>LeftCol</anno>
+  <anno>RightCol</anno>
+  <anno>This</anno>
+  <anno>TopRow</anno>
+</spec>
+<spec>
+  <name>selectBlock</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>selectBlock(This, TopRow, LeftCol, BottomRow, RightCol,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>TopRow</typename><string>TopRow = LeftCol = BottomRow = RightCol = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>LeftCol</typename><string/></subtype>
+        <subtype><typename>BottomRow</typename><string/></subtype>
+        <subtype><typename>RightCol</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {addToSelected, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BottomRow</anno>
+  <anno>LeftCol</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>RightCol</anno>
+  <anno>This</anno>
+  <anno>TopRow</anno>
+</spec>
+<spec>
+  <name>selectCol</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>selectCol(This, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>selectCol</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>selectCol(This, Col, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {addToSelected, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>selectRow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>selectRow(This, Row) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>selectRow</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>selectRow(This, Row, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {addToSelected, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setAcceleratorTable</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setAutoLayout</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBackgroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBackgroundStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCaret</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCellAlignment</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>setCellAlignment(This, Row, Col, Horiz, Vert) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = Horiz = Vert = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+        <subtype><typename>Horiz</typename><string></string></subtype>
+        <subtype><typename>Vert</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Horiz</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+  <anno>Vert</anno>
+</spec>
+<spec>
+  <name>setCellBackgroundColour</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setCellBackgroundColour(This, Row, Col, Colour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string/></subtype>
+        <subtype><typename>Colour</typename><string>Colour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Colour</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setCellEditor</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setCellEditor(This, Row, Col, Editor) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string/></subtype>
+        <subtype><typename>Editor</typename><string>Editor = <seetype marker="wxGridCellEditor#wxGridCellEditor">wxGridCellEditor:wxGridCellEditor()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Editor</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setCellFont</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setCellFont(This, Row, Col, Font) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string/></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Font</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setCellRenderer</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setCellRenderer(This, Row, Col, Renderer) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string/></subtype>
+        <subtype><typename>Renderer</typename><string>Renderer = <seetype marker="wxGridCellRenderer#wxGridCellRenderer">wxGridCellRenderer:wxGridCellRenderer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Renderer</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setCellTextColour</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setCellTextColour(This, Row, Col, Colour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string/></subtype>
+        <subtype><typename>Colour</typename><string>Colour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Colour</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setCellValue</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setCellValue(This, Coords, S) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Coords</typename><string>Coords = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>S</typename><string>S = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Coords</anno>
+  <anno>R</anno>
+  <anno>S</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setCellValue</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setCellValue(This, Row, Col, S) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string/></subtype>
+        <subtype><typename>S</typename><string>S = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>S</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setClientSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setClientSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setColAttr</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setColAttr(This, Col, Attr) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Attr</typename><string>Attr = <seetype marker="wxGridCellAttr#wxGridCellAttr">wxGridCellAttr:wxGridCellAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Attr</anno>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setColFormatBool</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setColFormatBool(This, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setColFormatCustom</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setColFormatCustom(This, Col, TypeName) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>TypeName</typename><string>TypeName = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+  <anno>TypeName</anno>
+</spec>
+<spec>
+  <name>setColFormatFloat</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setColFormatFloat(This, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setColFormatFloat</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setColFormatFloat(This, Col, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {width, <seetype marker="erlang#integer">integer()</seetype>} | {precision, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setColFormatNumber</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setColFormatNumber(This, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setColLabelAlignment</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setColLabelAlignment(This, Horiz, Vert) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Horiz</typename><string>Horiz = Vert = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Vert</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Horiz</anno>
+  <anno>This</anno>
+  <anno>Vert</anno>
+</spec>
+<spec>
+  <name>setColLabelSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setColLabelSize(This, Height) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string>Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setColLabelValue</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setColLabelValue(This, Col, Value) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>setColMinimalAcceptableWidth</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setColMinimalAcceptableWidth(This, Width) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>setColMinimalWidth</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setColMinimalWidth(This, Col, Width) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = Width = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>setColSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setColSize(This, Col, Width) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string>Col = Width = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>setContainingSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCursor</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDefaultCellAlignment</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setDefaultCellAlignment(This, Horiz, Vert) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Horiz</typename><string>Horiz = Vert = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Vert</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Horiz</anno>
+  <anno>This</anno>
+  <anno>Vert</anno>
+</spec>
+<spec>
+  <name>setDefaultCellBackgroundColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDefaultCellBackgroundColour(This, Colour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Colour</typename><string>Colour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Colour</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDefaultCellFont</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDefaultCellFont(This, Font) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Font</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDefaultCellTextColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDefaultCellTextColour(This, Colour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Colour</typename><string>Colour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Colour</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDefaultColSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDefaultColSize(This, Width) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>setDefaultColSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setDefaultColSize(This, Width, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {resizeExistingCols, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>setDefaultEditor</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDefaultEditor(This, Editor) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Editor</typename><string>Editor = <seetype marker="wxGridCellEditor#wxGridCellEditor">wxGridCellEditor:wxGridCellEditor()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Editor</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDefaultRenderer</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDefaultRenderer(This, Renderer) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Renderer</typename><string>Renderer = <seetype marker="wxGridCellRenderer#wxGridCellRenderer">wxGridCellRenderer:wxGridCellRenderer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Renderer</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDefaultRowSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDefaultRowSize(This, Height) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string>Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDefaultRowSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setDefaultRowSize(This, Height, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string>Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {resizeExistingRows, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDoubleBuffered</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDropTarget</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setExtraStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFocus</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFocusFromKbd</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFocusIgnoringChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFont</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setForegroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setGridCursor</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setGridCursor(This, Coords) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Coords</typename><string>Coords = {R :: <seetype marker="erlang#integer">integer()</seetype>, C :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Coords</anno>
+  <anno>R</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setGridCursor</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setGridCursor(This, Row, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setGridLineColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setGridLineColour(This, Colour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Colour</typename><string>Colour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Colour</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setHelpText</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setId</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setLabel</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setLabelBackgroundColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setLabelBackgroundColour(This, Colour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Colour</typename><string>Colour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Colour</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setLabelFont</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setLabelFont(This, Font) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Font</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setLabelTextColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setLabelTextColour(This, Colour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Colour</typename><string>Colour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Colour</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setMargins</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setMargins(This, ExtraWidth, ExtraHeight) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>ExtraWidth</typename><string>ExtraWidth = ExtraHeight = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>ExtraHeight</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExtraHeight</anno>
+  <anno>ExtraWidth</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setMaxSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setName</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnBackgroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnFont</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnForegroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setPalette</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setReadOnly</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setReadOnly(This, Row, Col) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setReadOnly</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setReadOnly(This, Row, Col, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Col = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Col</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {isReadOnly, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setRowAttr</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setRowAttr(This, Row, Attr) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Attr</typename><string>Attr = <seetype marker="wxGridCellAttr#wxGridCellAttr">wxGridCellAttr:wxGridCellAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Attr</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setRowLabelAlignment</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setRowLabelAlignment(This, Horiz, Vert) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Horiz</typename><string>Horiz = Vert = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Vert</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Horiz</anno>
+  <anno>This</anno>
+  <anno>Vert</anno>
+</spec>
+<spec>
+  <name>setRowLabelSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setRowLabelSize(This, Width) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>setRowLabelValue</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setRowLabelValue(This, Row, Value) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Row</anno>
+  <anno>This</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>setRowMinimalAcceptableHeight</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setRowMinimalAcceptableHeight(This, Height) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string>Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setRowMinimalHeight</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setRowMinimalHeight(This, Row, Height) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setRowSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setRowSize(This, Row, Height) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setScrollLineX</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setScrollLineX(This, X) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>setScrollLineY</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setScrollLineY(This, Y) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string>Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setScrollPos</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollPos</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollRate</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbar</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbar</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbars</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbars</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSelectionBackground</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setSelectionBackground(This, C) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>C</typename><string>C = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setSelectionForeground</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setSelectionForeground(This, C) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>C</typename><string>C = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setSelectionMode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setSelectionMode(This, Selmode) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Selmode</typename><string>Selmode = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Selmode</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizerAndFit</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizerAndFit</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTargetWindow</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setThemeEnabled</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setToolTip</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTransparent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVirtualSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVirtualSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowStyleFlag</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowVariant</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>shouldInheritColours</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>showCellEditControl</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>showCellEditControl(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>thaw</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transferDataFromWindow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transferDataToWindow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>updateWindowUI</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>updateWindowUI</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>validate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>warpPointer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>xToCol</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>xToCol(This, X) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>xToCol</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>xToCol(This, X, Options :: [Option]) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {clipToMinMax, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>xToEdgeOfCol</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>xToEdgeOfCol(This, X) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>yToEdgeOfRow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>yToEdgeOfRow(This, Y) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string>Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>yToRow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>yToRow(This, Y) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string>Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>yToRow</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>yToRow(This, Y, Options :: [Option]) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGrid">wxGrid()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string>Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {clipToMinMax, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Y</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:36.</timestamp>
+</module>

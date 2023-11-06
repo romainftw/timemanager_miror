@@ -1,0 +1,253 @@
+<module name="ssh_file">
+<type>
+  <name>experimental_openssh_key_v1</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-experimental_openssh_key_v1">experimental_openssh_key_v1()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="#key">key()</seetype>, <seetype marker="#openssh_key_v1_attributes">openssh_key_v1_attributes()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key">key()</marker> = <seetype marker="public_key#public_key">public_key:public_key()</seetype> | <seetype marker="public_key#private_key">public_key:private_key()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>openssh_key_v1_attributes</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-openssh_key_v1_attributes">openssh_key_v1_attributes()</marker> = [{<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>optimize_key_lookup</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-optimize_key_lookup">optimize_key_lookup()</marker> = {optimize, time | space}</typehead></typedecl>
+</type>
+<type>
+  <name>pubkey_passphrase_client_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pubkey_passphrase_client_options">pubkey_passphrase_client_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{dsa_pass_phrase, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa_pass_phrase, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ecdsa_pass_phrase, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>system_dir_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-system_dir_daemon_option">system_dir_daemon_option()</marker> = {system_dir, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>user2dir</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-user2dir">user2dir()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((RemoteUserName :: <seetype marker="erlang#string">string()</seetype>) -&gt; UserDir :: <seetype marker="erlang#string">string()</seetype>)</typehead></typedecl>
+  <anno>RemoteUserName</anno>
+  <anno>UserDir</anno>
+</type>
+<type>
+  <name>user_dir_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-user_dir_common_option">user_dir_common_option()</marker> = {user_dir, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>user_dir_fun_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-user_dir_fun_common_option">user_dir_fun_common_option()</marker> = {user_dir_fun, <seetype marker="#user2dir">user2dir()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>add_host_key</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>add_host_key(Host, Port, Key, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#ip_address">inet:ip_address()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#hostname">inet:hostname()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype>]</string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="public_key#public_key">public_key:public_key()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="ssh_client_key_api#client_key_cb_options">ssh_client_key_api:client_key_cb_options</seetype>(<seetype marker="erlang#none">none()</seetype>)</string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Key</anno>
+  <anno>Options</anno>
+  <anno>Port</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>decode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>decode(SshBin, Type) -&gt; Decoded | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>SshBin</typename><string>SshBin = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <br/><nbsp/><nbsp/><nbsp/><nbsp/>ssh2_pubkey | public_key | openssh_key | rfc4716_key |<br/><nbsp/><nbsp/><nbsp/><nbsp/>openssh_key_v1 | known_hosts | auth_keys</string></subtype>
+        <subtype><typename>Decoded</typename><string>Decoded = <br/><nbsp/><nbsp/><nbsp/><nbsp/>Decoded_ssh2_pubkey | Decoded_public | Decoded_openssh |<br/><nbsp/><nbsp/><nbsp/><nbsp/>Decoded_rfc4716 | Decoded_openssh_key_v1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>Decoded_known_hosts | Decoded_auth_keys</string></subtype>
+        <subtype><typename>Decoded_ssh2_pubkey</typename><string>Decoded_ssh2_pubkey = <seetype marker="public_key#public_key">public_key:public_key()</seetype></string></subtype>
+        <subtype><typename>Decoded_public</typename><string>Decoded_public = <br/><nbsp/><nbsp/><nbsp/><nbsp/>Decoded_rfc4716 | Decoded_openssh_key_v1 | Decoded_openssh</string></subtype>
+        <subtype><typename>Decoded_openssh</typename><string>Decoded_openssh = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="public_key#public_key">public_key:public_key()</seetype>, [{comment, <seetype marker="erlang#string">string()</seetype>}]}]</string></subtype>
+        <subtype><typename>Decoded_rfc4716</typename><string>Decoded_rfc4716 = [{<seetype marker="#key">key()</seetype>, [{headers, Attrs}]}]</string></subtype>
+        <subtype><typename>Decoded_openssh_key_v1</typename><string>Decoded_openssh_key_v1 = <seetype marker="#experimental_openssh_key_v1">experimental_openssh_key_v1()</seetype></string></subtype>
+        <subtype><typename>Decoded_known_hosts</typename><string>Decoded_known_hosts = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="public_key#public_key">public_key:public_key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{comment, <seetype marker="erlang#string">string()</seetype>} | {hostnames, [<seetype marker="erlang#string">string()</seetype>]}]}]</string></subtype>
+        <subtype><typename>Decoded_auth_keys</typename><string>Decoded_auth_keys = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="public_key#public_key">public_key:public_key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{comment, <seetype marker="erlang#string">string()</seetype>} | {options, [<seetype marker="erlang#string">string()</seetype>]}]}]</string></subtype>
+        <subtype><typename>Attrs</typename><string>Attrs = {Key :: <seetype marker="erlang#string">string()</seetype>, Value :: <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Attrs</anno>
+  <anno>Decoded</anno>
+  <anno>Decoded_auth_keys</anno>
+  <anno>Decoded_known_hosts</anno>
+  <anno>Decoded_openssh</anno>
+  <anno>Decoded_openssh_key_v1</anno>
+  <anno>Decoded_public</anno>
+  <anno>Decoded_rfc4716</anno>
+  <anno>Decoded_ssh2_pubkey</anno>
+  <anno>Key</anno>
+  <anno>SshBin</anno>
+  <anno>Type</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>decode_ssh_file</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>decode_ssh_file(PrivPub, Algorithm, Pem, Password) -&gt; Result</head>
+      <guard>
+        <subtype><typename>PrivPub</typename><string>PrivPub = private | public</string></subtype>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="ssh#pubkey_alg">ssh:pubkey_alg()</seetype> | any</string></subtype>
+        <subtype><typename>Pem</typename><string>Pem = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Password</typename><string>Password = <seetype marker="erlang#string">string()</seetype> | ignore</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, Keys} | {error, <seetype marker="erlang#any">any()</seetype>}</string></subtype>
+        <subtype><typename>Keys</typename><string>Keys = [{Key, Attrs}]</string></subtype>
+        <subtype><typename>Attrs</typename><string>Attrs = [{<seetype marker="erlang#any">any()</seetype>, <seetype marker="erlang#any">any()</seetype>}]</string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="public_key#private_key">public_key:private_key()</seetype> | <seetype marker="public_key#public_key">public_key:public_key()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>Attrs</anno>
+  <anno>Key</anno>
+  <anno>Keys</anno>
+  <anno>Password</anno>
+  <anno>Pem</anno>
+  <anno>PrivPub</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>encode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>encode(InData, Type) -&gt; <seetype marker="erlang#binary">binary()</seetype> | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <br/><nbsp/><nbsp/><nbsp/><nbsp/>ssh2_pubkey | openssh_key | rfc4716_key | openssh_key_v1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>known_hosts | auth_keys</string></subtype>
+        <subtype><typename>InData</typename><string>InData = <br/><nbsp/><nbsp/><nbsp/><nbsp/>InData_ssh2_pubkey | InData_openssh | InData_rfc4716 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>InData_openssh_key_v1 | InData_known_hosts | InData_auth_keys</string></subtype>
+        <subtype><typename>InData_ssh2_pubkey</typename><string>InData_ssh2_pubkey = <seetype marker="public_key#public_key">public_key:public_key()</seetype></string></subtype>
+        <subtype><typename>InData_openssh</typename><string>InData_openssh = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="public_key#public_key">public_key:public_key()</seetype>, [{comment, <seetype marker="erlang#string">string()</seetype>}]}]</string></subtype>
+        <subtype><typename>InData_rfc4716</typename><string>InData_rfc4716 = [{<seetype marker="#key">key()</seetype>, [{headers, Attrs}]}]</string></subtype>
+        <subtype><typename>InData_openssh_key_v1</typename><string>InData_openssh_key_v1 = <seetype marker="#experimental_openssh_key_v1">experimental_openssh_key_v1()</seetype></string></subtype>
+        <subtype><typename>InData_known_hosts</typename><string>InData_known_hosts = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="public_key#public_key">public_key:public_key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{comment, <seetype marker="erlang#string">string()</seetype>} | {hostnames, [<seetype marker="erlang#string">string()</seetype>]}]}]</string></subtype>
+        <subtype><typename>InData_auth_keys</typename><string>InData_auth_keys = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="public_key#public_key">public_key:public_key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{comment, <seetype marker="erlang#string">string()</seetype>} | {options, [<seetype marker="erlang#string">string()</seetype>]}]}]</string></subtype>
+        <subtype><typename>Attrs</typename><string>Attrs = {Key :: <seetype marker="erlang#string">string()</seetype>, Value :: <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Attrs</anno>
+  <anno>InData</anno>
+  <anno>InData_auth_keys</anno>
+  <anno>InData_known_hosts</anno>
+  <anno>InData_openssh</anno>
+  <anno>InData_openssh_key_v1</anno>
+  <anno>InData_rfc4716</anno>
+  <anno>InData_ssh2_pubkey</anno>
+  <anno>Key</anno>
+  <anno>Type</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>extract_public_key</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>extract_public_key(PrivKey) -&gt; PubKey</head>
+      <guard>
+        <subtype><typename>PrivKey</typename><string>PrivKey = <seetype marker="public_key#private_key">public_key:private_key()</seetype></string></subtype>
+        <subtype><typename>PubKey</typename><string>PubKey = <seetype marker="public_key#public_key">public_key:public_key()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PrivKey</anno>
+  <anno>PubKey</anno>
+</spec>
+<spec>
+  <name>host_key</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>host_key(Algorithm, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="ssh#pubkey_alg">ssh:pubkey_alg()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="public_key#private_key">public_key:private_key()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="ssh_server_key_api#daemon_key_cb_options">ssh_server_key_api:daemon_key_cb_options</seetype>(<seetype marker="erlang#none">none()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>is_auth_key</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>is_auth_key(Key, User, Options) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="public_key#public_key">public_key:public_key()</seetype></string></subtype>
+        <subtype><typename>User</typename><string>User = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_server_key_api#daemon_key_cb_options">ssh_server_key_api:daemon_key_cb_options</seetype>(<seetype marker="#optimize_key_lookup">optimize_key_lookup()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Options</anno>
+  <anno>User</anno>
+</spec>
+<spec>
+  <name>is_host_key</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>is_host_key(Key, Host, Port, Algorithm, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="public_key#public_key">public_key:public_key()</seetype></string></subtype>
+        <subtype><typename>Host</typename><string>Host = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#ip_address">inet:ip_address()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#hostname">inet:hostname()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype>]</string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="ssh#pubkey_alg">ssh:pubkey_alg()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_client_key_api#client_key_cb_options">ssh_client_key_api:client_key_cb_options</seetype>(<seetype marker="#optimize_key_lookup">optimize_key_lookup()</seetype>)</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#boolean">boolean()</seetype> | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>Host</anno>
+  <anno>Key</anno>
+  <anno>Options</anno>
+  <anno>Port</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>user_key</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>user_key(Algorithm, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="ssh#pubkey_alg">ssh:pubkey_alg()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="public_key#private_key">public_key:private_key()</seetype>} | {error, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="ssh_client_key_api#client_key_cb_options">ssh_client_key_api:client_key_cb_options</seetype>(<seetype marker="erlang#none">none()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:53.</timestamp>
+</module>

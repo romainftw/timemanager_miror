@@ -1,0 +1,1498 @@
+<module name="wxDC">
+<type>
+  <name>wxDC</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxDC">wxDC()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>blit</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>blit(This, Dest, Size, Source, Src) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Dest</typename><string>Dest = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Source</typename><string>Source = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Src</typename><string>Src = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dest</anno>
+  <anno>H</anno>
+  <anno>Size</anno>
+  <anno>Source</anno>
+  <anno>Src</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>blit</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>blit(This, Dest, Size, Source, Src, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Dest</typename><string>Dest = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Source</typename><string>Source = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Src</typename><string>Src = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{rop, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{useMask, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{srcPtMask, {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dest</anno>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Size</anno>
+  <anno>Source</anno>
+  <anno>Src</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>calcBoundingBox</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>calcBoundingBox(This, X, Y) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clear(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>crossHair</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>crossHair(This, Pt) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>destroyClippingRegion</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroyClippingRegion(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>deviceToLogicalX</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>deviceToLogicalX(This, X) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>deviceToLogicalXRel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>deviceToLogicalXRel(This, X) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>deviceToLogicalY</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>deviceToLogicalY(This, Y) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string>Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>deviceToLogicalYRel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>deviceToLogicalYRel(This, Y) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string>Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawArc</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>drawArc(This, PtStart, PtEnd, Centre) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>PtStart</typename><string>PtStart = PtEnd = Centre = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>PtEnd</typename><string></string></subtype>
+        <subtype><typename>Centre</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Centre</anno>
+  <anno>PtEnd</anno>
+  <anno>PtStart</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawBitmap</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawBitmap(This, Bmp, Pt) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Bmp</typename><string>Bmp = <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bmp</anno>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawBitmap</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>drawBitmap(This, Bmp, Pt, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Bmp</typename><string>Bmp = <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {useMask, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bmp</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawCheckMark</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>drawCheckMark(This, Rect) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawCircle</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawCircle(This, Pt, Radius) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Radius</typename><string>Radius = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt</anno>
+  <anno>Radius</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawEllipse</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>drawEllipse(This, Rect) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawEllipse</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawEllipse(This, Pt, Size) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Pt</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawEllipticArc</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>drawEllipticArc(This, Pt, Sz, Sa, Ea) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Sz</typename><string>Sz = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Sa</typename><string>Sa = Ea = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Ea</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ea</anno>
+  <anno>H</anno>
+  <anno>Pt</anno>
+  <anno>Sa</anno>
+  <anno>Sz</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawIcon</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawIcon(This, Icon, Pt) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Icon</typename><string>Icon = <seetype marker="wxIcon#wxIcon">wxIcon:wxIcon()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Icon</anno>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawLabel</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawLabel(This, Text, Rect) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Rect</anno>
+  <anno>Text</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawLabel</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>drawLabel(This, Text, Rect, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {alignment, <seetype marker="erlang#integer">integer()</seetype>} | {indexAccel, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Rect</anno>
+  <anno>Text</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawLine</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawLine(This, Pt1, Pt2) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt1</typename><string>Pt1 = Pt2 = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Pt2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt1</anno>
+  <anno>Pt2</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawLines</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>drawLines(This, Points) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Points</typename><string>Points = [{X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Points</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawLines</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawLines(This, Points, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Points</typename><string>Points = [{X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {xoffset, <seetype marker="erlang#integer">integer()</seetype>} | {yoffset, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Points</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawPoint</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>drawPoint(This, Pt) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawPolygon</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>drawPolygon(This, Points) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Points</typename><string>Points = [{X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Points</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawPolygon</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawPolygon(This, Points, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Points</typename><string>Points = [{X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{xoffset, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{yoffset, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{fillStyle, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Points</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawRectangle</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>drawRectangle(This, Rect) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawRectangle</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawRectangle(This, Pt, Sz) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Sz</typename><string>Sz = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Pt</anno>
+  <anno>Sz</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawRotatedText</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>drawRotatedText(This, Text, Point, Angle) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Point</typename><string>Point = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Angle</typename><string>Angle = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Angle</anno>
+  <anno>Point</anno>
+  <anno>Text</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawRoundedRectangle</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawRoundedRectangle(This, Rect, Radius) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Radius</typename><string>Radius = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Radius</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawRoundedRectangle</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>drawRoundedRectangle(This, Pt, Sz, Radius) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Sz</typename><string>Sz = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Radius</typename><string>Radius = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Pt</anno>
+  <anno>Radius</anno>
+  <anno>Sz</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>drawText</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>drawText(This, Text, Pt) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt</anno>
+  <anno>Text</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>endDoc</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>endDoc(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>endPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>endPage(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>floodFill</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>floodFill(This, Pt, Col) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>floodFill</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>floodFill(This, Pt, Col, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Col</typename><string>Col = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {style, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Col</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getBackground</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getBackground(This) -&gt; <seetype marker="wxBrush#wxBrush">wxBrush:wxBrush()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getBackgroundMode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getBackgroundMode(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getBrush</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getBrush(This) -&gt; <seetype marker="wxBrush#wxBrush">wxBrush:wxBrush()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCharHeight</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getCharHeight(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCharWidth</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getCharWidth(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getClippingBox</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getClippingBox(This) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Width :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Height :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Result</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getFont</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFont(This) -&gt; <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLayoutDirection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLayoutDirection(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLogicalFunction</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLogicalFunction(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMapMode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMapMode(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMultiLineTextExtent</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getMultiLineTextExtent(This, String) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>String</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getMultiLineTextExtent</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getMultiLineTextExtent(This, String, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>HeightLine :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {font, <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>HeightLine</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>String</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getPPI</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPPI(This) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getPartialTextExtents</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getPartialTextExtents(This, Text) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = {Res :: <seetype marker="erlang#boolean">boolean()</seetype>, Widths :: [<seetype marker="erlang#integer">integer()</seetype>]}</string></subtype>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Res</anno>
+  <anno>Result</anno>
+  <anno>Text</anno>
+  <anno>This</anno>
+  <anno>Widths</anno>
+</spec>
+<spec>
+  <name>getPen</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPen(This) -&gt; <seetype marker="wxPen#wxPen">wxPen:wxPen()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPixel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getPixel(This, Pos) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = {Res :: <seetype marker="erlang#boolean">boolean()</seetype>, Colour :: <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype>}</string></subtype>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pos</typename><string>Pos = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Colour</anno>
+  <anno>Pos</anno>
+  <anno>Res</anno>
+  <anno>Result</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSize(This) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getSizeMM</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSizeMM(This) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getTextBackground</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getTextBackground(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getTextExtent(This, String) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>String</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>getTextExtent(This, String, Options :: [Option]) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Descent :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ExternalLeading :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {theFont, <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Descent</anno>
+  <anno>ExternalLeading</anno>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+  <anno>String</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getTextForeground</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getTextForeground(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getUserScale</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getUserScale(This) -&gt; {X :: <seetype marker="erlang#number">number()</seetype>, Y :: <seetype marker="erlang#number">number()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>gradientFillConcentric</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>gradientFillConcentric(This, Rect, InitialColour, DestColour) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>InitialColour</typename><string>InitialColour = DestColour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+        <subtype><typename>DestColour</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DestColour</anno>
+  <anno>H</anno>
+  <anno>InitialColour</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>gradientFillConcentric</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>gradientFillConcentric(This, Rect, InitialColour, DestColour,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CircleCenter) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>InitialColour</typename><string>InitialColour = DestColour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+        <subtype><typename>DestColour</typename><string/></subtype>
+        <subtype><typename>CircleCenter</typename><string>CircleCenter = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CircleCenter</anno>
+  <anno>DestColour</anno>
+  <anno>H</anno>
+  <anno>InitialColour</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>gradientFillLinear</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>gradientFillLinear(This, Rect, InitialColour, DestColour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>InitialColour</typename><string>InitialColour = DestColour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+        <subtype><typename>DestColour</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DestColour</anno>
+  <anno>H</anno>
+  <anno>InitialColour</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>gradientFillLinear</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>gradientFillLinear(This, Rect, InitialColour, DestColour,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>InitialColour</typename><string>InitialColour = DestColour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+        <subtype><typename>DestColour</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {nDirection, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DestColour</anno>
+  <anno>H</anno>
+  <anno>InitialColour</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>isOk</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isOk(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>logicalToDeviceX</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>logicalToDeviceX(This, X) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>logicalToDeviceXRel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>logicalToDeviceXRel(This, X) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>logicalToDeviceY</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>logicalToDeviceY(This, Y) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string>Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>logicalToDeviceYRel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>logicalToDeviceYRel(This, Y) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string>Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>maxX</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>maxX(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>maxY</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>maxY(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>minX</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>minX(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>minY</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>minY(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>resetBoundingBox</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>resetBoundingBox(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setAxisOrientation</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setAxisOrientation(This, XLeftRight, YBottomUp) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>XLeftRight</typename><string>XLeftRight = YBottomUp = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>YBottomUp</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>XLeftRight</anno>
+  <anno>YBottomUp</anno>
+</spec>
+<spec>
+  <name>setBackground</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setBackground(This, Brush) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Brush</typename><string>Brush = <seetype marker="wxBrush#wxBrush">wxBrush:wxBrush()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Brush</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setBackgroundMode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setBackgroundMode(This, Mode) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Mode</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setBrush</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setBrush(This, Brush) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Brush</typename><string>Brush = <seetype marker="wxBrush#wxBrush">wxBrush:wxBrush()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Brush</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setClippingRegion</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setClippingRegion(This, Rect) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setClippingRegion</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setClippingRegion(This, Pt, Sz) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Sz</typename><string>Sz = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Pt</anno>
+  <anno>Sz</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setDeviceOrigin</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setDeviceOrigin(This, X, Y) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setFont</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFont(This, Font) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Font</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setLayoutDirection</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setLayoutDirection(This, Dir) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setLogicalFunction</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setLogicalFunction(This, Function) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Function</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setMapMode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMapMode(This, Mode) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Mode</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPalette</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPalette(This, Palette) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Palette</typename><string>Palette = <seetype marker="wxPalette#wxPalette">wxPalette:wxPalette()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Palette</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPen</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPen(This, Pen) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Pen</typename><string>Pen = <seetype marker="wxPen#wxPen">wxPen:wxPen()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pen</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setTextBackground</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setTextBackground(This, Colour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Colour</typename><string>Colour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Colour</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setTextForeground</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setTextForeground(This, Colour) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Colour</typename><string>Colour = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Colour</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setUserScale</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setUserScale(This, XScale, YScale) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>XScale</typename><string>XScale = YScale = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>YScale</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>XScale</anno>
+  <anno>YScale</anno>
+</spec>
+<spec>
+  <name>startDoc</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>startDoc(This, Message) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+        <subtype><typename>Message</typename><string>Message = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Message</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>startPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>startPage(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxDC">wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:27.</timestamp>
+</module>

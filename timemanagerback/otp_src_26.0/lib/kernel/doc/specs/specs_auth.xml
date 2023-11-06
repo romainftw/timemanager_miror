@@ -1,0 +1,206 @@
+<module name="auth">
+<type>
+  <name>calls</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-calls">calls()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>echo | sync_cookie |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{get_cookie, <seetype marker="erlang#node">node()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{set_cookie, <seetype marker="erlang#node">node()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>cookie</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cookie">cookie()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-state">state()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#state{our_cookie = <seetype marker="#cookie">cookie()</seetype>, other_cookies = <seetype marker="ets#table">ets:table()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>code_change(OldVsn :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="#state">state()</seetype>, Extra :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Extra</anno>
+  <anno>OldVsn</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>cookie</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>cookie() -&gt; Cookie</head>
+      <guard>
+        <subtype><typename>Cookie</typename><string>Cookie = <seetype marker="#cookie">cookie()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cookie</anno>
+</spec>
+<spec>
+  <name>cookie</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cookie(TheCookie) -&gt; true</head>
+      <guard>
+        <subtype><typename>TheCookie</typename><string>TheCookie = Cookie | [Cookie]</string></subtype>
+        <subtype><typename>Cookie</typename><string>Cookie = <seetype marker="#cookie">cookie()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cookie</anno>
+  <anno>TheCookie</anno>
+</spec>
+<spec>
+  <name>get_cookie</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_cookie() -&gt; nocookie | <seetype marker="#cookie">cookie()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>get_cookie</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_cookie(Node :: <seetype marker="erlang#node">node()</seetype>) -&gt; nocookie | <seetype marker="#cookie">cookie()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handle_call(X1 :: <seetype marker="#calls">calls()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>From :: {<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#term">term()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>hello | true | nocookie | <seetype marker="#cookie">cookie()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>From</anno>
+  <anno>State</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_cast(X1 :: {print, <seetype marker="erlang#string">string()</seetype>, [<seetype marker="erlang#term">term()</seetype>]}, O :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>O</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_info(X1 :: <seetype marker="erlang#term">term()</seetype>, O :: <seetype marker="#state">state()</seetype>) -&gt; {noreply, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>O</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(X1 :: []) -&gt; {ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>is_auth</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_auth(Node) -&gt; yes | no</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>node_cookie</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>node_cookie(Cookies :: [<seetype marker="erlang#node">node()</seetype> | <seetype marker="#cookie">cookie()</seetype>, ...]) -&gt; yes | no</head></clause>
+  </contract>
+  <anno>Cookies</anno>
+</spec>
+<spec>
+  <name>node_cookie</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>node_cookie(Node, Cookie) -&gt; yes | no</head>
+      <guard>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#node">node()</seetype></string></subtype>
+        <subtype><typename>Cookie</typename><string>Cookie = <seetype marker="#cookie">cookie()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cookie</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>print(Node :: <seetype marker="erlang#node">node()</seetype>, Format :: <seetype marker="erlang#string">string()</seetype>, Args :: [<seetype marker="erlang#term">term()</seetype>]) -&gt; ok</head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Format</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>set_cookie</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_cookie(Cookie :: <seetype marker="#cookie">cookie()</seetype>) -&gt; true</head></clause>
+  </contract>
+  <anno>Cookie</anno>
+</spec>
+<spec>
+  <name>set_cookie</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_cookie(Node :: <seetype marker="erlang#node">node()</seetype>, Cookie :: <seetype marker="#cookie">cookie()</seetype>) -&gt; true</head></clause>
+  </contract>
+  <anno>Cookie</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_link() -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>} | ignore</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>sync_cookie</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>sync_cookie() -&gt; <seetype marker="erlang#any">any()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>terminate(Reason :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="#state">state()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>State</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:46.</timestamp>
+</module>

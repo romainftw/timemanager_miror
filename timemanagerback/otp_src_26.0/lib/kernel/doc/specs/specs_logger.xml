@@ -1,0 +1,1206 @@
+<module name="logger">
+<type>
+  <name>config_handler</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-config_handler">config_handler()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{handler, <seetype marker="#handler_id">handler_id()</seetype>, <seetype marker="erlang#module">module()</seetype>, <seetype marker="#handler_config">handler_config()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>filter</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-filter">filter()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{fun((<seetype marker="#log_event">log_event()</seetype>, <seetype marker="#filter_arg">filter_arg()</seetype>) -&gt; <seetype marker="#filter_return">filter_return()</seetype>),<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#filter_arg">filter_arg()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>filter_arg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-filter_arg">filter_arg()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>filter_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-filter_id">filter_id()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>filter_return</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-filter_return">filter_return()</marker> = stop | ignore | <seetype marker="#log_event">log_event()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>formatter_config</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-formatter_config">formatter_config()</marker> = #{<seetype marker="erlang#atom">atom()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>handler_config</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handler_config">handler_config()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{id =&gt; <seetype marker="#handler_id">handler_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>config =&gt; <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>level =&gt; <seetype marker="#level">level()</seetype> | all | none,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>module =&gt; <seetype marker="erlang#module">module()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>filter_default =&gt; log | stop,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>filters =&gt; [{<seetype marker="#filter_id">filter_id()</seetype>, <seetype marker="#filter">filter()</seetype>}],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>formatter =&gt; {<seetype marker="erlang#module">module()</seetype>, <seetype marker="#formatter_config">formatter_config()</seetype>}}</typehead></typedecl>
+</type>
+<type>
+  <name>handler_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handler_id">handler_id()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>level</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-level">level()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>emergency | alert | critical | error | warning | notice |<br/><nbsp/><nbsp/><nbsp/><nbsp/>info | debug</typehead></typedecl>
+</type>
+<type>
+  <name>location</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-location">location()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{mfa := {<seetype marker="erlang#module">module()</seetype>, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>file := <seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>line := <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>log_event</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-log_event">log_event()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{level := <seetype marker="#level">level()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>msg :=<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="io#format">io:format()</seetype>, [<seetype marker="erlang#term">term()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{report, <seetype marker="#report">report()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{string, <seetype marker="unicode#chardata">unicode:chardata()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>meta := <seetype marker="#metadata">metadata()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>metadata</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-metadata">metadata()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{pid =&gt; <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>gl =&gt; <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>time =&gt; <seetype marker="#timestamp">timestamp()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>mfa =&gt; {<seetype marker="erlang#module">module()</seetype>, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>file =&gt; <seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>line =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>domain =&gt; [<seetype marker="erlang#atom">atom()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>report_cb =&gt; <seetype marker="#report_cb">report_cb()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#atom">atom()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>msg_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-msg_fun">msg_fun()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#msg_fun_return">msg_fun_return()</seetype> | {<seetype marker="#msg_fun_return">msg_fun_return()</seetype>, <seetype marker="#metadata">metadata()</seetype>})</typehead></typedecl>
+</type>
+<type>
+  <name>msg_fun_return</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-msg_fun_return">msg_fun_return()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="io#format">io:format()</seetype>, [<seetype marker="erlang#term">term()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#report">report()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="unicode#chardata">unicode:chardata()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>ignore</typehead></typedecl>
+</type>
+<type>
+  <name>olp_config</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-olp_config">olp_config()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{sync_mode_qlen =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>drop_mode_qlen =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>flush_qlen =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>burst_limit_enable =&gt; <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>burst_limit_max_count =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>burst_limit_window_time =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>overload_kill_enable =&gt; <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>overload_kill_qlen =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>overload_kill_mem_size =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>overload_kill_restart_after =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | infinity}</typehead></typedecl>
+</type>
+<type>
+  <name>primary_config</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-primary_config">primary_config()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{level =&gt; <seetype marker="#level">level()</seetype> | all | none,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>metadata =&gt; <seetype marker="#metadata">metadata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>filter_default =&gt; log | stop,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>filters =&gt; [{<seetype marker="#filter_id">filter_id()</seetype>, <seetype marker="#filter">filter()</seetype>}]}</typehead></typedecl>
+</type>
+<type>
+  <name>report</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-report">report()</marker> = <seetype marker="erlang#map">map()</seetype> | [{<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>report_cb</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-report_cb">report_cb()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="#report">report()</seetype>) -&gt; {<seetype marker="io#format">io:format()</seetype>, [<seetype marker="erlang#term">term()</seetype>]}) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="#report">report()</seetype>, <seetype marker="#report_cb_config">report_cb_config()</seetype>) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>report_cb_config</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-report_cb_config">report_cb_config()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{depth := <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | unlimited,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>chars_limit := <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | unlimited,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>single_line := <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>timestamp</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-timestamp">timestamp()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>add_default_metadata</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>add_handler</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_handler(HandlerId, Module, Config) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#handler_config">handler_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>HandlerId</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>add_handler_filter</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_handler_filter(HandlerId, FilterId, Filter) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>FilterId</typename><string>FilterId = <seetype marker="#filter_id">filter_id()</seetype></string></subtype>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#filter">filter()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filter</anno>
+  <anno>FilterId</anno>
+  <anno>HandlerId</anno>
+</spec>
+<spec>
+  <name>add_handlers</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_handlers(Application) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+</spec>
+<spec>
+  <name>add_handlers</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_handlers(HandlerConfig) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerConfig</typename><string>HandlerConfig = [<seetype marker="#config_handler">config_handler()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HandlerConfig</anno>
+</spec>
+<spec>
+  <name>add_primary_filter</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_primary_filter(FilterId, Filter) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>FilterId</typename><string>FilterId = <seetype marker="#filter_id">filter_id()</seetype></string></subtype>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#filter">filter()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filter</anno>
+  <anno>FilterId</anno>
+</spec>
+<spec>
+  <name>alert</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>alert</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>alert</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>allow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>allow(Level, Module) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>compare_levels</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>compare_levels(Level1, Level2) -&gt; eq | gt | lt</head>
+      <guard>
+        <subtype><typename>Level1</typename><string>Level1 = Level2 = <seetype marker="#level">level()</seetype> | all | none</string></subtype>
+        <subtype><typename>Level2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level1</anno>
+  <anno>Level2</anno>
+</spec>
+<spec>
+  <name>critical</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>critical</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>critical</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>debug</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>debug</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>debug</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>emergency</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>emergency</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>emergency</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>error</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>error</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>error</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>filter_stacktrace</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>format_otp_report</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_otp_report(Report) -&gt; FormatArgs</head>
+      <guard>
+        <subtype><typename>Report</typename><string>Report = <seetype marker="#report">report()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = {<seetype marker="io#format">io:format()</seetype>, [<seetype marker="erlang#term">term()</seetype>]}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FormatArgs</anno>
+  <anno>Report</anno>
+</spec>
+<spec>
+  <name>format_report</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_report(Report) -&gt; FormatArgs</head>
+      <guard>
+        <subtype><typename>Report</typename><string>Report = <seetype marker="#report">report()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = {<seetype marker="io#format">io:format()</seetype>, [<seetype marker="erlang#term">term()</seetype>]}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FormatArgs</anno>
+  <anno>Report</anno>
+</spec>
+<spec>
+  <name>get_config</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_config() -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#{primary =&gt; <seetype marker="#primary_config">primary_config()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>handlers =&gt; [<seetype marker="#handler_config">handler_config()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>proxy =&gt; <seetype marker="#olp_config">olp_config()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>module_levels =&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="erlang#module">module()</seetype>, <seetype marker="#level">level()</seetype> | all | none}]}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>get_handler_config</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_handler_config() -&gt; [Config]</head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#handler_config">handler_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>get_handler_config</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_handler_config(HandlerId) -&gt; {ok, Config} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#handler_config">handler_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>HandlerId</anno>
+</spec>
+<spec>
+  <name>get_handler_ids</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_handler_ids() -&gt; [HandlerId]</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HandlerId</anno>
+</spec>
+<spec>
+  <name>get_module_level</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_module_level() -&gt; [{Module, Level}]</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype> | all | none</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>get_module_level</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_module_level(Modules) -&gt; [{Module, Level}]</head>
+      <guard>
+        <subtype><typename>Modules</typename><string>Modules = [Module] | Module</string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype> | all | none</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+  <anno>Module</anno>
+  <anno>Modules</anno>
+</spec>
+<spec>
+  <name>get_primary_config</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_primary_config() -&gt; Config</head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#primary_config">primary_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>get_process_metadata</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_process_metadata() -&gt; Meta | undefined</head>
+      <guard>
+        <subtype><typename>Meta</typename><string>Meta = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Meta</anno>
+</spec>
+<spec>
+  <name>get_proxy_config</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_proxy_config() -&gt; Config</head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#olp_config">olp_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>i</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>i() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>i</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>i(What) -&gt; ok</head>
+      <guard>
+        <subtype><typename>What</typename><string>What = primary | handlers | proxy | modules | <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>internal_init_logger</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>internal_init_logger() -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>internal_log</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>log(Level, StringOrReport) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>StringOrReport</typename><string>StringOrReport = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | <seetype marker="#report">report()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+  <anno>StringOrReport</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>log(Level, StringOrReport, Metadata) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>StringOrReport</typename><string>StringOrReport = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | <seetype marker="#report">report()</seetype></string></subtype>
+        <subtype><typename>Metadata</typename><string>Metadata = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+  <anno>Metadata</anno>
+  <anno>StringOrReport</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>log(Level, Format, Args) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Format</anno>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>log(Level, Fun, FunArgs) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="#msg_fun">msg_fun()</seetype></string></subtype>
+        <subtype><typename>FunArgs</typename><string>FunArgs = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>FunArgs</anno>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>log(Level, Format, Args, Metadata) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Metadata</typename><string>Metadata = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Format</anno>
+  <anno>Level</anno>
+  <anno>Metadata</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>log(Level, Fun, FunArgs, Metadata) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="#msg_fun">msg_fun()</seetype></string></subtype>
+        <subtype><typename>FunArgs</typename><string>FunArgs = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Metadata</typename><string>Metadata = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>FunArgs</anno>
+  <anno>Level</anno>
+  <anno>Metadata</anno>
+</spec>
+<spec>
+  <name>macro_log</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>macro_log(Location, Level, StringOrReport) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>StringOrReport</typename><string>StringOrReport = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | <seetype marker="#report">report()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+  <anno>Location</anno>
+  <anno>StringOrReport</anno>
+</spec>
+<spec>
+  <name>macro_log</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>macro_log(Location, Level, StringOrReport, Meta) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>StringOrReport</typename><string>StringOrReport = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | <seetype marker="#report">report()</seetype></string></subtype>
+        <subtype><typename>Meta</typename><string>Meta = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+  <anno>Location</anno>
+  <anno>Meta</anno>
+  <anno>StringOrReport</anno>
+</spec>
+<spec>
+  <name>macro_log</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>macro_log(Location, Level, Format, Args) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Format</anno>
+  <anno>Level</anno>
+  <anno>Location</anno>
+</spec>
+<spec>
+  <name>macro_log</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>macro_log(Location, Level, Fun, FunArgs) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="#msg_fun">msg_fun()</seetype></string></subtype>
+        <subtype><typename>FunArgs</typename><string>FunArgs = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>FunArgs</anno>
+  <anno>Level</anno>
+  <anno>Location</anno>
+</spec>
+<spec>
+  <name>macro_log</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>macro_log(Location, Level, Format, Args, Meta) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Meta</typename><string>Meta = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Format</anno>
+  <anno>Level</anno>
+  <anno>Location</anno>
+  <anno>Meta</anno>
+</spec>
+<spec>
+  <name>macro_log</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>macro_log(Location, Level, Fun, FunArgs, Meta) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="#msg_fun">msg_fun()</seetype></string></subtype>
+        <subtype><typename>FunArgs</typename><string>FunArgs = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Meta</typename><string>Meta = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>FunArgs</anno>
+  <anno>Level</anno>
+  <anno>Location</anno>
+  <anno>Meta</anno>
+</spec>
+<spec>
+  <name>notice</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>notice</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>notice</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>reconfigure</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>reconfigure() -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>remove_handler</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>remove_handler(HandlerId) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HandlerId</anno>
+</spec>
+<spec>
+  <name>remove_handler_filter</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>remove_handler_filter(HandlerId, FilterId) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>FilterId</typename><string>FilterId = <seetype marker="#filter_id">filter_id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FilterId</anno>
+  <anno>HandlerId</anno>
+</spec>
+<spec>
+  <name>remove_primary_filter</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>remove_primary_filter(FilterId) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>FilterId</typename><string>FilterId = <seetype marker="#filter_id">filter_id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FilterId</anno>
+</spec>
+<spec>
+  <name>set_application_level</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_application_level(Application, Level) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, not_loaded}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype> | all | none</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>set_handler_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_handler_config(HandlerId, Config) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#handler_config">handler_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>HandlerId</anno>
+</spec>
+<spec>
+  <name>set_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_handler_config(HandlerId, Key :: level, Level) -&gt; Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype> | all | none</string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Level</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>set_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_handler_config(HandlerId,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Key :: filter_default,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FilterDefault) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>FilterDefault</typename><string>FilterDefault = log | stop</string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FilterDefault</anno>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>set_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_handler_config(HandlerId, Key :: filters, Filters) -&gt; Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Filters</typename><string>Filters = [{<seetype marker="#filter_id">filter_id()</seetype>, <seetype marker="#filter">filter()</seetype>}]</string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filters</anno>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>set_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_handler_config(HandlerId, Key :: formatter, Formatter) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Formatter</typename><string>Formatter = {<seetype marker="erlang#module">module()</seetype>, <seetype marker="#formatter_config">formatter_config()</seetype>}</string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Formatter</anno>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>set_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_handler_config(HandlerId, Key :: config, Config) -&gt; Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>set_module_level</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_module_level(Modules, Level) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Modules</typename><string>Modules = [<seetype marker="erlang#module">module()</seetype>] | <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype> | all | none</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+  <anno>Modules</anno>
+</spec>
+<spec>
+  <name>set_primary_config</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_primary_config(Config) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#primary_config">primary_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>set_primary_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_primary_config(Key :: level, Level) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype> | all | none</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>set_primary_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_primary_config(Key :: filter_default, FilterDefault) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>FilterDefault</typename><string>FilterDefault = log | stop</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FilterDefault</anno>
+  <anno>Key</anno>
+</spec>
+<spec>
+  <name>set_primary_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_primary_config(Key :: filters, Filters) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Filters</typename><string>Filters = [{<seetype marker="#filter_id">filter_id()</seetype>, <seetype marker="#filter">filter()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filters</anno>
+  <anno>Key</anno>
+</spec>
+<spec>
+  <name>set_primary_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_primary_config(Key :: metadata, Meta) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Meta</typename><string>Meta = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Meta</anno>
+</spec>
+<spec>
+  <name>set_process_metadata</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_process_metadata(Meta) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Meta</typename><string>Meta = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Meta</anno>
+</spec>
+<spec>
+  <name>set_proxy_config</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_proxy_config(Config) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#olp_config">olp_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>timestamp</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>timestamp() -&gt; <seetype marker="#timestamp">timestamp()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>unset_application_level</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unset_application_level(Application) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, {not_loaded, Application}}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+</spec>
+<spec>
+  <name>unset_module_level</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>unset_module_level() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>unset_module_level</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unset_module_level(Modules) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Modules</typename><string>Modules = [<seetype marker="erlang#module">module()</seetype>] | <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Modules</anno>
+</spec>
+<spec>
+  <name>unset_process_metadata</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>unset_process_metadata() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>update_formatter_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>update_formatter_config(HandlerId, FormatterConfig) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>FormatterConfig</typename><string>FormatterConfig = <seetype marker="#formatter_config">formatter_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FormatterConfig</anno>
+  <anno>HandlerId</anno>
+</spec>
+<spec>
+  <name>update_formatter_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_formatter_config(HandlerId, Key, Value) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>update_handler_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>update_handler_config(HandlerId, Config) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#handler_config">handler_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>HandlerId</anno>
+</spec>
+<spec>
+  <name>update_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_handler_config(HandlerId, Key :: level, Level) -&gt; Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype> | all | none</string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Level</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>update_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_handler_config(HandlerId,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Key :: filter_default,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FilterDefault) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>FilterDefault</typename><string>FilterDefault = log | stop</string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FilterDefault</anno>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>update_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_handler_config(HandlerId, Key :: filters, Filters) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Filters</typename><string>Filters = [{<seetype marker="#filter_id">filter_id()</seetype>, <seetype marker="#filter">filter()</seetype>}]</string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filters</anno>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>update_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_handler_config(HandlerId, Key :: formatter, Formatter) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Formatter</typename><string>Formatter = {<seetype marker="erlang#module">module()</seetype>, <seetype marker="#formatter_config">formatter_config()</seetype>}</string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Formatter</anno>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>update_handler_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_handler_config(HandlerId, Key :: config, Config) -&gt; Return</head>
+      <guard>
+        <subtype><typename>HandlerId</typename><string>HandlerId = <seetype marker="#handler_id">handler_id()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Return</typename><string>Return = ok | {error, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>HandlerId</anno>
+  <anno>Key</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>update_primary_config</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>update_primary_config(Config) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#primary_config">primary_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>update_process_metadata</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>update_process_metadata(Meta) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Meta</typename><string>Meta = <seetype marker="#metadata">metadata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Meta</anno>
+</spec>
+<spec>
+  <name>update_proxy_config</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>update_proxy_config(Config) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#olp_config">olp_config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>warning</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>warning</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>warning</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:49.</timestamp>
+</module>

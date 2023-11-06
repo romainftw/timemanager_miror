@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>merl_transform</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>merl_transform.xml</file></header>
+<module>merl_transform</module>
+<modulesummary>Parse transform for merl.</modulesummary>
+<description>
+<p>Parse transform for merl. Enables the use of automatic metavariables
+  and using quasi-quotes in matches and case switches. Also optimizes calls
+  to functions in <c>merl</c> by partially evaluating them, turning strings to  
+templates, etc., at compile-time.</p>
+ 
+  <p>Using <c>-include_lib("syntax_tools/include/merl.hrl").</c> enables this
+  transform, unless the macro <c>MERL_NO_TRANSFORM</c> is defined first.</p></description>
+<funcs>
+<func>
+<name since="">parse_transform(Forms, Options) -&gt; term()
+</name>
+<fsummary> </fsummary>
+
+<desc><marker id="parse_transform-2"/>
+ </desc></func></funcs>
+
+<authors>
+
+<aname>Richard Carlsson</aname>
+<email>carlsson.richard@gmail.com</email></authors></erlref>

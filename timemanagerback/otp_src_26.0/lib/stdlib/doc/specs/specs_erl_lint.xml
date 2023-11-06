@@ -1,0 +1,190 @@
+<module name="erl_lint">
+<type>
+  <name>error_description</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error_description">error_description()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>error_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error_info">error_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erl_anno#location">erl_anno:location()</seetype> | none, <seetype marker="erlang#module">module()</seetype>, <seetype marker="#error_description">error_description()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>fa</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fa">fa()</marker> = {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#arity">arity()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>fun_used_vars</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fun_used_vars">fun_used_vars()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{<seetype marker="erl_parse#abstract_expr">erl_parse:abstract_expr()</seetype> =&gt; {[<seetype marker="erlang#atom">atom()</seetype>], <seetype marker="#fun_used_vars">fun_used_vars()</seetype>}}</typehead></typedecl>
+</type>
+<spec>
+  <name>bool_option</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>bool_option(On :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Off :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Default :: <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Opts :: [<seetype marker="compile#option">compile:option()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Default</anno>
+  <anno>Off</anno>
+  <anno>On</anno>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>check_format_string</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>exprs</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>exprs_opt</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(ErrorDescriptor) -&gt; <seetype marker="io_lib#chars">io_lib:chars()</seetype></head>
+      <guard>
+        <subtype><typename>ErrorDescriptor</typename><string>ErrorDescriptor = <seetype marker="#error_description">error_description()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ErrorDescriptor</anno>
+</spec>
+<spec>
+  <name>is_guard_expr</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>is_guard_test</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_guard_test(Expr) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Expr</typename><string>Expr = <seetype marker="erl_parse#abstract_expr">erl_parse:abstract_expr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Expr</anno>
+</spec>
+<spec>
+  <name>is_guard_test</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>is_guard_test</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>is_guard_test(Expr, Forms, IsOverridden) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Expr</typename><string>Expr = <seetype marker="erl_parse#abstract_expr">erl_parse:abstract_expr()</seetype></string></subtype>
+        <subtype><typename>Forms</typename><string>Forms = [<seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype> | <seetype marker="erl_parse#form_info">erl_parse:form_info()</seetype>]</string></subtype>
+        <subtype><typename>IsOverridden</typename><string>IsOverridden = fun((<seetype marker="#fa">fa()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Expr</anno>
+  <anno>Forms</anno>
+  <anno>IsOverridden</anno>
+</spec>
+<spec>
+  <name>is_pattern_expr</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>module</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>module(AbsForms) -&gt; {ok, Warnings} | {error, Errors, Warnings}</head>
+      <guard>
+        <subtype><typename>AbsForms</typename><string>AbsForms = [<seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype> | <seetype marker="erl_parse#form_info">erl_parse:form_info()</seetype>]</string></subtype>
+        <subtype><typename>Warnings</typename><string>Warnings = Errors = [{SourceFile, [ErrorInfo]}]</string></subtype>
+        <subtype><typename>Errors</typename><string/></subtype>
+        <subtype><typename>SourceFile</typename><string>SourceFile = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="#error_info">error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AbsForms</anno>
+  <anno>ErrorInfo</anno>
+  <anno>Errors</anno>
+  <anno>SourceFile</anno>
+  <anno>Warnings</anno>
+</spec>
+<spec>
+  <name>module</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>module(AbsForms, FileName) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Warnings} | {error, Errors, Warnings}</head>
+      <guard>
+        <subtype><typename>AbsForms</typename><string>AbsForms = [<seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype> | <seetype marker="erl_parse#form_info">erl_parse:form_info()</seetype>]</string></subtype>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Warnings</typename><string>Warnings = Errors = [{SourceFile, [ErrorInfo]}]</string></subtype>
+        <subtype><typename>Errors</typename><string/></subtype>
+        <subtype><typename>SourceFile</typename><string>SourceFile = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="#error_info">error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AbsForms</anno>
+  <anno>ErrorInfo</anno>
+  <anno>Errors</anno>
+  <anno>FileName</anno>
+  <anno>SourceFile</anno>
+  <anno>Warnings</anno>
+</spec>
+<spec>
+  <name>module</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>module(AbsForms, FileName, CompileOptions) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Warnings} | {error, Errors, Warnings}</head>
+      <guard>
+        <subtype><typename>AbsForms</typename><string>AbsForms = [<seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype> | <seetype marker="erl_parse#form_info">erl_parse:form_info()</seetype>]</string></subtype>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>CompileOptions</typename><string>CompileOptions = [<seetype marker="compile#option">compile:option()</seetype>]</string></subtype>
+        <subtype><typename>Warnings</typename><string>Warnings = Errors = [{SourceFile, [ErrorInfo]}]</string></subtype>
+        <subtype><typename>Errors</typename><string/></subtype>
+        <subtype><typename>SourceFile</typename><string>SourceFile = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="#error_info">error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AbsForms</anno>
+  <anno>CompileOptions</anno>
+  <anno>ErrorInfo</anno>
+  <anno>Errors</anno>
+  <anno>FileName</anno>
+  <anno>SourceFile</anno>
+  <anno>Warnings</anno>
+</spec>
+<spec>
+  <name>used_vars</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>value_option</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>value_option</name>
+  <arity>7</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:21.</timestamp>
+</module>

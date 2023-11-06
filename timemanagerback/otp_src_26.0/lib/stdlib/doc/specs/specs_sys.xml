@@ -1,0 +1,647 @@
+<module name="sys">
+<type>
+  <name>dbg_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dbg_fun">dbg_fun()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((FuncState :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Event :: <seetype marker="#system_event">system_event()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ProcState :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>done | (NewFuncState :: <seetype marker="erlang#term">term()</seetype>))</typehead></typedecl>
+  <anno>Event</anno>
+  <anno>FuncState</anno>
+  <anno>NewFuncState</anno>
+  <anno>ProcState</anno>
+</type>
+<type>
+  <name>dbg_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dbg_opt">dbg_opt()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>debug_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-debug_option">debug_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>trace | log |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log, N :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>statistics |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_to_file, FileName :: <seetype marker="file#name">file:name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{install,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Func :: <seetype marker="#dbg_fun">dbg_fun()</seetype>, FuncState :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{FuncId :: <seetype marker="erlang#term">term()</seetype>, Func :: <seetype marker="#dbg_fun">dbg_fun()</seetype>, FuncState :: <seetype marker="erlang#term">term()</seetype>}}</typehead></typedecl>
+  <anno>FileName</anno>
+  <anno>Func</anno>
+  <anno>FuncId</anno>
+  <anno>FuncState</anno>
+  <anno>N</anno>
+</type>
+<type>
+  <name>format_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-format_fun">format_fun()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Device :: <seetype marker="io#device">io:device()</seetype> | <seetype marker="file#io_device">file:io_device()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Event :: <seetype marker="#system_event">system_event()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Extra :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#any">any()</seetype>)</typehead></typedecl>
+  <anno>Device</anno>
+  <anno>Event</anno>
+  <anno>Extra</anno>
+</type>
+<type>
+  <name>name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-name">name()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | {global, <seetype marker="erlang#term">term()</seetype>} | {via, <seetype marker="erlang#module">module()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>system_event</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-system_event">system_event()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{in, Msg :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{in, Msg :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{out, Msg :: <seetype marker="erlang#term">term()</seetype>, To :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{out, Msg :: <seetype marker="erlang#term">term()</seetype>, To :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply, State :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{continue, Continuation :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{postpone,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Event :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NextState :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{consume,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Event :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NextState :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{start_timer, Action :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{insert_timeout, Event :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{enter, Module :: <seetype marker="erlang#module">module()</seetype>, State :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{module, Module :: <seetype marker="erlang#module">module()</seetype>, State :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{terminate, Reason :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+  <anno>Action</anno>
+  <anno>Continuation</anno>
+  <anno>Event</anno>
+  <anno>Module</anno>
+  <anno>Msg</anno>
+  <anno>NextState</anno>
+  <anno>Reason</anno>
+  <anno>State</anno>
+  <anno>To</anno>
+</type>
+<spec>
+  <name>change_code</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>change_code(Name, Module, OldVsn, Extra) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>OldVsn</typename><string>OldVsn = undefined | <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Extra</typename><string>Extra = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Extra</anno>
+  <anno>Module</anno>
+  <anno>Name</anno>
+  <anno>OldVsn</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>change_code</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>change_code(Name, Module, OldVsn, Extra, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>OldVsn</typename><string>OldVsn = undefined | <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Extra</typename><string>Extra = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Extra</anno>
+  <anno>Module</anno>
+  <anno>Name</anno>
+  <anno>OldVsn</anno>
+  <anno>Reason</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>debug_options</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>debug_options(Options :: [Opt :: <seetype marker="#debug_option">debug_option()</seetype>]) -&gt; [<seetype marker="#dbg_opt">dbg_opt()</seetype>]</head></clause>
+  </contract>
+  <anno>Opt</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>get_debug</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_debug(Item, Debug, Default) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Item</typename><string>Item = log | statistics</string></subtype>
+        <subtype><typename>Debug</typename><string>Debug = [<seetype marker="#dbg_opt">dbg_opt()</seetype>]</string></subtype>
+        <subtype><typename>Default</typename><string>Default = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Debug</anno>
+  <anno>Default</anno>
+  <anno>Item</anno>
+</spec>
+<spec>
+  <name>get_log</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_log(Debug) -&gt; [<seetype marker="#system_event">system_event()</seetype>]</head>
+      <guard>
+        <subtype><typename>Debug</typename><string>Debug = [<seetype marker="#dbg_opt">dbg_opt()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Debug</anno>
+</spec>
+<spec>
+  <name>get_state</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_state(Name) -&gt; State</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>State</typename><string>State = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>get_state</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_state(Name, Timeout) -&gt; State</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>State</typename><string>State = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>State</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>get_status</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_status(Name) -&gt; Status</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Status</typename><string>Status = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{status, Pid :: <seetype marker="erlang#pid">pid()</seetype>, {module, Module :: <seetype marker="erlang#module">module()</seetype>}, [SItem]}</string></subtype>
+        <subtype><typename>SItem</typename><string>SItem = <br/><nbsp/><nbsp/><nbsp/><nbsp/>(PDict :: [{Key :: <seetype marker="erlang#term">term()</seetype>, Value :: <seetype marker="erlang#term">term()</seetype>}]) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(SysState :: running | suspended) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Parent :: <seetype marker="erlang#pid">pid()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Dbg :: [<seetype marker="#dbg_opt">dbg_opt()</seetype>]) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Misc :: <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dbg</anno>
+  <anno>Key</anno>
+  <anno>Misc</anno>
+  <anno>Module</anno>
+  <anno>Name</anno>
+  <anno>PDict</anno>
+  <anno>Parent</anno>
+  <anno>Pid</anno>
+  <anno>SItem</anno>
+  <anno>Status</anno>
+  <anno>SysState</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>get_status</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_status(Name, Timeout) -&gt; Status</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Status</typename><string>Status = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{status, Pid :: <seetype marker="erlang#pid">pid()</seetype>, {module, Module :: <seetype marker="erlang#module">module()</seetype>}, [SItem]}</string></subtype>
+        <subtype><typename>SItem</typename><string>SItem = <br/><nbsp/><nbsp/><nbsp/><nbsp/>(PDict :: [{Key :: <seetype marker="erlang#term">term()</seetype>, Value :: <seetype marker="erlang#term">term()</seetype>}]) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(SysState :: running | suspended) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Parent :: <seetype marker="erlang#pid">pid()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Dbg :: [<seetype marker="#dbg_opt">dbg_opt()</seetype>]) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Misc :: <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dbg</anno>
+  <anno>Key</anno>
+  <anno>Misc</anno>
+  <anno>Module</anno>
+  <anno>Name</anno>
+  <anno>PDict</anno>
+  <anno>Parent</anno>
+  <anno>Pid</anno>
+  <anno>SItem</anno>
+  <anno>Status</anno>
+  <anno>SysState</anno>
+  <anno>Timeout</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>handle_debug</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>handle_debug(Debug, FormFunc, Extra, Event) -&gt; [<seetype marker="#dbg_opt">dbg_opt()</seetype>]</head>
+      <guard>
+        <subtype><typename>Debug</typename><string>Debug = [<seetype marker="#dbg_opt">dbg_opt()</seetype>]</string></subtype>
+        <subtype><typename>FormFunc</typename><string>FormFunc = <seetype marker="#format_fun">format_fun()</seetype></string></subtype>
+        <subtype><typename>Extra</typename><string>Extra = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Event</typename><string>Event = <seetype marker="#system_event">system_event()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Debug</anno>
+  <anno>Event</anno>
+  <anno>Extra</anno>
+  <anno>FormFunc</anno>
+</spec>
+<spec>
+  <name>handle_system_msg</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>handle_system_msg(Msg, From, Parent, Module, Debug, Misc) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#no_return">no_return()</seetype></head>
+      <guard>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>From</typename><string>From = {<seetype marker="erlang#pid">pid()</seetype>, Tag :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Debug</typename><string>Debug = [<seetype marker="#dbg_opt">dbg_opt()</seetype>]</string></subtype>
+        <subtype><typename>Misc</typename><string>Misc = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Debug</anno>
+  <anno>From</anno>
+  <anno>Misc</anno>
+  <anno>Module</anno>
+  <anno>Msg</anno>
+  <anno>Parent</anno>
+  <anno>Tag</anno>
+</spec>
+<spec>
+  <name>handle_system_msg</name>
+  <arity>7</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>install</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>install(Name, FuncSpec) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>FuncSpec</typename><string>FuncSpec = {Func, FuncState} | {FuncId, Func, FuncState}</string></subtype>
+        <subtype><typename>FuncId</typename><string>FuncId = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="#dbg_fun">dbg_fun()</seetype></string></subtype>
+        <subtype><typename>FuncState</typename><string>FuncState = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Func</anno>
+  <anno>FuncId</anno>
+  <anno>FuncSpec</anno>
+  <anno>FuncState</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>install</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>install(Name, FuncSpec, Timeout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>FuncSpec</typename><string>FuncSpec = {Func, FuncState} | {FuncId, Func, FuncState}</string></subtype>
+        <subtype><typename>FuncId</typename><string>FuncId = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="#dbg_fun">dbg_fun()</seetype></string></subtype>
+        <subtype><typename>FuncState</typename><string>FuncState = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Func</anno>
+  <anno>FuncId</anno>
+  <anno>FuncSpec</anno>
+  <anno>FuncState</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>log(Name, Flag) -&gt; ok | {ok, [<seetype marker="#system_event">system_event()</seetype>]}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = true | {true, N :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} | false | get | print</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>N</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>log(Name, Flag, Timeout) -&gt; ok | {ok, [<seetype marker="#system_event">system_event()</seetype>]}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = true | {true, N :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} | false | get | print</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>N</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>log_to_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>log_to_file(Name, Flag) -&gt; ok | {error, open_file}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = (FileName :: <seetype marker="erlang#string">string()</seetype>) | false</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>Flag</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>log_to_file</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>log_to_file(Name, Flag, Timeout) -&gt; ok | {error, open_file}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = (FileName :: <seetype marker="erlang#string">string()</seetype>) | false</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>Flag</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>no_debug</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>no_debug(Name) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>no_debug</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>no_debug(Name, Timeout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>print_log</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>print_log(Debug) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Debug</typename><string>Debug = [<seetype marker="#dbg_opt">dbg_opt()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Debug</anno>
+</spec>
+<spec>
+  <name>remove</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>remove(Name, FuncOrFuncId :: Func | FuncId) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="#dbg_fun">dbg_fun()</seetype></string></subtype>
+        <subtype><typename>FuncId</typename><string>FuncId = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Func</anno>
+  <anno>FuncId</anno>
+  <anno>FuncOrFuncId</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>remove</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>remove(Name, FuncOrFuncId :: Func | FuncId, Timeout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="#dbg_fun">dbg_fun()</seetype></string></subtype>
+        <subtype><typename>FuncId</typename><string>FuncId = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Func</anno>
+  <anno>FuncId</anno>
+  <anno>FuncOrFuncId</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>replace_state</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>replace_state(Name, StateFun) -&gt; NewState</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>StateFun</typename><string>StateFun = fun((State :: <seetype marker="erlang#term">term()</seetype>) -&gt; NewState :: <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>NewState</typename><string>NewState = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>NewState</anno>
+  <anno>State</anno>
+  <anno>StateFun</anno>
+</spec>
+<spec>
+  <name>replace_state</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>replace_state(Name, StateFun, Timeout) -&gt; NewState</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>StateFun</typename><string>StateFun = fun((State :: <seetype marker="erlang#term">term()</seetype>) -&gt; NewState :: <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>NewState</typename><string>NewState = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>NewState</anno>
+  <anno>State</anno>
+  <anno>StateFun</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>resume</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>resume(Name) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>resume</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>resume(Name, Timeout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>statistics</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>statistics(Name, Flag) -&gt; ok | {ok, Statistics}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = true | false | get</string></subtype>
+        <subtype><typename>Statistics</typename><string>Statistics = [StatisticsTuple] | no_statistics</string></subtype>
+        <subtype><typename>StatisticsTuple</typename><string>StatisticsTuple = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{start_time, DateTime1} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{current_time, DateTime2} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reductions, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{messages_in, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{messages_out, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</string></subtype>
+        <subtype><typename>DateTime1</typename><string>DateTime1 = DateTime2 = <seetype marker="file#date_time">file:date_time()</seetype></string></subtype>
+        <subtype><typename>DateTime2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DateTime1</anno>
+  <anno>DateTime2</anno>
+  <anno>Flag</anno>
+  <anno>Name</anno>
+  <anno>Statistics</anno>
+  <anno>StatisticsTuple</anno>
+</spec>
+<spec>
+  <name>statistics</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>statistics(Name, Flag, Timeout) -&gt; ok | {ok, Statistics}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = true | false | get</string></subtype>
+        <subtype><typename>Statistics</typename><string>Statistics = [StatisticsTuple] | no_statistics</string></subtype>
+        <subtype><typename>StatisticsTuple</typename><string>StatisticsTuple = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{start_time, DateTime1} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{current_time, DateTime2} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reductions, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{messages_in, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{messages_out, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</string></subtype>
+        <subtype><typename>DateTime1</typename><string>DateTime1 = DateTime2 = <seetype marker="file#date_time">file:date_time()</seetype></string></subtype>
+        <subtype><typename>DateTime2</typename><string/></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DateTime1</anno>
+  <anno>DateTime2</anno>
+  <anno>Flag</anno>
+  <anno>Name</anno>
+  <anno>Statistics</anno>
+  <anno>StatisticsTuple</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>suspend</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>suspend(Name) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>suspend</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>suspend(Name, Timeout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>suspend_loop_hib</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>terminate(Name, Reason) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>terminate(Name, Reason, Timeout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>trace(Name, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>trace(Name, Flag, Timeout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name">name()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:28.</timestamp>
+</module>

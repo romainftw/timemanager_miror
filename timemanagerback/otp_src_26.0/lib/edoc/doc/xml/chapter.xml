@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE chapter SYSTEM "chapter.dtd">
+<chapter>
+<header>
+<title>Welcome to EDoc
+</title>
+<prepared></prepared>
+<docno></docno>
+<date></date>
+<rev></rev>
+<file>chapter.xml</file></header>
+<p>EDoc is the Erlang program documentation generator. Inspired by the
+Javadoc(TM) tool for the Java(TM) programming language, EDoc is adapted to the
+conventions of the Erlang world, and has several features not found in
+Javadoc.</p>
+
+<p>EDoc can generate static HTML documentation accessible with any
+web browser or
+<url href="https://www.erlang.org/erlang-enhancement-proposals/eep-0048.html">EEP-48</url>
+doc chunks with <seeerl marker="erl_docgen:doc_storage">erlang+html(3)</seeerl>
+to provide documentation for other tools like <seeerl marker="stdlib:shell_docs">shell_docs(3)</seeerl>.</p>
+
+<section>
+<marker id="Contents"/>
+<title>Contents</title>
+<list>
+  <item><seeguide marker="#Introduction">Introduction</seeguide></item>
+  <item><seeguide marker="#Running_EDoc">Running EDoc</seeguide></item>
+  <item><seeguide marker="#The_overview_page">The overview page</seeguide></item>
+  <item><seeguide marker="#Generic_tags">Generic tags</seeguide></item>
+  <item><seeguide marker="#Overview_tags">Overview tags</seeguide></item>
+  <item><seeguide marker="#Module_tags">Module tags</seeguide></item>
+  <item><seeguide marker="#Function_tags">Function tags</seeguide></item>
+  <item><seeguide marker="#References">References</seeguide></item>
+  <item><seeguide marker="#Notes_on_XHTML">Notes on XHTML</seeguide></item>
+  <item><seeguide marker="#Wiki_notation">Wiki notation</seeguide></item>
+  <item><seeguide marker="#Macro_expansion">Macro expansion</seeguide></item>
+  <item><seeguide marker="#Type_specifications">Type specifications</seeguide></item>
+  <item><seeguide marker="#Doc_chunks">Doc chunks</seeguide></item>
+  <item><seeguide marker="#Acknowledgements">Acknowledgements</seeguide></item>
+</list></section><section>
+<marker id="Introduction"/>
+<title>Introduction</title>
+<p>EDoc lets you write the documentation of an Erlang program as
+comments in the source code itself, using <em>tags</em> on the form
+"<c>@Name ...</c>". A source file does not have to contain tags
+for EDoc to generate its documentation, but without tags the result will
+only contain the basic available information that can be extracted from
+the module.</p>
+
+<p>A tag must be the first thing on a comment line, except for leading
+'<c>%</c>' characters and whitespace. The comment must be between
+program declarations, and not on the same line as any program text. All
+the following text - including consecutive comment lines - up until the
+end of the comment or the next tagged line, is taken as the
+<em>content</em> of the tag.</p>
+
+<p>Tags are associated with the nearest following program construct "of
+significance" (the module name declaration and function
+definitions). Other constructs are ignored; e.g., in:
+</p><pre>   %% @doc Prints the value X.
+
+   -record(foo, {x, y, z}).
+
+   print(X) -&gt; ...</pre><p>
+the <c>@doc</c> tag is associated with the function <c>print/1</c>.</p>
+
+<p>Note that in a comment such as:
+</p><pre>   % % @doc ...</pre><p>
+the tag is ignored, because only the first '<c>%</c>' character is
+considered "leading". This allows tags to be "commented out".</p>
+
+<p>Some tags, such as <c>@type</c>, do not need to be associated
+with any program construct. These may be placed at the end of the file,
+in the "footer".</p>
+
+
+</section><section>
+<marker id="Running_EDoc"/>
+<title>Running EDoc</title>
+<p>
+
+The following are the main functions for running EDoc:
+</p><list>
+<item><p><seemfa marker="edoc#application/2">edoc:application/2</seemfa>: Creates documentation for a
+    typical Erlang application.</p></item>
+<item><p><seemfa marker="edoc#files/2">edoc:files/2</seemfa>: Creates documentation for a
+    specified set of source files.</p></item>
+<item><p><seemfa marker="edoc#run/2">edoc:run/2</seemfa>: General interface function; the common
+    back-end for the above functions. Options are documented here.</p></item>
+</list><p>Note that the function <seemfa marker="edoc#file/2">edoc:file/2</seemfa> belongs to the old, deprecated
+interface (from EDoc version 0.1), and should not be used.</p>
+
+<p>It's also possible to run EDoc directly from the command line,
+using the <seeerl marker="edoc_cmd">bin/edoc EScript</seeerl>.
+The script acts as a command line entry point to both <seemfa marker="edoc#application/2">edoc:application/2</seemfa>
+and <seemfa marker="edoc#files/2">edoc:files/2</seemfa> functions.
+It also allows to generate just the EEP-48 doc chunks (using the <c>-chunks</c> flag)
+instead of the complete HTML documentation.</p>
+
+
+</section><section>
+<marker id="The_overview_page"/>
+<title>The overview page</title>
+<p>When documentation is generated for an entire application, an overview
+page, or "front page", is generated. (The page you are now reading is an
+overview page.) This should contain the high-level description or user
+manual for the application, leaving the finer details to the
+documentation for individual modules. By default, the overview page is
+generated from the file <c>overview.edoc</c> in the target directory
+(typically, this is the <c>doc</c> subdirectory of the application
+directory); see <seeerl marker="edoc_doclet">edoc_doclet</seeerl> for details.</p>
+
+<p>The format of the overview file is the same as for EDoc documentation
+comments (see <seeguide marker="#Introduction">Introduction</seeguide>), except that the lines do not
+have leading '<c>%</c>' characters. Furthermore, all lines before the first
+tag line are ignored, and can be used as a comment. All tags in the
+overview file, such as <c>@doc</c>, <c>@version</c>, etc., refer to the
+application as a whole; see <seeguide marker="#Overview_tags">Overview tags</seeguide> for details.</p>
+
+<p>Here is an example of the contents of an overview file:
+</p><pre>   ** this is the overview.doc file for the application 'frob' **
+
+   @author R. J. Hacker &lt;rjh@acme.com&gt;
+   @copyright 2007 R. J. Hacker
+   @version 1.0.0
+   @title Welcome to the `frob' application!
+   @doc `frob' is a highly advanced frobnicator with low latency,
+   ...</pre><p>
+
+
+</p></section><section>
+<marker id="Generic_tags"/>
+<title>Generic tags</title>
+<p>
+
+The following tags can be used anywhere within a module:
+</p><taglist>
+  <tag><c>@clear</c></tag>
+
+      <item><marker id="gtag-clear"/><p>This tag causes all tags above it (up to the previous program
+	construct), to be discarded, including the <c>@clear</c>
+	tag itself. The text following the tag
+	is also ignored. <em>This is typically only useful in code
+	containing conditional compilation, when preprocessing is turned
+	on.</em> (Preprocessing is turned off by default.) E.g., in
+</p><pre>   -ifdef(DEBUG).
+   %% @doc ...
+   foo(...) -&gt; ...
+   -endif.
+   %% @clear
+
+   %% @doc ...
+   bar(...) -&gt; ...</pre><p>
+        the <c>@clear</c> tag makes sure that EDoc does not see
+	two <c>@doc</c> tags before the function <c>bar</c>,
+	even if the code for function <c>foo</c> is removed by
+	preprocessing. (There is no way for EDoc to see what the first
+	<c>@doc</c> tag "really" belongs to, since preprocessing
+	strips away all such information.)</p></item>
+
+  <tag><c>@docfile</c></tag>
+      <item><marker id="gtag-docfile"/><p>Reads a plain documentation file (on the same format as an
+      overview file - see <seeguide marker="#The_overview_page">The overview page</seeguide> for details), and
+      uses the tags in that file as if they had been written in place of
+      the <c>@docfile</c> tag. The content is the name of the file to be
+      read; leading and trailing whitespace is ignored. See also <seeguide marker="#gtag-headerfile">@headerfile</seeguide>.</p></item>
+
+  <tag><c>@end</c></tag>
+      <item><marker id="gtag-end"/><p>The text following this tag is always ignored. Use this to
+      mark the end of the previous tag, when necessary, as e.g. in:
+</p><pre>   %% ----------------------------------
+   %% ...
+   %% @doc ...
+   %% ...
+   %% @end
+   %% ----------------------------------</pre><p>
+      to avoid including the last "ruler" line in the
+      <c>@doc</c> tag.</p>
+
+      <em>Note: using some other "dummy" @-tag for
+      the same purpose might work in a particular implementation of
+      EDoc, but is not guaranteed to.  Always use @end
+      to ensure future compatibility.</em></item>
+
+  <tag><c>@headerfile</c></tag>
+      <item><marker id="gtag-headerfile"/><p>Similar to the <seeguide marker="#gtag-docfile">@docfile tag</seeguide>, but
+      reads a file containing Erlang source code - generally this should
+      be a header file (with the extension <c>.hrl</c>). If the file turns
+      out to contain one or more function definitions or a module
+      declaration, all tags that occur above the last such definition or
+      module declaration are ignored, and EDoc will print a
+      warning. This tag allows you to write documentation in a header
+      file and insert it at a specific place in the documentation, even
+      if the header file is used (i.e., included) by several
+      modules. The <c>includes</c> option can be used to specify a search
+      path (see <seemfa marker="edoc#read_source/2">edoc:read_source/2</seemfa>).</p></item>
+
+  <tag><c>@todo</c> (or <c>@TODO</c>)</tag>
+      <item><marker id="gtag-todo"/><p>Attaches a To-Do note to a function, module or
+      overview-page. The content can be any XHTML text describing
+      the issue, e.g.:
+</p><pre>   %% @TODO Finish writing the documentation.</pre><p>
+      or
+</p><pre>   %% @todo Implement &lt;a href="http://www.ietf.org/rfc/rfc2549.txt"&gt;RFC 2549&lt;/a&gt;.</pre><p>
+      These tags can also be written as "<c>TODO:</c>", e.g.:
+</p><pre>   %% TODO: call your mother</pre><p>
+      see <seeguide marker="#Wiki_notation">Wiki notation</seeguide> for more information. To-Do notes are
+      normally not shown unless the <c>todo</c> option is turned on (see
+      <seemfa marker="edoc#get_doc/2">edoc:get_doc/2</seemfa>).</p></item>
+
+  <tag><c>@type</c></tag>
+      <item><marker id="gtag-type"/><p>Documents an abstract data type or type alias. The content
+      consists of a type declaration or definition, optionally
+      followed by a period ('<c>.</c>') separator and XHTML
+      text describing the type (i.e., its purpose, use, etc.). There
+      must be at least one whitespace character between the '<c>.</c>' and
+      the text. See <seeguide marker="#Type_specifications">Type specifications</seeguide> for syntax and      
+examples.      
+All data type descriptions are placed in a separate section of      
+the documentation, regardless of where the tags occur.</p>
+
+      Instead of specifying the complete type alias in an EDoc
+      documentation comment, type definitions from the actual
+      Erlang code can be re-used for documentation.
+      See <seeguide marker="#Type_specifications">Type specifications</seeguide> for examples.</item>
+</taglist><p>
+
+
+</p></section><section>
+<marker id="Overview_tags"/>
+<title>Overview tags</title>
+<p>
+
+The following tags can be used in an overview file.
+</p><taglist>
+  <tag><c>@author</c></tag>
+      <item><marker id="otag-author"/><p>See the <seeguide marker="#mtag-author">@author module tag</seeguide> for
+      details.</p></item>
+
+  <tag><c>@copyright</c></tag>
+      <item><marker id="otag-copyright"/><p>See the <seeguide marker="#mtag-copyright">@copyright module tag</seeguide>
+      for details.</p></item>
+
+  <tag><c>@doc</c></tag>
+      <item><marker id="otag-doc"/><p>See the <seeguide marker="#mtag-doc">@doc module tag</seeguide> for
+      details.</p></item>
+
+  <tag><c>@reference</c></tag>
+      <item><marker id="otag-reference"/><p>See the <seeguide marker="#mtag-reference">@reference module tag</seeguide>
+      for details.</p></item>
+
+  <tag><c>@see</c></tag>
+      <item><marker id="otag-see"/><p>See the <seeguide marker="#mtag-see">@see module tag</seeguide> for
+      details.</p></item>
+
+  <tag><c>@since</c></tag>
+      <item><marker id="otag-since"/><p>See the <seeguide marker="#mtag-since">@since module tag</seeguide> for
+      details.</p></item>
+
+  <tag><c>@title</c></tag>
+      <item><marker id="otag-title"/><p>Specifies a title for the overview page. This tag can
+      <em>only</em> be used in an overview file. The content can be
+      arbitrary text.</p></item>
+
+  <tag><c>@version</c></tag>
+      <item><marker id="otag-version"/><p>See the <seeguide marker="#mtag-version">@version module
+      tag</seeguide> for details.</p></item>
+
+</taglist><p>
+
+
+</p></section><section>
+<marker id="Module_tags"/>
+<title>Module tags</title>
+<p>
+
+The following tags can be used before a module declaration:
+</p><taglist>
+  <tag><c>@author</c></tag>
+      <item><marker id="mtag-author"/><p>Specifies the name of an author, along with contact
+      information. An e-mail address can be given within <c>&lt;...&gt;</c>
+      delimiters, and a URI within <c>[...]</c> delimiters. Both e-mail and      
+URI are optional, and any surrounding whitespace is stripped from      
+all strings.</p>
+
+      <p>The name is the first nonempty string that is not within <c>&lt;...&gt;</c>
+      or <c>[...]</c>, and does not contain only whitespace. (In other words,
+      the name can come before, between, or after the e-mail and URI,
+      but cannot be split up; any sections after the first are ignored.)
+      If an e-mail address is given, but no name, the e-mail string will
+      be used also for the name. If no <c>&lt;...&gt;</c> section is present, but
+      the name string contains an '<c>@</c>' character, it is assumed to be      
+an e-mail address. Not both name and e-mail may be left out.</p>
+
+      Examples:
+<pre>   %% @author Richard Carlsson</pre>
+
+<pre>   %% @author Richard Carlsson &lt;carlsson.richard@gmail.com&gt;
+   %%   [http://example.net/richardc/]</pre><pre>   %% @author &lt;carlsson.richard@gmail.com&gt;</pre><pre>   %% @author carlsson.richard@gmail.com [http://example.net/richardc/]</pre><p>
+      </p></item>
+
+<tag><c>@copyright</c></tag>
+      <item><marker id="mtag-copyright"/><p>Specifies the module copyrights. The content can be
+      arbitrary text; for example:
+</p><pre>   %% @copyright 2001-2003 Richard Carlsson</pre><p>
+      </p></item>
+
+  <tag><c>@deprecated</c></tag>
+      <item><marker id="mtag-deprecated"/><p>Mark the module as deprecated, indicating that it should no
+      longer be used. The content must be well-formed XHTML, and should
+      preferably include a <c>{@link}</c> reference to a
+      replacement; as in:
+</p><pre>   %% @deprecated Please use the module {@link foo} instead.</pre><p>
+      </p></item>
+
+  <tag><c>@doc</c></tag>
+      <item><marker id="mtag-doc"/><p>Describes the module, using well-formed XHTML text. The
+      first sentence is used as a summary (see the
+      <seeguide marker="#ftag-doc">@doc function tag</seeguide> for details). For
+      example.:
+</p><pre>   %% @doc This is a &lt;em&gt;very&lt;/em&gt; useful module. It is ...</pre></item>
+
+  <tag><c>@hidden</c></tag>
+      <item><marker id="mtag-hidden"/><p>Marks the module so that it will not appear in the
+      documentation (even if "private" documentation is generated).
+      Useful for sample code, test modules, etc. The content can be
+      used as a comment; it is ignored by EDoc.</p></item>
+
+  <tag><c>@private</c></tag>
+      <item><marker id="mtag-private"/><p>Marks the module as private (i.e., not part of the public
+      interface), so that it will not appear in the normal
+      documentation. (If "private" documentation is generated, the
+      module will be included.) The content can be used as a comment; it
+      is ignored by EDoc.</p></item>
+
+  <tag><c>@reference</c></tag>
+      <item><marker id="mtag-reference"/><p>Specifies a reference to some arbitrary external resource,
+      such as an article, book, or web site. The content must be
+      well-formed XHTML text. Examples:
+</p><pre>   %% @reference Pratchett, T., &lt;em&gt;Interesting Times&lt;/em&gt;,
+   %% Victor Gollancz Ltd, 1994.</pre><pre>   %% @reference See &lt;a href="www.google.com"&gt;Google&lt;/a&gt; for
+   %% more information.</pre><p>
+      </p></item>
+
+  <tag><c>@see</c></tag>
+      <item><marker id="mtag-see"/><p>See the <seeguide marker="#ftag-see">@see function tag</seeguide>
+      for details.</p></item>
+
+  <tag><c>@since</c></tag>
+      <item><marker id="mtag-since"/><p>Specifies when the module was introduced, with respect to
+      the application, release or distribution it is part
+      of. The content can be arbitrary text.</p></item>
+
+  <tag><c>@version</c></tag>
+      <item><marker id="mtag-version"/><p>Specifies the module version. The content can be arbitrary
+      text.</p></item>
+
+</taglist><p>
+
+
+
+</p></section><section>
+<marker id="Function_tags"/>
+<title>Function tags</title>
+<p>
+
+The following tags can be used before a function definition:
+</p><taglist>
+  <tag><c>@deprecated</c></tag>
+      <item><marker id="ftag-deprecated"/><p>See the <seeguide marker="#mtag-deprecated">@deprecated
+      module tag</seeguide> for details.</p></item>
+
+  <tag><c>@doc</c></tag>
+      <item><marker id="ftag-doc"/><p>XHTML text describing the function. The first
+      sentence of the text is used as a quick summary; this ends at
+      the first period character ('<c>.</c>') or exclamation mark
+      ('<c>!</c>') that is followed by a whitespace character, a
+      line break, or the end of the tag text, and is not within XML
+      markup. (As an exception, the first sentence may be within an
+      initial paragraph element)</p></item>
+
+  <tag><c>@equiv</c></tag>
+      <item><marker id="ftag-equiv"/><p>Specify equivalence to another function call/expression.
+      The content must be a proper Erlang expression. If the
+      expression is a function call, a cross-reference to the called
+      function is created automatically. Typically, this tag is used
+      instead of <c>@doc</c>. </p></item>
+
+  <tag><c>@hidden</c></tag>
+      <item><marker id="ftag-hidden"/><p>Marks the function so that it will not appear in the
+      documentation (even if "private" documentation is generated).
+      Useful for debug/test functions, etc. The content can be
+      used as a comment; it is ignored by EDoc.</p></item>
+
+  <tag><c>@param</c></tag>
+      <item><marker id="ftag-param"/><p>Provide more information on a single parameter of the
+      enclosing function. The content consists of a parameter name, 
+      followed by one or more whitespace characters, and XHTML text.
+      </p></item>
+      
+  <tag><c>@private</c></tag>
+      <item><marker id="ftag-private"/><p>Marks the function as private (i.e., not part of the public
+      interface), so that it will not appear in the normal
+      documentation. (If "private" documentation is generated, the
+      function will be included.) Only useful for exported functions,
+      e.g. entry points for <c>spawn</c>. (Non-exported functions are
+      always "private".) The content can be used as a comment; it is
+      ignored by EDoc.</p></item>
+
+  <tag><c>@returns</c></tag>
+      <item><marker id="ftag-returns"/><p>Specify additional information about the value returned by
+      the function. Content consists of XHTML text.</p></item>
+
+  <tag><c>@see</c></tag>
+      <item><marker id="ftag-see"/><p>Make a reference to a module, function, datatype, or
+      application. (See <seeguide marker="#References">References</seeguide>.)
+      The content consists of a reference, optionally followed by a
+      period ('<c>.</c>'), one or more whitespace characters, and
+      XHTML text to be used for the label; for example "<c>@see edoc</c>" or
+      "<c>@see edoc. &lt;b&gt;EDoc&lt;/b&gt;</c>". If no label text is specified, the
+      reference itself is used as the label.</p></item>
+
+  <tag><c>@since</c></tag>
+      <item><marker id="ftag-since"/><p>Specifies in what version of the module the function was
+      introduced; cf. the
+      <seeguide marker="#mtag-version">@version
+      module tag</seeguide>. The content can be arbitrary text.</p></item>
+
+  <tag><c>@spec</c></tag>
+      <item><marker id="ftag-spec"/><p>Used to specify the function type; see <seeguide marker="#Type_specifications">Type
+      specifications</seeguide> for syntax details. If the function name is      
+included in the specification, it must match the name in the      
+actual code. When parameter names are not given in the      
+specification, suitable names will be taken from the source      
+code if possible, and otherwise synthesized.</p>
+
+      Instead of specifying the complete function type in an EDoc
+      documentation comment, specifications from the actual
+      Erlang code can be re-used for documentation.
+      See <seeguide marker="#Type_specifications">Type specifications</seeguide> for examples.</item>
+
+  <tag><c>@throws</c></tag>
+      <item><marker id="ftag-throws"/><p>Specifies which types of terms may be thrown by the
+      function, if its execution terminates abruptly due to a call to
+      <c>erlang:throw(Term)</c>. The content is a type expression (see <seeguide marker="#Type_specifications">Type specifications</seeguide>), and can be a union type.</p>
+
+      Note that exceptions of type <c>exit</c> (as caused by calls to
+      <c>erlang:exit(Term)</c>) and <c>error</c> (run-time errors such as <c>badarg</c>
+      or <c>badarith</c>) are not viewed as part of the normal interface of
+      the function, and cannot be documented with the <c>@throws</c> tag.</item>
+
+  <tag><c>@type</c></tag>
+      <item><marker id="ftag-type"/><p>See the <seeguide marker="#gtag-type">@type generic tag</seeguide>
+      for details. Placing a <c>@type</c> tag by a function
+      definition may be convenient, but does not affect where the
+      description is placed in the generated documentation.</p></item>
+</taglist><p>
+
+
+
+</p></section><section>
+<marker id="References"/>
+<title>References</title>
+<p>
+
+In several contexts (<c>@see</c> tags, <c>@link</c> macros, etc.), EDoc lets
+you refer to the generated documentation for modules, functions,
+datatypes, and applications, using a simple and compact syntax. The
+possible formats for references are:
+</p><table>
+  <row><cell><em>Reference syntax</em></cell><cell><em>Example</em></cell><cell><em>Scope</em></cell></row>
+  <row><cell><c>Module</c></cell><cell><seeerl marker="edoc_run">edoc_run</seeerl>, <c>erl.lang.list</c></cell><cell>Global</cell></row>
+  <row><cell><c>Function/Arity</c></cell><cell><c>file/2</c></cell><cell>Within module</cell></row>
+  <row><cell><c>Module:Function/Arity</c></cell><cell><seemfa marker="edoc#application/2">edoc:application/2</seemfa></cell><cell>Global</cell></row>
+  <row><cell><c>Type()</c></cell><cell><c>filename()</c></cell><cell>Within module</cell></row>
+  <row><cell><c>Module:Type()</c></cell><cell><seeerl marker="edoc#type-edoc_module">edoc:edoc_module()</seeerl></cell><cell>Global</cell></row>
+  <row><cell><c>//Application</c></cell><cell><seeapp marker="edoc:index">edoc</seeapp></cell><cell>Global</cell></row>
+  <row><cell><c>//Application/Module</c></cell><cell><seeerl marker="edoc:edoc_doclet">edoc_doclet(3)</seeerl></cell><cell>Global</cell></row>
+  <row><cell><c>//Application/Module:Function/Arity</c></cell><cell><seemfa marker="edoc:edoc_run#file/1">edoc_run:file/1</seemfa></cell><cell>Global</cell></row>
+  <row><cell><c>//Application/Module:Type()</c></cell><cell><seeerl marker="edoc:edoc#type-edoc_module">edoc:edoc_module()</seeerl></cell><cell>Global</cell></row>
+<tcaption>reference syntax</tcaption></table><p>
+
+
+</p><p>EDoc will resolve references using the information it finds in
+<c>edoc-info</c>-files at the locations specified with the <c>doc_path</c>
+option. EDoc will automatically (and somewhat intelligently) try to find
+any local <c>edoc-info</c>-files using the current code path, and add them to
+the end of the <c>doc_path</c> list. The target doc-directory is also
+searched for an existing info file; this allows documentation to be
+built incrementally. (Use the <c>new</c> option to ignore any old info
+file.)</p>
+
+<p>Note that if the name of a module, function or datatype is explicitly
+qualified with an application (as in "<c>//edoc/edoc_run</c>"), this
+overrides any other information about that name, and the reference will
+be made relative to the location of the application (if it can be
+found). This makes it possible to refer to e.g. a module "<c>fred</c>" as
+"<c>//foo/fred</c>" without accidentally getting a reference to
+"<c>//bar/fred</c>". You should not use this form of explicit references for
+names that are local to the application you are currently creating -
+they will always be resolved correctly.</p>
+
+<p>Note that module-local references such as <c>file/2</c> only work properly
+within a module. In an overview-page like this (i.e., the one you are
+currently reading), no module context is available.</p>
+
+</section><section>
+<marker id="Notes_on_XHTML"/>
+<title>Notes on XHTML</title>
+<p>
+
+In several places, XHTML markup can be used in the documentation
+text, in particular in <c>@doc</c> tags. The main differences from
+HTML are the following:
+</p><list>
+  <item><p>All elements must have explicit start and end tags, and be
+      correctly nested. This means that you cannot e.g. write a
+      <c>&lt;li&gt;</c> tag without also writing a corresponding <c>&lt;/li&gt;</c>
+      tag in the right place. This could be an annoyance
+      at times, but has the great advantage that EDoc can report all
+      malformed XHTML in your source code, rather than propagate the
+      errors to the generated documentation.</p></item>
+  <item><p>XHTML tag and attribute names should always be lower-case.</p></item>
+  <item><p>Attributes must be quoted, as in e.g. <c>&lt;a
+      name="top"&gt;</c>.</p></item>
+</list><p>
+To write an element like the HTML <c>&lt;br&gt;</c>, which has no actual content,
+you can write either the full <c>&lt;br&gt;&lt;/br&gt;</c>, or better, use the XHTML
+abbreviated form <c>&lt;br/&gt;</c>.</p>
+
+<p>Since the purpose of EDoc is to document programs, there is also a
+limited form of "wiki"-syntax available for making program code easier
+to write inline (and to make the doc-comments easier to read).
+See <seeguide marker="#Wiki_notation">Wiki notation</seeguide> for details.</p>
+
+<p>The HTML heading tags <c>h1</c> and <c>h2</c> are reserved for use by EDoc.
+Headings in documentation source code should start at <c>h3</c>. There is
+however a special syntax for writing headings which avoids using
+specific level numbers altogether; see <seeguide marker="#Headings">Headings</seeguide> for details.</p>
+
+<p>EDoc uses <seeapp marker="xmerl:index">XMerL</seeapp> to parse and export XML markup.</p>
+
+
+</section><section>
+<marker id="Wiki_notation"/>
+<title>Wiki notation</title>
+<p>When EDoc parses XHTML, it does additional pre- and post-processing of
+the text in order to expand certain notation specific to EDoc into
+proper XHTML markup. This "wiki" (<url href="http://en.wikipedia.org/wiki/Wiki">http://en.wikipedia.org/wiki/Wiki</url>)
+notation is intended to make it easier to write source code
+documentation.</p>
+
+ <section>
+<marker id="Empty_lines_separate_paragraphs"/>
+<title>Empty lines separate paragraphs</title>
+<p>
+
+Leaving an empty line in XHTML text (i.e., a line which except for
+any leading start-of-comment '<c>%</c>' characters contains only
+whitespace), will make EDoc split the text before and
+after the empty line into separate paragraphs. For example:
+</p><pre>   %% @doc This will all be part of the first paragraph.
+   %% It can stretch over several lines and contain &lt;em&gt;any
+   %% XHTML markup&lt;/em&gt;.
+   %%
+   %% This is the second paragraph. The above line is
+   %% regarded as "empty" by EDoc, even though it ends with
+   %% a space.</pre><p>
+will generate the following text:
+</p><quote><p>This will all be part of the first paragraph. It can
+stretch over several lines and contain <em>any XHTML markup</em>.</p><p>
+This is the second paragraph. The above line is regarded as "empty" by
+EDoc, even though it ends with a space.</p></quote><p>Paragraph splitting takes place after the actual XHTML parsing. It only
+affects block-level text, and not e.g., text within <c>&lt;pre&gt;</c> markup, or
+text that is already within <c>&lt;p&gt;</c> markup.</p>
+
+ </section><section>
+<marker id="Headings"/>
+<title>Headings</title>
+<p>
+
+Section headings, sub-headings, and sub-sub-headings, can be written
+using the following notation:
+</p><pre>   == Heading ==
+   === Sub-heading ===
+   ==== Sub-sub-heading ====</pre><p>
+Such a heading must be alone on a line, except for whitespace, and
+cannot be split over several lines. A link target is automatically
+created for the heading, by replacing any whitespace within the text by
+a single underscore character. E.g.,
+</p><pre>   == Concerning Hobbits ==</pre><p>
+is equivalent to
+</p><pre>   &lt;h3&gt;&lt;a name="Concerning_Hobbits"&gt;Concerning Hobbits&lt;/a&gt;&lt;/h3&gt;</pre><p>
+Thus, headings using this notation should not contain characters that
+may not be part of URL labels, except for whitespace. If you need to
+create such headings, you have to use the explicit XHTML markup.</p>
+
+<p>A hypertext link to a heading written this way can be created using the
+<c>@section</c> macro, which transforms the argument text into a label as
+described above. E.g.,
+</p><pre>   {@section Concerning Hobbits}</pre><p>
+is equivalent to writing
+</p><pre>   &lt;a href="#Concerning_Hobbits"&gt;Concerning Hobbits&lt;/a&gt;</pre><p>The above expansions take place before XML parsing.</p>
+
+ </section><section>
+<marker id="External_links"/>
+<title>External links</title>
+<p>Writing a URL within brackets, as in "<c>[http://www.w3c.org/]</c>", will
+generate a hyperlink such as <url href="http://www.w3c.org/">http://www.w3c.org/</url>, using the URL both
+for the destination and the label of the reference, equivalent to writing
+"<c>&lt;a href="http://www.w3c.org/"&gt;&lt;tt&gt;http://www.w3c.org/&lt;/tt&gt;&lt;/a&gt;</c>". This
+short-hand keeps external URL references short and readable. The
+recognized protocols are <c>http</c>, <c>ftp</c>, and <c>file</c>. This expansion takes
+place before XML parsing.</p>
+
+ </section><section>
+<marker id="TODO-notes"/>
+<title>TODO-notes</title>
+<p>Lines that begin with the text "<c>TODO:</c>" (the colon is required) are
+recognized as tags, as if they had been written as "<c>@todo ...</c>" (see <seeguide marker="#gtag-todo">@todo tags</seeguide> for further details).</p>
+
+ </section><section>
+<marker id="Verbatim_quoting"/>
+<title>Verbatim quoting</title>
+<p>In XHTML text, the '<c>`</c>' character (Unicode <c>000060</c>,
+known as "grave accent" or "back-quote") can be used for verbatim
+quoting. This expansion takes place before XML parsing.</p>
+
+<list>
+  <item><p>A character sequence "<c>`...'</c>" or
+      "<c>``...''</c>" will be expanded to
+      "<c>&lt;code&gt;...&lt;/code&gt;</c>", where all occurrences of the special XML
+      characters '<c>&lt;</c>' and '<c>&amp;</c>' (and for completeness, also '<c>&gt;</c>') in
+      the quoted text have been escaped to "<c>&amp;lt;</c>", "<c>&amp;amp;</c>", and
+      "<c>&amp;gt;</c>", respectively.      
+All whitespace is stripped from the beginning and end of the      
+quoted text.</p>
+
+      <p>Double back-quotes "<c>``...''</c>" can be used
+      to quote text containing single '<c>'</c>' characters. The automatic
+      stripping of any surrounding whitespace makes it possible to write
+      things like "<c>`` 'foo@bar' ''</c>".</p>
+
+      To quote text containing "<c>''</c>" verbatim,
+      explicit <c>&lt;code&gt;</c> markup or similar must be used.</item>
+
+  <item><p>A character sequence "<c>```...'''</c>"
+      will be expanded to "<c>&lt;pre&gt;&lt;![CDATA[...]]&gt;&lt;/pre&gt;</c>", which disables
+      all XML markup within the quoted text, and displays the result in
+      fixed-font with preserved indentation. Whitespace is stripped from
+      the end of the quoted text, but not from the beginning, except for
+      whole leading lines of whitespace. This is
+      useful for multi-line code examples, or displayed
+      one-liners.</p></item>
+
+  <item><p>To produce a single '<c>`</c>'-character in XML
+      without beginning a new quote, you can write "<c>`'</c>"
+      (no space between the '<c>`</c>' and the '<c>'</c>').
+      You can of course also use the XML character entity
+      "<c>&amp;#x60;</c>".</p></item>
+</list><p>
+
+Examples:
+  </p><pre>     %% @doc ...where the variable `Foo' refers to...</pre><pre>     %% @doc ...returns the atom `` 'foo@erlang.org' ''...</pre><pre>
+     %% @doc ...use the command ```erl -name foo''' to...</pre><pre>
+     %% @doc ...as in the following code:
+     %% ```f(X) -&gt;
+     %%       case X of
+     %%          ...
+     %%       end'''</pre><pre>
+     %% @doc ...or in the following:
+     %% ```
+     %%     g(X) -&gt;
+     %%       fun () -&gt; ... end
+     %% '''</pre><p>
+
+
+</p></section></section><section>
+<marker id="Macro_expansion"/>
+<title>Macro expansion</title>
+<p>
+
+Before the content of a tag is parsed, the text undergoes <em>macro
+expansion</em>. The syntax for macro calls is:
+</p><pre>
+    {@name}</pre><p>
+or
+</p><pre>
+    {@name argument}</pre><p>
+where <em>name</em> and <em>argument</em> are separated by one or more
+whitespace characters. The argument can be any text, which may contain
+other macro calls. The number of non-escaped "<c>{@</c>" and
+"<c>}</c>" delimiters must be balanced.</p>
+
+ <p>The argument text is first expanded in the current environment, and
+the result is bound to the <em>macro parameter</em>, written
+<c>{@?}</c>. (If no argument is given, <c>{@?}</c> is
+bound to the empty string.)  The macro definition is then substituted
+for the call, and expansion continues over the resulting text. Recursive
+macro expansions are not allowed.</p>
+
+ <section>
+<marker id="User-defined_macros"/>
+<title>User-defined macros</title>
+<p>Users can define their own macros by using the <c>def</c> EDoc
+option; see <seemfa marker="edoc#file/2">edoc:file/2</seemfa> and <seemfa marker="edoc#get_doc/2">edoc:get_doc/2</seemfa> for more
+information. User-defined macros override predefined macros.</p>
+
+ </section><section>
+<marker id="Predefined_macros"/>
+<title>Predefined macros</title>
+<taglist>
+  <tag><c>{@date}</c></tag>
+      <item><marker id="predefmacro-date"/><p>Expands to the current date, as "<c>Month Day Year</c>",
+      e.g. "May 15 2023".</p></item>
+
+  <tag><c>{@link reference.
+		    description}</c></tag>
+      <item><marker id="predefmacro-link"/><p>This creates a hypertext link; cf. the
+      <seeguide marker="#ftag-see">@see function tag</seeguide> above for
+      details. The description text (including the period separator)
+      is optional; if no text is given, the reference itself is
+      used. For example, <c>{@link edoc:file/2}</c> creates the
+      link <seemfa marker="edoc#file/2">edoc:file/2</seemfa>, and <c>{@link edoc:file/2. &lt;em&gt;this link&lt;/em&gt;}</c>
+      creates <seemfa marker="edoc#file/2">this link</seemfa>.</p></item>
+
+  <tag><c>{@module}</c></tag>
+      <item><marker id="predefmacro-module"/><p>Expands to the name of the current module. Only defined when a
+      module is being processed.</p></item>
+
+  <tag><c>{@section
+        heading}</c></tag>
+      <item><marker id="predefmacro-section"/><p>Expands to a hypertext link to the specified section heading;
+      see <seeguide marker="#Headings">Headings</seeguide> for more information.</p></item>
+
+  <tag><c>{@time}</c></tag>
+      <item><marker id="predefmacro-time"/><p>Expands to the current time, as "<c>Hr:Min:Sec</c>",
+      e.g. "21:35:33".</p></item>
+
+  <tag><c>{@type
+      type-expression}</c></tag>
+      <item><marker id="predefmacro-type"/><p>Formats a type expression within <c>&lt;code&gt;...&lt;/code&gt;</c>
+      markup and with hypertext links for data types. For example,
+      <c>{@type {options, List::edoc:option_list()@}}</c>
+      generates "<c>{options, List::edoc:option_list()}</c>". (Cf.
+      <seeguide marker="#Escape_sequences">Escape sequences</seeguide>.)</p></item>
+
+  <tag><c>{@version}</c></tag>
+      <item><marker id="predefmacro-version"/><p>Intended for use in <seeguide marker="#mtag-version">@version
+      tags</seeguide>. Defaults to a timestamp using <c>{@date}</c> and <c>{@time}</c>.
+      Typically, this macro is redefined by the user when an official
+      release of the application is generated.</p></item>
+</taglist><p>
+
+ </p></section><section>
+<marker id="Escape_sequences"/>
+<title>Escape sequences</title>
+<p>
+
+To prevent certain characters from being interpreted as delimiters,
+for example to produce the text "<c>{@</c>" in the output, or use a
+'<c>}</c>' character in the argument text of a macro call, the
+following escape sequences may be used: </p><taglist>
+  <tag><c>@{</c></tag>
+      <item><p>Expands to "<c>{</c>". Example:
+</p><pre>   %% @doc A macro call starts with the sequence "@{@".</pre><p>
+      </p></item>
+  <tag><c>@}</c></tag>
+      <item><p>Expands to "<c>}</c>". Example:
+</p><pre>   %% @doc ...{@foo ...{Key, Value@}...}...</pre><p>
+      </p></item>
+  <tag><c>@@</c></tag>
+      <item><p>Expands to "<c>@</c>". Example:
+</p><pre>   %% @doc Contact us at support@@{@hostname}</pre><p>
+      Will generate the text "Contact us at support@vaporware.acme.com"
+      if the macro <c>hostname</c> is bound to
+      "<c>vaporware.acme.com</c>". Also:
+</p><pre>   %% @doc You might want to write something like
+   %% @@foo that will expand to @foo and does not start
+   %% a new tag even if it appears first in a line.</pre><p>
+      </p></item>
+</taglist><p>
+
+
+</p></section></section><section>
+<marker id="Type_specifications"/>
+<title>Type specifications</title>
+<section>
+<marker id="Function_specifications"/>
+<title>Function specifications</title>
+<p>Note that although the syntax described in the following can still be used
+for specifying functions we recommend that Erlang specifications
+(that is the <c>-spec</c> and <c>-type</c> attributes)
+as described in <seeguide marker="system/reference_manual:typespec"> Types
+and Function Specification</seeguide> should be added to the source
+code instead. This way the analyses of <seeerl marker="dialyzer:dialyzer">Dialyzer</seeerl>'s can be utilized in the
+process of keeping the documentation consistent and up-to-date.</p>
+
+<p>Erlang specifications (<c>-spec</c> and <c>-type</c>) are required to properly
+generate doc chunks. Redundant <c>-spec</c> attributes and <c>@spec</c> tags will
+cause warnings to be emitted and the specifications to be skipped in chunks.
+Old-style <c>@spec</c> and <c>@type</c> specifications can still be used to generate
+static HTML documentation.</p>
+
+<p>The following grammar describes the form of the specifications following
+a <c>@spec</c> tag. A '<c>?</c>' suffix implies that the element is optional.
+Function types have higher precedence than union types; e.g., "<c>(atom())
+-&gt; atom() | integer()</c>" is parsed as <c>((atom()) -&gt; atom()) | integer()</c>,
+not as <c>(atom()) -&gt; (atom() | integer())</c>.</p>
+
+<table>
+
+  <row>
+    <cell><c>Spec</c></cell>
+    <cell>::=</cell>
+    <cell><c>FunType "where"? DefList?
+	  | FunctionName FunType "where"? DefList?</c></cell>
+  </row>
+  <row>
+    <cell><c>FunctionName</c></cell>
+    <cell>::=</cell>
+    <cell><c>Atom</c></cell>
+  </row>
+  <row>
+    <cell><c>FunType</c></cell>
+    <cell>::=</cell>
+    <cell><c>"(" UnionTypes? ")" "-&gt;" UnionType</c></cell>
+  </row>
+  <row>
+    <cell><c>UnionTypes</c></cell>
+    <cell>::=</cell>
+    <cell><c>UnionType
+	  | UnionType "," UnionTypes</c></cell>
+  </row>
+  <row>
+    <cell><c>UnionType</c></cell>
+    <cell>::=</cell>
+    <cell><c>UnionList
+	  | Name "::" UnionList</c></cell>
+  </row>
+  <row>
+    <cell><c>Name</c></cell>
+    <cell>::=</cell>
+    <cell><c>Variable</c></cell>
+  </row>
+  <row>
+    <cell><c>UnionList</c></cell>
+    <cell>::=</cell>
+    <cell><c>Type
+	  | Type "+" UnionList
+	  | Type "|" UnionList</c></cell>
+  </row>
+  <row>
+    <cell><c>Type</c></cell>
+    <cell>::=</cell>
+    <cell><c>TypeVariable
+	  | Atom
+	  | Integer
+	  | Float
+          | Integer ".." Integer
+	  | FunType
+          | "fun(" FunType ")"
+          | "fun(...)"
+	  | "{" UnionTypes? "}"
+          | "#" Atom "{" Fields? "}"
+	  | "[" "]"
+	  | "[" UnionType "]"
+          | "[" UnionType "," "..." "]"
+	  | "(" UnionType ")"
+          | BinType
+	  | TypeName "(" UnionTypes? ")"
+	  | ModuleName ":" TypeName "(" UnionTypes? ")"
+	  | "//" AppName "/" ModuleName ":" TypeName "(" UnionTypes? ")"</c></cell>
+  </row>
+  <row>
+    <cell><c>Fields</c></cell>
+    <cell>::=</cell>
+    <cell><c>Field
+          | Fields "," Fields</c></cell>
+  </row>
+  <row>
+    <cell><c>Field</c></cell>
+    <cell>::=</cell>
+    <cell><c>Atom "=" UnionList</c></cell>
+  </row>
+  <row>
+    <cell><c>BinType</c></cell>
+    <cell>::=</cell>
+    <cell><c>"&lt;&lt;&gt;&gt;"
+          | "&lt;&lt;" BaseType "&gt;&gt;"
+          | "&lt;&lt;" UnitType "&gt;&gt;"
+          | "&lt;&lt;" BaseType "," UnitType "&gt;&gt;"</c></cell>
+  </row>
+  <row>
+    <cell><c>BaseType</c></cell>
+    <cell>::=</cell>
+    <cell><c>"_" ":" Integer</c></cell>
+  </row>
+  <row>
+    <cell><c>UnitType</c></cell>
+    <cell>::=</cell>
+    <cell><c>"_" ":" "_" "*" Integer</c></cell>
+  </row>
+  <row>
+    <cell><c>TypeVariable</c></cell>
+    <cell>::=</cell>
+    <cell><c>Variable</c></cell>
+  </row>
+  <row>
+    <cell><c>TypeName</c></cell>
+    <cell>::=</cell>
+    <cell><c>Atom</c></cell>
+  </row>
+  <row>
+    <cell><c>ModuleName</c></cell>
+    <cell>::=</cell>
+    <cell><c>Atom
+          | ModuleName "." Atom</c></cell>
+  </row>
+  <row>
+    <cell><c>AppName</c></cell>
+    <cell>::=</cell>
+    <cell><c>Atom</c></cell>
+  </row>
+  <row>
+    <cell><c>DefList</c></cell>
+    <cell>::=</cell>
+    <cell><c>Def
+	  | DefList Def
+	  | DefList "," Def</c></cell>
+  </row>
+  <row>
+    <cell><c>Def</c></cell>
+    <cell>::=</cell>
+    <cell><c>TypeVariable "=" UnionList
+	  | TypeName "(" TypeVariables? ")" "=" UnionType</c></cell>
+  </row>
+  <row>
+    <cell><c>TypeVariables</c></cell>
+    <cell>::=</cell>
+    <cell><c>TypeVariable
+	  | TypeVariable "," TypeVariables</c></cell>
+  </row>
+
+<tcaption>specification syntax grammar</tcaption></table><p>
+
+
+Examples:
+</p><pre>    -spec my_function(X :: integer()) -&gt; integer().
+    %% @doc Creates ...</pre><pre>    %% @spec my_function(X::integer()) -&gt; integer()</pre><pre>    %% @spec (X::integer()) -&gt; integer()</pre><pre>    %% @spec sqrt(float()) -&gt; float()</pre><pre>    %% @spec pair(S, T) -&gt; {S, T}</pre><pre>    %% @spec append(List, List) -&gt; List
+    %%       List = [term()]</pre><pre>    %% @spec append(A::List, B::List) -&gt; List
+    %%       List = [Item]
+    %%       Item = term()</pre><pre>    %% @spec open(File::filename()) -&gt; FileDescriptor
+    %% where
+    %%       filename() = string() + atom(),
+    %%       FileDescriptor = term()</pre><pre>    %% @spec close(graphics:window()) -&gt; ok</pre><p>The first example shows the recommended way of specifying functions.</p>
+
+<p>In the above examples, <c>X</c>, <c>A</c>, <c>B</c>,
+and <c>File</c> are parameter names, used for referring to the
+parameters from the documentation text. The <em>type variables</em>
+<c>S</c>, <c>T</c> and <c>List</c> are used to
+simplify the type specifications, and may be supplied with
+definitions. It is also possible to give definitions for named types,
+which means that the name is simply an alias. (Use the
+<c>@type</c> tag to document abstract data types.) If a named type
+is defined in another module, it can be referred to as
+<c>Module:TypeName(...)</c>. Note that the keyword '<c>where</c>' is optional
+before a list of definitions, and that the definitions in the list may
+optionally be separated by '<c>,</c>'.</p>
+
+<p>Both the '<c>|</c>' and the '<c>+</c>' character may be
+used to separate alternatives in union types; there is no semantic
+difference. Note that the notation <c>[Type]</c> means "proper
+(nil-terminated) list whose elements all belong to <c>Type</c>";
+For example, <c>[atom()|integer()]</c> means the same thing as
+<c>[atom()+integer()]</c>, i.e., a proper list of atoms and/or
+integers.</p>
+
+<p>If only a type variable is given for a parameter, as in
+"<c>pair(S, T) -&gt; ...</c>", the same variable name may implicitly
+be used as the parameter name; there is no need to write
+"<c>pair(S::S, T::T) -&gt; ...</c>".</p>
+
+<p>EDoc automatically extracts possible parameter names from the source
+code, to be used if no parameter name is given in the specification (or
+if the specification is missing altogether). If this fails, EDoc will
+generate a dummy parameter name, such as <c>X1</c>. This way, EDoc
+can often produce helpful documentation even for code that does not
+contain any annotations at all.</p>
+
+ </section><section>
+<marker id="Type_definitions"/>
+<title>Type definitions</title>
+<p>Note that although the syntax described in the following can still be used
+for specifying types we recommend that Erlang types as described in
+<seeguide marker="system/reference_manual:typespec"> Types and Function
+Specification</seeguide> should be added to the source code instead.</p>
+
+<p>Old-style <c>@type</c> tags will result in just type names, but no definitions,
+in doc chunks - please use <c>-type</c> attributes to ensure all
+available type information is available in the chunks.
+For static HTML, Erlang types will be used unless there is a type alias
+with the same name.</p>
+
+<p>The following grammar (see above for auxiliary definitions) describes
+the form of the definitions that may follow a <c>@type</c> tag:</p>
+
+<table>
+
+  <row>
+    <cell><c>Typedef</c></cell>
+    <cell>::=</cell>
+    <cell><c>TypeName "(" TypeVariables? ")" DefList?
+	  | TypeName "(" TypeVariables? ")" "=" UnionList DefList?</c></cell>
+  </row>
+
+<tcaption>type definition grammar</tcaption></table><p>
+
+(For a truly abstract data type, no equivalence is specified.) The main
+definition may be followed by additional local definitions. Examples:
+</p><pre>    -type my_list(X) :: [X]. %% A special kind of lists ...</pre><pre>    -opaque another_list(X) :: [X].
+    %% another_list() is a kind of list...</pre><pre>    %% @type myList(X). A special kind of lists ...</pre><pre>    %% @type filename() = string(). Atoms not allowed!</pre><pre>    %% @type thing(A) = {thong, A}
+    %%           A = term().
+    %%   A kind of wrapper type thingy.</pre><p>The first two examples show the recommended way of specifying types.</p>
+
+ </section><section>
+<marker id="Pre-defined_data_types"/>
+<title>Pre-defined data types</title>
+<p>
+
+The following data types are predefined by EDoc, and may not be
+redefined:
+</p><pre>    any()
+    arity()
+    atom()
+    binary()
+    bitstring()
+    bool()        (allowed, but use boolean() instead)
+    boolean()
+    byte()
+    char()
+    cons()
+    deep_string()
+    float()
+    function()
+    integer()
+    iodata()
+    iolist()
+    list()
+    maybe_improper_list()
+    mfa()
+    module()
+    nil()
+    neg_integer()
+    node()
+    non_neg_integer()
+    nonempty_improper_list()
+    nonempty_list()
+    nonempty_maybe_improper_list()
+    nonempty_string()
+    none()
+    number()
+    pid()
+    port()
+    pos_integer()
+    reference()
+    string()
+    term()
+    timeout()
+    tuple()</pre><p>
+Details:
+</p><list>
+  <item><p><c>any()</c> means "any Erlang data type".
+      <c>term()</c> is simply an alias for <c>any()</c>.</p></item>
+  <item><p><c>atom()</c>, <c>binary()</c>,
+      <c>float()</c>, <c>function()</c>,
+      <c>integer()</c>, <c>pid()</c>, <c>port()</c>
+      and <c>reference()</c> are primitive data types of
+      the Erlang programming language.</p></item>
+  <item><p><c>boolean()</c> is the subset of <c>atom()</c> consisting
+      of the atoms <c>true</c> and <c>false</c>.</p></item>
+  <item><p><c>char()</c> is the subset of <c>integer()</c> representing
+      Unicode character codes: hex 000000-10FFFF.</p></item>
+  <item><p><c>tuple()</c> is the set of all tuples <c>{...}</c>.</p></item>
+  <item><p><c>list(T)</c> is just an alias for <c>[T]</c>; list() is an alias
+      for <c>list(any())</c>, i.e., <c>[any()]</c>.</p></item>
+  <item><p><c>nil()</c> is an alias for the empty list <c>[]</c>.</p></item>
+  <item><p><c>cons(H,T)</c> is the list constructor. This is usually not
+      used directly. It is possible to recursively define <c>list(T)
+      := nil()+cons(T,list(T))</c>.</p></item>
+  <item><p><c>string()</c> is an alias for <c>[char()]</c>.</p></item>
+  <item><p><c>deep_string()</c> is recursively defined as
+      <c>[char()+deep_string()]</c>.</p></item>
+  <item><p><c>none()</c> means "no data type". E.g., a function
+      that never returns has type <c>(...) -&gt; none()</c></p></item>
+</list><p>
+
+
+</p></section></section><section>
+<marker id="Doc_chunks"/>
+<title>Doc chunks</title>
+<p>EDoc implements <url href="https://www.erlang.org/erlang-enhancement-proposals/eep-0048.html">EEP-48</url>
+and allows to output doc chunks for Erlang projects which use the EDoc language for source
+code documentation.</p>
+
+<p>There are two ways to generate the doc chunks: either by using <seeerl marker="edoc_cmd">bin/edoc</seeerl>
+or by using the <url href="http://rebar3.org/docs/commands/#edoc">Rebar3 edoc command</url>.
+Ultimately, they're both just entry points to EDoc, the application,
+so deciding which to use is just a matter of preference.</p>
+
+<section>
+<marker id="Using_edoc_EScript"/>
+<title>Using edoc EScript</title>
+<p>In order to generate doc chunks using <seeerl marker="edoc_cmd">bin/edoc</seeerl>,
+make sure the compiled Erlang app can be found in the Erlang code path:</p>
+
+<pre>$ pwd
+/tmp/recon
+$ rebar3 compile
+$ export PATH="$(dirname `which erl`)/../lib/erlang/lib/edoc-0.12/bin:$PATH"
+$ edoc -app recon -chunks -pa _build/default/lib/recon/ebin
+Running with opts:
+#{app =&gt; recon,
+  code_paths =&gt; ["_build/default/lib/recon/ebin"],
+  files =&gt; [],mode =&gt; chunks,run =&gt; app}
+$ ls _build/default/lib/recon/doc/chunks/
+recon.chunk        recon_lib.chunk    recon_rec.chunk
+recon_alloc.chunk  recon_map.chunk    recon_trace.chunk</pre><p>The project does not have to be built with Rebar3 - the above is just an example.
+From now on the chunks will be available as the source
+of <seeerl marker="stdlib:shell_docs">documentation for the Erlang shell</seeerl>:</p>
+
+<pre>$ erl -pa _build/default/lib/recon/ebin
+...
+1&gt; h(recon).
+
+   recon
+
+  Recon, as a module, provides access to the high-level functionality contained in the
+  Recon application.
+  ...
+
+2&gt; h(recon_alloc, allocators, 0).
+
+  -spec allocators() -&gt; [allocdata(term())].
+
+  returns a dump of all allocator settings and values</pre></section><section>
+<marker id="Using_Rebar3_edoc_command"/>
+<title>Using Rebar3 edoc command</title>
+<p>Doc chunks can also be built using <c>rebar3 edoc</c>, given <c>edoc_opts</c> is properly set up:</p>
+
+<pre>$ pwd
+/tmp/recon
+$ cat &gt;&gt; rebar.config &lt;&lt;EOF
+&gt; {edoc_opts, [{doclet, edoc_doclet_chunks},
+&gt;              {layout, edoc_layout_chunks},
+&gt;              {preprocess, true},
+&gt;              {dir, "_build/docs/lib/recon/doc"}]}.
+&gt; EOF
+$ rebar3 edoc
+$ ls _build/docs/lib/recon/doc/chunks/
+recon.chunk        recon_lib.chunk    recon_rec.chunk
+recon_alloc.chunk  recon_map.chunk    recon_trace.chunk</pre><p><c>rebar3 shell</c> will set up the paths for us if we use the <c>docs</c> profile:</p>
+
+<pre>$ rebar3 as docs shell
+...
+1&gt; h(recon).
+
+   recon
+
+  Recon, as a module, provides access to the high-level functionality contained in the
+  Recon application.
+  ...</pre></section><section>
+<marker id="Using_the_EDoc_API"/>
+<title>Using the EDoc API</title>
+<p>
+
+EDoc comes with two sets of doclet/layout pairs:
+</p><list>
+<item><p><seeerl marker="edoc_doclet">edoc_doclet</seeerl> and <seeerl marker="edoc_layout">edoc_layout</seeerl> - the default pair which
+    is used to generate static HTML documentation</p></item>
+<item><p><seeerl marker="edoc_doclet_chunks">edoc_doclet_chunks</seeerl> and <seeerl marker="edoc_layout_chunks">edoc_layout_chunks</seeerl> - the
+    <url href="https://www.erlang.org/erlang-enhancement-proposals/eep-0048.html">EEP-48</url>
+    compliant pair which generates doc chunks
+    with <seeerl marker="erl_docgen:doc_storage">erlang+html(3)</seeerl></p></item>
+</list><p>In order to generate doc chunks using <seemfa marker="edoc#application/2">edoc:application/2</seemfa>
+or <seemfa marker="edoc#files/2">edoc:files/2</seemfa> we have to specify which doclet and layout we want to use:</p>
+
+<pre>Opts = [{doclet, edoc_doclet_chunks},
+        {layout, edoc_layout_chunks}].</pre><p>Then, it's just a matter of deciding whether we want to generate documentation
+for the whole application (<seemfa marker="edoc#application/2">edoc:application/2</seemfa>)
+or only selected source files (<seemfa marker="edoc#files/2">edoc:files/2</seemfa>):</p>
+
+<pre>App = my_app.
+edoc:application(App, Opts).
+%% or
+Files = ["src/my_app_mod1.erl", "src/my_app_mod2.erl"].
+edoc:files(Files, Opts).</pre><p>See <c>src/edoc_cli.erl</c> source code for an example of using this interface.</p>
+
+
+</section></section><section>
+<marker id="Acknowledgements"/>
+<title>Acknowledgements</title>
+<p>Since the first version of EDoc, several people have come up with
+suggestions (Luke Gorrie, Joe Armstrong, Erik Stenman, Sean Hinde, Ulf
+Wiger, ...), and some have even submitted code to demonstrate their
+ideas (Vlad Dumitrescu, Johan Blom, Vijay Hirani, ...). None of that
+code was actually included in the Great Rewriting that followed the
+initial public release (EDoc version 0.1), but most of the central
+points were addressed in the new system, such as better modularization
+and possibility to plug in different layout engines, and making EDoc
+understand the application directory layout.</p>
+
+<p>It is now getting too hard to keep track of all the people who have made
+further suggestions or submitted bug reports, but your input is always
+appreciated. Thank you.
+</p></section></chapter>

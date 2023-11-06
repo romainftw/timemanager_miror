@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>edoc_lib</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>edoc_lib.xml</file></header>
+<module>edoc_lib</module>
+<modulesummary>Utility functions for EDoc.</modulesummary>
+<description>
+<p>Utility functions for EDoc.</p></description>
+<section><title>DATA TYPES</title><marker id="types"/>
+
+<taglist>
+<tag><marker id="type-proplist"/>proplist() = <seeerl marker="stdlib:proplists#type-proplist">proplists:proplist()</seeerl></tag>
+<item><p/> </item>
+</taglist></section>
+<funcs>
+<func>
+<name since="">get_doc_env(App, Modules, Options) -&gt; <seeerl marker="edoc:edoc#type-env">edoc:env()</seeerl></name>
+<fsummary>Creates an environment data structure used by parts of EDoc for
+  generating references, etc.</fsummary>
+<type>
+<v>App = atom() | no_app</v><v>Modules = [module()]</v><v>Options = <seeerl marker="#type-proplist">proplist()</seeerl></v></type>
+<desc><marker id="get_doc_env-3"/>
+
+<p>Creates an environment data structure used by parts of EDoc for
+  generating references, etc. See <seemfa marker="edoc#run/2">edoc:run/2</seemfa> for a description
+  of the options <c>file_suffix</c>, <c>app_default</c> and <c>doc_path</c>.
+ </p>
+<p><em>See also:</em> <seemfa marker="edoc#get_doc/3">edoc:get_doc/3</seemfa>, <seemfa marker="edoc_extract#source/4">edoc_extract:source/4</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">infer_module_app(Mod::module()) -&gt; no_app | {app, atom()}</name>
+<fsummary>Infer application containing the given module.</fsummary>
+
+<desc><marker id="infer_module_app-1"/>
+
+<p>Infer application containing the given module.</p>
+ 
+  <p>It's expected that modules which are not preloaded
+  and don't match the  <c>&lt;app&gt;/ebin/&lt;mod&gt;.beam</c> path pattern
+  will NOT have an app name inferred properly.
+  <c>no_app</c> is returned in such cases.</p>
+</desc></func>
+<func>
+<name since="">write_file(Text, Dir, Name, Options) -&gt; term()
+</name>
+<fsummary> </fsummary>
+
+<desc><marker id="write_file-4"/>
+ </desc></func></funcs>
+<section><title>See also</title><p><seeerl marker="edoc">edoc</seeerl></p></section>
+<authors>
+
+<aname>Richard Carlsson</aname>
+<email>carlsson.richard@gmail.com</email></authors></erlref>

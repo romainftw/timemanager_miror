@@ -1,0 +1,822 @@
+<module name="disk_log">
+<type>
+  <name>bchunk_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-bchunk_ret">bchunk_ret()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Continuation2 :: <seetype marker="#continuation">continuation()</seetype>, Binaries :: [<seetype marker="erlang#binary">binary()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Continuation2 :: <seetype marker="#continuation">continuation()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Binaries :: [<seetype marker="erlang#binary">binary()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Badbytes :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>eof |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="#chunk_error_rsn">chunk_error_rsn()</seetype>}</typehead></typedecl>
+  <anno>Badbytes</anno>
+  <anno>Binaries</anno>
+  <anno>Continuation2</anno>
+  <anno>Reason</anno>
+</type>
+<type>
+  <name>block_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-block_error_rsn">block_error_rsn()</marker> = no_such_log | nonode | {blocked_log, <seetype marker="#log">log()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>chunk_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_error_rsn">chunk_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{format_external, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{badarg, continuation} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{not_internal_wrap, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{corrupt_log_file, FileName :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>}</typehead></typedecl>
+  <anno>FileName</anno>
+</type>
+<type>
+  <name>chunk_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_ret">chunk_ret()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Continuation2 :: <seetype marker="#continuation">continuation()</seetype>, Terms :: [<seetype marker="erlang#term">term()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Continuation2 :: <seetype marker="#continuation">continuation()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Terms :: [<seetype marker="erlang#term">term()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Badbytes :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>eof |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="#chunk_error_rsn">chunk_error_rsn()</seetype>}</typehead></typedecl>
+  <anno>Badbytes</anno>
+  <anno>Continuation2</anno>
+  <anno>Reason</anno>
+  <anno>Terms</anno>
+</type>
+<type>
+  <name>close_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-close_error_rsn">close_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>continuation</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-continuation">continuation()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>dlog_format</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_format">dlog_format()</marker> = external | internal</typehead></typedecl>
+</type>
+<type>
+  <name>dlog_format_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_format_type">dlog_format_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>halt_ext | halt_int | wrap_ext | wrap_int | rotate_ext</typehead></typedecl>
+</type>
+<type>
+  <name>dlog_head_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_head_opt">dlog_head_opt()</marker> = none | <seetype marker="erlang#term">term()</seetype> | <seetype marker="erlang#iodata">iodata()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dlog_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_info">dlog_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{name, Log :: <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file, File :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{type, Type :: <seetype marker="#dlog_type">dlog_type()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{format, Format :: <seetype marker="#dlog_format">dlog_format()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, Size :: <seetype marker="#dlog_size">dlog_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mode, Mode :: <seetype marker="#dlog_mode">dlog_mode()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{owners, [{<seetype marker="erlang#pid">pid()</seetype>, Notify :: <seetype marker="erlang#boolean">boolean()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{users, Users :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{status,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Status :: ok | {blocked, QueueLogRecords :: <seetype marker="erlang#boolean">boolean()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{node, Node :: <seetype marker="erlang#node">node()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{head,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Head ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{head, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>(MFA :: {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#list">list()</seetype>})} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_written_items, NoWrittenItems :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{full, Full :: boolean} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_current_bytes, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_current_items, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_items, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{current_file, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_overflows,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{SinceLogWasOpened :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>SinceLastInfo :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}}</typehead></typedecl>
+  <anno>File</anno>
+  <anno>Format</anno>
+  <anno>Full</anno>
+  <anno>Head</anno>
+  <anno>Log</anno>
+  <anno>MFA</anno>
+  <anno>Mode</anno>
+  <anno>NoWrittenItems</anno>
+  <anno>Node</anno>
+  <anno>Notify</anno>
+  <anno>QueueLogRecords</anno>
+  <anno>SinceLastInfo</anno>
+  <anno>SinceLogWasOpened</anno>
+  <anno>Size</anno>
+  <anno>Status</anno>
+  <anno>Type</anno>
+  <anno>Users</anno>
+</type>
+<type>
+  <name>dlog_mode</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_mode">dlog_mode()</marker> = read_only | read_write</typehead></typedecl>
+</type>
+<type>
+  <name>dlog_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_name">dlog_name()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dlog_optattr</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_optattr">dlog_optattr()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>name | file | linkto | repair | type | format | size |<br/><nbsp/><nbsp/><nbsp/><nbsp/>notify | head | head_func | mode</typehead></typedecl>
+</type>
+<type>
+  <name>dlog_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_option">dlog_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{name, Log :: <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file, FileName :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{linkto, LinkTo :: none | <seetype marker="erlang#pid">pid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{repair, Repair :: true | false | truncate} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{type, Type :: <seetype marker="#dlog_type">dlog_type()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{format, Format :: <seetype marker="#dlog_format">dlog_format()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, Size :: <seetype marker="#dlog_size">dlog_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{notify, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{head, Head :: <seetype marker="#dlog_head_opt">dlog_head_opt()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{head_func, MFA :: {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#list">list()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{quiet, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mode, Mode :: <seetype marker="#dlog_mode">dlog_mode()</seetype>}</typehead></typedecl>
+  <anno>FileName</anno>
+  <anno>Format</anno>
+  <anno>Head</anno>
+  <anno>LinkTo</anno>
+  <anno>Log</anno>
+  <anno>MFA</anno>
+  <anno>Mode</anno>
+  <anno>Repair</anno>
+  <anno>Size</anno>
+  <anno>Type</anno>
+</type>
+<type>
+  <name>dlog_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_options">dlog_options()</marker> = [<seetype marker="#dlog_option">dlog_option()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>dlog_size</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_size">dlog_size()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>infinity |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{MaxNoBytes :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>, MaxNoFiles :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}</typehead></typedecl>
+  <anno>MaxNoBytes</anno>
+  <anno>MaxNoFiles</anno>
+</type>
+<type>
+  <name>dlog_state_error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_state_error">dlog_state_error()</marker> = ok | {error, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>dlog_status</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_status">dlog_status()</marker> = ok | {blocked, false | [<seetype marker="erlang#term">term()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>dlog_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dlog_type">dlog_type()</marker> = halt | wrap | rotate</typehead></typedecl>
+</type>
+<type>
+  <name>file_error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file_error">file_error()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>inc_wrap_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-inc_wrap_error_rsn">inc_wrap_error_rsn()</marker> = <seetype marker="#next_file_error_rsn">next_file_error_rsn()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>invalid_header</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-invalid_header">invalid_header()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>log</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-log">log()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>log_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-log_error_rsn">log_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{read_only_mode, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{format_external, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{full, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_header, <seetype marker="#invalid_header">invalid_header()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>next_file_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-next_file_error_rsn">next_file_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{read_only_mode, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{halt_log, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{rotate_log, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_header, <seetype marker="#invalid_header">invalid_header()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>notify_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-notify_ret">notify_ret()</marker> = ok | {error, no_such_log}</typehead></typedecl>
+</type>
+<type>
+  <name>open_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-open_error_rsn">open_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{badarg, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size_mismatch,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CurrentSize :: <seetype marker="#dlog_size">dlog_size()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewSize :: <seetype marker="#dlog_size">dlog_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{arg_mismatch,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>OptionName :: <seetype marker="#dlog_optattr">dlog_optattr()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CurrentValue :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Value :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{name_already_open, Log :: <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{open_read_write, Log :: <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{open_read_only, Log :: <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{need_repair, Log :: <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{not_a_log_file, FileName :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_index_file, FileName :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_header, <seetype marker="#invalid_header">invalid_header()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{node_already_open, Log :: <seetype marker="#log">log()</seetype>}</typehead></typedecl>
+  <anno>CurrentSize</anno>
+  <anno>CurrentValue</anno>
+  <anno>FileName</anno>
+  <anno>Log</anno>
+  <anno>NewSize</anno>
+  <anno>OptionName</anno>
+  <anno>Value</anno>
+</type>
+<type>
+  <name>open_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-open_ret">open_ret()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Log :: <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{repaired,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Log :: <seetype marker="#log">log()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{recovered, Rec :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{badbytes, Bad :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#open_error_rsn">open_error_rsn()</seetype>}</typehead></typedecl>
+  <anno>Bad</anno>
+  <anno>Log</anno>
+  <anno>Rec</anno>
+</type>
+<type>
+  <name>reopen_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-reopen_error_rsn">reopen_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{read_only_mode, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{same_file_name, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_index_file, <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_header, <seetype marker="#invalid_header">invalid_header()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>sync_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sync_error_rsn">sync_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{read_only_mode, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>trunc_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trunc_error_rsn">trunc_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{read_only_mode, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_header, <seetype marker="#invalid_header">invalid_header()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>unblock_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-unblock_error_rsn">unblock_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{not_blocked, <seetype marker="#log">log()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{not_blocked_by_pid, <seetype marker="#log">log()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>all</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>all() -&gt; [Log]</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>alog</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>alog(Log, Term) -&gt; <seetype marker="#notify_ret">notify_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>alog_terms</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>alog_terms(Log, TermList) -&gt; <seetype marker="#notify_ret">notify_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>TermList</typename><string>TermList = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+  <anno>TermList</anno>
+</spec>
+<spec>
+  <name>balog</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>balog(Log, Bytes) -&gt; <seetype marker="#notify_ret">notify_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Bytes</typename><string>Bytes = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>balog_terms</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>balog_terms(Log, ByteList) -&gt; <seetype marker="#notify_ret">notify_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>ByteList</typename><string>ByteList = [<seetype marker="erlang#iodata">iodata()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ByteList</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>bchunk</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>bchunk(Log, Continuation) -&gt; <seetype marker="#bchunk_ret">bchunk_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Continuation</typename><string>Continuation = start | <seetype marker="#continuation">continuation()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>bchunk</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>bchunk(Log, Continuation, N) -&gt; <seetype marker="#bchunk_ret">bchunk_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Continuation</typename><string>Continuation = start | <seetype marker="#continuation">continuation()</seetype></string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | infinity</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Log</anno>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>block</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>block(Log) -&gt; ok | {error, <seetype marker="#block_error_rsn">block_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>block</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>block(Log, QueueLogRecords) -&gt; ok | {error, <seetype marker="#block_error_rsn">block_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>QueueLogRecords</typename><string>QueueLogRecords = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+  <anno>QueueLogRecords</anno>
+</spec>
+<spec>
+  <name>blog</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>blog(Log, Bytes) -&gt; ok | {error, Reason :: <seetype marker="#log_error_rsn">log_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Bytes</typename><string>Bytes = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>Log</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>blog_terms</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>blog_terms(Log, BytesList) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="#log_error_rsn">log_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>BytesList</typename><string>BytesList = [<seetype marker="erlang#iodata">iodata()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BytesList</anno>
+  <anno>Log</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>breopen</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>breopen(Log, File, BHead) -&gt; ok | {error, <seetype marker="#reopen_error_rsn">reopen_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>BHead</typename><string>BHead = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BHead</anno>
+  <anno>File</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>btruncate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>btruncate(Log, BHead) -&gt; ok | {error, <seetype marker="#trunc_error_rsn">trunc_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>BHead</typename><string>BHead = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BHead</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>change_header</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>change_header(Log, Header) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Header</typename><string>Header = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{head, <seetype marker="#dlog_head_opt">dlog_head_opt()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{head_func, MFA :: {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#list">list()</seetype>}}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{read_only_mode, Log} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, Log} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{badarg, head}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Header</anno>
+  <anno>Log</anno>
+  <anno>MFA</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>change_notify</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>change_notify(Log, Owner, Notify) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Owner</typename><string>Owner = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Notify</typename><string>Notify = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, Log} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{badarg, notify} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{not_owner, Owner}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+  <anno>Notify</anno>
+  <anno>Owner</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>change_size</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>change_size(Log, Size) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = <seetype marker="#dlog_size">dlog_size()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | nonode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{read_only_mode, Log} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, Log} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{new_size_too_small, Log, CurrentSize :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{badarg, size} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CurrentSize</anno>
+  <anno>Log</anno>
+  <anno>Reason</anno>
+  <anno>Size</anno>
+</spec>
+<spec>
+  <name>chunk</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>chunk(Log, Continuation) -&gt; <seetype marker="#chunk_ret">chunk_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Continuation</typename><string>Continuation = start | <seetype marker="#continuation">continuation()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>chunk</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>chunk(Log, Continuation, N) -&gt; <seetype marker="#chunk_ret">chunk_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Continuation</typename><string>Continuation = start | <seetype marker="#continuation">continuation()</seetype></string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | infinity</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Log</anno>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>chunk_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>chunk_info(Continuation) -&gt; InfoList | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Continuation</typename><string>Continuation = <seetype marker="#continuation">continuation()</seetype></string></subtype>
+        <subtype><typename>InfoList</typename><string>InfoList = [{node, Node :: <seetype marker="erlang#node">node()</seetype>}, ...]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {no_continuation, Continuation}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>InfoList</anno>
+  <anno>Node</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>chunk_step</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>chunk_step(Log, Continuation, Step) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#any">any()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Continuation</typename><string>Continuation = start | <seetype marker="#continuation">continuation()</seetype></string></subtype>
+        <subtype><typename>Step</typename><string>Step = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>no_such_log | end_of_log |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{format_external, Log} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{blocked_log, Log} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{badarg, continuation} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#file_error">file_error()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Log</anno>
+  <anno>Reason</anno>
+  <anno>Step</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(Log) -&gt; ok | {error, <seetype marker="#close_error_rsn">close_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>do_info</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>do_log</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>do_log(Log ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#log{status = <seetype marker="#dlog_status">dlog_status()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>name = <seetype marker="#dlog_name">dlog_name()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>blocked_by = none | <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>users = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>filename = <seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>owners = [{<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#boolean">boolean()</seetype>}],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>type = <seetype marker="#dlog_type">dlog_type()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>format = <seetype marker="#dlog_format">dlog_format()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>format_type = <seetype marker="#dlog_format_type">dlog_format_type()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>head = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>mode = <seetype marker="#dlog_mode">dlog_mode()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>size = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>extra =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#halt{fdc =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#cache{fd = <seetype marker="file#fd">file:fd()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>sz = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>c = <seetype marker="erlang#iodata">iodata()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>curB = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>size = <seetype marker="#dlog_size">dlog_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#handle{filename = <seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>maxB = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>maxF =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>curB = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>curF = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cur_fdc =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#cache{fd = <seetype marker="file#fd">file:fd()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>sz = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>c = <seetype marker="erlang#iodata">iodata()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cur_name = <seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cur_cnt = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>acc_cnt = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>firstPos = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>noFull = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>accFull = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#rotate_handle{file = <seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cur_fdc =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#cache{fd = <seetype marker="file#fd">file:fd()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>sz =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>c = <seetype marker="erlang#iodata">iodata()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>inode = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>file_check = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>maxB = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>maxF =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>curB = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>firstPos = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>compress_on_rotate = <seetype marker="erlang#any">any()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>version = <seetype marker="erlang#integer">integer()</seetype> | undefined},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>B :: [<seetype marker="erlang#binary">binary()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#integer">integer()</seetype> | {error, <seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#integer">integer()</seetype>}</head></clause>
+  </contract>
+  <anno>B</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>do_sync</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(Error) -&gt; <seetype marker="io_lib#chars">io_lib:chars()</seetype></head>
+      <guard>
+        <subtype><typename>Error</typename><string>Error = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Error</anno>
+</spec>
+<spec>
+  <name>ichunk_end</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>inc_wrap_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>inc_wrap_file(Log) -&gt; ok | {error, <seetype marker="#inc_wrap_error_rsn">inc_wrap_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(Log) -&gt; InfoList | {error, no_such_log}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>InfoList</typename><string>InfoList = [<seetype marker="#dlog_info">dlog_info()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>InfoList</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>internal_open</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>istart_link</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ll_close</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ll_open</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>log(Log, Term) -&gt; ok | {error, Reason :: <seetype marker="#log_error_rsn">log_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>log_terms</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>log_terms(Log, TermList) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="#log_error_rsn">log_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>TermList</typename><string>TermList = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+  <anno>Reason</anno>
+  <anno>TermList</anno>
+</spec>
+<spec>
+  <name>next_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>next_file(Log) -&gt; ok | {error, <seetype marker="#next_file_error_rsn">next_file_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>open(ArgL) -&gt; <seetype marker="#open_ret">open_ret()</seetype></head>
+      <guard>
+        <subtype><typename>ArgL</typename><string>ArgL = <seetype marker="#dlog_options">dlog_options()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ArgL</anno>
+</spec>
+<spec>
+  <name>pid2name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pid2name(Pid) -&gt; {ok, Log} | undefined</head>
+      <guard>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>reopen</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>reopen(Log, File) -&gt; ok | {error, <seetype marker="#reopen_error_rsn">reopen_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>reopen</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>reopen(Log, File, Head) -&gt; ok | {error, <seetype marker="#reopen_error_rsn">reopen_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Head</typename><string>Head = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Head</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>sync</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sync(Log) -&gt; ok | {error, <seetype marker="#sync_error_rsn">sync_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>system_code_change</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_continue</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_terminate</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>system_terminate(Reason :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Parent :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>X3 :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{queue = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>messages = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>parent = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>server = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cnt = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>args = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>error_status = <seetype marker="#dlog_state_error">dlog_state_error()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cache_error = <seetype marker="erlang#any">any()</seetype>}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>Parent</anno>
+  <anno>Reason</anno>
+  <anno>State</anno>
+  <anno>X3</anno>
+</spec>
+<spec>
+  <name>truncate</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>truncate(Log) -&gt; ok | {error, <seetype marker="#trunc_error_rsn">trunc_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>truncate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>truncate(Log, Head) -&gt; ok | {error, <seetype marker="#trunc_error_rsn">trunc_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+        <subtype><typename>Head</typename><string>Head = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Head</anno>
+  <anno>Log</anno>
+</spec>
+<spec>
+  <name>unblock</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unblock(Log) -&gt; ok | {error, <seetype marker="#unblock_error_rsn">unblock_error_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Log</typename><string>Log = <seetype marker="#log">log()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Log</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:47.</timestamp>
+</module>

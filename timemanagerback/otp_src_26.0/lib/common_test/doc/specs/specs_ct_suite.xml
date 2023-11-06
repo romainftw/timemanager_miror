@@ -1,0 +1,141 @@
+<module name="ct_suite">
+<type>
+  <name>ct_config</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_config">ct_config()</marker> = [{Key :: <seetype marker="erlang#atom">atom()</seetype>, Value :: <seetype marker="erlang#term">term()</seetype>}]</typehead></typedecl>
+  <anno>Key</anno>
+  <anno>Value</anno>
+</type>
+<type>
+  <name>ct_group_def</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_group_def">ct_group_def()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#ct_groupname">ct_groupname()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ct_group_props">ct_group_props()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#ct_testname">ct_testname()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ct_group_def">ct_group_def()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{group, <seetype marker="#ct_groupname">ct_groupname()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ct_testcase_ref">ct_testcase_ref()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>ct_group_props</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_group_props">ct_group_props()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[parallel | sequence | shuffle |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{shuffle, Seed :: {<seetype marker="erlang#integer">integer()</seetype>, <seetype marker="erlang#integer">integer()</seetype>, <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#ct_group_repeat_type">ct_group_repeat_type()</seetype>, <seetype marker="#ct_test_repeat">ct_test_repeat()</seetype>}]</typehead></typedecl>
+  <anno>Seed</anno>
+</type>
+<type>
+  <name>ct_group_props_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_group_props_ref">ct_group_props_ref()</marker> = <seetype marker="#ct_group_props">ct_group_props()</seetype> | default</typehead></typedecl>
+</type>
+<type>
+  <name>ct_group_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_group_ref">ct_group_ref()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{group, <seetype marker="#ct_groupname">ct_groupname()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{group, <seetype marker="#ct_groupname">ct_groupname()</seetype>, <seetype marker="#ct_group_props_ref">ct_group_props_ref()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{group,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ct_groupname">ct_groupname()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ct_group_props_ref">ct_group_props_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ct_subgroups_def">ct_subgroups_def()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>ct_group_repeat_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_group_repeat_type">ct_group_repeat_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>repeat | repeat_until_all_ok | repeat_until_all_fail |<br/><nbsp/><nbsp/><nbsp/><nbsp/>repeat_until_any_ok | repeat_until_any_fail</typehead></typedecl>
+</type>
+<type>
+  <name>ct_groupname</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_groupname">ct_groupname()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ct_hooks</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_hooks">ct_hooks()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[CTHModule ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#atom">atom()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{CTHModule :: <seetype marker="erlang#atom">atom()</seetype>, CTHInitArgs :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{CTHModule :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CTHInitArgs :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CTHPriority :: <seetype marker="erlang#integer">integer()</seetype>}]</typehead></typedecl>
+  <anno>CTHInitArgs</anno>
+  <anno>CTHModule</anno>
+  <anno>CTHPriority</anno>
+</type>
+<type>
+  <name>ct_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_info">ct_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{timetrap, <seetype marker="#ct_info_timetrap">ct_info_timetrap()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{require, <seetype marker="#ct_info_required">ct_info_required()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{require, Name :: <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="#ct_info_required">ct_info_required()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{userdata, UserData :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{silent_connections, Conns :: [<seetype marker="erlang#atom">atom()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{stylesheet, CSSFile :: <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ct_hooks, CTHs :: <seetype marker="#ct_hooks">ct_hooks()</seetype>}</typehead></typedecl>
+  <anno>CSSFile</anno>
+  <anno>CTHs</anno>
+  <anno>Conns</anno>
+  <anno>Name</anno>
+  <anno>UserData</anno>
+</type>
+<type>
+  <name>ct_info_required</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_info_required">ct_info_required()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#atom">atom()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Key :: <seetype marker="erlang#atom">atom()</seetype>, SubKeys :: <seetype marker="#ct_info_required_subkeys">ct_info_required_subkeys()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Key :: <seetype marker="erlang#atom">atom()</seetype>, SubKey :: <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Key :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>SubKey :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>SubKeys :: <seetype marker="#ct_info_required_subkeys">ct_info_required_subkeys()</seetype>}</typehead></typedecl>
+  <anno>Key</anno>
+  <anno>SubKey</anno>
+  <anno>SubKeys</anno>
+</type>
+<type>
+  <name>ct_info_required_subkeys</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_info_required_subkeys">ct_info_required_subkeys()</marker> = <seetype marker="erlang#atom">atom()</seetype> | [SubKey :: <seetype marker="erlang#atom">atom()</seetype>]</typehead></typedecl>
+  <anno>SubKey</anno>
+</type>
+<type>
+  <name>ct_info_timetrap</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_info_timetrap">ct_info_timetrap()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#integer">integer()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{seconds, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minutes, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{hours, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Mod :: <seetype marker="erlang#atom">atom()</seetype>, Func :: <seetype marker="erlang#atom">atom()</seetype>, Args :: <seetype marker="erlang#list">list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ct_info_timetrap_fun">ct_info_timetrap_fun()</seetype></typehead></typedecl>
+  <anno>Args</anno>
+  <anno>Func</anno>
+  <anno>Mod</anno>
+</type>
+<type>
+  <name>ct_info_timetrap_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_info_timetrap_fun">ct_info_timetrap_fun()</marker> = <seetype marker="erlang#function">function()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ct_status</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_status">ct_status()</marker> = ok | skipped | failed</typehead></typedecl>
+</type>
+<type>
+  <name>ct_subgroups_def</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_subgroups_def">ct_subgroups_def()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#ct_groupname">ct_groupname()</seetype>, <seetype marker="#ct_group_props_ref">ct_group_props_ref()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#ct_groupname">ct_groupname()</seetype>, <seetype marker="#ct_group_props_ref">ct_group_props_ref()</seetype>, <seetype marker="#ct_subgroups_def">ct_subgroups_def()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>ct_test_def</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_test_def">ct_test_def()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ct_testname">ct_testname()</seetype> | <seetype marker="#ct_group_ref">ct_group_ref()</seetype> | <seetype marker="#ct_testcase_ref">ct_testcase_ref()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ct_test_repeat</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_test_repeat">ct_test_repeat()</marker> = <seetype marker="erlang#integer">integer()</seetype> | forever</typehead></typedecl>
+</type>
+<type>
+  <name>ct_testcase_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_testcase_ref">ct_testcase_ref()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{testcase, <seetype marker="#ct_testname">ct_testname()</seetype>, <seetype marker="#ct_testcase_repeat_prop">ct_testcase_repeat_prop()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>ct_testcase_repeat_prop</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_testcase_repeat_prop">ct_testcase_repeat_prop()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{repeat, <seetype marker="#ct_test_repeat">ct_test_repeat()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{repeat_until_ok, <seetype marker="#ct_test_repeat">ct_test_repeat()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{repeat_until_fail, <seetype marker="#ct_test_repeat">ct_test_repeat()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>ct_testname</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ct_testname">ct_testname()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:12.</timestamp>
+</module>

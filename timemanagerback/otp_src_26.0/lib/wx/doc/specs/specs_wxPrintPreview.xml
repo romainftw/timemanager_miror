@@ -1,0 +1,276 @@
+<module name="wxPrintPreview">
+<type>
+  <name>wxPrintPreview</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxPrintPreview">wxPrintPreview()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCanvas</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getCanvas(This) -&gt; <seetype marker="wxPreviewCanvas#wxPreviewCanvas">wxPreviewCanvas:wxPreviewCanvas()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCurrentPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getCurrentPage(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFrame</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFrame(This) -&gt; <seetype marker="wxFrame#wxFrame">wxFrame:wxFrame()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMaxPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMaxPage(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMinPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMinPage(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPrintout</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPrintout(This) -&gt; <seetype marker="wxPrintout#wxPrintout">wxPrintout:wxPrintout()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPrintoutForPrinting</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPrintoutForPrinting(This) -&gt; <seetype marker="wxPrintout#wxPrintout">wxPrintout:wxPrintout()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isOk</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isOk(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Printout) -&gt; <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></head>
+      <guard>
+        <subtype><typename>Printout</typename><string>Printout = <seetype marker="wxPrintout#wxPrintout">wxPrintout:wxPrintout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Printout</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Printout, Options :: [Option]) -&gt; <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></head>
+      <guard>
+        <subtype><typename>Printout</typename><string>Printout = <seetype marker="wxPrintout#wxPrintout">wxPrintout:wxPrintout()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{printoutForPrinting, <seetype marker="wxPrintout#wxPrintout">wxPrintout:wxPrintout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{data, <seetype marker="wxPrintDialogData#wxPrintDialogData">wxPrintDialogData:wxPrintDialogData()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Printout</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>new(Printout, PrintoutForPrinting, Data) -&gt; <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></head>
+      <guard>
+        <subtype><typename>Printout</typename><string>Printout = PrintoutForPrinting = <seetype marker="wxPrintout#wxPrintout">wxPrintout:wxPrintout()</seetype></string></subtype>
+        <subtype><typename>PrintoutForPrinting</typename><string/></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="wxPrintData#wxPrintData">wxPrintData:wxPrintData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Printout</anno>
+  <anno>PrintoutForPrinting</anno>
+</spec>
+<spec>
+  <name>paintPage</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>paintPage(This, Canvas, Dc) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+        <subtype><typename>Canvas</typename><string>Canvas = <seetype marker="wxPreviewCanvas#wxPreviewCanvas">wxPreviewCanvas:wxPreviewCanvas()</seetype></string></subtype>
+        <subtype><typename>Dc</typename><string>Dc = <seetype marker="wxDC#wxDC">wxDC:wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Canvas</anno>
+  <anno>Dc</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>print(This, Prompt) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Prompt</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>renderPage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>renderPage(This, PageNum) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+        <subtype><typename>PageNum</typename><string>PageNum = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PageNum</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setCanvas</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setCanvas(This, Window) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+        <subtype><typename>Window</typename><string>Window = <seetype marker="wxPreviewCanvas#wxPreviewCanvas">wxPreviewCanvas:wxPreviewCanvas()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Window</anno>
+</spec>
+<spec>
+  <name>setCurrentPage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setCurrentPage(This, PageNum) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+        <subtype><typename>PageNum</typename><string>PageNum = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PageNum</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFrame</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFrame(This, Frame) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+        <subtype><typename>Frame</typename><string>Frame = <seetype marker="wxFrame#wxFrame">wxFrame:wxFrame()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Frame</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPrintout</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPrintout(This, Printout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+        <subtype><typename>Printout</typename><string>Printout = <seetype marker="wxPrintout#wxPrintout">wxPrintout:wxPrintout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Printout</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setZoom</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setZoom(This, Percent) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintPreview">wxPrintPreview()</seetype></string></subtype>
+        <subtype><typename>Percent</typename><string>Percent = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Percent</anno>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:46.</timestamp>
+</module>

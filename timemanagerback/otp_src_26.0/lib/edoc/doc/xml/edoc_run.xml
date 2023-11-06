@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>edoc_run</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>edoc_run.xml</file></header>
+<module>edoc_run</module>
+<modulesummary>Interface for calling EDoc from Erlang startup options.</modulesummary>
+<description>
+<p>Interface for calling EDoc from Erlang startup options.</p>
+ 
+  <p>The following is an example of typical usage in a Makefile:</p>
+ 
+  <pre>     docs:
+             erl -noshell -run edoc_run application "'$(APP_NAME)'" \
+               '"."' '[{def,{vsn,"$(VSN)"}}]'</pre>
+ 
+  <p>(note the single-quotes to avoid shell expansion, and the  
+double-quotes enclosing the strings).</p>
+ 
+  <p><em>New feature in version 0.6.9</em>: It is no longer
+  necessary to write <c>-s init stop</c> last on the command line in order
+  to make the execution terminate. The termination (signalling success
+  or failure to the operating system) is now built into these
+  functions.</p></description>
+<section><title>DATA TYPES</title><marker id="types"/>
+
+<taglist>
+<tag><marker id="type-args"/>args() = [string()]</tag>
+<item><p/> </item>
+</taglist></section>
+<funcs>
+<func>
+<name since="">application(Args::<seeerl marker="#type-args">args()</seeerl>) -&gt; no_return()</name>
+<fsummary>Calls edoc:application/3 with the corresponding
+  arguments.</fsummary>
+
+<desc><marker id="application-1"/>
+
+<p>Calls <seemfa marker="edoc#application/3">edoc:application/3</seemfa> with the corresponding
+  arguments. The strings in the list are parsed as Erlang constant
+  terms. The list can be either <c>[App]</c>, <c>[App, Options]</c>
+  or <c>[App, Dir, Options]</c>. In the first case <seemfa marker="edoc#application/1">edoc:application/1</seemfa> is
+  called instead; in the second case, <seemfa marker="edoc#application/2">edoc:application/2</seemfa> is called.</p>
+ 
+  <p>The function call never returns; instead, the emulator is
+  automatically terminated when the call has completed, signalling
+  success or failure to the operating system.</p>
+</desc></func>
+<func>
+<name since="">file(Args::<seeerl marker="#type-args">args()</seeerl>) -&gt; no_return()</name>
+<fsummary>Calls edoc:file/2 with the corresponding arguments.</fsummary>
+
+<desc><marker id="file-1"/>
+<p><em>This function is deprecated: </em>This is part of the old interface to EDoc and is mainly
+  kept for backwards compatibility. The preferred way of generating
+  documentation is through one of the functions <seemfa marker="#application/1">application/1</seemfa>
+  and <seemfa marker="#files/1">files/1</seemfa>.
+ </p>
+
+<p>Calls <seemfa marker="edoc#file/2">edoc:file/2</seemfa> with the corresponding arguments. The
+  strings in the list are parsed as Erlang constant terms. The list can
+  be either <c>[File]</c> or <c>[File, Options]</c>. In the first case, an empty
+  list of options is passed to <seemfa marker="edoc#file/2">edoc:file/2</seemfa>.</p>
+ 
+  <p>The following is an example of typical usage in a Makefile:
+  </p><pre>     $(DOCDIR)/%.html:%.erl
+             erl -noshell -run edoc_run file '"$&lt;"' '[{dir,"$(DOCDIR)"}]' \
+               -s init stop</pre>
+ 
+  <p>The function call never returns; instead, the emulator is
+  automatically terminated when the call has completed, signalling
+  success or failure to the operating system.</p>
+</desc></func>
+<func>
+<name since="">files(Args::<seeerl marker="#type-args">args()</seeerl>) -&gt; no_return()</name>
+<fsummary>Calls edoc:files/2 with the corresponding arguments.</fsummary>
+
+<desc><marker id="files-1"/>
+
+<p>Calls <seemfa marker="edoc#files/2">edoc:files/2</seemfa> with the corresponding arguments. The
+  strings in the list are parsed as Erlang constant terms. The list can
+  be either <c>[Files]</c> or <c>[Files, Options]</c>. In the first case, <seemfa marker="edoc#files/1">edoc:files/1</seemfa> is called instead.</p>
+ 
+  <p>The function call never returns; instead, the emulator is
+  automatically terminated when the call has completed, signalling
+  success or failure to the operating system.</p>
+</desc></func></funcs>
+<section><title>See also</title><p><seeerl marker="edoc">edoc</seeerl></p></section>
+<authors>
+
+<aname>Richard Carlsson</aname>
+<email>carlsson.richard@gmail.com</email></authors></erlref>

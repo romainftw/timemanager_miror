@@ -1,0 +1,1309 @@
+<module name="wxFileDialog">
+<type>
+  <name>wxFileDialog</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxFileDialog">wxFileDialog()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>cacheBestSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>canSetTransparent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>captureMouse</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>center</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>center</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnParent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnScreen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnScreen</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnParent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnScreen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnScreen</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clearBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clientToScreen</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clientToScreen</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>convertDialogToPixels</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>convertPixelsToDialog</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>createButtonSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>createStdDialogButtonSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxFileDialog">wxFileDialog()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroyChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>dragAcceptFiles</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>endModal</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>findWindow</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fit</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fitInside</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>freeze</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getAcceleratorTable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getAffirmativeId</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBackgroundColour</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBackgroundStyle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBestSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCaret</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCharHeight</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCharWidth</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getClientSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getContainingSizer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getContentScaleFactor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCursor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDPI</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDPIScaleFactor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDirectory</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDirectory(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDropTarget</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getExtraStyle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getFilename</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFilename(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFilenames</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFilenames(This) -&gt; [<seetype marker="unicode#charlist">unicode:charlist()</seetype>]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFilterIndex</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFilterIndex(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFont</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getForegroundColour</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getGrandParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getHandle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getHelpText</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getIcon</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getIcons</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getId</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getLabel</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMaxSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMessage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMessage(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMinSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getName</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPath</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPath(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPaths</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPaths(This) -&gt; [<seetype marker="unicode#charlist">unicode:charlist()</seetype>]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getRect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getReturnCode</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScreenPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScreenRect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollPos</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollRange</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollThumb</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSizer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getThemeEnabled</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTitle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getToolTip</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getUpdateRegion</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getVirtualSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getWildcard</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getWildcard(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getWindowStyleFlag</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getWindowVariant</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasCapture</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasScrollbar</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasTransparentBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>iconize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>iconize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>inheritAttributes</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>initDialog</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>invalidateBestSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isActive</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isDoubleBuffered</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isEnabled</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isFrozen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isFullScreen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isIconized</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isMaximized</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isModal</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isRetained</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isShown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isShownOnScreen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isTopLevel</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>layout</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lineDown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lineUp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lower</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>maximize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>maximize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveAfterInTabOrder</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveBeforeInTabOrder</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>navigate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>navigate</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Parent) -&gt; <seetype marker="#wxFileDialog">wxFileDialog()</seetype></head>
+      <guard>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Parent</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Parent, Options :: [Option]) -&gt; <seetype marker="#wxFileDialog">wxFileDialog()</seetype></head>
+      <guard>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{message, <seetype marker="unicode#chardata">unicode:chardata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{defaultDir, <seetype marker="unicode#chardata">unicode:chardata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{defaultFile, <seetype marker="unicode#chardata">unicode:chardata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{wildCard, <seetype marker="unicode#chardata">unicode:chardata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{style, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sz, {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Parent</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>pageDown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>pageUp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>raise</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refresh</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refresh</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refreshRect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refreshRect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>releaseMouse</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>removeChild</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>reparent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>requestUserAttention</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>requestUserAttention</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>screenToClient</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>screenToClient</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollLines</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollPages</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollWindow</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollWindow</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setAcceleratorTable</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setAffirmativeId</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setAutoLayout</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBackgroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBackgroundStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCaret</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setClientSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setClientSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setContainingSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCursor</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDirectory</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDirectory(This, Directory) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Directory</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDoubleBuffered</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDropTarget</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setExtraStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFilename</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFilename(This, Setfilename) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+        <subtype><typename>Setfilename</typename><string>Setfilename = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Setfilename</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFilterIndex</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFilterIndex(This, FilterIndex) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+        <subtype><typename>FilterIndex</typename><string>FilterIndex = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FilterIndex</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFocus</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFocusFromKbd</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFont</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setForegroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setHelpText</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setIcon</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setIcons</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setId</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setLabel</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMaxSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMessage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMessage(This, Message) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+        <subtype><typename>Message</typename><string>Message = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Message</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setName</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnBackgroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnFont</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnForegroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setPalette</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setPath</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPath(This, Path) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Path</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setReturnCode</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollPos</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollPos</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbar</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbar</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setShape</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizerAndFit</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizerAndFit</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setThemeEnabled</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTitle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setToolTip</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTransparent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVirtualSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVirtualSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWildcard</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setWildcard(This, WildCard) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFileDialog">wxFileDialog()</seetype></string></subtype>
+        <subtype><typename>WildCard</typename><string>WildCard = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>WildCard</anno>
+</spec>
+<spec>
+  <name>setWindowStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowStyleFlag</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowVariant</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>shouldInheritColours</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>showFullScreen</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>showFullScreen</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>showModal</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>thaw</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transferDataFromWindow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transferDataToWindow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>updateWindowUI</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>updateWindowUI</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>validate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>warpPointer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:29.</timestamp>
+</module>

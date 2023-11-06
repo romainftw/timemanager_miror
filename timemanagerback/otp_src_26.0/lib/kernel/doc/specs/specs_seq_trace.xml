@@ -1,0 +1,151 @@
+<module name="seq_trace">
+<type>
+  <name>component</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-component">component()</marker> = label | serial | <seetype marker="#flag">flag()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>flag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-flag">flag()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>send | 'receive' | print | timestamp | monotonic_timestamp |<br/><nbsp/><nbsp/><nbsp/><nbsp/>strict_monotonic_timestamp</typehead></typedecl>
+</type>
+<type>
+  <name>token</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-token">token()</marker> = {<seetype marker="erlang#integer">integer()</seetype>, <seetype marker="erlang#boolean">boolean()</seetype>, <seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>tracer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tracer">tracer()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>(Pid :: <seetype marker="erlang#pid">pid()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#port">port()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(TracerModule :: {<seetype marker="erlang#module">module()</seetype>, <seetype marker="erlang#term">term()</seetype>}) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>false</typehead></typedecl>
+  <anno>Pid</anno>
+  <anno>TracerModule</anno>
+</type>
+<type>
+  <name>value</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-value">value()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>(Label :: <seetype marker="erlang#term">term()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Previous :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>, Current :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Bool :: <seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+  <anno>Bool</anno>
+  <anno>Current</anno>
+  <anno>Label</anno>
+  <anno>Previous</anno>
+</type>
+<spec>
+  <name>get_system_tracer</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_system_tracer() -&gt; Tracer</head>
+      <guard>
+        <subtype><typename>Tracer</typename><string>Tracer = <seetype marker="#tracer">tracer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Tracer</anno>
+</spec>
+<spec>
+  <name>get_token</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_token() -&gt; [] | <seetype marker="#token">token()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>get_token</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_token(Component) -&gt; [] | {Component, Val}</head>
+      <guard>
+        <subtype><typename>Component</typename><string>Component = <seetype marker="#component">component()</seetype></string></subtype>
+        <subtype><typename>Val</typename><string>Val = <seetype marker="#value">value()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Component</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>print(TraceInfo) -&gt; ok</head>
+      <guard>
+        <subtype><typename>TraceInfo</typename><string>TraceInfo = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>TraceInfo</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>print(Label, TraceInfo) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>TraceInfo</typename><string>TraceInfo = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Label</anno>
+  <anno>TraceInfo</anno>
+</spec>
+<spec>
+  <name>reset_trace</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>reset_trace() -&gt; true</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>set_system_tracer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_system_tracer(Tracer) -&gt; OldTracer</head>
+      <guard>
+        <subtype><typename>Tracer</typename><string>Tracer = OldTracer = <seetype marker="#tracer">tracer()</seetype></string></subtype>
+        <subtype><typename>OldTracer</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OldTracer</anno>
+  <anno>Tracer</anno>
+</spec>
+<spec>
+  <name>set_token</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_token(Token) -&gt; PreviousToken | ok</head>
+      <guard>
+        <subtype><typename>Token</typename><string>Token = PreviousToken = [] | <seetype marker="#token">token()</seetype></string></subtype>
+        <subtype><typename>PreviousToken</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PreviousToken</anno>
+  <anno>Token</anno>
+</spec>
+<spec>
+  <name>set_token</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_token(Component, Val) -&gt; OldVal</head>
+      <guard>
+        <subtype><typename>Component</typename><string>Component = <seetype marker="#component">component()</seetype></string></subtype>
+        <subtype><typename>Val</typename><string>Val = OldVal = <seetype marker="#value">value()</seetype></string></subtype>
+        <subtype><typename>OldVal</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Component</anno>
+  <anno>OldVal</anno>
+  <anno>Val</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:51.</timestamp>
+</module>

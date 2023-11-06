@@ -1,0 +1,441 @@
+<module name="wxGraphicsPath">
+<type>
+  <name>wxGraphicsPath</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxGraphicsPath">wxGraphicsPath()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>addArc</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>addArc(This, C, R, StartAngle, EndAngle, Clockwise) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>C</typename><string>C = {X :: <seetype marker="erlang#float">float()</seetype>, Y :: <seetype marker="erlang#float">float()</seetype>}</string></subtype>
+        <subtype><typename>R</typename><string>R = StartAngle = EndAngle = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>StartAngle</typename><string/></subtype>
+        <subtype><typename>EndAngle</typename><string/></subtype>
+        <subtype><typename>Clockwise</typename><string>Clockwise = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Clockwise</anno>
+  <anno>EndAngle</anno>
+  <anno>R</anno>
+  <anno>StartAngle</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addArc</name>
+  <arity>7</arity>
+  <contract>
+    <clause>
+      <head>addArc(This, X, Y, R, StartAngle, EndAngle, Clockwise) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = R = StartAngle = EndAngle = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string/></subtype>
+        <subtype><typename>R</typename><string/></subtype>
+        <subtype><typename>StartAngle</typename><string/></subtype>
+        <subtype><typename>EndAngle</typename><string/></subtype>
+        <subtype><typename>Clockwise</typename><string>Clockwise = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Clockwise</anno>
+  <anno>EndAngle</anno>
+  <anno>R</anno>
+  <anno>StartAngle</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addArcToPoint</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>addArcToPoint(This, X1, Y1, X2, Y2, R) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X1</typename><string>X1 = Y1 = X2 = Y2 = R = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y1</typename><string></string></subtype>
+        <subtype><typename>X2</typename><string></string></subtype>
+        <subtype><typename>Y2</typename><string></string></subtype>
+        <subtype><typename>R</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>R</anno>
+  <anno>This</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+  <anno>Y1</anno>
+  <anno>Y2</anno>
+</spec>
+<spec>
+  <name>addCircle</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>addCircle(This, X, Y, R) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = R = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+        <subtype><typename>R</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>R</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addCurveToPoint</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>addCurveToPoint(This, C1, C2, E) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>C1</typename><string>C1 = C2 = E = {X :: <seetype marker="erlang#float">float()</seetype>, Y :: <seetype marker="erlang#float">float()</seetype>}</string></subtype>
+        <subtype><typename>C2</typename><string></string></subtype>
+        <subtype><typename>E</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C1</anno>
+  <anno>C2</anno>
+  <anno>E</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addCurveToPoint</name>
+  <arity>7</arity>
+  <contract>
+    <clause>
+      <head>addCurveToPoint(This, Cx1, Cy1, Cx2, Cy2, X, Y) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>Cx1</typename><string>Cx1 = Cy1 = Cx2 = Cy2 = X = Y = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Cy1</typename><string></string></subtype>
+        <subtype><typename>Cx2</typename><string></string></subtype>
+        <subtype><typename>Cy2</typename><string></string></subtype>
+        <subtype><typename>X</typename><string></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cx1</anno>
+  <anno>Cx2</anno>
+  <anno>Cy1</anno>
+  <anno>Cy2</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addEllipse</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>addEllipse(This, X, Y, W, H) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = W = H = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+        <subtype><typename>W</typename><string></string></subtype>
+        <subtype><typename>H</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addLineToPoint</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>addLineToPoint(This, P) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>P</typename><string>P = {X :: <seetype marker="erlang#float">float()</seetype>, Y :: <seetype marker="erlang#float">float()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>P</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addLineToPoint</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>addLineToPoint(This, X, Y) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addPath</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>addPath(This, Path) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = Path = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Path</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>addQuadCurveToPoint</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>addQuadCurveToPoint(This, Cx, Cy, X, Y) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>Cx</typename><string>Cx = Cy = X = Y = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Cy</typename><string></string></subtype>
+        <subtype><typename>X</typename><string></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cx</anno>
+  <anno>Cy</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addRectangle</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>addRectangle(This, X, Y, W, H) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = W = H = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+        <subtype><typename>W</typename><string></string></subtype>
+        <subtype><typename>H</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>addRoundedRectangle</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>addRoundedRectangle(This, X, Y, W, H, Radius) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = W = H = Radius = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+        <subtype><typename>W</typename><string></string></subtype>
+        <subtype><typename>H</typename><string></string></subtype>
+        <subtype><typename>Radius</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Radius</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>closeSubpath</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>closeSubpath(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>contains</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>contains(This, C) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>C</typename><string>C = {X :: <seetype marker="erlang#float">float()</seetype>, Y :: <seetype marker="erlang#float">float()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>contains</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>contains(This, X, Y) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>contains</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>contains(This, C, Y :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>C</typename><string>C = {X :: <seetype marker="erlang#float">float()</seetype>, Y :: <seetype marker="erlang#float">float()</seetype>}</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {fillStyle, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>Option</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>contains</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>contains(This, X, Y, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {fillStyle, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getBox</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getBox(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#float">float()</seetype>, Y :: <seetype marker="erlang#float">float()</seetype>, W :: <seetype marker="erlang#float">float()</seetype>, H :: <seetype marker="erlang#float">float()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getCurrentPoint</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getCurrentPoint(This) -&gt; {X :: <seetype marker="erlang#float">float()</seetype>, Y :: <seetype marker="erlang#float">float()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getRenderer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isNull</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveToPoint</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>moveToPoint(This, P) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>P</typename><string>P = {X :: <seetype marker="erlang#float">float()</seetype>, Y :: <seetype marker="erlang#float">float()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>P</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>moveToPoint</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>moveToPoint(This, X, Y) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transform</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>transform(This, Matrix) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxGraphicsPath">wxGraphicsPath()</seetype></string></subtype>
+        <subtype><typename>Matrix</typename><string>Matrix = <seetype marker="wxGraphicsMatrix#wxGraphicsMatrix">wxGraphicsMatrix:wxGraphicsMatrix()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Matrix</anno>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:33.</timestamp>
+</module>

@@ -4,10 +4,11 @@ defmodule Timemanager.Users do
   """
 
   import Ecto.Query, warn: false
+  import Ecto.Query, only: [from: 2]
+  alias Bcrypt
   alias Timemanager.Repo
 
   alias Timemanager.Users.User
-
   @doc """
   Returns the list of users.
 
@@ -17,6 +18,22 @@ defmodule Timemanager.Users do
       [%User{}, ...]
 
   """
+
+  def authenticate_user(username, plain_text_password) do
+    query = from u in User, where: u.username == ^username
+    case Repo.one(query) do
+      nil ->
+        Bcrypt.no_user_verify()
+        {:error, :invalid_credentials}
+      user ->
+        if Bcrypt.verify_pass(plain_text_password, user.password) do
+          {:ok, user}
+        else
+          {:error, :invalid_credentials}
+        end
+    end
+  end
+
   def list_users do
     Repo.all(User)
   end

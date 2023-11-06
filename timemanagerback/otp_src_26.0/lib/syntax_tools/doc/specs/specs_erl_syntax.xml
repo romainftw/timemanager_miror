@@ -1,0 +1,2761 @@
+<module name="erl_syntax">
+<type>
+  <name>annotation_or_location</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-annotation_or_location">annotation_or_location()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_anno#anno">erl_anno:anno()</seetype> | <seetype marker="erl_anno#location">erl_anno:location()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>encoding</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-encoding">encoding()</marker> = utf8 | unicode | latin1</typehead></typedecl>
+</type>
+<type>
+  <name>erl_parse</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-erl_parse">erl_parse()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#abstract_clause">erl_parse:abstract_clause()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#abstract_expr">erl_parse:abstract_expr()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#abstract_type">erl_parse:abstract_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#form_info">erl_parse:form_info()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#af_binelement">erl_parse:af_binelement</seetype>(<seetype marker="erlang#term">term()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#af_generator">erl_parse:af_generator()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#af_remote_function">erl_parse:af_remote_function()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>forms</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-forms">forms()</marker> = <seetype marker="#syntaxTree">syntaxTree()</seetype> | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>guard</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-guard">guard()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>none | <seetype marker="#syntaxTree">syntaxTree()</seetype> | [<seetype marker="#syntaxTree">syntaxTree()</seetype>] | [[<seetype marker="#syntaxTree">syntaxTree()</seetype>]]</typehead></typedecl>
+</type>
+<type>
+  <name>padding</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-padding">padding()</marker> = none | <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>syntaxTree</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-syntaxTree">syntaxTree()</marker> = <seetype marker="#tree">tree()</seetype> | <seetype marker="#wrapper">wrapper()</seetype> | <seetype marker="#erl_parse">erl_parse()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>syntaxTreeAttributes</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-syntaxTreeAttributes">syntaxTreeAttributes()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#attr{pos = <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ann = [<seetype marker="erlang#term">term()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>com =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#com{pre = [<seetype marker="#syntaxTree">syntaxTree()</seetype>], post = [<seetype marker="#syntaxTree">syntaxTree()</seetype>]}}</typehead></typedecl>
+</type>
+<type>
+  <name>tree</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tree">tree()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#tree{type = <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>attr =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#attr{pos = <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ann = [<seetype marker="erlang#term">term()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>com =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#com{pre = [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>post = [<seetype marker="#syntaxTree">syntaxTree()</seetype>]}},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>data = <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>wrapper</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wrapper">wrapper()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#wrapper{type = <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>attr =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#attr{pos = <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ann = [<seetype marker="erlang#term">term()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>com =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#com{pre = [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>post = [<seetype marker="#syntaxTree">syntaxTree()</seetype>]}},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>tree = <seetype marker="#erl_parse">erl_parse()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>abstract</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>abstract(T :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>T</anno>
+</spec>
+<spec>
+  <name>add_ann</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_ann(A :: <seetype marker="erlang#term">term()</seetype>, Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>A</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>add_postcomments</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_postcomments(Cs :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>], Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Cs</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>add_precomments</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_precomments(Cs :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>], Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Cs</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>annotated_type</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>annotated_type(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Type :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>annotated_type_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>annotated_type_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>annotated_type_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>annotated_type_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>application</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>application(Operator :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Arguments :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Operator</anno>
+</spec>
+<spec>
+  <name>application</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>application(Module :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Arguments :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Module</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>application_arguments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>application_arguments(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>application_operator</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>application_operator(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>arity_qualifier</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>arity_qualifier(Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Arity :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Body</anno>
+</spec>
+<spec>
+  <name>arity_qualifier_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>arity_qualifier_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>arity_qualifier_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>arity_qualifier_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>atom</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>atom(Name :: <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>atom_literal</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>atom_literal(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>atom_literal</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>atom_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>atom_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>atom_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>atom_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#atom">atom()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>attribute</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>attribute(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>attribute</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>attribute(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Args :: none | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>attribute_arguments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>attribute_arguments(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>attribute_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>attribute_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>binary</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary(List :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>List</anno>
+</spec>
+<spec>
+  <name>binary_comp</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>binary_comp(Template :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Template</anno>
+</spec>
+<spec>
+  <name>binary_comp_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary_comp_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>binary_comp_template</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary_comp_template(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>binary_field</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary_field(Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+</spec>
+<spec>
+  <name>binary_field</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>binary_field(Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Types :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Types</anno>
+</spec>
+<spec>
+  <name>binary_field</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>binary_field(Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Size :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Types :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Size</anno>
+  <anno>Types</anno>
+</spec>
+<spec>
+  <name>binary_field_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary_field_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>binary_field_size</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary_field_size(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>binary_field_types</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary_field_types(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>binary_fields</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary_fields(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>binary_generator</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>binary_generator(Pattern :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Pattern</anno>
+</spec>
+<spec>
+  <name>binary_generator_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary_generator_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>binary_generator_pattern</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>binary_generator_pattern(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>bitstring_type</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>bitstring_type(M :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, N :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>M</anno>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>bitstring_type_m</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>bitstring_type_m(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>bitstring_type_n</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>bitstring_type_n(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>block_expr</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>block_expr(Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+</spec>
+<spec>
+  <name>block_expr_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>block_expr_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>case_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>case_expr(Argument :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Clauses :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Argument</anno>
+  <anno>Clauses</anno>
+</spec>
+<spec>
+  <name>case_expr_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>case_expr_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>case_expr_clauses</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>case_expr_clauses(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>catch_expr</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>catch_expr(Expr :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Expr</anno>
+</spec>
+<spec>
+  <name>catch_expr_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>catch_expr_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>char</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>char(Char :: <seetype marker="erlang#char">char()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Char</anno>
+</spec>
+<spec>
+  <name>char_literal</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>char_literal(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#nonempty_string">nonempty_string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>char_literal</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>char_literal(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, X2 :: <seetype marker="#encoding">encoding()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#nonempty_string">nonempty_string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>X2</anno>
+</spec>
+<spec>
+  <name>char_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>char_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#char">char()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>class_qualifier</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>class_qualifier(Class :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Class</anno>
+</spec>
+<spec>
+  <name>class_qualifier</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>class_qualifier(Class :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Stacktrace :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Class</anno>
+  <anno>Stacktrace</anno>
+</spec>
+<spec>
+  <name>class_qualifier_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>class_qualifier_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>class_qualifier_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>class_qualifier_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>class_qualifier_stacktrace</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>class_qualifier_stacktrace(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>clause</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>clause(Guard :: <seetype marker="#guard">guard()</seetype>, Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Guard</anno>
+</spec>
+<spec>
+  <name>clause</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>clause(Patterns :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Guard :: <seetype marker="#guard">guard()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Guard</anno>
+  <anno>Patterns</anno>
+</spec>
+<spec>
+  <name>clause_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clause_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>clause_guard</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clause_guard(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>clause_patterns</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clause_patterns(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>comment</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>comment(Strings :: [<seetype marker="erlang#string">string()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Strings</anno>
+</spec>
+<spec>
+  <name>comment</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>comment(Pad :: <seetype marker="#padding">padding()</seetype>, Strings :: [<seetype marker="erlang#string">string()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Pad</anno>
+  <anno>Strings</anno>
+</spec>
+<spec>
+  <name>comment_padding</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>comment_padding(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#padding">padding()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>comment_text</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>comment_text(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="erlang#string">string()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>compact_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>compact_list(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>concrete</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>concrete(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>conjunction</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>conjunction(Tests :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Tests</anno>
+</spec>
+<spec>
+  <name>conjunction_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>conjunction_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>cons</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cons(Head :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Tail :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Head</anno>
+  <anno>Tail</anno>
+</spec>
+<spec>
+  <name>constrained_function_type</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>constrained_function_type(FunctionType :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FunctionConstraint :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>FunctionConstraint</anno>
+  <anno>FunctionType</anno>
+</spec>
+<spec>
+  <name>constrained_function_type_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>constrained_function_type_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>constrained_function_type_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>constrained_function_type_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>constraint</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>constraint(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Types :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Types</anno>
+</spec>
+<spec>
+  <name>constraint_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>constraint_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>constraint_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>constraint_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>copy_ann</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>copy_ann(Source :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Target :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Source</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>copy_attrs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>copy_attrs(S :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, T :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>S</anno>
+  <anno>T</anno>
+</spec>
+<spec>
+  <name>copy_comments</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>copy_comments(Source :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Target :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Source</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>copy_pos</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>copy_pos(Source :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Target :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Source</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>data</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>data(Tree :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Tree</anno>
+</spec>
+<spec>
+  <name>disjunction</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>disjunction(Tests :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Tests</anno>
+</spec>
+<spec>
+  <name>disjunction_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>disjunction_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>else_expr</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>else_expr_clauses</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>else_expr_clauses(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>eof_marker</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>eof_marker() -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>error_marker</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>error_marker(Error :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Error</anno>
+</spec>
+<spec>
+  <name>error_marker_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>error_marker_info(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>flatten_form_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>flatten_form_list(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>float</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>float(Value :: <seetype marker="erlang#float">float()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>float_literal</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>float_literal(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>float_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>float_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#float">float()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>form_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>form_list(Forms :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Forms</anno>
+</spec>
+<spec>
+  <name>form_list_elements</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>form_list_elements(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>fun_expr</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>fun_expr(Clauses :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Clauses</anno>
+</spec>
+<spec>
+  <name>fun_expr_arity</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>fun_expr_arity(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#arity">arity()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>fun_expr_clauses</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>fun_expr_clauses(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>fun_type</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>fun_type() -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>function</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>function(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Clauses :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Clauses</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>function_arity</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>function_arity(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#arity">arity()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>function_clauses</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>function_clauses(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>function_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>function_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>function_type</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>function_type</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>function_type(Arguments :: any_arity | [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Return :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>function_type_arguments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>function_type_arguments(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>any_arity | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>function_type_return</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>function_type_return(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>generator</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>generator(Pattern :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Pattern</anno>
+</spec>
+<spec>
+  <name>generator_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>generator_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>generator_pattern</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>generator_pattern(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>get_ann</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_ann(Tree :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="erlang#term">term()</seetype>]</head></clause>
+  </contract>
+  <anno>Tree</anno>
+</spec>
+<spec>
+  <name>get_attrs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_attrs(Tree :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTreeAttributes">syntaxTreeAttributes()</seetype></head></clause>
+  </contract>
+  <anno>Tree</anno>
+</spec>
+<spec>
+  <name>get_pos</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_pos(Tree :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#annotation_or_location">annotation_or_location()</seetype></head></clause>
+  </contract>
+  <anno>Tree</anno>
+</spec>
+<spec>
+  <name>get_postcomments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_postcomments(Tree :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Tree</anno>
+</spec>
+<spec>
+  <name>get_precomments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_precomments(Tree :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Tree</anno>
+</spec>
+<spec>
+  <name>has_comments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>has_comments(Tree :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Tree</anno>
+</spec>
+<spec>
+  <name>if_expr</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>if_expr(Clauses :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Clauses</anno>
+</spec>
+<spec>
+  <name>if_expr_clauses</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>if_expr_clauses(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>implicit_fun</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>implicit_fun(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>implicit_fun</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>implicit_fun(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Arity :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>implicit_fun</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>implicit_fun(Module :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Arity :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Module</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>implicit_fun_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>implicit_fun_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>infix_expr</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>infix_expr(Left :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Operator :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Right :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Left</anno>
+  <anno>Operator</anno>
+  <anno>Right</anno>
+</spec>
+<spec>
+  <name>infix_expr_left</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>infix_expr_left(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>infix_expr_operator</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>infix_expr_operator(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>infix_expr_right</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>infix_expr_right(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>integer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>integer(Value :: <seetype marker="erlang#integer">integer()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>integer_literal</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>integer_literal(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>integer_range_type</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>integer_range_type(Low :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, High :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>High</anno>
+  <anno>Low</anno>
+</spec>
+<spec>
+  <name>integer_range_type_high</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>integer_range_type_high(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>integer_range_type_low</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>integer_range_type_low(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>integer_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>integer_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#integer">integer()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>is_atom</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>is_atom(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Value :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>is_char</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>is_char(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Value :: <seetype marker="erlang#char">char()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>is_form</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_form(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>is_integer</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>is_integer(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Value :: <seetype marker="erlang#integer">integer()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>is_leaf</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_leaf(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>is_list_skeleton</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_list_skeleton(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>is_literal</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_literal(T :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>T</anno>
+</spec>
+<spec>
+  <name>is_proper_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_proper_list(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>is_string</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>is_string(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Value :: <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>is_tree</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_tree(Tree :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Tree</anno>
+</spec>
+<spec>
+  <name>join_comments</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>join_comments(Source :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Target :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Source</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list(List :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>List</anno>
+</spec>
+<spec>
+  <name>list</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>list(Elements :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>], Tail :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Elements</anno>
+  <anno>Tail</anno>
+</spec>
+<spec>
+  <name>list_comp</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>list_comp(Template :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Template</anno>
+</spec>
+<spec>
+  <name>list_comp_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_comp_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>list_comp_template</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_comp_template(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>list_elements</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_elements(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>list_head</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_head(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>list_length</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_length(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>list_prefix</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_prefix(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>list_suffix</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_suffix(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>list_tail</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_tail(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>macro</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>macro(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>macro</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>macro(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Arguments :: none | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>macro_arguments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>macro_arguments(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>macro_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>macro_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>make_tree</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>make_tree(X1 :: <seetype marker="erlang#atom">atom()</seetype>, X2 :: [[<seetype marker="#syntaxTree">syntaxTree()</seetype>]]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>X1</anno>
+  <anno>X2</anno>
+</spec>
+<spec>
+  <name>map_comp</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>map_comp(Template :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Template</anno>
+</spec>
+<spec>
+  <name>map_comp_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_comp_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_comp_template</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_comp_template(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_expr</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_expr(Fields :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Fields</anno>
+</spec>
+<spec>
+  <name>map_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>map_expr(Argument :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Fields :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Argument</anno>
+  <anno>Fields</anno>
+</spec>
+<spec>
+  <name>map_expr_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_expr_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_expr_fields</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_expr_fields(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_field_assoc</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>map_field_assoc(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Value :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>map_field_assoc_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_field_assoc_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_field_assoc_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_field_assoc_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_field_exact</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>map_field_exact(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Value :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>map_field_exact_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_field_exact_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_field_exact_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_field_exact_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_generator</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>map_generator(Pattern :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Pattern</anno>
+</spec>
+<spec>
+  <name>map_generator_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_generator_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_generator_pattern</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_generator_pattern(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_type</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>map_type</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_type(Fields :: any_size | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Fields</anno>
+</spec>
+<spec>
+  <name>map_type_assoc</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>map_type_assoc(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Value :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>map_type_assoc_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_type_assoc_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_type_assoc_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_type_assoc_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_type_exact</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>map_type_exact(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Value :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>map_type_exact_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_type_exact_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_type_exact_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_type_exact_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>map_type_fields</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>map_type_fields(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; any_size | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>match_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>match_expr(Pattern :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Pattern</anno>
+</spec>
+<spec>
+  <name>match_expr_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>match_expr_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>match_expr_pattern</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>match_expr_pattern(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>maybe_expr</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>maybe_expr(Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+</spec>
+<spec>
+  <name>maybe_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>maybe_expr(Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>OptionalElse :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>OptionalElse</anno>
+</spec>
+<spec>
+  <name>maybe_expr_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>maybe_expr_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>maybe_expr_else</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>maybe_expr_else(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>maybe_match_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>maybe_match_expr(Pattern :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Pattern</anno>
+</spec>
+<spec>
+  <name>maybe_match_expr_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>maybe_match_expr_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>maybe_match_expr_pattern</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>maybe_match_expr_pattern(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>meta</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>meta(T :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>T</anno>
+</spec>
+<spec>
+  <name>module_qualifier</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>module_qualifier(Module :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>module_qualifier_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>module_qualifier_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>module_qualifier_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>module_qualifier_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>named_fun_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>named_fun_expr(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Clauses :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Clauses</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>named_fun_expr_arity</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>named_fun_expr_arity(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#arity">arity()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>named_fun_expr_clauses</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>named_fun_expr_clauses(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>named_fun_expr_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>named_fun_expr_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>nil</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>nil() -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>normalize_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>normalize_list(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>operator</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>operator(Name :: <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>operator_literal</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>operator_literal(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>operator_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>operator_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#atom">atom()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>parentheses</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>parentheses(Expr :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Expr</anno>
+</spec>
+<spec>
+  <name>parentheses_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>parentheses_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>prefix_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>prefix_expr(Operator :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Argument :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Argument</anno>
+  <anno>Operator</anno>
+</spec>
+<spec>
+  <name>prefix_expr_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>prefix_expr_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>prefix_expr_operator</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>prefix_expr_operator(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>receive_expr</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>receive_expr(Clauses :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Clauses</anno>
+</spec>
+<spec>
+  <name>receive_expr</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>receive_expr(Clauses :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Timeout :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Action :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Action</anno>
+  <anno>Clauses</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>receive_expr_action</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>receive_expr_action(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>receive_expr_clauses</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>receive_expr_clauses(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>receive_expr_timeout</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>receive_expr_timeout(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_access</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>record_access(Argument :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Type :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Field :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Argument</anno>
+  <anno>Field</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>record_access_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_access_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_access_field</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_access_field(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_access_type</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_access_type(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>record_expr(Type :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Fields :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Fields</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>record_expr</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>record_expr(Argument :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Type :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Fields :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Argument</anno>
+  <anno>Fields</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>record_expr_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_expr_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_expr_fields</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_expr_fields(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_expr_type</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_expr_type(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_field</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_field(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>record_field</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>record_field(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Value :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>record_field_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_field_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_field_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_field_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; none | <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_index_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>record_index_expr(Type :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Field :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Field</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>record_index_expr_field</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_index_expr_field(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_index_expr_type</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_index_expr_type(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_type</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>record_type(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Fields :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Fields</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>record_type_field</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>record_type_field(Name :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Type :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>record_type_field_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_type_field_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_type_field_type</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_type_field_type(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_type_fields</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_type_fields(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>record_type_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>record_type_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>remove_comments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>remove_comments(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>revert</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>revert(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>revert_forms</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>revert_forms(Forms :: <seetype marker="#forms">forms()</seetype>) -&gt; [<seetype marker="#erl_parse">erl_parse()</seetype>]</head></clause>
+  </contract>
+  <anno>Forms</anno>
+</spec>
+<spec>
+  <name>set_ann</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_ann(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, As :: [<seetype marker="erlang#term">term()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>As</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>set_attrs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_attrs(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Attr :: <seetype marker="#syntaxTreeAttributes">syntaxTreeAttributes()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Attr</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>set_pos</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_pos(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Pos :: <seetype marker="#annotation_or_location">annotation_or_location()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Pos</anno>
+</spec>
+<spec>
+  <name>set_postcomments</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_postcomments(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Cs :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Cs</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>set_precomments</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_precomments(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Cs :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Cs</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>size_qualifier</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>size_qualifier(Body :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Size :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Size</anno>
+</spec>
+<spec>
+  <name>size_qualifier_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>size_qualifier_argument(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>size_qualifier_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>size_qualifier_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>string(String :: <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>string_literal</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>string_literal(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#nonempty_string">nonempty_string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>string_literal</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>string_literal(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, X2 :: <seetype marker="#encoding">encoding()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#nonempty_string">nonempty_string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>X2</anno>
+</spec>
+<spec>
+  <name>string_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>string_value(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>subtrees</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>subtrees(T :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [[<seetype marker="#syntaxTree">syntaxTree()</seetype>]]</head></clause>
+  </contract>
+  <anno>T</anno>
+</spec>
+<spec>
+  <name>text</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>text(String :: <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>text_string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>text_string(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>tree</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tree(Type :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="#tree">tree()</seetype></head></clause>
+  </contract>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>tree</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>tree(Type :: <seetype marker="erlang#atom">atom()</seetype>, Data :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="#tree">tree()</seetype></head></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>try_after_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>try_after_expr(Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>], After :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>After</anno>
+  <anno>Body</anno>
+</spec>
+<spec>
+  <name>try_expr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>try_expr(Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>], Handlers :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Handlers</anno>
+</spec>
+<spec>
+  <name>try_expr</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>try_expr(Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Clauses :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Handlers :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Body</anno>
+  <anno>Clauses</anno>
+  <anno>Handlers</anno>
+</spec>
+<spec>
+  <name>try_expr</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>try_expr(Body :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Clauses :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Handlers :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>After :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>After</anno>
+  <anno>Body</anno>
+  <anno>Clauses</anno>
+  <anno>Handlers</anno>
+</spec>
+<spec>
+  <name>try_expr_after</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>try_expr_after(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>try_expr_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>try_expr_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>try_expr_clauses</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>try_expr_clauses(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>try_expr_handlers</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>try_expr_handlers(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>tuple</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tuple(List :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>List</anno>
+</spec>
+<spec>
+  <name>tuple_elements</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tuple_elements(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>tuple_size</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tuple_size(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>tuple_type</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>tuple_type</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tuple_type(Elements :: any_size | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Elements</anno>
+</spec>
+<spec>
+  <name>tuple_type_elements</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tuple_type_elements(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>any_size | [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>type</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>type(Tree :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#atom">atom()</seetype></head></clause>
+  </contract>
+  <anno>Tree</anno>
+</spec>
+<spec>
+  <name>type_application</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>type_application(TypeName :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Arguments :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>TypeName</anno>
+</spec>
+<spec>
+  <name>type_application</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>type_application(Module :: none | <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TypeName :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Arguments :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Module</anno>
+  <anno>TypeName</anno>
+</spec>
+<spec>
+  <name>type_application_arguments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>type_application_arguments(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>type_application_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>type_application_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>type_union</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>type_union(Types :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Types</anno>
+</spec>
+<spec>
+  <name>type_union_types</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>type_union_types(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; [<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>typed_record_field</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>typed_record_field(Field :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Type :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Field</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>typed_record_field_body</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>typed_record_field_body(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>typed_record_field_type</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>typed_record_field_type(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>underscore</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>underscore() -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>update_tree</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>update_tree(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>, Groups :: [[<seetype marker="#syntaxTree">syntaxTree()</seetype>]]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Groups</anno>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>user_type_application</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>user_type_application(TypeName :: <seetype marker="#syntaxTree">syntaxTree()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Arguments :: [<seetype marker="#syntaxTree">syntaxTree()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>TypeName</anno>
+</spec>
+<spec>
+  <name>user_type_application_arguments</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>user_type_application_arguments(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#syntaxTree">syntaxTree()</seetype>]</head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>user_type_application_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>user_type_application_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>variable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>variable(Name :: <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>variable_literal</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>variable_literal(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>variable_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>variable_name(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#atom">atom()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<spec>
+  <name>warning_marker</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>warning_marker(Warning :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="#syntaxTree">syntaxTree()</seetype></head></clause>
+  </contract>
+  <anno>Warning</anno>
+</spec>
+<spec>
+  <name>warning_marker_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>warning_marker_info(Node :: <seetype marker="#syntaxTree">syntaxTree()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Node</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:23.</timestamp>
+</module>

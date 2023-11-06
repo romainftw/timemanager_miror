@@ -1,0 +1,391 @@
+<module name="epp">
+<type>
+  <name>epp_handle</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-epp_handle">epp_handle()</marker> = <seetype marker="erlang#pid">pid()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>macros</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-macros">macros()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="erlang#atom">atom()</seetype> | {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>} | {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>, redefine}]</typehead></typedecl>
+</type>
+<type>
+  <name>source_encoding</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-source_encoding">source_encoding()</marker> = latin1 | utf8</typehead></typedecl>
+</type>
+<type>
+  <name>warning_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-warning_info">warning_info()</marker> = {<seetype marker="erl_anno#location">erl_anno:location()</seetype>, <seetype marker="erlang#module">module()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(Epp) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Epp</typename><string>Epp = <seetype marker="#epp_handle">epp_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Epp</anno>
+</spec>
+<spec>
+  <name>default_encoding</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>default_encoding() -&gt; <seetype marker="#source_encoding">source_encoding()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>encoding_to_string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>encoding_to_string(Encoding) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>Encoding</typename><string>Encoding = <seetype marker="#source_encoding">source_encoding()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Encoding</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(ErrorDescriptor) -&gt; <seetype marker="io_lib#chars">io_lib:chars()</seetype></head>
+      <guard>
+        <subtype><typename>ErrorDescriptor</typename><string>ErrorDescriptor = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ErrorDescriptor</anno>
+</spec>
+<spec>
+  <name>interpret_file_attribute</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>macro_defs</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>normalize_typed_record_fields</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>open(Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Epp} | {ok, Epp, Extra} | {error, ErrorDescriptor}</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{default_encoding, DefEncoding :: <seetype marker="#source_encoding">source_encoding()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{includes, IncludePath :: [DirectoryName :: <seetype marker="file#name">file:name()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{source_name, SourceName :: <seetype marker="file#name">file:name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{deterministic, Enabled :: <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{macros, PredefMacros :: <seetype marker="#macros">macros()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{name, FileName :: <seetype marker="file#name">file:name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{location, StartLocation :: <seetype marker="erl_anno#location">erl_anno:location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{fd, FileDescriptor :: <seetype marker="file#io_device">file:io_device()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>extra |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{compiler_internal, [<seetype marker="erlang#term">term()</seetype>]}]</string></subtype>
+        <subtype><typename>Epp</typename><string>Epp = <seetype marker="#epp_handle">epp_handle()</seetype></string></subtype>
+        <subtype><typename>Extra</typename><string>Extra = [{encoding, <seetype marker="#source_encoding">source_encoding()</seetype> | none}]</string></subtype>
+        <subtype><typename>ErrorDescriptor</typename><string>ErrorDescriptor = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DefEncoding</anno>
+  <anno>DirectoryName</anno>
+  <anno>Enabled</anno>
+  <anno>Epp</anno>
+  <anno>ErrorDescriptor</anno>
+  <anno>Extra</anno>
+  <anno>FileDescriptor</anno>
+  <anno>FileName</anno>
+  <anno>IncludePath</anno>
+  <anno>Options</anno>
+  <anno>PredefMacros</anno>
+  <anno>SourceName</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>open(FileName, IncludePath) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Epp} | {error, ErrorDescriptor}</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>IncludePath</typename><string>IncludePath = [DirectoryName :: <seetype marker="file#name">file:name()</seetype>]</string></subtype>
+        <subtype><typename>Epp</typename><string>Epp = <seetype marker="#epp_handle">epp_handle()</seetype></string></subtype>
+        <subtype><typename>ErrorDescriptor</typename><string>ErrorDescriptor = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DirectoryName</anno>
+  <anno>Epp</anno>
+  <anno>ErrorDescriptor</anno>
+  <anno>FileName</anno>
+  <anno>IncludePath</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>open(FileName, IncludePath, PredefMacros) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Epp} | {error, ErrorDescriptor}</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>IncludePath</typename><string>IncludePath = [DirectoryName :: <seetype marker="file#name">file:name()</seetype>]</string></subtype>
+        <subtype><typename>PredefMacros</typename><string>PredefMacros = <seetype marker="#macros">macros()</seetype></string></subtype>
+        <subtype><typename>Epp</typename><string>Epp = <seetype marker="#epp_handle">epp_handle()</seetype></string></subtype>
+        <subtype><typename>ErrorDescriptor</typename><string>ErrorDescriptor = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DirectoryName</anno>
+  <anno>Epp</anno>
+  <anno>ErrorDescriptor</anno>
+  <anno>FileName</anno>
+  <anno>IncludePath</anno>
+  <anno>PredefMacros</anno>
+</spec>
+<spec>
+  <name>parse_erl_form</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>parse_erl_form(Epp) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, AbsForm} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{warning, WarningInfo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, Location}</head>
+      <guard>
+        <subtype><typename>Epp</typename><string>Epp = <seetype marker="#epp_handle">epp_handle()</seetype></string></subtype>
+        <subtype><typename>AbsForm</typename><string>AbsForm = <seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype></string></subtype>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype></string></subtype>
+        <subtype><typename>WarningInfo</typename><string>WarningInfo = <seetype marker="#warning_info">warning_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AbsForm</anno>
+  <anno>Epp</anno>
+  <anno>ErrorInfo</anno>
+  <anno>Location</anno>
+  <anno>WarningInfo</anno>
+</spec>
+<spec>
+  <name>parse_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>parse_file(Epp) -&gt; [Form]</head>
+      <guard>
+        <subtype><typename>Epp</typename><string>Epp = <seetype marker="#epp_handle">epp_handle()</seetype></string></subtype>
+        <subtype><typename>Form</typename><string>Form = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warning, WarningInfo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, Location}</string></subtype>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype></string></subtype>
+        <subtype><typename>WarningInfo</typename><string>WarningInfo = <seetype marker="#warning_info">warning_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Epp</anno>
+  <anno>ErrorInfo</anno>
+  <anno>Form</anno>
+  <anno>Location</anno>
+  <anno>WarningInfo</anno>
+</spec>
+<spec>
+  <name>parse_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>parse_file(FileName, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [Form]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [Form], Extra} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, OpenError}</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{includes, IncludePath :: [DirectoryName :: <seetype marker="file#name">file:name()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{source_name, SourceName :: <seetype marker="file#name">file:name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{macros, PredefMacros :: <seetype marker="#macros">macros()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{default_encoding, DefEncoding :: <seetype marker="#source_encoding">source_encoding()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{location, StartLocation :: <seetype marker="erl_anno#location">erl_anno:location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reserved_word_fun, Fun :: fun((<seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{features, [Feature :: <seetype marker="erlang#atom">atom()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>extra |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{compiler_internal, [<seetype marker="erlang#term">term()</seetype>]}]</string></subtype>
+        <subtype><typename>Form</typename><string>Form = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, Location}</string></subtype>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype></string></subtype>
+        <subtype><typename>Extra</typename><string>Extra = [{encoding, <seetype marker="#source_encoding">source_encoding()</seetype> | none}]</string></subtype>
+        <subtype><typename>OpenError</typename><string>OpenError = <seetype marker="file#posix">file:posix()</seetype> | badarg | system_limit</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DefEncoding</anno>
+  <anno>DirectoryName</anno>
+  <anno>ErrorInfo</anno>
+  <anno>Extra</anno>
+  <anno>Feature</anno>
+  <anno>FileName</anno>
+  <anno>Form</anno>
+  <anno>Fun</anno>
+  <anno>IncludePath</anno>
+  <anno>Location</anno>
+  <anno>OpenError</anno>
+  <anno>Options</anno>
+  <anno>PredefMacros</anno>
+  <anno>SourceName</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>parse_file</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>parse_file(FileName, IncludePath, PredefMacros) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [Form]} | {error, OpenError}</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>IncludePath</typename><string>IncludePath = [DirectoryName :: <seetype marker="file#name">file:name()</seetype>]</string></subtype>
+        <subtype><typename>Form</typename><string>Form = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, Location}</string></subtype>
+        <subtype><typename>PredefMacros</typename><string>PredefMacros = <seetype marker="#macros">macros()</seetype></string></subtype>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype></string></subtype>
+        <subtype><typename>OpenError</typename><string>OpenError = <seetype marker="file#posix">file:posix()</seetype> | badarg | system_limit</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DirectoryName</anno>
+  <anno>ErrorInfo</anno>
+  <anno>FileName</anno>
+  <anno>Form</anno>
+  <anno>IncludePath</anno>
+  <anno>Location</anno>
+  <anno>OpenError</anno>
+  <anno>PredefMacros</anno>
+</spec>
+<spec>
+  <name>read_encoding</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>read_encoding(FileName) -&gt; <seetype marker="#source_encoding">source_encoding()</seetype> | none</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name">file:name()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+</spec>
+<spec>
+  <name>read_encoding</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read_encoding(FileName, Options) -&gt; <seetype marker="#source_encoding">source_encoding()</seetype> | none</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {in_comment_only, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>read_encoding_from_binary</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>read_encoding_from_binary(Binary) -&gt; <seetype marker="#source_encoding">source_encoding()</seetype> | none</head>
+      <guard>
+        <subtype><typename>Binary</typename><string>Binary = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Binary</anno>
+</spec>
+<spec>
+  <name>read_encoding_from_binary</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read_encoding_from_binary(Binary, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#source_encoding">source_encoding()</seetype> | none</head>
+      <guard>
+        <subtype><typename>Binary</typename><string>Binary = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {in_comment_only, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Binary</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>restore_typed_record_fields</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scan_erl_form</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>scan_erl_form(Epp) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Tokens} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{warning, WarningInfo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, Line}</head>
+      <guard>
+        <subtype><typename>Epp</typename><string>Epp = <seetype marker="#epp_handle">epp_handle()</seetype></string></subtype>
+        <subtype><typename>Tokens</typename><string>Tokens = <seetype marker="erl_scan#tokens">erl_scan:tokens()</seetype></string></subtype>
+        <subtype><typename>Line</typename><string>Line = <seetype marker="erl_anno#line">erl_anno:line()</seetype></string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype></string></subtype>
+        <subtype><typename>WarningInfo</typename><string>WarningInfo = <seetype marker="#warning_info">warning_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Epp</anno>
+  <anno>ErrorInfo</anno>
+  <anno>Line</anno>
+  <anno>Tokens</anno>
+  <anno>WarningInfo</anno>
+</spec>
+<spec>
+  <name>scan_file</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scan_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>scan_file(FileName, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [Form], Extra} | {error, OpenError}</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{includes, IncludePath :: [DirectoryName :: <seetype marker="file#name">file:name()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{source_name, SourceName :: <seetype marker="file#name">file:name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{macros, PredefMacros :: <seetype marker="#macros">macros()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{default_encoding, DefEncoding :: <seetype marker="#source_encoding">source_encoding()</seetype>}]</string></subtype>
+        <subtype><typename>Form</typename><string>Form = <seetype marker="erl_scan#tokens">erl_scan:tokens()</seetype> | {error, ErrorInfo} | {eof, Loc}</string></subtype>
+        <subtype><typename>Loc</typename><string>Loc = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype></string></subtype>
+        <subtype><typename>Extra</typename><string>Extra = [{encoding, <seetype marker="#source_encoding">source_encoding()</seetype> | none}]</string></subtype>
+        <subtype><typename>OpenError</typename><string>OpenError = <seetype marker="file#posix">file:posix()</seetype> | badarg | system_limit</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DefEncoding</anno>
+  <anno>DirectoryName</anno>
+  <anno>ErrorInfo</anno>
+  <anno>Extra</anno>
+  <anno>FileName</anno>
+  <anno>Form</anno>
+  <anno>IncludePath</anno>
+  <anno>Loc</anno>
+  <anno>OpenError</anno>
+  <anno>Options</anno>
+  <anno>PredefMacros</anno>
+  <anno>SourceName</anno>
+</spec>
+<spec>
+  <name>set_encoding</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_encoding(File) -&gt; <seetype marker="#source_encoding">source_encoding()</seetype> | none</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="io#device">io:device()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+</spec>
+<spec>
+  <name>set_encoding</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_encoding(File, Default) -&gt; <seetype marker="#source_encoding">source_encoding()</seetype> | none</head>
+      <guard>
+        <subtype><typename>Default</typename><string>Default = <seetype marker="#source_encoding">source_encoding()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="io#device">io:device()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Default</anno>
+  <anno>File</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:20.</timestamp>
+</module>

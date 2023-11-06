@@ -1,0 +1,553 @@
+<module name="zip">
+<type>
+  <name>create_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-create_option">create_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>memory | cooked | verbose |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{comment, Comment :: <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cwd, CWD :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{compress, What :: <seetype marker="#extension_spec">extension_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{uncompress, What :: <seetype marker="#extension_spec">extension_spec()</seetype>}</typehead></typedecl>
+  <anno>CWD</anno>
+  <anno>Comment</anno>
+  <anno>What</anno>
+</type>
+<type>
+  <name>extension</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-extension">extension()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>extension_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-extension_spec">extension_spec()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>all |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[Extension :: <seetype marker="#extension">extension()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{add, [Extension :: <seetype marker="#extension">extension()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{del, [Extension :: <seetype marker="#extension">extension()</seetype>]}</typehead></typedecl>
+  <anno>Extension</anno>
+</type>
+<type>
+  <name>filename</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-filename">filename()</marker> = <seetype marker="file#filename">file:filename()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>handle</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handle">handle()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>zip_comment</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-zip_comment">zip_comment()</marker> = #zip_comment{comment = <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>zip_file</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-zip_file">zip_file()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#zip_file{name = <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>info = <seetype marker="file#file_info">file:file_info()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>comment = <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>offset = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>comp_size = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>create</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>create(Name, FileList) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>FileList</typename><string>FileList = [FileSpec]</string></subtype>
+        <subtype><typename>FileSpec</typename><string>FileSpec = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#name">file:name()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>, <seetype marker="file#file_info">file:file_info()</seetype>}</string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileName :: <seetype marker="#filename">filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {FileName :: <seetype marker="#filename">filename()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileList</anno>
+  <anno>FileName</anno>
+  <anno>FileSpec</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>create(Name, FileList, Options) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>FileList</typename><string>FileList = [FileSpec]</string></subtype>
+        <subtype><typename>FileSpec</typename><string>FileSpec = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#name">file:name()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>, <seetype marker="file#file_info">file:file_info()</seetype>}</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <seetype marker="#create_option">create_option()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileName :: <seetype marker="#filename">filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {FileName :: <seetype marker="#filename">filename()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileList</anno>
+  <anno>FileName</anno>
+  <anno>FileSpec</anno>
+  <anno>Name</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>extract</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>extract(Archive) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileBinList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Name :: <seetype marker="file#name">file:name()</seetype>, Reason :: <seetype marker="erlang#term">term()</seetype>}}</string></subtype>
+        <subtype><typename>FileList</typename><string>FileList = [<seetype marker="file#name">file:name()</seetype>]</string></subtype>
+        <subtype><typename>FileBinList</typename><string>FileBinList = [{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>FileBinList</anno>
+  <anno>FileList</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>extract</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>extract(Archive, Options) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_list, FileList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>keep_old_files | verbose | memory |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_filter, FileFilter} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cwd, CWD}</string></subtype>
+        <subtype><typename>FileList</typename><string>FileList = [<seetype marker="file#name">file:name()</seetype>]</string></subtype>
+        <subtype><typename>FileBinList</typename><string>FileBinList = [{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}]</string></subtype>
+        <subtype><typename>FileFilter</typename><string>FileFilter = fun((ZipFile) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</string></subtype>
+        <subtype><typename>CWD</typename><string>CWD = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>ZipFile</typename><string>ZipFile = <seetype marker="#zip_file">zip_file()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileBinList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Name :: <seetype marker="file#name">file:name()</seetype>, Reason :: <seetype marker="erlang#term">term()</seetype>}}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>CWD</anno>
+  <anno>FileBinList</anno>
+  <anno>FileFilter</anno>
+  <anno>FileList</anno>
+  <anno>Name</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+  <anno>ZipFile</anno>
+</spec>
+<spec>
+  <name>foldl</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>foldl(Fun, Acc0, Archive) -&gt; {ok, Acc1} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((FileInArchive, GetInfo, GetBin, AccIn) -&gt; AccOut)</string></subtype>
+        <subtype><typename>FileInArchive</typename><string>FileInArchive = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>GetInfo</typename><string>GetInfo = fun(() -&gt; <seetype marker="file#file_info">file:file_info()</seetype>)</string></subtype>
+        <subtype><typename>GetBin</typename><string>GetBin = fun(() -&gt; <seetype marker="erlang#binary">binary()</seetype>)</string></subtype>
+        <subtype><typename>Acc0</typename><string>Acc0 = Acc1 = AccIn = AccOut = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Acc1</typename><string/></subtype>
+        <subtype><typename>AccIn</typename><string/></subtype>
+        <subtype><typename>AccOut</typename><string/></subtype>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | {<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Acc0</anno>
+  <anno>Acc1</anno>
+  <anno>AccIn</anno>
+  <anno>AccOut</anno>
+  <anno>Archive</anno>
+  <anno>FileInArchive</anno>
+  <anno>Fun</anno>
+  <anno>GetBin</anno>
+  <anno>GetInfo</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>list_dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_dir(Archive) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = {ok, CommentAndFiles} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>CommentAndFiles</typename><string>CommentAndFiles = [<seetype marker="#zip_comment">zip_comment()</seetype> | <seetype marker="#zip_file">zip_file()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>CommentAndFiles</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>list_dir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>list_dir(Archive, Options) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = {ok, CommentAndFiles} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>CommentAndFiles</typename><string>CommentAndFiles = [<seetype marker="#zip_comment">zip_comment()</seetype> | <seetype marker="#zip_file">zip_file()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = cooked</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>CommentAndFiles</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>openzip_close</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>openzip_get</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>openzip_get</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>openzip_list_dir</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>openzip_list_dir</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>openzip_open</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>openzip_open</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>openzip_t</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>openzip_tt</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>t</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>t(Archive) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype> | ZipHandle</string></subtype>
+        <subtype><typename>ZipHandle</typename><string>ZipHandle = <seetype marker="#handle">handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>ZipHandle</anno>
+</spec>
+<spec>
+  <name>table</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>table(Archive) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = {ok, CommentAndFiles} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>CommentAndFiles</typename><string>CommentAndFiles = [<seetype marker="#zip_comment">zip_comment()</seetype> | <seetype marker="#zip_file">zip_file()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>CommentAndFiles</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>table</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>table(Archive, Options) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = {ok, CommentAndFiles} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>CommentAndFiles</typename><string>CommentAndFiles = [<seetype marker="#zip_comment">zip_comment()</seetype> | <seetype marker="#zip_file">zip_file()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = cooked</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>CommentAndFiles</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>tt</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tt(Archive) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype> | ZipHandle</string></subtype>
+        <subtype><typename>ZipHandle</typename><string>ZipHandle = <seetype marker="#handle">handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>ZipHandle</anno>
+</spec>
+<spec>
+  <name>unzip</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unzip(Archive) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileBinList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Name :: <seetype marker="file#name">file:name()</seetype>, Reason :: <seetype marker="erlang#term">term()</seetype>}}</string></subtype>
+        <subtype><typename>FileList</typename><string>FileList = [<seetype marker="file#name">file:name()</seetype>]</string></subtype>
+        <subtype><typename>FileBinList</typename><string>FileBinList = [{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>FileBinList</anno>
+  <anno>FileList</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>unzip</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>unzip(Archive, Options) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_list, FileList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>cooked | keep_old_files | verbose | memory |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_filter, FileFilter} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cwd, CWD}</string></subtype>
+        <subtype><typename>FileList</typename><string>FileList = [<seetype marker="file#name">file:name()</seetype>]</string></subtype>
+        <subtype><typename>FileBinList</typename><string>FileBinList = [{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}]</string></subtype>
+        <subtype><typename>FileFilter</typename><string>FileFilter = fun((ZipFile) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</string></subtype>
+        <subtype><typename>CWD</typename><string>CWD = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>ZipFile</typename><string>ZipFile = <seetype marker="#zip_file">zip_file()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileBinList} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Name :: <seetype marker="file#name">file:name()</seetype>, Reason :: <seetype marker="erlang#term">term()</seetype>}}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>CWD</anno>
+  <anno>FileBinList</anno>
+  <anno>FileFilter</anno>
+  <anno>FileList</anno>
+  <anno>Name</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+  <anno>ZipFile</anno>
+</spec>
+<spec>
+  <name>zip</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>zip(Name, FileList) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>FileList</typename><string>FileList = [FileSpec]</string></subtype>
+        <subtype><typename>FileSpec</typename><string>FileSpec = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#name">file:name()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>, <seetype marker="file#file_info">file:file_info()</seetype>}</string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileName :: <seetype marker="file#name">file:name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {FileName :: <seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileList</anno>
+  <anno>FileName</anno>
+  <anno>FileSpec</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>zip</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>zip(Name, FileList, Options) -&gt; RetValue</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>FileList</typename><string>FileList = [FileSpec]</string></subtype>
+        <subtype><typename>FileSpec</typename><string>FileSpec = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#name">file:name()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>, <seetype marker="file#file_info">file:file_info()</seetype>}</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <seetype marker="#create_option">create_option()</seetype></string></subtype>
+        <subtype><typename>RetValue</typename><string>RetValue = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileName :: <seetype marker="file#name">file:name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {FileName :: <seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileList</anno>
+  <anno>FileName</anno>
+  <anno>FileSpec</anno>
+  <anno>Name</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>RetValue</anno>
+</spec>
+<spec>
+  <name>zip_close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>zip_close(ZipHandle) -&gt; ok | {error, einval}</head>
+      <guard>
+        <subtype><typename>ZipHandle</typename><string>ZipHandle = <seetype marker="#handle">handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ZipHandle</anno>
+</spec>
+<spec>
+  <name>zip_get</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>zip_get(ZipHandle) -&gt; {ok, [Result]} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>ZipHandle</typename><string>ZipHandle = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="file#name">file:name()</seetype> | {<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+  <anno>ZipHandle</anno>
+</spec>
+<spec>
+  <name>zip_get</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>zip_get(FileName, ZipHandle) -&gt; {ok, Result} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>ZipHandle</typename><string>ZipHandle = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="file#name">file:name()</seetype> | {<seetype marker="file#name">file:name()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+  <anno>ZipHandle</anno>
+</spec>
+<spec>
+  <name>zip_get_crc32</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>zip_get_crc32(FileName, ZipHandle) -&gt; {ok, CRC} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>ZipHandle</typename><string>ZipHandle = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>CRC</typename><string>CRC = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CRC</anno>
+  <anno>FileName</anno>
+  <anno>Reason</anno>
+  <anno>ZipHandle</anno>
+</spec>
+<spec>
+  <name>zip_get_state</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>zip_list_dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>zip_list_dir(ZipHandle) -&gt; {ok, Result} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = [<seetype marker="#zip_comment">zip_comment()</seetype> | <seetype marker="#zip_file">zip_file()</seetype>]</string></subtype>
+        <subtype><typename>ZipHandle</typename><string>ZipHandle = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+  <anno>ZipHandle</anno>
+</spec>
+<spec>
+  <name>zip_list_dir</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>zip_open</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>zip_open(Archive) -&gt; {ok, ZipHandle} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>ZipHandle</typename><string>ZipHandle = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>Reason</anno>
+  <anno>ZipHandle</anno>
+</spec>
+<spec>
+  <name>zip_open</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>zip_open(Archive, Options) -&gt; {ok, ZipHandle} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Archive</typename><string>Archive = <seetype marker="file#name">file:name()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>ZipHandle</typename><string>ZipHandle = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = cooked | memory | {cwd, CWD :: <seetype marker="file#filename">file:filename()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Archive</anno>
+  <anno>CWD</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>ZipHandle</anno>
+</spec>
+<spec>
+  <name>zip_t</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>zip_tt</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:28.</timestamp>
+</module>

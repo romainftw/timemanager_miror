@@ -1,0 +1,1410 @@
+<module name="ct">
+<type>
+  <name>config_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-config_key">config_key()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>conn_log_mod</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-conn_log_mod">conn_log_mod()</marker> = ct_netconfc | ct_telnet</typehead></typedecl>
+</type>
+<type>
+  <name>conn_log_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-conn_log_option">conn_log_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_type, <seetype marker="#conn_log_type">conn_log_type()</seetype>} | {hosts, [<seetype marker="#key_or_name">key_or_name()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>conn_log_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-conn_log_options">conn_log_options()</marker> = [<seetype marker="#conn_log_option">conn_log_option()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>conn_log_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-conn_log_type">conn_log_type()</marker> = raw | pretty | html | silent</typehead></typedecl>
+</type>
+<type>
+  <name>handle</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handle">handle()</marker> = <seetype marker="erlang#pid">pid()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>key_or_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_or_name">key_or_name()</marker> = <seetype marker="#config_key">config_key()</seetype> | <seetype marker="#target_name">target_name()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>target_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-target_name">target_name()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>abort_current_testcase</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>abort_current_testcase(Reason) -&gt; ok | {error, ErrorReason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>ErrorReason</typename><string>ErrorReason = no_testcase_running | parallel_group</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ErrorReason</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>add_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_config(Callback, Config) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Callback</typename><string>Callback = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Callback</anno>
+  <anno>Config</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>break</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>break(Comment) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Comment</typename><string>Comment = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{multiple_cases_running, TestCases} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'enable break with release_shell option'</string></subtype>
+        <subtype><typename>TestCases</typename><string>TestCases = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Comment</anno>
+  <anno>Reason</anno>
+  <anno>TestCases</anno>
+</spec>
+<spec>
+  <name>break</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>break(TestCase, Comment) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>TestCase</typename><string>TestCase = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Comment</typename><string>Comment = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>'test case not running' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'enable break with release_shell option'</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Comment</anno>
+  <anno>Reason</anno>
+  <anno>TestCase</anno>
+</spec>
+<spec>
+  <name>capture_get</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>capture_get() -&gt; ListOfStrings</head>
+      <guard>
+        <subtype><typename>ListOfStrings</typename><string>ListOfStrings = [<seetype marker="erlang#string">string()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ListOfStrings</anno>
+</spec>
+<spec>
+  <name>capture_get</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>capture_get(ExclCategories) -&gt; ListOfStrings</head>
+      <guard>
+        <subtype><typename>ExclCategories</typename><string>ExclCategories = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>ListOfStrings</typename><string>ListOfStrings = [<seetype marker="erlang#string">string()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExclCategories</anno>
+  <anno>ListOfStrings</anno>
+</spec>
+<spec>
+  <name>capture_start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>capture_start() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>capture_stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>capture_stop() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>comment</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>comment(Comment) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Comment</typename><string>Comment = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Comment</anno>
+</spec>
+<spec>
+  <name>comment</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>comment(Format, Args) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>continue</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>continue() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>continue</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>continue(TestCase) -&gt; ok</head>
+      <guard>
+        <subtype><typename>TestCase</typename><string>TestCase = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>TestCase</anno>
+</spec>
+<spec>
+  <name>decrypt_config_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>decrypt_config_file(EncryptFileName, TargetFileName) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>EncryptFileName</typename><string>EncryptFileName = TargetFileName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>TargetFileName</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EncryptFileName</anno>
+  <anno>Reason</anno>
+  <anno>TargetFileName</anno>
+</spec>
+<spec>
+  <name>decrypt_config_file</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>decrypt_config_file(EncryptFileName, TargetFileName, KeyOrFile) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>EncryptFileName</typename><string>EncryptFileName = TargetFileName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>TargetFileName</typename><string/></subtype>
+        <subtype><typename>KeyOrFile</typename><string>KeyOrFile = {key, <seetype marker="erlang#string">string()</seetype>} | {file, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EncryptFileName</anno>
+  <anno>KeyOrFile</anno>
+  <anno>Reason</anno>
+  <anno>TargetFileName</anno>
+</spec>
+<spec>
+  <name>encrypt_config_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>encrypt_config_file(SrcFileName, EncryptFileName) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SrcFileName</typename><string>SrcFileName = EncryptFileName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>EncryptFileName</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EncryptFileName</anno>
+  <anno>Reason</anno>
+  <anno>SrcFileName</anno>
+</spec>
+<spec>
+  <name>encrypt_config_file</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>encrypt_config_file(SrcFileName, EncryptFileName, KeyOrFile) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SrcFileName</typename><string>SrcFileName = EncryptFileName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>EncryptFileName</typename><string/></subtype>
+        <subtype><typename>KeyOrFile</typename><string>KeyOrFile = {key, <seetype marker="erlang#string">string()</seetype>} | {file, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EncryptFileName</anno>
+  <anno>KeyOrFile</anno>
+  <anno>Reason</anno>
+  <anno>SrcFileName</anno>
+</spec>
+<spec>
+  <name>escape_chars</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>escape_chars</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fail</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>fail(Reason) -&gt; <seetype marker="erlang#no_return">no_return()</seetype></head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>fail</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>fail(Format, Args) -&gt; <seetype marker="erlang#no_return">no_return()</seetype></head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>get_config</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_config(Required) -&gt; Value</head>
+      <guard>
+        <subtype><typename>Required</typename><string>Required = <br/><nbsp/><nbsp/><nbsp/><nbsp/>KeyOrName | {KeyOrName, SubKey} | {KeyOrName, SubKey, SubKey}</string></subtype>
+        <subtype><typename>KeyOrName</typename><string>KeyOrName = SubKey = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>SubKey</typename><string/></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>KeyOrName</anno>
+  <anno>Required</anno>
+  <anno>SubKey</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>get_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_config(Required, Default) -&gt; Value</head>
+      <guard>
+        <subtype><typename>Required</typename><string>Required = <br/><nbsp/><nbsp/><nbsp/><nbsp/>KeyOrName | {KeyOrName, SubKey} | {KeyOrName, SubKey, SubKey}</string></subtype>
+        <subtype><typename>KeyOrName</typename><string>KeyOrName = SubKey = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>SubKey</typename><string/></subtype>
+        <subtype><typename>Default</typename><string>Default = Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Default</anno>
+  <anno>KeyOrName</anno>
+  <anno>Required</anno>
+  <anno>SubKey</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>get_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_config(Required, Default, Opts) -&gt; ValueOrElement</head>
+      <guard>
+        <subtype><typename>Required</typename><string>Required = <br/><nbsp/><nbsp/><nbsp/><nbsp/>KeyOrName | {KeyOrName, SubKey} | {KeyOrName, SubKey, SubKey}</string></subtype>
+        <subtype><typename>KeyOrName</typename><string>KeyOrName = SubKey = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>SubKey</typename><string/></subtype>
+        <subtype><typename>Default</typename><string>Default = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = element | all</string></subtype>
+        <subtype><typename>ValueOrElement</typename><string>ValueOrElement = <seetype marker="erlang#term">term()</seetype> | Default</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Default</anno>
+  <anno>KeyOrName</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Required</anno>
+  <anno>SubKey</anno>
+  <anno>ValueOrElement</anno>
+</spec>
+<spec>
+  <name>get_event_mgr_ref</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_event_mgr_ref() -&gt; EvMgrRef</head>
+      <guard>
+        <subtype><typename>EvMgrRef</typename><string>EvMgrRef = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EvMgrRef</anno>
+</spec>
+<spec>
+  <name>get_progname</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_progname() -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>get_status</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_status() -&gt; TestStatus | {error, Reason} | no_tests_running</head>
+      <guard>
+        <subtype><typename>TestStatus</typename><string>TestStatus = [StatusElem]</string></subtype>
+        <subtype><typename>StatusElem</typename><string>StatusElem = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{current, TestCaseInfo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{successful, Successful} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{failed, Failed} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{skipped, Skipped} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{total, Total}</string></subtype>
+        <subtype><typename>TestCaseInfo</typename><string>TestCaseInfo = {Suite, TestCase} | [{Suite, TestCase}]</string></subtype>
+        <subtype><typename>Suite</typename><string>Suite = TestCase = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>TestCase</typename><string/></subtype>
+        <subtype><typename>Successful</typename><string>Successful = Failed = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Failed</typename><string/></subtype>
+        <subtype><typename>Skipped</typename><string>Skipped = {UserSkipped, AutoSkipped}</string></subtype>
+        <subtype><typename>UserSkipped</typename><string>UserSkipped = AutoSkipped = Total = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>AutoSkipped</typename><string/></subtype>
+        <subtype><typename>Total</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AutoSkipped</anno>
+  <anno>Failed</anno>
+  <anno>Reason</anno>
+  <anno>Skipped</anno>
+  <anno>StatusElem</anno>
+  <anno>Successful</anno>
+  <anno>Suite</anno>
+  <anno>TestCase</anno>
+  <anno>TestCaseInfo</anno>
+  <anno>TestStatus</anno>
+  <anno>Total</anno>
+  <anno>UserSkipped</anno>
+</spec>
+<spec>
+  <name>get_target_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_target_name(Handle) -&gt; {ok, TargetName} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>TargetName</typename><string>TargetName = <seetype marker="#target_name">target_name()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Handle</anno>
+  <anno>Reason</anno>
+  <anno>TargetName</anno>
+</spec>
+<spec>
+  <name>get_testspec_terms</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_testspec_terms() -&gt; TestSpecTerms | undefined</head>
+      <guard>
+        <subtype><typename>TestSpecTerms</typename><string>TestSpecTerms = [{Tag, Value}]</string></subtype>
+        <subtype><typename>Tag</typename><string>Tag = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Tag</anno>
+  <anno>TestSpecTerms</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>get_testspec_terms</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_testspec_terms(Tags) -&gt; TestSpecTerms | undefined</head>
+      <guard>
+        <subtype><typename>Tags</typename><string>Tags = [Tag] | Tag</string></subtype>
+        <subtype><typename>Tag</typename><string>Tag = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>TestSpecTerms</typename><string>TestSpecTerms = [{Tag, Value}] | {Tag, Value}</string></subtype>
+        <subtype><typename>Value</typename><string>Value = [{Node, <seetype marker="erlang#term">term()</seetype>}] | [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Node</typename><string>Node = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Node</anno>
+  <anno>Tag</anno>
+  <anno>Tags</anno>
+  <anno>TestSpecTerms</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>get_timetrap_info</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_timetrap_info() -&gt; {Time, {Scaling, ScaleVal}}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#integer">integer()</seetype> | infinity</string></subtype>
+        <subtype><typename>Scaling</typename><string>Scaling = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>ScaleVal</typename><string>ScaleVal = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ScaleVal</anno>
+  <anno>Scaling</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>get_verbosity</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_verbosity(Category) -&gt; Level | undefined</head>
+      <guard>
+        <subtype><typename>Category</typename><string>Category = default | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>install</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>install(Opts) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{config, ConfigFiles} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{event_handler, Modules} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{decrypt, KeyOrFile}</string></subtype>
+        <subtype><typename>ConfigFiles</typename><string>ConfigFiles = [ConfigFile]</string></subtype>
+        <subtype><typename>ConfigFile</typename><string>ConfigFile = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Modules</typename><string>Modules = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>KeyOrFile</typename><string>KeyOrFile = {key, Key} | {file, KeyFile}</string></subtype>
+        <subtype><typename>Key</typename><string>Key = KeyFile = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>KeyFile</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConfigFile</anno>
+  <anno>ConfigFiles</anno>
+  <anno>Key</anno>
+  <anno>KeyFile</anno>
+  <anno>KeyOrFile</anno>
+  <anno>Modules</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>listenv</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>listenv(Telnet) -&gt; {ok, [Env]}</head>
+      <guard>
+        <subtype><typename>Telnet</typename><string>Telnet = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Env</typename><string>Env = {Key, Value}</string></subtype>
+        <subtype><typename>Key</typename><string>Key = Value = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Env</anno>
+  <anno>Key</anno>
+  <anno>Telnet</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>log(Format) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>log(X1, X2) -&gt; ok</head>
+      <guard>
+        <subtype><typename>X1</typename><string>X1 = Category | Importance | Format</string></subtype>
+        <subtype><typename>X2</typename><string>X2 = Format | FormatArgs</string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>log(X1, X2, X3) -&gt; ok</head>
+      <guard>
+        <subtype><typename>X1</typename><string>X1 = Category | Importance</string></subtype>
+        <subtype><typename>X2</typename><string>X2 = Importance | Format</string></subtype>
+        <subtype><typename>X3</typename><string>X3 = Format | FormatArgs | Opts</string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {heading, <seetype marker="erlang#string">string()</seetype>} | no_css | esc_chars</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+  <anno>X3</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>log(X1, X2, X3, X4) -&gt; ok</head>
+      <guard>
+        <subtype><typename>X1</typename><string>X1 = Category | Importance</string></subtype>
+        <subtype><typename>X2</typename><string>X2 = Importance | Format</string></subtype>
+        <subtype><typename>X3</typename><string>X3 = Format | FormatArgs</string></subtype>
+        <subtype><typename>X4</typename><string>X4 = FormatArgs | Opts</string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {heading, <seetype marker="erlang#string">string()</seetype>} | no_css | esc_chars</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+  <anno>X3</anno>
+  <anno>X4</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>log(Category, Importance, Format, FormatArgs, Opts) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {heading, <seetype marker="erlang#string">string()</seetype>} | no_css | esc_chars</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>make_priv_dir</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>make_priv_dir() -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>notify</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>notify(Name, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>pal</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pal(Format) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>pal</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pal(X1, X2) -&gt; ok</head>
+      <guard>
+        <subtype><typename>X1</typename><string>X1 = Category | Importance | Format</string></subtype>
+        <subtype><typename>X2</typename><string>X2 = Format | FormatArgs</string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+</spec>
+<spec>
+  <name>pal</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pal(X1, X2, X3) -&gt; ok</head>
+      <guard>
+        <subtype><typename>X1</typename><string>X1 = Category | Importance</string></subtype>
+        <subtype><typename>X2</typename><string>X2 = Importance | Format</string></subtype>
+        <subtype><typename>X3</typename><string>X3 = Format | FormatArgs | Opt</string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {heading, <seetype marker="erlang#string">string()</seetype>} | no_css</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>Opt</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+  <anno>X3</anno>
+</spec>
+<spec>
+  <name>pal</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>pal(X1, X2, X3, X4) -&gt; ok</head>
+      <guard>
+        <subtype><typename>X1</typename><string>X1 = Category | Importance</string></subtype>
+        <subtype><typename>X2</typename><string>X2 = Importance | Format</string></subtype>
+        <subtype><typename>X3</typename><string>X3 = Format | FormatArgs</string></subtype>
+        <subtype><typename>X4</typename><string>X4 = FormatArgs | Opts</string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {heading, <seetype marker="erlang#string">string()</seetype>} | no_css</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+  <anno>X3</anno>
+  <anno>X4</anno>
+</spec>
+<spec>
+  <name>pal</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>pal(Category, Importance, Format, FormatArgs, Opts) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {heading, <seetype marker="erlang#string">string()</seetype>} | no_css</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>parse_table</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>parse_table(Data) -&gt; {Heading, Table}</head>
+      <guard>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#string">string()</seetype>]</string></subtype>
+        <subtype><typename>Heading</typename><string>Heading = <seetype marker="erlang#tuple">tuple()</seetype></string></subtype>
+        <subtype><typename>Table</typename><string>Table = [<seetype marker="erlang#tuple">tuple()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Heading</anno>
+  <anno>Table</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>print(Format) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>print(X1, X2) -&gt; ok</head>
+      <guard>
+        <subtype><typename>X1</typename><string>X1 = Category | Importance | Format</string></subtype>
+        <subtype><typename>X2</typename><string>X2 = Format | FormatArgs</string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>print(X1, X2, X3) -&gt; ok</head>
+      <guard>
+        <subtype><typename>X1</typename><string>X1 = Category | Importance</string></subtype>
+        <subtype><typename>X2</typename><string>X2 = Importance | Format</string></subtype>
+        <subtype><typename>X3</typename><string>X3 = Format | FormatArgs | Opts</string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {heading, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+  <anno>X3</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>print(X1, X2, X3, X4) -&gt; ok</head>
+      <guard>
+        <subtype><typename>X1</typename><string>X1 = Category | Importance</string></subtype>
+        <subtype><typename>X2</typename><string>X2 = Importance | Format</string></subtype>
+        <subtype><typename>X3</typename><string>X3 = Format | FormatArgs</string></subtype>
+        <subtype><typename>X4</typename><string>X4 = FormatArgs | Opts</string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {heading, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>X1</anno>
+  <anno>X2</anno>
+  <anno>X3</anno>
+  <anno>X4</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>print(Category, Importance, Format, FormatArgs, Opts) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Importance</typename><string>Importance = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FormatArgs</typename><string>FormatArgs = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {heading, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Format</anno>
+  <anno>FormatArgs</anno>
+  <anno>Importance</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>reload_config</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>reload_config(Required) -&gt; ValueOrElement | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Required</typename><string>Required = <br/><nbsp/><nbsp/><nbsp/><nbsp/>KeyOrName | {KeyOrName, SubKey} | {KeyOrName, SubKey, SubKey}</string></subtype>
+        <subtype><typename>KeyOrName</typename><string>KeyOrName = SubKey = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>SubKey</typename><string/></subtype>
+        <subtype><typename>ValueOrElement</typename><string>ValueOrElement = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>KeyOrName</anno>
+  <anno>Reason</anno>
+  <anno>Required</anno>
+  <anno>SubKey</anno>
+  <anno>ValueOrElement</anno>
+</spec>
+<spec>
+  <name>remaining_test_procs</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>remaining_test_procs() -&gt; {TestProcs, SharedGL, OtherGLs}</head>
+      <guard>
+        <subtype><typename>TestProcs</typename><string>TestProcs = [{<seetype marker="erlang#pid">pid()</seetype>, GL}]</string></subtype>
+        <subtype><typename>GL</typename><string>GL = SharedGL = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>SharedGL</typename><string/></subtype>
+        <subtype><typename>OtherGLs</typename><string>OtherGLs = [<seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>GL</anno>
+  <anno>OtherGLs</anno>
+  <anno>SharedGL</anno>
+  <anno>TestProcs</anno>
+</spec>
+<spec>
+  <name>remove_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>remove_config(Callback, Config) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Callback</typename><string>Callback = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Callback</anno>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>require</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>require(Required) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Required</typename><string>Required = Key | {Key, SubKeys} | {Key, SubKey, SubKeys}</string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>SubKeys</typename><string>SubKeys = SubKey | [SubKey]</string></subtype>
+        <subtype><typename>SubKey</typename><string>SubKey = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Reason</anno>
+  <anno>Required</anno>
+  <anno>SubKey</anno>
+  <anno>SubKeys</anno>
+</spec>
+<spec>
+  <name>require</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>require(Name, Required) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Required</typename><string>Required = Key | {Key, SubKey} | {Key, SubKey, SubKey}</string></subtype>
+        <subtype><typename>SubKey</typename><string>SubKey = Key</string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Required</anno>
+  <anno>SubKey</anno>
+</spec>
+<spec>
+  <name>run</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>run(TestDirs) -&gt; Result</head>
+      <guard>
+        <subtype><typename>TestDirs</typename><string>TestDirs = TestDir | [TestDir]</string></subtype>
+        <subtype><typename>TestDir</typename><string>TestDir = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = [TestResult] | {error, Reason}</string></subtype>
+        <subtype><typename>TestResult</typename><string>TestResult = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+  <anno>TestDir</anno>
+  <anno>TestDirs</anno>
+  <anno>TestResult</anno>
+</spec>
+<spec>
+  <name>run</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>run(TestDir, Suite) -&gt; Result</head>
+      <guard>
+        <subtype><typename>TestDir</typename><string>TestDir = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Suite</typename><string>Suite = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = [TestResult] | {error, Reason}</string></subtype>
+        <subtype><typename>TestResult</typename><string>TestResult = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+  <anno>Suite</anno>
+  <anno>TestDir</anno>
+  <anno>TestResult</anno>
+</spec>
+<spec>
+  <name>run</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>run(TestDir, Suite, Cases) -&gt; Result</head>
+      <guard>
+        <subtype><typename>TestDir</typename><string>TestDir = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Suite</typename><string>Suite = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Cases</typename><string>Cases = <seetype marker="erlang#atom">atom()</seetype> | [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = [TestResult] | {error, Reason}</string></subtype>
+        <subtype><typename>TestResult</typename><string>TestResult = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cases</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+  <anno>Suite</anno>
+  <anno>TestDir</anno>
+  <anno>TestResult</anno>
+</spec>
+<spec>
+  <name>run_test</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>run_test(Opts) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Opts</typename><string>Opts = [OptTuples]</string></subtype>
+        <subtype><typename>OptTuples</typename><string>OptTuples = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{dir, TestDirs} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{suite, Suites} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{group, Groups} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{testcase, Cases} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{spec, TestSpecs} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{join_specs, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{label, Label} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{config, CfgFiles} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{userconfig, UserConfig} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{allow_user_terms, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{logdir, LogDir} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{silent_connections, Conns} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{stylesheet, CSSFile} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cover, CoverSpecFile} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cover_stop, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{step, StepOpts} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{event_handler, EventHandlers} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{include, InclDirs} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{auto_compile, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{abort_if_missing_suites, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{create_priv_dir, CreatePrivDir} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{multiply_timetraps, M} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{scale_timetraps, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{repeat, N} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{duration, DurTime} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{until, StopTime} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{force_stop, ForceStop} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{decrypt, DecryptKeyOrFile} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{refresh_logs, LogDir} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{logopts, LogOpts} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbosity, VLevels} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{basic_html, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{esc_chars, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_logs, KeepSpec} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ct_hooks, CTHs} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{enable_builtin_hooks, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{release_shell, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>TestDirs</typename><string>TestDirs = [<seetype marker="erlang#string">string()</seetype>] | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Suites</typename><string>Suites = [<seetype marker="erlang#string">string()</seetype>] | [<seetype marker="erlang#atom">atom()</seetype>] | <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Cases</typename><string>Cases = [<seetype marker="erlang#atom">atom()</seetype>] | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Groups</typename><string>Groups = GroupNameOrPath | [GroupNameOrPath]</string></subtype>
+        <subtype><typename>GroupNameOrPath</typename><string>GroupNameOrPath = [<seetype marker="erlang#atom">atom()</seetype>] | <seetype marker="erlang#atom">atom()</seetype> | all</string></subtype>
+        <subtype><typename>TestSpecs</typename><string>TestSpecs = [<seetype marker="erlang#string">string()</seetype>] | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>CfgFiles</typename><string>CfgFiles = [<seetype marker="erlang#string">string()</seetype>] | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>UserConfig</typename><string>UserConfig = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{CallbackMod, CfgStrings}] | {CallbackMod, CfgStrings}</string></subtype>
+        <subtype><typename>CallbackMod</typename><string>CallbackMod = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>CfgStrings</typename><string>CfgStrings = [<seetype marker="erlang#string">string()</seetype>] | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>LogDir</typename><string>LogDir = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Conns</typename><string>Conns = all | [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>CSSFile</typename><string>CSSFile = CoverSpecFile = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>CoverSpecFile</typename><string/></subtype>
+        <subtype><typename>StepOpts</typename><string>StepOpts = [StepOpt]</string></subtype>
+        <subtype><typename>StepOpt</typename><string>StepOpt = config | keep_inactive</string></subtype>
+        <subtype><typename>EventHandlers</typename><string>EventHandlers = EH | [EH]</string></subtype>
+        <subtype><typename>EH</typename><string>EH = <seetype marker="erlang#atom">atom()</seetype> | {<seetype marker="erlang#atom">atom()</seetype>, InitArgs} | {[<seetype marker="erlang#atom">atom()</seetype>], InitArgs}</string></subtype>
+        <subtype><typename>InitArgs</typename><string>InitArgs = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>InclDirs</typename><string>InclDirs = [<seetype marker="erlang#string">string()</seetype>] | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>CreatePrivDir</typename><string>CreatePrivDir = auto_per_run | auto_per_tc | manual_per_tc</string></subtype>
+        <subtype><typename>M</typename><string>M = N = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>N</typename><string/></subtype>
+        <subtype><typename>DurTime</typename><string>DurTime = HHMMSS</string></subtype>
+        <subtype><typename>HHMMSS</typename><string>HHMMSS = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>StopTime</typename><string>StopTime = YYMoMoDDHHMMSS | HHMMSS</string></subtype>
+        <subtype><typename>YYMoMoDDHHMMSS</typename><string>YYMoMoDDHHMMSS = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>ForceStop</typename><string>ForceStop = skip_rest | <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>DecryptKeyOrFile</typename><string>DecryptKeyOrFile = {key, DecryptKey} | {file, DecryptFile}</string></subtype>
+        <subtype><typename>DecryptKey</typename><string>DecryptKey = DecryptFile = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>DecryptFile</typename><string/></subtype>
+        <subtype><typename>LogOpts</typename><string>LogOpts = [LogOpt]</string></subtype>
+        <subtype><typename>LogOpt</typename><string>LogOpt = no_nl | no_src</string></subtype>
+        <subtype><typename>VLevels</typename><string>VLevels = VLevel | [{Category, VLevel}]</string></subtype>
+        <subtype><typename>VLevel</typename><string>VLevel = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Category</typename><string>Category = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>KeepSpec</typename><string>KeepSpec = all | <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>CTHs</typename><string>CTHs = [CTHModule | {CTHModule, CTHInitArgs}]</string></subtype>
+        <subtype><typename>CTHModule</typename><string>CTHModule = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>CTHInitArgs</typename><string>CTHInitArgs = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Ok, Failed, {UserSkipped, AutoSkipped}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>TestRunnerPid |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</string></subtype>
+        <subtype><typename>Ok</typename><string>Ok = Failed = UserSkipped = AutoSkipped = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Failed</typename><string/></subtype>
+        <subtype><typename>UserSkipped</typename><string/></subtype>
+        <subtype><typename>AutoSkipped</typename><string/></subtype>
+        <subtype><typename>TestRunnerPid</typename><string>TestRunnerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AutoSkipped</anno>
+  <anno>CSSFile</anno>
+  <anno>CTHInitArgs</anno>
+  <anno>CTHModule</anno>
+  <anno>CTHs</anno>
+  <anno>CallbackMod</anno>
+  <anno>Cases</anno>
+  <anno>Category</anno>
+  <anno>CfgFiles</anno>
+  <anno>CfgStrings</anno>
+  <anno>Conns</anno>
+  <anno>CoverSpecFile</anno>
+  <anno>CreatePrivDir</anno>
+  <anno>DecryptFile</anno>
+  <anno>DecryptKey</anno>
+  <anno>DecryptKeyOrFile</anno>
+  <anno>DurTime</anno>
+  <anno>EH</anno>
+  <anno>EventHandlers</anno>
+  <anno>Failed</anno>
+  <anno>ForceStop</anno>
+  <anno>GroupNameOrPath</anno>
+  <anno>Groups</anno>
+  <anno>HHMMSS</anno>
+  <anno>InclDirs</anno>
+  <anno>InitArgs</anno>
+  <anno>KeepSpec</anno>
+  <anno>Label</anno>
+  <anno>LogDir</anno>
+  <anno>LogOpt</anno>
+  <anno>LogOpts</anno>
+  <anno>M</anno>
+  <anno>N</anno>
+  <anno>Ok</anno>
+  <anno>OptTuples</anno>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+  <anno>StepOpt</anno>
+  <anno>StepOpts</anno>
+  <anno>StopTime</anno>
+  <anno>Suites</anno>
+  <anno>TestDirs</anno>
+  <anno>TestRunnerPid</anno>
+  <anno>TestSpecs</anno>
+  <anno>UserConfig</anno>
+  <anno>UserSkipped</anno>
+  <anno>VLevel</anno>
+  <anno>VLevels</anno>
+  <anno>YYMoMoDDHHMMSS</anno>
+</spec>
+<spec>
+  <name>run_testspec</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>run_testspec(TestSpec) -&gt; Result</head>
+      <guard>
+        <subtype><typename>TestSpec</typename><string>TestSpec = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Ok, Failed, {UserSkipped, AutoSkipped}} | {error, Reason}</string></subtype>
+        <subtype><typename>Ok</typename><string>Ok = Failed = UserSkipped = AutoSkipped = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Failed</typename><string/></subtype>
+        <subtype><typename>UserSkipped</typename><string/></subtype>
+        <subtype><typename>AutoSkipped</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AutoSkipped</anno>
+  <anno>Failed</anno>
+  <anno>Ok</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+  <anno>TestSpec</anno>
+  <anno>UserSkipped</anno>
+</spec>
+<spec>
+  <name>set_verbosity</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_verbosity(Category, Level) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Category</typename><string>Category = default | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>sleep</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sleep(Time) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{hours, Hours} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minutes, Mins} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{seconds, Secs} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>Millisecs | infinity</string></subtype>
+        <subtype><typename>Hours</typename><string>Hours = Mins = Secs = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Mins</typename><string/></subtype>
+        <subtype><typename>Secs</typename><string/></subtype>
+        <subtype><typename>Millisecs</typename><string>Millisecs = <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#float">float()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Hours</anno>
+  <anno>Millisecs</anno>
+  <anno>Mins</anno>
+  <anno>Secs</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>start_interactive</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_interactive() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>step</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>step(TestDir, Suite, Case) -&gt; Result</head>
+      <guard>
+        <subtype><typename>TestDir</typename><string>TestDir = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Suite</typename><string>Suite = Case = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Case</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Case</anno>
+  <anno>Result</anno>
+  <anno>Suite</anno>
+  <anno>TestDir</anno>
+</spec>
+<spec>
+  <name>step</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>step(TestDir, Suite, Case, Opts) -&gt; Result</head>
+      <guard>
+        <subtype><typename>TestDir</typename><string>TestDir = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Suite</typename><string>Suite = Case = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Case</typename><string/></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = config | keep_inactive</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Case</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Result</anno>
+  <anno>Suite</anno>
+  <anno>TestDir</anno>
+</spec>
+<spec>
+  <name>stop_interactive</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop_interactive() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>sync_notify</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>sync_notify(Name, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>testcases</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>testcases(TestDir, Suite) -&gt; Testcases | {error, Reason}</head>
+      <guard>
+        <subtype><typename>TestDir</typename><string>TestDir = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Suite</typename><string>Suite = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Testcases</typename><string>Testcases = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Suite</anno>
+  <anno>TestDir</anno>
+  <anno>Testcases</anno>
+</spec>
+<spec>
+  <name>timetrap</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>timetrap(Time) -&gt; infinity | <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{hours, Hours} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minutes, Mins} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{seconds, Secs} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>Millisecs | infinity | Func</string></subtype>
+        <subtype><typename>Hours</typename><string>Hours = Mins = Secs = Millisecs = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Mins</typename><string/></subtype>
+        <subtype><typename>Secs</typename><string/></subtype>
+        <subtype><typename>Millisecs</typename><string/></subtype>
+        <subtype><typename>Func</typename><string>Func = {M, F, A} | <seetype marker="erlang#function">function()</seetype></string></subtype>
+        <subtype><typename>M</typename><string>M = F = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>F</typename><string/></subtype>
+        <subtype><typename>A</typename><string>A = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>A</anno>
+  <anno>F</anno>
+  <anno>Func</anno>
+  <anno>Hours</anno>
+  <anno>M</anno>
+  <anno>Millisecs</anno>
+  <anno>Mins</anno>
+  <anno>Secs</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>userdata</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>userdata(TestDir, Suite) -&gt; SuiteUserData | {error, Reason}</head>
+      <guard>
+        <subtype><typename>TestDir</typename><string>TestDir = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Suite</typename><string>Suite = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>SuiteUserData</typename><string>SuiteUserData = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Suite</anno>
+  <anno>SuiteUserData</anno>
+  <anno>TestDir</anno>
+</spec>
+<spec>
+  <name>userdata</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>userdata(TestDir, Suite, Case :: GroupOrCase) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TCUserData | {error, Reason}</head>
+      <guard>
+        <subtype><typename>TestDir</typename><string>TestDir = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Suite</typename><string>Suite = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>GroupOrCase</typename><string>GroupOrCase = {group, GroupName} | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>GroupName</typename><string>GroupName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>TCUserData</typename><string>TCUserData = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Case</anno>
+  <anno>GroupName</anno>
+  <anno>GroupOrCase</anno>
+  <anno>Reason</anno>
+  <anno>Suite</anno>
+  <anno>TCUserData</anno>
+  <anno>TestDir</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:11.</timestamp>
+</module>

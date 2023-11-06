@@ -1,0 +1,184 @@
+<module name="argparse">
+<type>
+  <name>arg_map</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-arg_map">arg_map()</marker> = #{<seetype marker="#argument_name">argument_name()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>arg_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-arg_type">arg_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>boolean | float |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{float, Choice :: [<seetype marker="erlang#float">float()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{float, [{min, <seetype marker="erlang#float">float()</seetype>} | {max, <seetype marker="erlang#float">float()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>integer |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{integer, Choices :: [<seetype marker="erlang#integer">integer()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{integer, [{min, <seetype marker="erlang#integer">integer()</seetype>} | {max, <seetype marker="erlang#integer">integer()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>string |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{string, Choices :: [<seetype marker="erlang#string">string()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{string, Re :: <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{string, Re :: <seetype marker="erlang#string">string()</seetype>, ReOptions :: [<seetype marker="erlang#term">term()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>binary |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{binary, Choices :: [<seetype marker="erlang#binary">binary()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{binary, Re :: <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{binary, Re :: <seetype marker="erlang#binary">binary()</seetype>, ReOptions :: [<seetype marker="erlang#term">term()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>atom |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{atom, Choices :: [<seetype marker="erlang#atom">atom()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{atom, unsafe} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{custom, fun((<seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype>)}</typehead></typedecl>
+  <anno>Choice</anno>
+  <anno>Choices</anno>
+  <anno>Re</anno>
+  <anno>ReOptions</anno>
+</type>
+<type>
+  <name>argument</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-argument">argument()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{name := <seetype marker="#argument_name">argument_name()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>short =&gt; <seetype marker="erlang#char">char()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>long =&gt; <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>required =&gt; <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>default =&gt; <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>type =&gt; <seetype marker="#arg_type">arg_type()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>action =&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>store |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{store, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>append |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{append, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>count | extend,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>nargs =&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>maybe |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{maybe, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>list | nonempty_list | all,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>help =&gt; hidden | <seetype marker="unicode#chardata">unicode:chardata()</seetype> | <seetype marker="#argument_help">argument_help()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>argument_help</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-argument_help">argument_help()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="unicode#chardata">unicode:chardata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="unicode#chardata">unicode:chardata()</seetype> | type | default] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun(() -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>)}</typehead></typedecl>
+</type>
+<type>
+  <name>argument_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-argument_name">argument_name()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>cmd_path</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cmd_path">cmd_path()</marker> = [<seetype marker="erlang#string">string()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>command</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-command">command()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{commands =&gt; #{<seetype marker="erlang#string">string()</seetype> =&gt; <seetype marker="#command">command()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>arguments =&gt; [<seetype marker="#argument">argument()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>help =&gt; hidden | <seetype marker="unicode#chardata">unicode:chardata()</seetype> | <seetype marker="#command_help">command_help()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>handler =&gt; <seetype marker="#handler">handler()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>command_help</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-command_help">command_help()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="unicode#chardata">unicode:chardata()</seetype> | usage | commands | arguments | options]</typehead></typedecl>
+</type>
+<type>
+  <name>handler</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handler">handler()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>optional |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="#arg_map">arg_map()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#module">module()</seetype>, Fn :: <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{fun(() -&gt; <seetype marker="erlang#term">term()</seetype>), <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#module">module()</seetype>, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+  <anno>Fn</anno>
+</type>
+<type>
+  <name>parse_result</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-parse_result">parse_result()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#arg_map">arg_map()</seetype>, Path :: <seetype marker="#cmd_path">cmd_path()</seetype>, <seetype marker="#command">command()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#parser_error">parser_error()</seetype>}</typehead></typedecl>
+  <anno>Path</anno>
+</type>
+<type>
+  <name>parser_error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-parser_error">parser_error()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Path :: <seetype marker="#cmd_path">cmd_path()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Expected :: <seetype marker="#argument">argument()</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Actual :: <seetype marker="erlang#string">string()</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Details :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</typehead></typedecl>
+  <anno>Actual</anno>
+  <anno>Details</anno>
+  <anno>Expected</anno>
+  <anno>Path</anno>
+</type>
+<type>
+  <name>parser_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-parser_options">parser_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{prefixes =&gt; [<seetype marker="erlang#char">char()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>default =&gt; <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>progname =&gt; <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>command =&gt; <seetype marker="#cmd_path">cmd_path()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>columns =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>validator_error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-validator_error">validator_error()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{argparse,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>command | argument,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#cmd_path">cmd_path()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Field :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Detail :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</typehead></typedecl>
+  <anno>Detail</anno>
+  <anno>Field</anno>
+</type>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(Reason :: <seetype marker="#parser_error">parser_error()</seetype>) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format_error(Reason :: <seetype marker="#validator_error">validator_error()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>X2 :: <seetype marker="erlang#stacktrace">erlang:stacktrace()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#map">map()</seetype></head></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>X2</anno>
+</spec>
+<spec>
+  <name>help</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>help(Command :: <seetype marker="#command">command()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Command</anno>
+</spec>
+<spec>
+  <name>help</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>help(Command :: <seetype marker="#command">command()</seetype>, Options :: <seetype marker="#parser_options">parser_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="unicode#chardata">unicode:chardata()</seetype></head></clause>
+  </contract>
+  <anno>Command</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>parse</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>parse(Args :: [<seetype marker="erlang#string">string()</seetype>], Command :: <seetype marker="#command">command()</seetype>) -&gt; <seetype marker="#parse_result">parse_result()</seetype></head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Command</anno>
+</spec>
+<spec>
+  <name>parse</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>parse(Args :: [<seetype marker="erlang#string">string()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Command :: <seetype marker="#command">command()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options :: <seetype marker="#parser_options">parser_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#parse_result">parse_result()</seetype></head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Command</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>run</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>run(Args :: [<seetype marker="erlang#string">string()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/>Command :: <seetype marker="#command">command()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/>Options :: <seetype marker="#parser_options">parser_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Command</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>validate</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>validate(Command :: <seetype marker="#command">command()</seetype>) -&gt; Progname :: <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Command</anno>
+  <anno>Progname</anno>
+</spec>
+<spec>
+  <name>validate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>validate(Command :: <seetype marker="#command">command()</seetype>, Options :: <seetype marker="#parser_options">parser_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Progname :: <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Command</anno>
+  <anno>Options</anno>
+  <anno>Progname</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:18.</timestamp>
+</module>

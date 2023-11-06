@@ -1,0 +1,1386 @@
+<module name="wxAuiNotebook">
+<type>
+  <name>wxAuiNotebook</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxAuiNotebook">wxAuiNotebook()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>addPage</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>addPage(This, Page, Caption) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Caption</typename><string>Caption = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Caption</anno>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>addPage</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>addPage(This, Page, Caption, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Caption</typename><string>Caption = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {select, <seetype marker="erlang#boolean">boolean()</seetype>} | {bitmap, <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Caption</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>addPage</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>addPage(This, Page, Text, Select, ImageId) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Select</typename><string>Select = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>ImageId</typename><string>ImageId = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ImageId</anno>
+  <anno>Page</anno>
+  <anno>Select</anno>
+  <anno>Text</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>cacheBestSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>canSetTransparent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>captureMouse</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>center</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>center</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centerOnParent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>centreOnParent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clearBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clientToScreen</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clientToScreen</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>convertDialogToPixels</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>convertPixelsToDialog</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>create(This, Parent) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Parent</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>create(This, Parent, Winid) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Winid</typename><string>Winid = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Parent</anno>
+  <anno>This</anno>
+  <anno>Winid</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>create(This, Parent, Winid :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{id, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{style, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Parent</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>Winid</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>create(This, Parent, Winid, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Winid</typename><string>Winid = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{style, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Parent</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>Winid</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>deletePage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>deletePage(This, Page) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroyChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>dragAcceptFiles</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>findWindow</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fit</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fitInside</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>freeze</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getAcceleratorTable</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getArtProvider</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getArtProvider(This) -&gt; <seetype marker="wxAuiTabArt#wxAuiTabArt">wxAuiTabArt:wxAuiTabArt()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getBackgroundColour</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBackgroundStyle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBestSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCaret</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCharHeight</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCharWidth</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getClientSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getContainingSizer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getContentScaleFactor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCursor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDPI</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDPIScaleFactor</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getDropTarget</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getExtraStyle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getFont</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getForegroundColour</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getGrandParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getHandle</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getHelpText</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getId</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getLabel</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMaxSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMinSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getName</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getPage(This, Page_idx) -&gt; <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page_idx</typename><string>Page_idx = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page_idx</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPageBitmap</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getPageBitmap(This, Page) -&gt; <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPageCount</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPageCount(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPageIndex</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getPageIndex(This, Page_wnd) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page_wnd</typename><string>Page_wnd = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page_wnd</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPageText</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getPageText(This, Page) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getParent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getRect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScreenPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScreenRect</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollPos</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollRange</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getScrollThumb</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSelection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelection(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSizer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getThemeEnabled</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getToolTip</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getUpdateRegion</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getVirtualSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getWindowStyleFlag</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getWindowVariant</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasCapture</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasScrollbar</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hasTransparentBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>inheritAttributes</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>initDialog</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insertPage</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>insertPage(This, Page_idx, Page, Caption) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page_idx</typename><string>Page_idx = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Caption</typename><string>Caption = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Caption</anno>
+  <anno>Page</anno>
+  <anno>Page_idx</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertPage</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>insertPage(This, Page_idx, Page, Caption, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page_idx</typename><string>Page_idx = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Caption</typename><string>Caption = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {select, <seetype marker="erlang#boolean">boolean()</seetype>} | {bitmap, <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Caption</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Page</anno>
+  <anno>Page_idx</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>insertPage</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>insertPage(This, Index, Page, Text, Select, ImageId) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Select</typename><string>Select = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>ImageId</typename><string>ImageId = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ImageId</anno>
+  <anno>Index</anno>
+  <anno>Page</anno>
+  <anno>Select</anno>
+  <anno>Text</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>invalidateBestSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isDoubleBuffered</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isEnabled</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isExposed</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isFrozen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isRetained</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isShown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isShownOnScreen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isTopLevel</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>layout</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lineDown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lineUp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lower</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>move</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveAfterInTabOrder</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>moveBeforeInTabOrder</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>navigate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>navigate</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Parent) -&gt; <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></head>
+      <guard>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Parent</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Parent, Options :: [Option]) -&gt; <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></head>
+      <guard>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{id, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pos, {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{style, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Parent</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>pageDown</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>pageUp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>popupMenu</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>raise</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refresh</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refresh</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refreshRect</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>refreshRect</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>releaseMouse</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>removeChild</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>removePage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>removePage(This, Page) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>reparent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>screenToClient</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>screenToClient</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollLines</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollPages</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollWindow</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>scrollWindow</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setAcceleratorTable</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setArtProvider</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setArtProvider(This, Art) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Art</typename><string>Art = <seetype marker="wxAuiTabArt#wxAuiTabArt">wxAuiTabArt:wxAuiTabArt()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Art</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setAutoLayout</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBackgroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBackgroundStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCaret</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setClientSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setClientSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setContainingSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCursor</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDoubleBuffered</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDropTarget</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setExtraStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFocus</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFocusFromKbd</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFont</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFont(This, Font) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Font</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setForegroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setHelpText</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setId</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setLabel</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMaxSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setName</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnBackgroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnFont</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setOwnForegroundColour</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setPageBitmap</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setPageBitmap(This, Page, Bitmap) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Bitmap</typename><string>Bitmap = <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bitmap</anno>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPageText</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setPageText(This, Page, Text) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>Text</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPalette</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollPos</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollPos</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbar</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setScrollbar</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSelection</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setSelection(This, New_page) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>New_page</typename><string>New_page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>New_page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSize</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizerAndFit</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizerAndFit</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTabCtrlHeight</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setTabCtrlHeight(This, Height) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string>Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setThemeEnabled</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setToolTip</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTransparent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setUniformBitmapSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setUniformBitmapSize(This, Size) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiNotebook">wxAuiNotebook()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>setVirtualSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVirtualSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowStyle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowStyleFlag</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setWindowVariant</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>shouldInheritColours</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>thaw</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transferDataFromWindow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transferDataToWindow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>updateWindowUI</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>updateWindowUI</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>validate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>warpPointer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:21.</timestamp>
+</module>

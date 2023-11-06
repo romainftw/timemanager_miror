@@ -1,0 +1,276 @@
+<module name="wx_object">
+<type>
+  <name>request_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-request_id">request_id()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>server_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_ref">server_ref()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>call</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>call(Obj, Request) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Obj</typename><string>Obj = <seetype marker="wx#wx_object">wx:wx_object()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Request</typename><string>Request = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Obj</anno>
+  <anno>Request</anno>
+</spec>
+<spec>
+  <name>call</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>call(Obj, Request, Timeout) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Obj</typename><string>Obj = <seetype marker="wx#wx_object">wx:wx_object()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Request</typename><string>Request = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Obj</anno>
+  <anno>Request</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>cast</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cast(Obj, Request) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Obj</typename><string>Obj = <seetype marker="wx#wx_object">wx:wx_object()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Request</typename><string>Request = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Obj</anno>
+  <anno>Request</anno>
+</spec>
+<spec>
+  <name>check_response</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>check_response(Msg :: <seetype marker="erlang#term">term()</seetype>, Key :: <seetype marker="#request_id">request_id()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, Reply :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>false |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {<seetype marker="erlang#term">term()</seetype>, <seetype marker="#server_ref">server_ref()</seetype>}}</head></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Msg</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>format_status</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_pid</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_pid(Obj) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Obj</typename><string>Obj = <seetype marker="wx#wx_object">wx:wx_object()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Obj</anno>
+</spec>
+<spec>
+  <name>init_it</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>reply</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>reply(X1 :: {<seetype marker="erlang#pid">pid()</seetype>, Tag :: <seetype marker="erlang#term">term()</seetype>}, Reply :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#pid">pid()</seetype></head></clause>
+  </contract>
+  <anno>Reply</anno>
+  <anno>Tag</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>send_request</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send_request(Obj, Request :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="#request_id">request_id()</seetype></head>
+      <guard>
+        <subtype><typename>Obj</typename><string>Obj = <seetype marker="wx#wx_object">wx:wx_object()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Obj</anno>
+  <anno>Request</anno>
+</spec>
+<spec>
+  <name>set_pid</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_pid(Obj, Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt; <seetype marker="wx#wx_object">wx:wx_object()</seetype></head>
+      <guard>
+        <subtype><typename>Obj</typename><string>Obj = <seetype marker="wx#wx_object">wx:wx_object()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Obj</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>start(Mod, Args, Options) -&gt; <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = trace | log | {logfile, <seetype marker="erlang#string">string()</seetype>} | statistics | debug</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} | {debug, [Flag]}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Flag</anno>
+  <anno>Mod</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>start(Name, Mod, Args, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = {local, <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = trace | log | {logfile, <seetype marker="erlang#string">string()</seetype>} | statistics | debug</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} | {debug, [Flag]}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Flag</anno>
+  <anno>Mod</anno>
+  <anno>Name</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>start_link(Mod, Args, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = trace | log | {logfile, <seetype marker="erlang#string">string()</seetype>} | statistics | debug</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} | {debug, [Flag]}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Flag</anno>
+  <anno>Mod</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>start_link(Name, Mod, Args, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype> | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = {local, <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = trace | log | {logfile, <seetype marker="erlang#string">string()</seetype>} | statistics | debug</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} | {debug, [Flag]}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Flag</anno>
+  <anno>Mod</anno>
+  <anno>Name</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(Obj) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Obj</typename><string>Obj = <seetype marker="wx#wx_object">wx:wx_object()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Obj</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>stop(Obj, Reason, Timeout) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Obj</typename><string>Obj = <seetype marker="wx#wx_object">wx:wx_object()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Obj</anno>
+  <anno>Reason</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>system_code_change</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_continue</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_terminate</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>system_terminate(Reason :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Parent :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Debug :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>X4 :: [<seetype marker="erlang#term">term()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>Debug</anno>
+  <anno>Parent</anno>
+  <anno>Reason</anno>
+  <anno>X4</anno>
+</spec>
+<spec>
+  <name>wait_response</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>wait_response(RequestId :: <seetype marker="#request_id">request_id()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, Reply :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {<seetype marker="erlang#term">term()</seetype>, <seetype marker="#server_ref">server_ref()</seetype>}}</head></clause>
+  </contract>
+  <anno>Reply</anno>
+  <anno>RequestId</anno>
+</spec>
+<spec>
+  <name>wait_response</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>wait_response(Key :: <seetype marker="#request_id">request_id()</seetype>, Timeout :: <seetype marker="erlang#timeout">timeout()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, Reply :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>timeout |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {<seetype marker="erlang#term">term()</seetype>, <seetype marker="#server_ref">server_ref()</seetype>}}</head></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Reply</anno>
+  <anno>Timeout</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:20.</timestamp>
+</module>

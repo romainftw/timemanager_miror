@@ -1,0 +1,849 @@
+<module name="code">
+<type>
+  <name>add_path_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-add_path_ret">add_path_ret()</marker> = true | {error, bad_directory}</typehead></typedecl>
+</type>
+<type>
+  <name>cache</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cache">cache()</marker> = cache | nocache</typehead></typedecl>
+</type>
+<type>
+  <name>load_error_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-load_error_rsn">load_error_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>badfile | nofile | not_purged | on_load_failure |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sticky_directory</typehead></typedecl>
+</type>
+<type>
+  <name>load_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-load_ret">load_ret()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, What :: <seetype marker="#load_error_rsn">load_error_rsn()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{module, Module :: <seetype marker="erlang#module">module()</seetype>}</typehead></typedecl>
+  <anno>Module</anno>
+  <anno>What</anno>
+</type>
+<type>
+  <name>loaded_filename</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-loaded_filename">loaded_filename()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>(Filename :: <seetype marker="file#filename">file:filename()</seetype>) | <seetype marker="#loaded_ret_atoms">loaded_ret_atoms()</seetype></typehead></typedecl>
+  <anno>Filename</anno>
+</type>
+<type>
+  <name>loaded_ret_atoms</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-loaded_ret_atoms">loaded_ret_atoms()</marker> = cover_compiled | preloaded</typehead></typedecl>
+</type>
+<type>
+  <name>module_status</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-module_status">module_status()</marker> = not_loaded | loaded | modified | removed</typehead></typedecl>
+</type>
+<type>
+  <name>prepared_code</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-prepared_code">prepared_code()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>replace_path_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-replace_path_ret">replace_path_ret()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>true | {error, bad_directory | bad_name | {badarg, <seetype marker="erlang#term">term()</seetype>}}</typehead></typedecl>
+</type>
+<type>
+  <name>set_path_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-set_path_ret">set_path_ret()</marker> = true | {error, bad_directory}</typehead></typedecl>
+</type>
+<spec>
+  <name>add_path</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_path(Dir) -&gt; <seetype marker="#add_path_ret">add_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>add_path</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_path(Dir, Cache :: <seetype marker="#cache">cache()</seetype>) -&gt; <seetype marker="#add_path_ret">add_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cache</anno>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>add_patha</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_patha(Dir) -&gt; <seetype marker="#add_path_ret">add_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>add_patha</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_patha(Dir, Cache :: <seetype marker="#cache">cache()</seetype>) -&gt; <seetype marker="#add_path_ret">add_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cache</anno>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>add_paths</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_paths(Dirs) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Dirs</typename><string>Dirs = [Dir :: <seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Dirs</anno>
+</spec>
+<spec>
+  <name>add_paths</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_paths(Dirs, Cache :: <seetype marker="#cache">cache()</seetype>) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Dirs</typename><string>Dirs = [Dir :: <seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cache</anno>
+  <anno>Dir</anno>
+  <anno>Dirs</anno>
+</spec>
+<spec>
+  <name>add_pathsa</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_pathsa(Dirs) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Dirs</typename><string>Dirs = [Dir :: <seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Dirs</anno>
+</spec>
+<spec>
+  <name>add_pathsa</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_pathsa(Dirs, Cache :: <seetype marker="#cache">cache()</seetype>) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Dirs</typename><string>Dirs = [Dir :: <seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cache</anno>
+  <anno>Dir</anno>
+  <anno>Dirs</anno>
+</spec>
+<spec>
+  <name>add_pathsz</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_pathsz(Dirs) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Dirs</typename><string>Dirs = [Dir :: <seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Dirs</anno>
+</spec>
+<spec>
+  <name>add_pathsz</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_pathsz(Dirs, Cache :: <seetype marker="#cache">cache()</seetype>) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Dirs</typename><string>Dirs = [Dir :: <seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cache</anno>
+  <anno>Dir</anno>
+  <anno>Dirs</anno>
+</spec>
+<spec>
+  <name>add_pathz</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_pathz(Dir) -&gt; <seetype marker="#add_path_ret">add_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>add_pathz</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_pathz(Dir, Cache :: <seetype marker="#cache">cache()</seetype>) -&gt; <seetype marker="#add_path_ret">add_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cache</anno>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>all_available</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>all_available() -&gt; [{Module, Filename, Loaded}]</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#loaded_filename">loaded_filename()</seetype></string></subtype>
+        <subtype><typename>Loaded</typename><string>Loaded = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Loaded</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>all_loaded</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>all_loaded() -&gt; [{Module, Loaded}]</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Loaded</typename><string>Loaded = <seetype marker="#loaded_filename">loaded_filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Loaded</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>atomic_load</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>atomic_load(Modules) -&gt; ok | {error, [{Module, What}]}</head>
+      <guard>
+        <subtype><typename>Modules</typename><string>Modules = [Module | {Module, Filename, Binary}]</string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Binary</typename><string>Binary = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>What</typename><string>What = <br/><nbsp/><nbsp/><nbsp/><nbsp/>badfile | nofile | on_load_not_allowed | duplicated |<br/><nbsp/><nbsp/><nbsp/><nbsp/>not_purged | sticky_directory | pending_on_load</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Binary</anno>
+  <anno>Filename</anno>
+  <anno>Module</anno>
+  <anno>Modules</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>clash</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>clash() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>clear_cache</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>clear_cache() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>compiler_dir</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>compiler_dir() -&gt; <seetype marker="file#filename">file:filename()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>del_path</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>del_path(NameOrDir) -&gt; <seetype marker="erlang#boolean">boolean()</seetype> | {error, What}</head>
+      <guard>
+        <subtype><typename>NameOrDir</typename><string>NameOrDir = Name | Dir</string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>What</typename><string>What = bad_name</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Name</anno>
+  <anno>NameOrDir</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>del_paths</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>del_paths(NamesOrDirs) -&gt; ok</head>
+      <guard>
+        <subtype><typename>NamesOrDirs</typename><string>NamesOrDirs = [Name | Dir]</string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Name</anno>
+  <anno>NamesOrDirs</anno>
+</spec>
+<spec>
+  <name>delete</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>delete(Module) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>ensure_loaded</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ensure_loaded(Module) -&gt; {module, Module} | {error, What}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>What</typename><string>What = embedded | badfile | nofile | on_load_failure</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>ensure_modules_loaded</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ensure_modules_loaded(Modules :: [Module]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, [{Module, What}]}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>What</typename><string>What = badfile | nofile | on_load_failure</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+  <anno>Modules</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>finish_loading</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>finish_loading(Prepared) -&gt; ok | {error, [{Module, What}]}</head>
+      <guard>
+        <subtype><typename>Prepared</typename><string>Prepared = <seetype marker="#prepared_code">prepared_code()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>What</typename><string>What = not_purged | sticky_directory | pending_on_load</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+  <anno>Prepared</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>get_chunk</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_chunk(Bin, Chunk) -&gt; <seetype marker="erlang#binary">binary()</seetype> | undefined</head>
+      <guard>
+        <subtype><typename>Bin</typename><string>Bin = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Chunk</typename><string>Chunk = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bin</anno>
+  <anno>Chunk</anno>
+</spec>
+<spec>
+  <name>get_doc</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_doc(Mod) -&gt; {ok, Res} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Mod</typename><string>Mod = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = #docs_v1{}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = non_existing | missing | <seetype marker="file#posix">file:posix()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Mod</anno>
+  <anno>Reason</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>get_doc</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_mode</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_mode() -&gt; embedded | interactive</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>get_object_code</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_object_code(Module) -&gt; {Module, Binary, Filename} | error</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Binary</typename><string>Binary = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Binary</anno>
+  <anno>Filename</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>get_path</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_path() -&gt; Path</head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = [Dir :: <seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>is_loaded</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_loaded(Module) -&gt; {file, Loaded} | false</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Loaded</typename><string>Loaded = <seetype marker="#loaded_filename">loaded_filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Loaded</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>is_sticky</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_sticky(Module) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>lib_dir</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>lib_dir() -&gt; <seetype marker="file#filename">file:filename()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>lib_dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>lib_dir(Name) -&gt; <seetype marker="file#filename">file:filename()</seetype> | {error, bad_name}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>lib_dir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>lib_dir(Name, SubDir) -&gt; <seetype marker="file#filename">file:filename()</seetype> | {error, bad_name}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = SubDir = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>SubDir</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>SubDir</anno>
+</spec>
+<spec>
+  <name>load_abs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>load_abs(Filename) -&gt; <seetype marker="#load_ret">load_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>load_abs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>load_abs(Filename :: <seetype marker="#loaded_filename">loaded_filename()</seetype>, Module :: <seetype marker="erlang#module">module()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#load_ret">load_ret()</seetype></head></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>load_binary</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>load_binary(Module, Filename, Binary) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{module, Module} | {error, What}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#loaded_filename">loaded_filename()</seetype></string></subtype>
+        <subtype><typename>Binary</typename><string>Binary = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>What</typename><string>What = badarg | <seetype marker="#load_error_rsn">load_error_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Binary</anno>
+  <anno>Filename</anno>
+  <anno>Module</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>load_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>load_file(Module) -&gt; <seetype marker="#load_ret">load_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>modified_modules</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>modified_modules() -&gt; [<seetype marker="erlang#module">module()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>module_md5</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>module_md5(Beam :: <seetype marker="erlang#binary">binary()</seetype>) -&gt; <seetype marker="erlang#binary">binary()</seetype> | undefined</head></clause>
+  </contract>
+  <anno>Beam</anno>
+</spec>
+<spec>
+  <name>module_status</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>module_status() -&gt; [{<seetype marker="erlang#module">module()</seetype>, <seetype marker="#module_status">module_status()</seetype>}]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>module_status</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>module_status(Module :: <seetype marker="erlang#module">module()</seetype> | [<seetype marker="erlang#module">module()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#module_status">module_status()</seetype> | [{<seetype marker="erlang#module">module()</seetype>, <seetype marker="#module_status">module_status()</seetype>}]</head></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>objfile_extension</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>objfile_extension() -&gt; <seetype marker="erlang#nonempty_string">nonempty_string()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>prepare_loading</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>prepare_loading(Modules) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Prepared} | {error, [{Module, What}]}</head>
+      <guard>
+        <subtype><typename>Modules</typename><string>Modules = [Module | {Module, Filename, Binary}]</string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Binary</typename><string>Binary = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Prepared</typename><string>Prepared = <seetype marker="#prepared_code">prepared_code()</seetype></string></subtype>
+        <subtype><typename>What</typename><string>What = badfile | nofile | on_load_not_allowed | duplicated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Binary</anno>
+  <anno>Filename</anno>
+  <anno>Module</anno>
+  <anno>Modules</anno>
+  <anno>Prepared</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>priv_dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>priv_dir(Name) -&gt; <seetype marker="file#filename">file:filename()</seetype> | {error, bad_name}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>purge</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>purge(Module) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>replace_path</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>replace_path(Name, Dir) -&gt; <seetype marker="#replace_path_ret">replace_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>replace_path</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>replace_path(Name, Dir, Cache :: <seetype marker="#cache">cache()</seetype>) -&gt; <seetype marker="#replace_path_ret">replace_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cache</anno>
+  <anno>Dir</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>root_dir</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>root_dir() -&gt; <seetype marker="file#filename">file:filename()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>set_path</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_path(Path) -&gt; <seetype marker="#set_path_ret">set_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = [Dir :: <seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>set_path</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_path(Path, Cache :: <seetype marker="#cache">cache()</seetype>) -&gt; <seetype marker="#set_path_ret">set_path_ret()</seetype></head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = [Dir :: <seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cache</anno>
+  <anno>Dir</anno>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>set_primary_archive</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>set_primary_archive(ArchiveFile :: <seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ArchiveBin :: <seetype marker="erlang#binary">binary()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FileInfo :: <seetype marker="file#file_info">file:file_info()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ParserFun :: <seetype marker="erlang#function">function()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#atom">atom()</seetype>}</head></clause>
+  </contract>
+  <anno>ArchiveBin</anno>
+  <anno>ArchiveFile</anno>
+  <anno>FileInfo</anno>
+  <anno>ParserFun</anno>
+</spec>
+<spec>
+  <name>soft_purge</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>soft_purge(Module) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_link() -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>stick_dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stick_dir(Dir) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>stick_mod</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stick_mod(Module :: <seetype marker="erlang#module">module()</seetype>) -&gt; true</head></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; <seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>unstick_dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unstick_dir(Dir) -&gt; ok | error</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+</spec>
+<spec>
+  <name>unstick_mod</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unstick_mod(Module :: <seetype marker="erlang#module">module()</seetype>) -&gt; true</head></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>where_is_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>where_is_file(Filename) -&gt; non_existing | Absname</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = Absname = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Absname</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Absname</anno>
+  <anno>Filename</anno>
+</spec>
+<spec>
+  <name>where_is_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>where_is_file(Path :: [Dir | {Dir, Files}],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Filename :: <seetype marker="file#filename">file:filename()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>non_existing | <seetype marker="file#filename">file:filename()</seetype></head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Files</typename><string>Files = [<seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+  <anno>Files</anno>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>which</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>which(Module) -&gt; Which</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Which</typename><string>Which = <seetype marker="#loaded_filename">loaded_filename()</seetype> | non_existing</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+  <anno>Which</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:47.</timestamp>
+</module>

@@ -1,0 +1,1153 @@
+<module name="ssh_sftp">
+<type>
+  <name>chunk_size</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_size">chunk_size()</marker> = undefined | <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>crypto_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crypto_fun">crypto_fun()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((TextIn :: <seetype marker="erlang#binary">binary()</seetype>, <seetype marker="#crypto_state">crypto_state()</seetype>) -&gt; <seetype marker="#crypto_result">crypto_result()</seetype>)</typehead></typedecl>
+  <anno>TextIn</anno>
+</type>
+<type>
+  <name>crypto_result</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crypto_result">crypto_result()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TextOut :: <seetype marker="erlang#binary">binary()</seetype>, <seetype marker="#crypto_state">crypto_state()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TextOut :: <seetype marker="erlang#binary">binary()</seetype>, <seetype marker="#crypto_state">crypto_state()</seetype>, <seetype marker="#chunk_size">chunk_size()</seetype>}</typehead></typedecl>
+  <anno>TextOut</anno>
+</type>
+<type>
+  <name>crypto_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crypto_state">crypto_state()</marker> = <seetype marker="erlang#any">any()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>decrypt_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-decrypt_spec">decrypt_spec()</marker> = {<seetype marker="#init_fun">init_fun()</seetype>, <seetype marker="#crypto_fun">crypto_fun()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>encrypt_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-encrypt_spec">encrypt_spec()</marker> = {<seetype marker="#init_fun">init_fun()</seetype>, <seetype marker="#crypto_fun">crypto_fun()</seetype>, <seetype marker="#final_fun">final_fun()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>final_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-final_fun">final_fun()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((FinalTextIn :: <seetype marker="erlang#binary">binary()</seetype>, <seetype marker="#crypto_state">crypto_state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FinalTextOut :: <seetype marker="erlang#binary">binary()</seetype>})</typehead></typedecl>
+  <anno>FinalTextIn</anno>
+  <anno>FinalTextOut</anno>
+</type>
+<type>
+  <name>init_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-init_fun">init_fun()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun(() -&gt; {ok, <seetype marker="#crypto_state">crypto_state()</seetype>}) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun(() -&gt; {ok, <seetype marker="#crypto_state">crypto_state()</seetype>, <seetype marker="#chunk_size">chunk_size()</seetype>})</typehead></typedecl>
+</type>
+<type>
+  <name>reason</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-reason">reason()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#tuple">tuple()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>sftp_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sftp_option">sftp_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sftp_vsn, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{window_size, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{packet_size, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>tar_crypto_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tar_crypto_spec">tar_crypto_spec()</marker> = <seetype marker="#encrypt_spec">encrypt_spec()</seetype> | <seetype marker="#decrypt_spec">decrypt_spec()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>apread</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>apread(ChannelPid, Handle, Position, Len) -&gt; {async, N} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Position</typename><string>Position = Len = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Len</typename><string/></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Len</anno>
+  <anno>N</anno>
+  <anno>Position</anno>
+</spec>
+<spec>
+  <name>apwrite</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>apwrite(ChannelPid, Handle, Position, Data) -&gt; {async, N} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Position</typename><string>Position = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>N</anno>
+  <anno>Position</anno>
+</spec>
+<spec>
+  <name>aread</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>aread(ChannelPid, Handle, Len) -&gt; {async, N} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Len</typename><string>Len = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Len</anno>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>attr_to_info</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>awrite</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>awrite(ChannelPid, Handle, Data) -&gt; {async, N} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>close(ChannelPid, Handle) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>close(ChannelPid, Handle, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>del_dir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>del_dir(ChannelPid, Name) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>del_dir</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>del_dir(ChannelPid, Name, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>delete</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete(ChannelPid, Name) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>delete</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>delete(ChannelPid, Name, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>get_file_info</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_file_info</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_msg</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_ssh_msg</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>info_to_attr</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>list_dir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>list_dir(ChannelPid, Path) -&gt; {ok, FileNames} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FileNames</typename><string>FileNames = [FileName]</string></subtype>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>FileName</anno>
+  <anno>FileNames</anno>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>list_dir</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>list_dir(ChannelPid, Path, Timeout) -&gt; {ok, FileNames} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>FileNames</typename><string>FileNames = [FileName]</string></subtype>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>FileName</anno>
+  <anno>FileNames</anno>
+  <anno>Path</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>make_dir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>make_dir(ChannelPid, Name) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>make_dir</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>make_dir(ChannelPid, Name, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>make_symlink</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>make_symlink(ChannelPid, Name, Target) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = Target = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string/></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>make_symlink</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>make_symlink(ChannelPid, Name, Target, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = Target = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string/></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Target</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>open(ChannelPid, Name, Mode) -&gt; {ok, Handle} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = [read | write | append | binary | raw]</string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Mode</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>open(ChannelPid, Name, Mode, Timeout) -&gt; {ok, Handle} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = [read | write | append | binary | raw]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Mode</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>open_tar</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>open_tar(ChannelPid, Path, Mode) -&gt; {ok, Handle} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = [read | write | {crypto, <seetype marker="#tar_crypto_spec">tar_crypto_spec()</seetype>}]</string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Mode</anno>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>open_tar</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>open_tar(ChannelPid, Path, Mode, Timeout) -&gt; {ok, Handle} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = [read | write | {crypto, <seetype marker="#tar_crypto_spec">tar_crypto_spec()</seetype>}]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Mode</anno>
+  <anno>Path</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>opendir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>opendir(ChannelPid, Path) -&gt; {ok, Handle} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>opendir</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>opendir(ChannelPid, Path, Timeout) -&gt; {ok, Handle} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Path</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>position</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>position(ChannelPid, Handle, Location) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, NewPosition} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Location</typename><string>Location = <br/><nbsp/><nbsp/><nbsp/><nbsp/>Offset |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{bof, Offset} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cur, Offset} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, Offset} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>bof | cur | eof</string></subtype>
+        <subtype><typename>Offset</typename><string>Offset = NewPosition = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>NewPosition</typename><string/></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Location</anno>
+  <anno>NewPosition</anno>
+  <anno>Offset</anno>
+</spec>
+<spec>
+  <name>position</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>position(ChannelPid, Handle, Location, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, NewPosition} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Location</typename><string>Location = <br/><nbsp/><nbsp/><nbsp/><nbsp/>Offset |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{bof, Offset} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cur, Offset} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, Offset} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>bof | cur | eof</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Offset</typename><string>Offset = NewPosition = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>NewPosition</typename><string/></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Location</anno>
+  <anno>NewPosition</anno>
+  <anno>Offset</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>pread</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>pread(ChannelPid, Handle, Position, Len) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Data} | eof | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Position</typename><string>Position = Len = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Len</typename><string/></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Len</anno>
+  <anno>Position</anno>
+</spec>
+<spec>
+  <name>pread</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>pread(ChannelPid, Handle, Position, Len, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Data} | eof | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Position</typename><string>Position = Len = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Len</typename><string/></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Len</anno>
+  <anno>Position</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>pwrite</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>pwrite(ChannelPid, Handle, Position, Data) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Position</typename><string>Position = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iolist">iolist()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Position</anno>
+</spec>
+<spec>
+  <name>pwrite</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>pwrite(ChannelPid, Handle, Position, Data, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Position</typename><string>Position = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iolist">iolist()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Position</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>read</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>read(ChannelPid, Handle, Len) -&gt; {ok, Data} | eof | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Len</typename><string>Len = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Len</anno>
+</spec>
+<spec>
+  <name>read</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>read(ChannelPid, Handle, Len, Timeout) -&gt; {ok, Data} | eof | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Len</typename><string>Len = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Len</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>read_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read_file(ChannelPid, File) -&gt; {ok, Data} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>File</anno>
+</spec>
+<spec>
+  <name>read_file</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>read_file(ChannelPid, File, Timeout) -&gt; {ok, Data} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>File</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>read_file_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read_file_info(ChannelPid, Name) -&gt; {ok, FileInfo} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="file#file_info">file:file_info()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>FileInfo</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>read_file_info</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>read_file_info(ChannelPid, Name, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileInfo} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="file#file_info">file:file_info()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>FileInfo</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>read_link</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read_link(ChannelPid, Name) -&gt; {ok, Target} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = Target = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string/></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>read_link</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>read_link(ChannelPid, Name, Timeout) -&gt; {ok, Target} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = Target = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string/></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>Name</anno>
+  <anno>Target</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>read_link_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read_link_info(ChannelPid, Name) -&gt; {ok, FileInfo} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="file#file_info">file:file_info()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>FileInfo</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>read_link_info</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>read_link_info(ChannelPid, Name, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FileInfo} | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="file#file_info">file:file_info()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>FileInfo</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>readdir</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>readdir</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>real_path</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>real_path</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>recv_window</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>recv_window</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rename</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>rename(ChannelPid, OldName, NewName) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>OldName</typename><string>OldName = NewName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>NewName</typename><string/></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>NewName</anno>
+  <anno>OldName</anno>
+</spec>
+<spec>
+  <name>rename</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>rename(ChannelPid, OldName, NewName, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>OldName</typename><string>OldName = NewName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>NewName</typename><string/></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>NewName</anno>
+  <anno>OldName</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>send_window</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>send_window</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_flags</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_format</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_off</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_on</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_trace_points</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start_channel</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start_channel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start_channel(Cm :: <seetype marker="ssh#open_socket">ssh:open_socket()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>UserOptions0 ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="ssh#client_option">ssh:client_option()</seetype> | <seetype marker="#sftp_option">sftp_option()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#reason">reason()</seetype>}</head></clause>
+  </contract>
+  <anno>Cm</anno>
+  <anno>UserOptions0</anno>
+</spec>
+<spec>
+  <name>start_channel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start_channel(Cm :: <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>UserOptions0 :: [<seetype marker="#sftp_option">sftp_option()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#pid">pid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#reason">reason()</seetype>}</head></clause>
+  </contract>
+  <anno>Cm</anno>
+  <anno>UserOptions0</anno>
+</spec>
+<spec>
+  <name>start_channel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start_channel(Cm :: <seetype marker="ssh#host">ssh:host()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>UserOptions0 ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="ssh#client_option">ssh:client_option()</seetype> | <seetype marker="#sftp_option">sftp_option()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#reason">reason()</seetype>}</head></clause>
+  </contract>
+  <anno>Cm</anno>
+  <anno>UserOptions0</anno>
+</spec>
+<spec>
+  <name>start_channel</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>start_channel(Host :: <seetype marker="ssh#host">ssh:host()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>UserOptions0 ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="ssh#client_option">ssh:client_option()</seetype> | <seetype marker="#sftp_option">sftp_option()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#reason">reason()</seetype>}</head></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Port</anno>
+  <anno>UserOptions0</anno>
+</spec>
+<spec>
+  <name>stop_channel</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop_channel(ChannelPid) -&gt; ok</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>write</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>write(ChannelPid, Handle, Data) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+</spec>
+<spec>
+  <name>write</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>write(ChannelPid, Handle, Data, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Handle</typename><string>Handle = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>Handle</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>write_file</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>write_file(ChannelPid, File, Data) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>File</anno>
+</spec>
+<spec>
+  <name>write_file</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>write_file(ChannelPid, File, Data, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Data</anno>
+  <anno>Error</anno>
+  <anno>File</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>write_file_info</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>write_file_info(ChannelPid, Name, FileInfo) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="file#file_info">file:file_info()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>FileInfo</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>write_file_info</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>write_file_info(ChannelPid, Name, FileInfo, Timeout) -&gt; ok | Error</head>
+      <guard>
+        <subtype><typename>ChannelPid</typename><string>ChannelPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="file#file_info">file:file_info()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelPid</anno>
+  <anno>Error</anno>
+  <anno>FileInfo</anno>
+  <anno>Name</anno>
+  <anno>Timeout</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:53.</timestamp>
+</module>

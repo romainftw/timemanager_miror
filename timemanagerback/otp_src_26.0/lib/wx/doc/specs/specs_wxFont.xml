@@ -1,0 +1,373 @@
+<module name="wxFont">
+<type>
+  <name>wxFont</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxFont">wxFont()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxFont">wxFont()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultEncoding</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getDefaultEncoding() -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>getFaceName</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFaceName(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFamily</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFamily(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getNativeFontInfoDesc</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getNativeFontInfoDesc(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getNativeFontInfoUserDesc</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getNativeFontInfoUserDesc(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPointSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPointSize(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getStyle</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getStyle(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getUnderlined</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getUnderlined(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getWeight</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getWeight(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isFixedWidth</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isFixedWidth(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isOk</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isOk(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxFont">wxFont()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(NativeInfoString) -&gt; <seetype marker="#wxFont">wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>NativeInfoString</typename><string>NativeInfoString = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>NativeInfoString</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Font) -&gt; <seetype marker="#wxFont">wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Font</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>new(PointSize, Family, Style, Weight) -&gt; <seetype marker="#wxFont">wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>PointSize</typename><string>PointSize = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Family</typename><string>Family = Style = Weight = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+        <subtype><typename>Style</typename><string></string></subtype>
+        <subtype><typename>Weight</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Family</anno>
+  <anno>PointSize</anno>
+  <anno>Style</anno>
+  <anno>Weight</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>new(PixelSize, Family, Style, Weight) -&gt; <seetype marker="#wxFont">wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>PixelSize</typename><string>PixelSize = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Family</typename><string>Family = Style = Weight = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+        <subtype><typename>Style</typename><string></string></subtype>
+        <subtype><typename>Weight</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Family</anno>
+  <anno>H</anno>
+  <anno>PixelSize</anno>
+  <anno>Style</anno>
+  <anno>W</anno>
+  <anno>Weight</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>new(PointSize, Family, Style, Weight, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#wxFont">wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>PointSize</typename><string>PointSize = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Family</typename><string>Family = Style = Weight = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+        <subtype><typename>Style</typename><string/></subtype>
+        <subtype><typename>Weight</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{underlined, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{face, <seetype marker="unicode#chardata">unicode:chardata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{encoding, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Family</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>PointSize</anno>
+  <anno>Style</anno>
+  <anno>Weight</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>new(PixelSize, Family, Style, Weight, Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#wxFont">wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>PixelSize</typename><string>PixelSize = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Family</typename><string>Family = Style = Weight = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+        <subtype><typename>Style</typename><string/></subtype>
+        <subtype><typename>Weight</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{underline, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{faceName, <seetype marker="unicode#chardata">unicode:chardata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{encoding, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Family</anno>
+  <anno>H</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>PixelSize</anno>
+  <anno>Style</anno>
+  <anno>W</anno>
+  <anno>Weight</anno>
+</spec>
+<spec>
+  <name>ok</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ok(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDefaultEncoding</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>setDefaultEncoding(Encoding) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Encoding</typename><string>Encoding = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Encoding</anno>
+</spec>
+<spec>
+  <name>setFaceName</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFaceName(This, FaceName) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+        <subtype><typename>FaceName</typename><string>FaceName = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FaceName</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFamily</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFamily(This, Family) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+        <subtype><typename>Family</typename><string>Family = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Family</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPointSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPointSize(This, PointSize) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+        <subtype><typename>PointSize</typename><string>PointSize = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PointSize</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setStyle</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setStyle(This, Style) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+        <subtype><typename>Style</typename><string>Style = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Style</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setUnderlined</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setUnderlined(This, Underlined) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+        <subtype><typename>Underlined</typename><string>Underlined = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Underlined</anno>
+</spec>
+<spec>
+  <name>setWeight</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setWeight(This, Weight) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxFont">wxFont()</seetype></string></subtype>
+        <subtype><typename>Weight</typename><string>Weight = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Weight</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:30.</timestamp>
+</module>

@@ -1,0 +1,507 @@
+<module name="rand">
+<type>
+  <name>alg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-alg">alg()</marker> = <seetype marker="#builtin_alg">builtin_alg()</seetype> | <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>alg_handler</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-alg_handler">alg_handler()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{type := <seetype marker="#alg">alg()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>bits =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>weak_low_bits =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>max =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>next :=<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="#alg_state">alg_state()</seetype>) -&gt; {<seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>, <seetype marker="#alg_state">alg_state()</seetype>}),<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>uniform =&gt; fun((<seetype marker="#state">state()</seetype>) -&gt; {<seetype marker="erlang#float">float()</seetype>, <seetype marker="#state">state()</seetype>}),<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>uniform_n =&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>, <seetype marker="#state">state()</seetype>) -&gt; {<seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>, <seetype marker="#state">state()</seetype>}),<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>jump =&gt; fun((<seetype marker="#state">state()</seetype>) -&gt; <seetype marker="#state">state()</seetype>)}</typehead></typedecl>
+</type>
+<type>
+  <name>alg_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-alg_state">alg_state()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exsplus_state">exsplus_state()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exro928_state">exro928_state()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exrop_state">exrop_state()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exs1024_state">exs1024_state()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exs64_state">exs64_state()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dummy_state">dummy_state()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>builtin_alg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-builtin_alg">builtin_alg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>exsss | exro928ss | exrop | exs1024s | exsp | exs64 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>exsplus | exs1024 | dummy</typehead></typedecl>
+</type>
+<type>
+  <name>dummy_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dummy_state">dummy_state()</marker> = <seetype marker="#uint58">uint58()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>export_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-export_state">export_state()</marker> = {<seetype marker="#alg">alg()</seetype>, <seetype marker="#alg_state">alg_state()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>exro928_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exro928_state">exro928_state()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>exrop_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exrop_state">exrop_state()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>exs1024_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exs1024_state">exs1024_state()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>exs64_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exs64_state">exs64_state()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>exsplus_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exsplus_state">exsplus_state()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>mwc59_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mwc59_state">mwc59_state()</marker> = 1..574882961707499518</typehead></typedecl>
+</type>
+<type>
+  <name>seed</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-seed">seed()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="erlang#integer">integer()</seetype>] | <seetype marker="erlang#integer">integer()</seetype> | {<seetype marker="erlang#integer">integer()</seetype>, <seetype marker="erlang#integer">integer()</seetype>, <seetype marker="erlang#integer">integer()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>splitmix64_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-splitmix64_state">splitmix64_state()</marker> = <seetype marker="#uint64">uint64()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-state">state()</marker> = {<seetype marker="#alg_handler">alg_handler()</seetype>, <seetype marker="#alg_state">alg_state()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>uint58</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-uint58">uint58()</marker> = 0..288230376151711743</typehead></typedecl>
+</type>
+<type>
+  <name>uint64</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-uint64">uint64()</marker> = 0..18446744073709551615</typehead></typedecl>
+</type>
+<spec>
+  <name>bc64</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>bytes</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>bytes(N :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>) -&gt; Bytes :: <seetype marker="erlang#binary">binary()</seetype></head></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>bytes_s</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>bytes_s(N :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>, State :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Bytes :: <seetype marker="erlang#binary">binary()</seetype>, NewState :: <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>N</anno>
+  <anno>NewState</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>export_seed</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>export_seed() -&gt; undefined | <seetype marker="#export_state">export_state()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>export_seed_s</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>export_seed_s(State :: <seetype marker="#state">state()</seetype>) -&gt; <seetype marker="#export_state">export_state()</seetype></head></clause>
+  </contract>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>exro928_jump_2pow20</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>exro928_jump_2pow20(SR :: <seetype marker="#exro928_state">exro928_state()</seetype>) -&gt; <seetype marker="#exro928_state">exro928_state()</seetype></head></clause>
+  </contract>
+  <anno>SR</anno>
+</spec>
+<spec>
+  <name>exro928_jump_2pow512</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>exro928_jump_2pow512(SR :: <seetype marker="#exro928_state">exro928_state()</seetype>) -&gt; <seetype marker="#exro928_state">exro928_state()</seetype></head></clause>
+  </contract>
+  <anno>SR</anno>
+</spec>
+<spec>
+  <name>exro928_next</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>exro928_next(X1 :: <seetype marker="#exro928_state">exro928_state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{{<seetype marker="#uint58">uint58()</seetype>, <seetype marker="#uint58">uint58()</seetype>}, <seetype marker="#exro928_state">exro928_state()</seetype>}</head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>exro928_next_state</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>exro928_next_state(X1 :: <seetype marker="#exro928_state">exro928_state()</seetype>) -&gt; <seetype marker="#exro928_state">exro928_state()</seetype></head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>exro928_seed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>exro928_seed(L ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#uint58">uint58()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#integer">integer()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#integer">integer()</seetype>, <seetype marker="erlang#integer">integer()</seetype>, <seetype marker="erlang#integer">integer()</seetype>}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exro928_state">exro928_state()</seetype></head></clause>
+  </contract>
+  <anno>L</anno>
+</spec>
+<spec>
+  <name>exsp_jump</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>exsp_jump(AlgState :: <seetype marker="#exsplus_state">exsplus_state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewAlgState :: <seetype marker="#exsplus_state">exsplus_state()</seetype></head></clause>
+  </contract>
+  <anno>AlgState</anno>
+  <anno>NewAlgState</anno>
+</spec>
+<spec>
+  <name>exsp_next</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>exsp_next(AlgState :: <seetype marker="#exsplus_state">exsplus_state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="#uint58">uint58()</seetype>, NewAlgState :: <seetype marker="#exsplus_state">exsplus_state()</seetype>}</head></clause>
+  </contract>
+  <anno>AlgState</anno>
+  <anno>NewAlgState</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>float2str</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>format_jumpconst58</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>jump</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>jump() -&gt; NewState :: <seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>NewState</anno>
+</spec>
+<spec>
+  <name>jump</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>jump(State :: <seetype marker="#state">state()</seetype>) -&gt; NewState :: <seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>NewState</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>make_float</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>mwc59</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>mwc59(CX0 :: <seetype marker="#mwc59_state">mwc59_state()</seetype>) -&gt; CX1 :: <seetype marker="#mwc59_state">mwc59_state()</seetype></head></clause>
+  </contract>
+  <anno>CX0</anno>
+  <anno>CX1</anno>
+</spec>
+<spec>
+  <name>mwc59_float</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>mwc59_float(CX :: <seetype marker="#mwc59_state">mwc59_state()</seetype>) -&gt; V :: <seetype marker="erlang#float">float()</seetype></head></clause>
+  </contract>
+  <anno>CX</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>mwc59_seed</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>mwc59_seed() -&gt; CX :: <seetype marker="#mwc59_state">mwc59_state()</seetype></head></clause>
+  </contract>
+  <anno>CX</anno>
+</spec>
+<spec>
+  <name>mwc59_seed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>mwc59_seed(S :: 0..288230376151711743) -&gt; CX :: <seetype marker="#mwc59_state">mwc59_state()</seetype></head></clause>
+  </contract>
+  <anno>CX</anno>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>mwc59_value</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>mwc59_value(CX :: <seetype marker="#mwc59_state">mwc59_state()</seetype>) -&gt; V :: 0..576460752303423487</head></clause>
+  </contract>
+  <anno>CX</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>mwc59_value32</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>mwc59_value32(CX :: <seetype marker="#mwc59_state">mwc59_state()</seetype>) -&gt; V :: 0..4294967295</head></clause>
+  </contract>
+  <anno>CX</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>normal</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>normal() -&gt; <seetype marker="erlang#float">float()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>normal</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>normal(Mean :: <seetype marker="erlang#number">number()</seetype>, Variance :: <seetype marker="erlang#number">number()</seetype>) -&gt; <seetype marker="erlang#float">float()</seetype></head></clause>
+  </contract>
+  <anno>Mean</anno>
+  <anno>Variance</anno>
+</spec>
+<spec>
+  <name>normal_s</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>normal_s(State :: <seetype marker="#state">state()</seetype>) -&gt; {<seetype marker="erlang#float">float()</seetype>, NewState :: <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>NewState</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>normal_s</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>normal_s(Mean :: <seetype marker="erlang#number">number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Variance :: <seetype marker="erlang#number">number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State0 :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#float">float()</seetype>, NewS :: <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Mean</anno>
+  <anno>NewS</anno>
+  <anno>State0</anno>
+  <anno>Variance</anno>
+</spec>
+<spec>
+  <name>seed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>seed(AlgOrStateOrExpState ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#builtin_alg">builtin_alg()</seetype> | <seetype marker="#state">state()</seetype> | <seetype marker="#export_state">export_state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>AlgOrStateOrExpState</anno>
+</spec>
+<spec>
+  <name>seed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>seed(Alg :: default) -&gt; <seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>Alg</anno>
+</spec>
+<spec>
+  <name>seed</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>seed(Alg :: <seetype marker="#builtin_alg">builtin_alg()</seetype>, Seed :: <seetype marker="#seed">seed()</seetype>) -&gt; <seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>Alg</anno>
+  <anno>Seed</anno>
+</spec>
+<spec>
+  <name>seed</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>seed(Alg :: default, Seed :: <seetype marker="#seed">seed()</seetype>) -&gt; <seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>Alg</anno>
+  <anno>Seed</anno>
+</spec>
+<spec>
+  <name>seed58</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>seed58(N :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>, X :: <seetype marker="#uint64">uint64()</seetype>) -&gt; [<seetype marker="#uint58">uint58()</seetype>]</head></clause>
+  </contract>
+  <anno>N</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>seed_s</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>seed_s(AlgOrStateOrExpState ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#builtin_alg">builtin_alg()</seetype> | <seetype marker="#state">state()</seetype> | <seetype marker="#export_state">export_state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>AlgOrStateOrExpState</anno>
+</spec>
+<spec>
+  <name>seed_s</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>seed_s(Alg :: default) -&gt; <seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>Alg</anno>
+</spec>
+<spec>
+  <name>seed_s</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>seed_s(Alg :: <seetype marker="#builtin_alg">builtin_alg()</seetype>, Seed :: <seetype marker="#seed">seed()</seetype>) -&gt; <seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>Alg</anno>
+  <anno>Seed</anno>
+</spec>
+<spec>
+  <name>seed_s</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>seed_s(Alg :: default, Seed :: <seetype marker="#seed">seed()</seetype>) -&gt; <seetype marker="#state">state()</seetype></head></clause>
+  </contract>
+  <anno>Alg</anno>
+  <anno>Seed</anno>
+</spec>
+<spec>
+  <name>splitmix64_next</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>splitmix64_next(AlgState :: <seetype marker="erlang#integer">integer()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="#uint64">uint64()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewAlgState :: <seetype marker="#splitmix64_state">splitmix64_state()</seetype>}</head></clause>
+  </contract>
+  <anno>AlgState</anno>
+  <anno>NewAlgState</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>uniform</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>uniform() -&gt; X :: <seetype marker="erlang#float">float()</seetype></head></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>uniform</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>uniform(N :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>) -&gt; X :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></head></clause>
+  </contract>
+  <anno>N</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>uniform_real</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>uniform_real() -&gt; X :: <seetype marker="erlang#float">float()</seetype></head></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>uniform_real_s</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>uniform_real_s(State :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#float">float()</seetype>, NewState :: <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>NewState</anno>
+  <anno>State</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>uniform_s</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>uniform_s(State :: <seetype marker="#state">state()</seetype>) -&gt; {X :: <seetype marker="erlang#float">float()</seetype>, NewState :: <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>NewState</anno>
+  <anno>State</anno>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>uniform_s</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>uniform_s(N :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>, State :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>, NewState :: <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>N</anno>
+  <anno>NewState</anno>
+  <anno>State</anno>
+  <anno>X</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:25.</timestamp>
+</module>

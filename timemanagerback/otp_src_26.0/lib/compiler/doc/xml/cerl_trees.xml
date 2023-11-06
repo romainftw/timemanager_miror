@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>cerl_trees</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>cerl_trees.xml</file></header>
+<module>cerl_trees</module>
+<modulesummary>Basic functions on Core Erlang abstract syntax trees.</modulesummary>
+<description>
+<p>Basic functions on Core Erlang abstract syntax trees.</p>
+ 
+  <p>Syntax trees are defined in the module <seeerl marker="cerl">cerl</seeerl>.</p>
+ </description>
+<section><title>DATA TYPES</title><marker id="types"/>
+
+<taglist>
+<tag><marker id="type-cerl"/>cerl() = <seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl></tag>
+<item><p/> </item>
+</taglist></section>
+<funcs>
+<func>
+<name since="">depth(T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; non_neg_integer()</name>
+<fsummary>Returns the length of the longest path in the tree.</fsummary>
+
+<desc><marker id="depth-1"/>
+
+<p>Returns the length of the longest path in the tree.  A leaf
+  node has depth zero, the tree representing "<c>{foo,
+  bar}</c>" has depth one, etc.</p>
+</desc></func>
+<func>
+<name since="">fold(F::(<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, term()) -&gt; term(), S::term(), T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; term()</name>
+<fsummary>Does a fold operation over the nodes of the tree.</fsummary>
+
+<desc><marker id="fold-3"/>
+
+<p>Does a fold operation over the nodes of the tree. The result
+  is the value of <c>Function(X1, Function(X2, ... Function(Xn,
+  Unit) ... ))</c>, where <c>X1, ..., Xn</c> are the nodes
+  of <c>Tree</c> in a post-order traversal.
+ </p>
+<p><em>See also:</em> <seemfa marker="#mapfold/3">mapfold/3</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">free_variables(T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; [<seeerl marker="compiler:cerl#type-var_name">cerl:var_name()</seeerl>]</name>
+<fsummary>Like variables/1, but only includes variables
+  that are free in the tree.</fsummary>
+
+<desc><marker id="free_variables-1"/>
+
+<p>Like <c>variables/1</c>, but only includes variables
+  that are free in the tree.
+ </p>
+<p><em>See also:</em> <seemfa marker="#next_free_variable_name/1">next_free_variable_name/1</seemfa>, <seemfa marker="#variables/1">variables/1</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">get_label(T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; top | integer()</name>
+<fsummary> </fsummary>
+
+<desc><marker id="get_label-1"/>
+ </desc></func>
+<func>
+<name since="">label(T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; {<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, integer()}</name>
+<fsummary>Equivalent to label(Tree, 0).
+</fsummary>
+
+<desc><marker id="label-1"/>
+<p>Equivalent to <seemfa marker="#label/2">label(Tree, 0)</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">label(T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, N::integer()) -&gt; {<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, integer()}</name>
+<fsummary>Labels each expression in the tree.</fsummary>
+
+<desc><marker id="label-2"/>
+
+<p>Labels each expression in the tree. A term <c>{label,
+  L}</c> is prefixed to the annotation list of each expression node,  
+where L is a unique number for every node, except for variables (and  
+function name variables) which get the same label if they represent  
+the same variable. Constant literal nodes are not labeled.</p>
+ 
+  <p>The returned value is a tuple <c>{NewTree, Max}</c>, where
+  <c>NewTree</c> is the labeled tree and <c>Max</c> is 1
+  plus the largest label value used. All previous annotation terms on
+  the form <c>{label, X}</c> are deleted.</p>
+ 
+  <p>The values of L used in the tree is a dense range from
+  <c>N</c> to <c>Max - 1</c>, where <c>N =&lt; Max
+  =&lt; N + size(Tree)</c>. Note that it is possible that no
+  labels are used at all, i.e., <c>N = Max</c>.</p>
+ 
+  <p>Note: All instances of free variables will be given distinct
+  labels.</p>
+ 
+<p><em>See also:</em> <seemfa marker="#label/1">label/1</seemfa>, <seemfa marker="#size/1">size/1</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">map(F::(<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; <seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; <seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl></name>
+<fsummary>Maps a function onto the nodes of a tree.</fsummary>
+
+<desc><marker id="map-2"/>
+
+<p>Maps a function onto the nodes of a tree. This replaces each
+  node in the tree by the result of applying the given function on
+  the original node, bottom-up.
+ </p>
+<p><em>See also:</em> <seemfa marker="#mapfold/3">mapfold/3</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">mapfold(F::(<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, term()) -&gt; {<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, term()}, S0::term(), T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; {<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, term()}</name>
+<fsummary>Does a combined map/fold operation on the nodes of the
+  tree.</fsummary>
+
+<desc><marker id="mapfold-3"/>
+
+<p>Does a combined map/fold operation on the nodes of the
+  tree. This is similar to <c>map/2</c>, but also propagates a
+  value from each application of <c>Function</c> to the next,
+  starting with the given value <c>Initial</c>, while doing a
+  post-order traversal of the tree, much like <c>fold/3</c>.</p>
+ 
+  <p>This is the same as mapfold/4, with an identity function as the
+  pre-operation.
+ </p>
+<p><em>See also:</em> <seemfa marker="#fold/3">fold/3</seemfa>, <seemfa marker="#map/2">map/2</seemfa>, <seemfa marker="#mapfold/4">mapfold/4</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">mapfold(Pre::(<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, term()) -&gt; {<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, term()} | skip, Post::(<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, term()) -&gt; {<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, term()}, S00::term(), T0::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; {<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>, term()}</name>
+<fsummary>Does a combined map/fold operation on the nodes of the
+  tree.</fsummary>
+
+<desc><marker id="mapfold-4"/>
+
+<p>Does a combined map/fold operation on the nodes of the
+  tree. It begins by calling <c>Pre</c> on the tree, using the
+  <c>Initial</c> value. <c>Pre</c> must either return a
+  tree with an updated accumulator or the atom <c>skip</c>.</p>
+ 
+  <p>If a tree is returned, this function deconstructs the top node of
+  the returned tree and recurses on the children, using the returned
+  value as the new initial and carrying the returned values from one
+  call to the next. Finally it reassembles the top node from the
+  children, calls <c>Post</c> on it and returns the result.</p>
+ 
+  <p>If <c>skip</c> is returned, it returns the tree and accumulator
+  as is.</p>
+</desc></func>
+<func>
+<name since="">next_free_variable_name(T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; integer()</name>
+<fsummary>Returns a integer variable name higher than any other integer
+  variable name in the syntax tree.</fsummary>
+
+<desc><marker id="next_free_variable_name-1"/>
+
+<p>Returns a integer variable name higher than any other integer
+  variable name in the syntax tree. An exception is thrown if
+  <c>Tree</c> does not represent a well-formed Core Erlang
+  syntax tree.
+ </p>
+<p><em>See also:</em> <seemfa marker="#free_variables/1">free_variables/1</seemfa>, <seemfa marker="#variables/1">variables/1</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">size(T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; non_neg_integer()</name>
+<fsummary>Returns the number of nodes in Tree.</fsummary>
+
+<desc><marker id="size-1"/>
+
+<p>Returns the number of nodes in <c>Tree</c>.</p>
+</desc></func>
+<func>
+<name since="">variables(T::<seeerl marker="compiler:cerl#type-cerl">cerl:cerl()</seeerl>) -&gt; [<seeerl marker="compiler:cerl#type-var_name">cerl:var_name()</seeerl>]</name>
+<fsummary>Returns an ordered-set list of the names of all variables in
+  the syntax tree.</fsummary>
+
+<desc><marker id="variables-1"/>
+
+<p>Returns an ordered-set list of the names of all variables in
+  the syntax tree. (This includes function name variables.) An
+  exception is thrown if <c>Tree</c> does not represent a
+  well-formed Core Erlang syntax tree.
+ </p>
+<p><em>See also:</em> <seemfa marker="#free_variables/1">free_variables/1</seemfa>, <seemfa marker="#next_free_variable_name/1">next_free_variable_name/1</seemfa>.</p>
+</desc></func></funcs>
+
+<authors>
+
+<aname>Richard Carlsson</aname>
+<email>carlsson.richard@gmail.com</email></authors></erlref>

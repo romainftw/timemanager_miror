@@ -1,0 +1,90 @@
+<module name="leex">
+<type>
+  <name>error_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error_info">error_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erl_anno#line">erl_anno:line()</seetype> | none, <seetype marker="erlang#module">module()</seetype>, ErrorDescriptor :: <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+  <anno>ErrorDescriptor</anno>
+</type>
+<type>
+  <name>error_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error_ret">error_ret()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>error | {error, Errors :: <seetype marker="#errors">errors()</seetype>, Warnings :: <seetype marker="#warnings">warnings()</seetype>}</typehead></typedecl>
+  <anno>Errors</anno>
+  <anno>Warnings</anno>
+</type>
+<type>
+  <name>errors</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-errors">errors()</marker> = [{<seetype marker="file#filename">file:filename()</seetype>, [<seetype marker="#error_info">error_info()</seetype>]}]</typehead></typedecl>
+</type>
+<type>
+  <name>leex_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-leex_ret">leex_ret()</marker> = <seetype marker="#ok_ret">ok_ret()</seetype> | <seetype marker="#error_ret">error_ret()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ok_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ok_ret">ok_ret()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Scannerfile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Scannerfile :: <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#warnings">warnings()</seetype>}</typehead></typedecl>
+  <anno>Scannerfile</anno>
+</type>
+<type>
+  <name>warnings</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-warnings">warnings()</marker> = [{<seetype marker="file#filename">file:filename()</seetype>, [<seetype marker="#error_info">error_info()</seetype>]}]</typehead></typedecl>
+</type>
+<spec>
+  <name>compile</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>file(FileName) -&gt; <seetype marker="#leex_ret">leex_ret()</seetype></head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+</spec>
+<spec>
+  <name>file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>file(FileName, Options) -&gt; <seetype marker="#leex_ret">leex_ret()</seetype></head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{dfa_graph, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{includefile, Includefile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{report_errors, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{report_warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{report, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{return_errors, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{return_warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{return, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{scannerfile, Scannerfile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warnings_as_errors, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{deterministic, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error_location, line | column} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tab_size, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>dfa_graph | report_errors | report_warnings | report |<br/><nbsp/><nbsp/><nbsp/><nbsp/>return_errors | return_warnings | return | verbose |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warnings_as_errors</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>Includefile</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Scannerfile</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(ErrorDescriptor) -&gt; <seetype marker="io_lib#chars">io_lib:chars()</seetype></head>
+      <guard>
+        <subtype><typename>ErrorDescriptor</typename><string>ErrorDescriptor = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ErrorDescriptor</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:26.</timestamp>
+</module>

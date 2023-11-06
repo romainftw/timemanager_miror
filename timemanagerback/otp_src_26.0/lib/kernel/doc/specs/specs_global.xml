@@ -1,0 +1,453 @@
+<module name="global">
+<type>
+  <name>id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-id">id()</marker> = {ResourceId :: <seetype marker="erlang#term">term()</seetype>, LockRequesterId :: <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+  <anno>LockRequesterId</anno>
+  <anno>ResourceId</anno>
+</type>
+<type>
+  <name>method</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-method">method()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Name :: <seetype marker="erlang#term">term()</seetype>, Pid :: <seetype marker="erlang#pid">pid()</seetype>, Pid2 :: <seetype marker="erlang#pid">pid()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> | none)</typehead></typedecl>
+  <anno>Name</anno>
+  <anno>Pid</anno>
+  <anno>Pid2</anno>
+</type>
+<type>
+  <name>retries</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-retries">retries()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | infinity</typehead></typedecl>
+</type>
+<type>
+  <name>state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-state">state()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#state{conf =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#conf{connect_all = <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>prevent_over_part = <seetype marker="erlang#boolean">boolean()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>known =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#{<seetype marker="erlang#node">node()</seetype> =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{pending, <seetype marker="erlang#node">node()</seetype>} =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{removing, <seetype marker="erlang#node">node()</seetype>} =&gt; yes,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{connection_id, <seetype marker="erlang#node">node()</seetype>} =&gt; <seetype marker="erlang#integer">integer()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>synced = [<seetype marker="erlang#node">node()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>resolvers = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>syncers = [<seetype marker="erlang#pid">pid()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>node_name = <seetype marker="erlang#node">node()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>the_locker = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>the_registrar = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>trace = <seetype marker="erlang#any">any()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>global_lock_down = <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>trans_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trans_fun">trans_fun()</marker> = <seetype marker="erlang#function">function()</seetype> | {<seetype marker="erlang#module">module()</seetype>, <seetype marker="erlang#atom">atom()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>code_change(OldVsn :: <seetype marker="erlang#term">term()</seetype>, S :: <seetype marker="#state">state()</seetype>, Extra :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Extra</anno>
+  <anno>OldVsn</anno>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>del_lock</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>del_lock(Id) -&gt; true</head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="#id">id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+</spec>
+<spec>
+  <name>del_lock</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>del_lock(Id, Nodes) -&gt; true</head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="#id">id()</seetype></string></subtype>
+        <subtype><typename>Nodes</typename><string>Nodes = [<seetype marker="erlang#node">node()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>Nodes</anno>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>disconnect() -&gt; [<seetype marker="erlang#node">node()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>get_locker</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handle_call(Request :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>From :: {<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#term">term()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>S :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply, <seetype marker="#state">state()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, <seetype marker="erlang#term">term()</seetype>, <seetype marker="#state">state()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{stop, normal, stopped, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>From</anno>
+  <anno>Request</anno>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_cast(Message :: <seetype marker="erlang#term">term()</seetype>, S0 :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Message</anno>
+  <anno>S0</anno>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_info(Exit :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply, <seetype marker="#state">state()</seetype>} | {stop, <seetype marker="erlang#term">term()</seetype>, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Exit</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(X1 :: []) -&gt; {ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>notify_all_name</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>notify_all_name(Name, Pid1, Pid2) -&gt; none</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Pid1</typename><string>Pid1 = Pid2 = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Pid2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Pid1</anno>
+  <anno>Pid2</anno>
+</spec>
+<spec>
+  <name>random_exit_name</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>random_exit_name(Name, Pid1, Pid2) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Pid1</typename><string>Pid1 = Pid2 = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Pid2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Pid1</anno>
+  <anno>Pid2</anno>
+</spec>
+<spec>
+  <name>random_notify_name</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>random_notify_name(Name, Pid1, Pid2) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Pid1</typename><string>Pid1 = Pid2 = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Pid2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Pid1</anno>
+  <anno>Pid2</anno>
+</spec>
+<spec>
+  <name>re_register_name</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>re_register_name(Name, Pid) -&gt; yes</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>re_register_name</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>re_register_name(Name, Pid, Resolve) -&gt; yes</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Resolve</typename><string>Resolve = <seetype marker="#method">method()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Pid</anno>
+  <anno>Resolve</anno>
+</spec>
+<spec>
+  <name>register_name</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>register_name(Name, Pid) -&gt; yes | no</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>register_name</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>register_name(Name, Pid, Resolve) -&gt; yes | no</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Resolve</typename><string>Resolve = <seetype marker="#method">method()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Pid</anno>
+  <anno>Resolve</anno>
+</spec>
+<spec>
+  <name>register_name_external</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>register_name_external</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>registered_names</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>registered_names() -&gt; [Name]</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>resolve_it</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send(Name, Msg) -&gt; Pid</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = Msg = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Msg</typename><string/></subtype>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Msg</anno>
+  <anno>Name</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>set_lock</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_lock(Id) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="#id">id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+</spec>
+<spec>
+  <name>set_lock</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_lock(Id, Nodes) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="#id">id()</seetype></string></subtype>
+        <subtype><typename>Nodes</typename><string>Nodes = [<seetype marker="erlang#node">node()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>Nodes</anno>
+</spec>
+<spec>
+  <name>set_lock</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_lock(Id, Nodes, Retries) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="#id">id()</seetype></string></subtype>
+        <subtype><typename>Nodes</typename><string>Nodes = [<seetype marker="erlang#node">node()</seetype>]</string></subtype>
+        <subtype><typename>Retries</typename><string>Retries = <seetype marker="#retries">retries()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>Nodes</anno>
+  <anno>Retries</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>sync</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>sync() -&gt; ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>sync</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sync(Nodes :: [<seetype marker="erlang#node">node()</seetype>]) -&gt; ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Nodes</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>terminate(Reason :: <seetype marker="erlang#term">term()</seetype>, S :: <seetype marker="#state">state()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>trans</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>trans(Id, Fun) -&gt; Res | aborted</head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="#id">id()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="#trans_fun">trans_fun()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Id</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>trans</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>trans(Id, Fun, Nodes) -&gt; Res | aborted</head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="#id">id()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="#trans_fun">trans_fun()</seetype></string></subtype>
+        <subtype><typename>Nodes</typename><string>Nodes = [<seetype marker="erlang#node">node()</seetype>]</string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Id</anno>
+  <anno>Nodes</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>trans</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>trans(Id, Fun, Nodes, Retries) -&gt; Res | aborted</head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="#id">id()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="#trans_fun">trans_fun()</seetype></string></subtype>
+        <subtype><typename>Nodes</typename><string>Nodes = [<seetype marker="erlang#node">node()</seetype>]</string></subtype>
+        <subtype><typename>Retries</typename><string>Retries = <seetype marker="#retries">retries()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Id</anno>
+  <anno>Nodes</anno>
+  <anno>Res</anno>
+  <anno>Retries</anno>
+</spec>
+<spec>
+  <name>unregister_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unregister_name(Name) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>unregister_name_external</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>whereis_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>whereis_name(Name) -&gt; <seetype marker="erlang#pid">pid()</seetype> | undefined</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:48.</timestamp>
+</module>

@@ -1,0 +1,807 @@
+<module name="cover">
+<type>
+  <name>analyse_answer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_answer">analyse_answer()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, OutFile :: <seetype marker="file#filename">file:filename()</seetype>} | {error, <seetype marker="#analyse_rsn">analyse_rsn()</seetype>}</typehead></typedecl>
+  <anno>OutFile</anno>
+</type>
+<type>
+  <name>analyse_fail</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_fail">analyse_fail()</marker> = [{not_cover_compiled, <seetype marker="erlang#module">module()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>analyse_file_fail</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_file_fail">analyse_file_fail()</marker> = [<seetype marker="#analyse_rsn">analyse_rsn()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>analyse_file_ok</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_file_ok">analyse_file_ok()</marker> = [OutFile :: <seetype marker="file#filename">file:filename()</seetype>]</typehead></typedecl>
+  <anno>OutFile</anno>
+</type>
+<type>
+  <name>analyse_item</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_item">analyse_item()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>(Line :: {M :: <seetype marker="erlang#module">module()</seetype>, N :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Clause ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{M :: <seetype marker="erlang#module">module()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>F :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>A :: <seetype marker="erlang#arity">arity()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>C :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Function :: {M :: <seetype marker="erlang#module">module()</seetype>, F :: <seetype marker="erlang#atom">atom()</seetype>, A :: <seetype marker="erlang#arity">arity()</seetype>})</typehead></typedecl>
+  <anno>A</anno>
+  <anno>C</anno>
+  <anno>Clause</anno>
+  <anno>F</anno>
+  <anno>Function</anno>
+  <anno>Line</anno>
+  <anno>M</anno>
+  <anno>N</anno>
+</type>
+<type>
+  <name>analyse_ok</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_ok">analyse_ok()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{Module :: <seetype marker="erlang#module">module()</seetype>, Value :: <seetype marker="#analyse_value">analyse_value()</seetype>}] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[{Item :: <seetype marker="#analyse_item">analyse_item()</seetype>, Value :: <seetype marker="#analyse_value">analyse_value()</seetype>}]</typehead></typedecl>
+  <anno>Item</anno>
+  <anno>Module</anno>
+  <anno>Value</anno>
+</type>
+<type>
+  <name>analyse_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_option">analyse_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>html |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{outfile, OutFile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{outdir, OutDir :: <seetype marker="file#filename">file:filename()</seetype>}</typehead></typedecl>
+  <anno>OutDir</anno>
+  <anno>OutFile</anno>
+</type>
+<type>
+  <name>analyse_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_rsn">analyse_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{not_cover_compiled, Module :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file, File :: <seetype marker="file#filename">file:filename()</seetype>, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_source_code_found, Module :: <seetype marker="erlang#module">module()</seetype>}</typehead></typedecl>
+  <anno>File</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+</type>
+<type>
+  <name>analyse_value</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_value">analyse_value()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Cov :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>, NotCov :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(Calls :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>)</typehead></typedecl>
+  <anno>Calls</anno>
+  <anno>Cov</anno>
+  <anno>NotCov</anno>
+</type>
+<type>
+  <name>analysis</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analysis">analysis()</marker> = coverage | calls</typehead></typedecl>
+</type>
+<type>
+  <name>beam_mod_file</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-beam_mod_file">beam_mod_file()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>(Module :: <seetype marker="erlang#module">module()</seetype>) | (BeamFile :: <seetype marker="file#filename">file:filename()</seetype>)</typehead></typedecl>
+  <anno>BeamFile</anno>
+  <anno>Module</anno>
+</type>
+<type>
+  <name>beam_mod_files</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-beam_mod_files">beam_mod_files()</marker> = <seetype marker="#beam_mod_file">beam_mod_file()</seetype> | [<seetype marker="#beam_mod_file">beam_mod_file()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>compile_beam_result</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-compile_beam_result">compile_beam_result()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, BeamFile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="#compile_beam_rsn">compile_beam_rsn()</seetype>}</typehead></typedecl>
+  <anno>BeamFile</anno>
+  <anno>Reason</anno>
+</type>
+<type>
+  <name>compile_beam_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-compile_beam_rsn">compile_beam_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>non_existing |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_abstract_code, BeamFile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{encrypted_abstract_code, BeamFile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{already_cover_compiled, no_beam_found, <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{{missing_backend, <seetype marker="erlang#module">module()</seetype>}, BeamFile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_file_attribute, BeamFile :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>not_main_node</typehead></typedecl>
+  <anno>BeamFile</anno>
+</type>
+<type>
+  <name>compile_result</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-compile_result">compile_result()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Module :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</typehead></typedecl>
+  <anno>Module</anno>
+</type>
+<type>
+  <name>export_reason</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-export_reason">export_reason()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{not_cover_compiled, Module :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cant_open_file,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ExportFile :: <seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FileReason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>not_main_node</typehead></typedecl>
+  <anno>ExportFile</anno>
+  <anno>FileReason</anno>
+  <anno>Module</anno>
+</type>
+<type>
+  <name>file_error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file_error">file_error()</marker> = eacces | enoent</typehead></typedecl>
+</type>
+<type>
+  <name>level</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-level">level()</marker> = line | clause | function | module</typehead></typedecl>
+</type>
+<type>
+  <name>mod_file</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mod_file">mod_file()</marker> = (Module :: <seetype marker="erlang#module">module()</seetype>) | (File :: <seetype marker="file#filename">file:filename()</seetype>)</typehead></typedecl>
+  <anno>File</anno>
+  <anno>Module</anno>
+</type>
+<type>
+  <name>mod_files</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mod_files">mod_files()</marker> = <seetype marker="#mod_file">mod_file()</seetype> | [<seetype marker="#mod_file">mod_file()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>modules</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-modules">modules()</marker> = <seetype marker="erlang#module">module()</seetype> | [<seetype marker="erlang#module">module()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>one_result</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-one_result">one_result()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {Module :: <seetype marker="erlang#module">module()</seetype>, Value :: <seetype marker="#analyse_value">analyse_value()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [{Item :: <seetype marker="#analyse_item">analyse_item()</seetype>, Value :: <seetype marker="#analyse_value">analyse_value()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {not_cover_compiled, <seetype marker="erlang#module">module()</seetype>}}</typehead></typedecl>
+  <anno>Item</anno>
+  <anno>Module</anno>
+  <anno>Value</anno>
+</type>
+<type>
+  <name>option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option">option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{i, Dir :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{d, Macro :: <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{d, Macro :: <seetype marker="erlang#atom">atom()</seetype>, Value :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>export_all</typehead></typedecl>
+  <anno>Dir</anno>
+  <anno>Macro</anno>
+  <anno>Value</anno>
+</type>
+<spec>
+  <name>analyse</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>analyse() -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result, <seetype marker="#analyse_ok">analyse_ok()</seetype>, <seetype marker="#analyse_fail">analyse_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse(Analysis) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result, <seetype marker="#analyse_ok">analyse_ok()</seetype>, <seetype marker="#analyse_fail">analyse_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Analysis</typename><string>Analysis = <seetype marker="#analysis">analysis()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Analysis</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse(Level) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result, <seetype marker="#analyse_ok">analyse_ok()</seetype>, <seetype marker="#analyse_fail">analyse_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse(Modules) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>OneResult |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result, <seetype marker="#analyse_ok">analyse_ok()</seetype>, <seetype marker="#analyse_fail">analyse_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Modules</typename><string>Modules = <seetype marker="#modules">modules()</seetype></string></subtype>
+        <subtype><typename>OneResult</typename><string>OneResult = <seetype marker="#one_result">one_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Modules</anno>
+  <anno>OneResult</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>analyse(Analysis, Level) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result, <seetype marker="#analyse_ok">analyse_ok()</seetype>, <seetype marker="#analyse_fail">analyse_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Analysis</typename><string>Analysis = <seetype marker="#analysis">analysis()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Analysis</anno>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>analyse(Modules, Analysis) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>OneResult |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result, <seetype marker="#analyse_ok">analyse_ok()</seetype>, <seetype marker="#analyse_fail">analyse_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Analysis</typename><string>Analysis = <seetype marker="#analysis">analysis()</seetype></string></subtype>
+        <subtype><typename>Modules</typename><string>Modules = <seetype marker="#modules">modules()</seetype></string></subtype>
+        <subtype><typename>OneResult</typename><string>OneResult = <seetype marker="#one_result">one_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Analysis</anno>
+  <anno>Modules</anno>
+  <anno>OneResult</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>analyse(Modules, Level) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>OneResult |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result, <seetype marker="#analyse_ok">analyse_ok()</seetype>, <seetype marker="#analyse_fail">analyse_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Modules</typename><string>Modules = <seetype marker="#modules">modules()</seetype></string></subtype>
+        <subtype><typename>OneResult</typename><string>OneResult = <seetype marker="#one_result">one_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+  <anno>Modules</anno>
+  <anno>OneResult</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>analyse(Modules, Analysis, Level) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>OneResult |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result, <seetype marker="#analyse_ok">analyse_ok()</seetype>, <seetype marker="#analyse_fail">analyse_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Analysis</typename><string>Analysis = <seetype marker="#analysis">analysis()</seetype></string></subtype>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="#level">level()</seetype></string></subtype>
+        <subtype><typename>Modules</typename><string>Modules = <seetype marker="#modules">modules()</seetype></string></subtype>
+        <subtype><typename>OneResult</typename><string>OneResult = <seetype marker="#one_result">one_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Analysis</anno>
+  <anno>Level</anno>
+  <anno>Modules</anno>
+  <anno>OneResult</anno>
+</spec>
+<spec>
+  <name>analyse_to_file</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>analyse_to_file() -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#analyse_file_ok">analyse_file_ok()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#analyse_file_fail">analyse_file_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>analyse_to_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse_to_file(Modules) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Answer |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#analyse_file_ok">analyse_file_ok()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#analyse_file_fail">analyse_file_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Modules</typename><string>Modules = <seetype marker="#modules">modules()</seetype></string></subtype>
+        <subtype><typename>Answer</typename><string>Answer = <seetype marker="#analyse_answer">analyse_answer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answer</anno>
+  <anno>Modules</anno>
+</spec>
+<spec>
+  <name>analyse_to_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse_to_file(Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#analyse_file_ok">analyse_file_ok()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#analyse_file_fail">analyse_file_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#analyse_option">analyse_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>analyse_to_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>analyse_to_file(Modules, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Answer |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{result,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#analyse_file_ok">analyse_file_ok()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#analyse_file_fail">analyse_file_fail()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Modules</typename><string>Modules = <seetype marker="#modules">modules()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#analyse_option">analyse_option()</seetype>]</string></subtype>
+        <subtype><typename>Answer</typename><string>Answer = <seetype marker="#analyse_answer">analyse_answer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answer</anno>
+  <anno>Modules</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>analyse_to_file</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze_to_file</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze_to_file</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze_to_file</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyze_to_file</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>async_analyse_to_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>async_analyse_to_file(Module) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>async_analyse_to_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>async_analyse_to_file(Module, OutFile) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>OutFile</typename><string>OutFile = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+  <anno>OutFile</anno>
+</spec>
+<spec>
+  <name>async_analyse_to_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>async_analyse_to_file(Module, Options) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = html</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>async_analyse_to_file</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>async_analyse_to_file(Module, OutFile, Options) -&gt; <seetype marker="erlang#pid">pid()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>OutFile</typename><string>OutFile = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = html</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>OutFile</anno>
+</spec>
+<spec>
+  <name>async_analyze_to_file</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>async_analyze_to_file</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>async_analyze_to_file</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>compile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>compile(ModFiles) -&gt; Result | [Result]</head>
+      <guard>
+        <subtype><typename>ModFiles</typename><string>ModFiles = <seetype marker="#mod_files">mod_files()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_result">compile_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ModFiles</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>compile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>compile(ModFiles, Options) -&gt; Result | [Result]</head>
+      <guard>
+        <subtype><typename>ModFiles</typename><string>ModFiles = <seetype marker="#mod_files">mod_files()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_result">compile_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ModFiles</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>compile_beam</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>compile_beam(ModFiles) -&gt; Result | [Result]</head>
+      <guard>
+        <subtype><typename>ModFiles</typename><string>ModFiles = <seetype marker="#beam_mod_files">beam_mod_files()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_beam_result">compile_beam_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ModFiles</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>compile_beam_directory</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>compile_beam_directory() -&gt; [Result] | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#file_error">file_error()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_beam_result">compile_beam_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>compile_beam_directory</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>compile_beam_directory(Dir) -&gt; [Result] | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#file_error">file_error()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_beam_result">compile_beam_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>compile_directory</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>compile_directory() -&gt; [Result] | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#file_error">file_error()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_result">compile_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>compile_directory</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>compile_directory(Dir) -&gt; [Result] | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#file_error">file_error()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_result">compile_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>compile_directory</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>compile_directory(Dir, Options) -&gt; [Result] | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#file_error">file_error()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_result">compile_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>compile_module</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>compile_module(ModFiles) -&gt; Result | [Result]</head>
+      <guard>
+        <subtype><typename>ModFiles</typename><string>ModFiles = <seetype marker="#mod_files">mod_files()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_result">compile_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ModFiles</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>compile_module</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>compile_module(ModFiles, Options) -&gt; Result | [Result]</head>
+      <guard>
+        <subtype><typename>ModFiles</typename><string>ModFiles = <seetype marker="#mod_files">mod_files()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#compile_result">compile_result()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ModFiles</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>export</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>export(File) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#export_reason">export_reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>export</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>export(File, Module) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#export_reason">export_reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>flush</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>flush(Nodes) -&gt; ok | {error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Nodes</typename><string>Nodes = <seetype marker="erlang#node">node()</seetype> | [<seetype marker="erlang#node">node()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Nodes</anno>
+</spec>
+<spec>
+  <name>get_main_node</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>import</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>import(ExportFile) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>ExportFile</typename><string>ExportFile = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cant_open_file, ExportFile, FileReason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>not_main_node</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExportFile</anno>
+  <anno>FileReason</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>imported</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>imported() -&gt; [<seetype marker="file#filename">file:filename()</seetype>] | {error, not_main_node}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>imported_modules</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>imported_modules() -&gt; [<seetype marker="erlang#module">module()</seetype>] | {error, not_main_node}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>is_compiled</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_compiled(Module) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{file, File :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>false |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>local_only</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>local_only() -&gt; ok | {error, too_late}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>main_process_loop</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>modules</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>modules() -&gt; [<seetype marker="erlang#module">module()</seetype>] | {error, not_main_node}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>remote_process_loop</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>remote_start</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>reset</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>reset() -&gt; ok | {error, not_main_node}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>reset</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>reset(Module) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {not_cover_compiled, Module}}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = {already_started, <seetype marker="erlang#pid">pid()</seetype>} | <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(Nodes) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, StartedNodes} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, not_main_node} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, local_only}</head>
+      <guard>
+        <subtype><typename>Nodes</typename><string>Nodes = <seetype marker="erlang#node">node()</seetype> | [<seetype marker="erlang#node">node()</seetype>]</string></subtype>
+        <subtype><typename>StartedNodes</typename><string>StartedNodes = [<seetype marker="erlang#node">node()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Nodes</anno>
+  <anno>StartedNodes</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; ok | {error, not_main_node}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(Nodes) -&gt; ok | {error, not_main_node}</head>
+      <guard>
+        <subtype><typename>Nodes</typename><string>Nodes = <seetype marker="erlang#node">node()</seetype> | [<seetype marker="erlang#node">node()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Nodes</anno>
+</spec>
+<spec>
+  <name>which_nodes</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>which_nodes() -&gt; [<seetype marker="erlang#node">node()</seetype>]</head></clause>
+  </contract>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:03.</timestamp>
+</module>

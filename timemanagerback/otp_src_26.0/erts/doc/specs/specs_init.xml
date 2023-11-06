@@ -1,0 +1,239 @@
+<module name="init">
+<type>
+  <name>internal_status</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-internal_status">internal_status()</marker> = starting | started | stopping</typehead></typedecl>
+</type>
+<type>
+  <name>mode</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mode">mode()</marker> = embedded | interactive</typehead></typedecl>
+</type>
+<spec>
+  <name>archive_extension</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>archive_extension() -&gt; <seetype marker="erlang#nonempty_string">nonempty_string()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>boot</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>boot(BootArgs) -&gt; <seetype marker="erlang#no_return">no_return()</seetype></head>
+      <guard>
+        <subtype><typename>BootArgs</typename><string>BootArgs = [<seetype marker="erlang#binary">binary()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BootArgs</anno>
+</spec>
+<spec>
+  <name>code_path_choice</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>code_path_choice() -&gt; relaxed | strict</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>ensure_loaded</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ensure_loaded(Module :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; not_allowed | {module, <seetype marker="erlang#atom">atom()</seetype>}</head></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>fetch_loaded</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>fetch_loaded() -&gt; [{<seetype marker="erlang#module">module()</seetype>, <seetype marker="file#filename">file:filename()</seetype>}]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>get_argument</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_argument(Flag) -&gt; {ok, Arg} | error</head>
+      <guard>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arg</typename><string>Arg = [Values :: [<seetype marker="erlang#string">string()</seetype>]]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arg</anno>
+  <anno>Flag</anno>
+  <anno>Values</anno>
+</spec>
+<spec>
+  <name>get_arguments</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_arguments() -&gt; Flags</head>
+      <guard>
+        <subtype><typename>Flags</typename><string>Flags = [{Flag :: <seetype marker="erlang#atom">atom()</seetype>, Values :: [<seetype marker="erlang#string">string()</seetype>]}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>Flags</anno>
+  <anno>Values</anno>
+</spec>
+<spec>
+  <name>get_configfd</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_configfd(ConfigFdId :: <seetype marker="erlang#integer">integer()</seetype>) -&gt; none | <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>ConfigFdId</anno>
+</spec>
+<spec>
+  <name>get_plain_arguments</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_plain_arguments() -&gt; [Arg]</head>
+      <guard>
+        <subtype><typename>Arg</typename><string>Arg = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arg</anno>
+</spec>
+<spec>
+  <name>get_status</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_status() -&gt; {InternalStatus, ProvidedStatus}</head>
+      <guard>
+        <subtype><typename>InternalStatus</typename><string>InternalStatus = <seetype marker="#internal_status">internal_status()</seetype></string></subtype>
+        <subtype><typename>ProvidedStatus</typename><string>ProvidedStatus = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>InternalStatus</anno>
+  <anno>ProvidedStatus</anno>
+</spec>
+<spec>
+  <name>make_permanent</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>make_permanent(Boot :: <seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Config :: false | <seetype marker="file#filename">file:filename()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Boot</anno>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>notify_when_started</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>notify_when_started(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt; ok | started</head></clause>
+  </contract>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>objfile_extension</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>objfile_extension() -&gt; <seetype marker="erlang#nonempty_string">nonempty_string()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>reboot</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>reboot() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>restart</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>restart() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>restart</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>restart(Opts :: [{mode, <seetype marker="#mode">mode()</seetype>}]) -&gt; ok</head></clause>
+  </contract>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>run_on_load_handlers</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>script_id</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>script_id() -&gt; Id</head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+</spec>
+<spec>
+  <name>script_name</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>script_name() -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>set_configfd</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_configfd(ConfigFdId :: <seetype marker="erlang#integer">integer()</seetype>, Config :: <seetype marker="erlang#term">term()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>ConfigFdId</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(Status) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Status</typename><string>Status = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Status</anno>
+</spec>
+<spec>
+  <name>wait_until_started</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>wait_until_started() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:38:09.</timestamp>
+</module>

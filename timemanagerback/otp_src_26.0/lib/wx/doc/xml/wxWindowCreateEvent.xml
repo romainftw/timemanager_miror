@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+
+<!-- THIS FILE IS GENERATED DO NOT EDIT -->
+
+
+<erlref>
+<header>
+  <copyright>
+    <year>2020</year><year>2021</year>
+    <holder>wxWidgets team.</holder></copyright>
+  <legalnotice>Licensed under the wxWindows Free Documentation Licence, Version 3
+  </legalnotice>
+  <title>wxWindowCreateEvent</title>
+</header>
+<module>wxWindowCreateEvent</module>
+<modulesummary>Functions for wxWindowCreateEvent class</modulesummary>
+<description ghlink="maint/lib/wx/doc/src/wxWindowCreateEvent.xml#L18"><p>This event is sent just after the actual window associated with a <seeerl marker="wxWindow"><c>wxWindow</c></seeerl> object has been created.
+      </p><p>Since it is derived from <seeerl marker="wxCommandEvent"><c>wxCommandEvent</c></seeerl>, the event propagates up the window hierarchy.
+      </p><p>See: <url href="https://docs.wxwidgets.org/3.1/overview_events.html#overview_events">Overview events</url>, <seeerl marker="wxWindowDestroyEvent"><c>wxWindowDestroyEvent</c></seeerl>
+      </p>
+  <p>This class is derived (and can use functions) from: 
+    <seeerl marker="wxCommandEvent"><c>wxCommandEvent</c></seeerl> <seeerl marker="wxEvent"><c>wxEvent</c></seeerl></p>
+  
+  <p>wxWidgets docs: <url href="https://docs.wxwidgets.org/3.1/classwx_window_create_event.html">wxWindowCreateEvent</url></p>
+  </description><section ghlink="maint/lib/wx/doc/src/wxWindowCreateEvent.xml#L26"><title>Events</title><p>Use <seemfa marker="wxEvtHandler#connect/3"><c>wxEvtHandler:connect/3</c></seemfa> with <seetype marker="#wxWindowCreateEventType"><c>wxWindowCreateEventType</c></seetype> to subscribe to events of this type.</p></section>
+<datatypes>
+    <datatype ghlink="maint/lib/wx/doc/src/wxWindowCreateEvent.xml#L28"><name name="wxWindowCreateEvent"/></datatype>
+    <datatype ghlink="maint/lib/wx/doc/src/wxWindowCreateEvent.xml#L29"><name name="wxWindowCreate"/></datatype>
+    <datatype ghlink="maint/lib/wx/doc/src/wxWindowCreateEvent.xml#L30"><name name="wxWindowCreateEventType"/></datatype></datatypes>
+
+</erlref>

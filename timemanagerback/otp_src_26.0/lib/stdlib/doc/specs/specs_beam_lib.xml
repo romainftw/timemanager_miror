@@ -1,0 +1,507 @@
+<module name="beam_lib">
+<type>
+  <name>abst_code</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-abst_code">abst_code()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{AbstVersion :: <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="#forms">forms()</seetype>} | no_abstract_code</typehead></typedecl>
+  <anno>AbstVersion</anno>
+</type>
+<type>
+  <name>attrib_entry</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-attrib_entry">attrib_entry()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Attribute :: <seetype marker="erlang#atom">atom()</seetype>, [AttributeValue :: <seetype marker="erlang#term">term()</seetype>]}</typehead></typedecl>
+  <anno>Attribute</anno>
+  <anno>AttributeValue</anno>
+</type>
+<type>
+  <name>beam</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-beam">beam()</marker> = <seetype marker="file#filename">file:filename()</seetype> | <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>calls</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-calls">calls()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>clear_crypto_key_fun |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{crypto_key_fun, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{get_crypto_key, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>chnk_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chnk_rsn">chnk_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{unknown_chunk, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{key_missing_or_invalid,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>abstract_code | debug_info} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{missing_backend, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#info_rsn">info_rsn()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>chunkdata</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunkdata">chunkdata()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#chunkid">chunkid()</seetype>, <seetype marker="#dataB">dataB()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{abstract_code, <seetype marker="#abst_code">abst_code()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{debug_info, <seetype marker="#debug_info">debug_info()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{attributes, [<seetype marker="#attrib_entry">attrib_entry()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{compile_info, [<seetype marker="#compinfo_entry">compinfo_entry()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{exports, [{<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#arity">arity()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{labeled_exports, [<seetype marker="#labeled_entry">labeled_entry()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{imports, [<seetype marker="erlang#mfa">mfa()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{indexed_imports,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="#index">index()</seetype>, <seetype marker="erlang#module">module()</seetype>, Function :: <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#arity">arity()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{locals, [{<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#arity">arity()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{labeled_locals, [<seetype marker="#labeled_entry">labeled_entry()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{atoms, [{<seetype marker="erlang#integer">integer()</seetype>, <seetype marker="erlang#atom">atom()</seetype>}]}</typehead></typedecl>
+  <anno>Function</anno>
+</type>
+<type>
+  <name>chunkid</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunkid">chunkid()</marker> = <seetype marker="erlang#nonempty_string">nonempty_string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>chunkname</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunkname">chunkname()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>abstract_code | debug_info | attributes | compile_info |<br/><nbsp/><nbsp/><nbsp/><nbsp/>exports | labeled_exports | imports | indexed_imports |<br/><nbsp/><nbsp/><nbsp/><nbsp/>locals | labeled_locals | atoms</typehead></typedecl>
+</type>
+<type>
+  <name>chunkref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunkref">chunkref()</marker> = <seetype marker="#chunkname">chunkname()</seetype> | <seetype marker="#chunkid">chunkid()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>cmp_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cmp_rsn">cmp_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{modules_different, <seetype marker="erlang#module">module()</seetype>, <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{chunks_different, <seetype marker="#chunkid">chunkid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>different_chunks |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#info_rsn">info_rsn()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>compinfo_entry</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-compinfo_entry">compinfo_entry()</marker> = {InfoKey :: <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+  <anno>InfoKey</anno>
+</type>
+<type>
+  <name>crypto_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crypto_fun">crypto_fun()</marker> = fun((<seetype marker="#crypto_fun_arg">crypto_fun_arg()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>crypto_fun_arg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crypto_fun_arg">crypto_fun_arg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>init | clear | {debug_info, <seetype marker="#mode">mode()</seetype>, <seetype marker="erlang#module">module()</seetype>, <seetype marker="file#filename">file:filename()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>dataB</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dataB">dataB()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>debug_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-debug_info">debug_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{DbgiVersion :: <seetype marker="erlang#atom">atom()</seetype>, Backend :: <seetype marker="erlang#module">module()</seetype>, Data :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_debug_info</typehead></typedecl>
+  <anno>Backend</anno>
+  <anno>Data</anno>
+  <anno>DbgiVersion</anno>
+</type>
+<type>
+  <name>forms</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-forms">forms()</marker> = [<seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype> | <seetype marker="erl_parse#form_info">erl_parse:form_info()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>index</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-index">index()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>info_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-info_rsn">info_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{chunk_too_big,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#chunkid">chunkid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ChunkSize :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FileSize :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_beam_file,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#filename">file:filename()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Position :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_chunk, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#chunkid">chunkid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{missing_chunk, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="#chunkid">chunkid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{not_a_beam_file, <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="file#filename">file:filename()</seetype>, <seetype marker="file#posix">file:posix()</seetype>}</typehead></typedecl>
+  <anno>ChunkSize</anno>
+  <anno>FileSize</anno>
+  <anno>Position</anno>
+</type>
+<type>
+  <name>label</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-label">label()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>labeled_entry</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-labeled_entry">labeled_entry()</marker> = {Function :: <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#arity">arity()</seetype>, <seetype marker="#label">label()</seetype>}</typehead></typedecl>
+  <anno>Function</anno>
+</type>
+<type>
+  <name>mode</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mode">mode()</marker> = des3_cbc</typehead></typedecl>
+</type>
+<spec>
+  <name>all_chunks</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>all_chunks(File :: <seetype marker="#beam">beam()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#module">module()</seetype>, [{<seetype marker="#chunkid">chunkid()</seetype>, <seetype marker="#dataB">dataB()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, beam_lib, <seetype marker="#info_rsn">info_rsn()</seetype>}</head></clause>
+  </contract>
+  <anno>File</anno>
+</spec>
+<spec>
+  <name>build_module</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>build_module(Chunks) -&gt; {ok, Binary}</head>
+      <guard>
+        <subtype><typename>Chunks</typename><string>Chunks = [{<seetype marker="#chunkid">chunkid()</seetype>, <seetype marker="#dataB">dataB()</seetype>}]</string></subtype>
+        <subtype><typename>Binary</typename><string>Binary = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Binary</anno>
+  <anno>Chunks</anno>
+</spec>
+<spec>
+  <name>chunks</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>chunks(Beam, ChunkRefs) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {<seetype marker="erlang#module">module()</seetype>, [<seetype marker="#chunkdata">chunkdata()</seetype>]}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, beam_lib, <seetype marker="#chnk_rsn">chnk_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Beam</typename><string>Beam = <seetype marker="#beam">beam()</seetype></string></subtype>
+        <subtype><typename>ChunkRefs</typename><string>ChunkRefs = [<seetype marker="#chunkref">chunkref()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Beam</anno>
+  <anno>ChunkRefs</anno>
+</spec>
+<spec>
+  <name>chunks</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>chunks(Beam, ChunkRefs, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {<seetype marker="erlang#module">module()</seetype>, [ChunkResult]}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, beam_lib, <seetype marker="#chnk_rsn">chnk_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Beam</typename><string>Beam = <seetype marker="#beam">beam()</seetype></string></subtype>
+        <subtype><typename>ChunkRefs</typename><string>ChunkRefs = [<seetype marker="#chunkref">chunkref()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [allow_missing_chunks]</string></subtype>
+        <subtype><typename>ChunkResult</typename><string>ChunkResult = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#chunkdata">chunkdata()</seetype> | {ChunkRef :: <seetype marker="#chunkref">chunkref()</seetype>, missing_chunk}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Beam</anno>
+  <anno>ChunkRef</anno>
+  <anno>ChunkRefs</anno>
+  <anno>ChunkResult</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>clear_crypto_key_fun</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>clear_crypto_key_fun() -&gt; undefined | {ok, Result}</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = undefined | <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>cmp</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cmp(Beam1, Beam2) -&gt; ok | {error, beam_lib, <seetype marker="#cmp_rsn">cmp_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Beam1</typename><string>Beam1 = Beam2 = <seetype marker="#beam">beam()</seetype></string></subtype>
+        <subtype><typename>Beam2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Beam1</anno>
+  <anno>Beam2</anno>
+</spec>
+<spec>
+  <name>cmp_dirs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cmp_dirs(Dir1, Dir2) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Only1, Only2, Different} | {error, beam_lib, Reason}</head>
+      <guard>
+        <subtype><typename>Dir1</typename><string>Dir1 = Dir2 = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Dir2</typename><string/></subtype>
+        <subtype><typename>Only1</typename><string>Only1 = Only2 = [<seetype marker="file#filename">file:filename()</seetype>]</string></subtype>
+        <subtype><typename>Only2</typename><string/></subtype>
+        <subtype><typename>Different</typename><string>Different = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{Filename1 :: <seetype marker="file#filename">file:filename()</seetype>, Filename2 :: <seetype marker="file#filename">file:filename()</seetype>}]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {not_a_directory, <seetype marker="erlang#term">term()</seetype>} | <seetype marker="#info_rsn">info_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Different</anno>
+  <anno>Dir1</anno>
+  <anno>Dir2</anno>
+  <anno>Filename1</anno>
+  <anno>Filename2</anno>
+  <anno>Only1</anno>
+  <anno>Only2</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>code_change(OldVsn :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Extra :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}}</head></clause>
+  </contract>
+  <anno>Extra</anno>
+  <anno>OldVsn</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>crypto_key_fun</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>crypto_key_fun(CryptoKeyFun) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>CryptoKeyFun</typename><string>CryptoKeyFun = <seetype marker="#crypto_fun">crypto_fun()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = badfun | exists | <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CryptoKeyFun</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>diff_dirs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>diff_dirs(Dir1, Dir2) -&gt; ok | {error, beam_lib, Reason}</head>
+      <guard>
+        <subtype><typename>Dir1</typename><string>Dir1 = Dir2 = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Dir2</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {not_a_directory, <seetype marker="erlang#term">term()</seetype>} | <seetype marker="#info_rsn">info_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir1</anno>
+  <anno>Dir2</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(Reason) -&gt; <seetype marker="io_lib#chars">io_lib:chars()</seetype></head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>get_crypto_key</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handle_call(R :: <seetype marker="#calls">calls()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>From :: {<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#term">term()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>error | {error, badfun | exists},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{stop, normal,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>undefined | {ok, <seetype marker="erlang#term">term()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}}</head></clause>
+  </contract>
+  <anno>From</anno>
+  <anno>R</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_cast(X1 :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}}</head></clause>
+  </contract>
+  <anno>State</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_info(X1 :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}}</head></clause>
+  </contract>
+  <anno>State</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(Beam) -&gt; [InfoPair] | {error, beam_lib, <seetype marker="#info_rsn">info_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Beam</typename><string>Beam = <seetype marker="#beam">beam()</seetype></string></subtype>
+        <subtype><typename>InfoPair</typename><string>InfoPair = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{file, Filename :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{binary, Binary :: <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{module, Module :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{chunks,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{ChunkId :: <seetype marker="#chunkid">chunkid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Pos :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Size :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}]}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Beam</anno>
+  <anno>Binary</anno>
+  <anno>ChunkId</anno>
+  <anno>Filename</anno>
+  <anno>InfoPair</anno>
+  <anno>Module</anno>
+  <anno>Pos</anno>
+  <anno>Size</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(X1 :: []) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, #state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}}</head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>make_crypto_key</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>make_crypto_key(Type :: <seetype marker="#mode">mode()</seetype>, String :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#mode">mode()</seetype>, [<seetype marker="erlang#binary">binary()</seetype>], <seetype marker="erlang#binary">binary()</seetype>, <seetype marker="erlang#integer">integer()</seetype>}</head></clause>
+  </contract>
+  <anno>String</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>md5</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>md5(Beam) -&gt; {ok, {<seetype marker="erlang#module">module()</seetype>, MD5}} | {error, beam_lib, <seetype marker="#chnk_rsn">chnk_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Beam</typename><string>Beam = <seetype marker="#beam">beam()</seetype></string></subtype>
+        <subtype><typename>MD5</typename><string>MD5 = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Beam</anno>
+  <anno>MD5</anno>
+</spec>
+<spec>
+  <name>significant_chunks</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>strip</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>strip(Beam1) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {<seetype marker="erlang#module">module()</seetype>, Beam2}} | {error, beam_lib, <seetype marker="#info_rsn">info_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Beam1</typename><string>Beam1 = Beam2 = <seetype marker="#beam">beam()</seetype></string></subtype>
+        <subtype><typename>Beam2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Beam1</anno>
+  <anno>Beam2</anno>
+</spec>
+<spec>
+  <name>strip</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>strip(Beam1, AdditionalChunks) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {<seetype marker="erlang#module">module()</seetype>, Beam2}} | {error, beam_lib, <seetype marker="#info_rsn">info_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Beam1</typename><string>Beam1 = <seetype marker="#beam">beam()</seetype></string></subtype>
+        <subtype><typename>AdditionalChunks</typename><string>AdditionalChunks = [<seetype marker="#chunkid">chunkid()</seetype>]</string></subtype>
+        <subtype><typename>Beam2</typename><string>Beam2 = <seetype marker="#beam">beam()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AdditionalChunks</anno>
+  <anno>Beam1</anno>
+  <anno>Beam2</anno>
+</spec>
+<spec>
+  <name>strip_files</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>strip_files(Files) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [{<seetype marker="erlang#module">module()</seetype>, Beam}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, beam_lib, <seetype marker="#info_rsn">info_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Files</typename><string>Files = [<seetype marker="#beam">beam()</seetype>]</string></subtype>
+        <subtype><typename>Beam</typename><string>Beam = <seetype marker="#beam">beam()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Beam</anno>
+  <anno>Files</anno>
+</spec>
+<spec>
+  <name>strip_files</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>strip_files(Files, AdditionalChunks) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [{<seetype marker="erlang#module">module()</seetype>, Beam}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, beam_lib, <seetype marker="#info_rsn">info_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Files</typename><string>Files = [<seetype marker="#beam">beam()</seetype>]</string></subtype>
+        <subtype><typename>AdditionalChunks</typename><string>AdditionalChunks = [<seetype marker="#chunkid">chunkid()</seetype>]</string></subtype>
+        <subtype><typename>Beam</typename><string>Beam = <seetype marker="#beam">beam()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AdditionalChunks</anno>
+  <anno>Beam</anno>
+  <anno>Files</anno>
+</spec>
+<spec>
+  <name>strip_release</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>strip_release(Dir) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [{<seetype marker="erlang#module">module()</seetype>, <seetype marker="file#filename">file:filename()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, beam_lib, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {not_a_directory, <seetype marker="erlang#term">term()</seetype>} | <seetype marker="#info_rsn">info_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>strip_release</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>strip_release(Dir, AdditionalChunks) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [{<seetype marker="erlang#module">module()</seetype>, <seetype marker="file#filename">file:filename()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, beam_lib, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>AdditionalChunks</typename><string>AdditionalChunks = [<seetype marker="#chunkid">chunkid()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {not_a_directory, <seetype marker="erlang#term">term()</seetype>} | <seetype marker="#info_rsn">info_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AdditionalChunks</anno>
+  <anno>Dir</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>terminate(Reason :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#state{crypto_key_f = <seetype marker="#crypto_fun">crypto_fun()</seetype> | undefined}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>version</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>version(Beam) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {<seetype marker="erlang#module">module()</seetype>, [Version :: <seetype marker="erlang#term">term()</seetype>]}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, beam_lib, <seetype marker="#chnk_rsn">chnk_rsn()</seetype>}</head>
+      <guard>
+        <subtype><typename>Beam</typename><string>Beam = <seetype marker="#beam">beam()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Beam</anno>
+  <anno>Version</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:18.</timestamp>
+</module>

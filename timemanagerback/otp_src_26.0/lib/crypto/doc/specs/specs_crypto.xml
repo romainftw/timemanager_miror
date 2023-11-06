@@ -1,0 +1,1908 @@
+<module name="crypto">
+<type>
+  <name>blake2</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-blake2">blake2()</marker> = blake2b | blake2s</typehead></typedecl>
+</type>
+<type>
+  <name>cipher</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher">cipher()</marker> = <seetype marker="#cipher_no_iv">cipher_no_iv()</seetype> | <seetype marker="#cipher_iv">cipher_iv()</seetype> | <seetype marker="#cipher_aead">cipher_aead()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>cipher_aead</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher_aead">cipher_aead()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_128_ccm | aes_192_ccm | aes_256_ccm | aes_ccm |<br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_128_gcm | aes_192_gcm | aes_256_gcm | aes_gcm |<br/><nbsp/><nbsp/><nbsp/><nbsp/>chacha20_poly1305</typehead></typedecl>
+</type>
+<type>
+  <name>cipher_iv</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher_iv">cipher_iv()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_128_cbc | aes_192_cbc | aes_256_cbc | aes_cbc |<br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_128_ofb | aes_192_ofb | aes_256_ofb | aes_128_cfb128 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_192_cfb128 | aes_256_cfb128 | aes_cfb128 | aes_128_cfb8 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_192_cfb8 | aes_256_cfb8 | aes_cfb8 | aes_128_ctr |<br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_192_ctr | aes_256_ctr | aes_ctr | blowfish_cbc |<br/><nbsp/><nbsp/><nbsp/><nbsp/>blowfish_cfb64 | blowfish_ofb64 | chacha20 | des_ede3_cbc |<br/><nbsp/><nbsp/><nbsp/><nbsp/>des_ede3_cfb | des_cbc | des_cfb | rc2_cbc</typehead></typedecl>
+</type>
+<type>
+  <name>cipher_no_iv</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher_no_iv">cipher_no_iv()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_128_ecb | aes_192_ecb | aes_256_ecb | aes_ecb |<br/><nbsp/><nbsp/><nbsp/><nbsp/>blowfish_ecb | des_ecb | rc4</typehead></typedecl>
+</type>
+<type>
+  <name>cmac_cipher_algorithm</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cmac_cipher_algorithm">cmac_cipher_algorithm()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_128_cbc | aes_192_cbc | aes_256_cbc | aes_cbc |<br/><nbsp/><nbsp/><nbsp/><nbsp/>blowfish_cbc | des_cbc | des_ede3_cbc | rc2_cbc</typehead></typedecl>
+</type>
+<type>
+  <name>compatibility_only_hash</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-compatibility_only_hash">compatibility_only_hash()</marker> = md5 | md4</typehead></typedecl>
+</type>
+<type>
+  <name>crypto_integer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crypto_integer">crypto_integer()</marker> = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>crypto_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crypto_opt">crypto_opt()</marker> = {encrypt, <seetype marker="erlang#boolean">boolean()</seetype>} | {padding, <seetype marker="#padding">padding()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>crypto_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crypto_opts">crypto_opts()</marker> = <seetype marker="erlang#boolean">boolean()</seetype> | [<seetype marker="#crypto_opt">crypto_opt()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>crypto_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crypto_state">crypto_state()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>cryptolib_padding</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cryptolib_padding">cryptolib_padding()</marker> = none | pkcs_padding</typehead></typedecl>
+</type>
+<type>
+  <name>dh_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dh_params">dh_params()</marker> = [<seetype marker="#key_integer">key_integer()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>dh_private</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dh_private">dh_private()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dh_public</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dh_public">dh_public()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dss_digest_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dss_digest_type">dss_digest_type()</marker> = <seetype marker="#sha1">sha1()</seetype> | <seetype marker="#sha2">sha2()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dss_private</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dss_private">dss_private()</marker> = [<seetype marker="#key_integer">key_integer()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>dss_public</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dss_public">dss_public()</marker> = [<seetype marker="#key_integer">key_integer()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>ec_basis</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ec_basis">ec_basis()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{tpbasis, K :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ppbasis,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>K1 :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>K2 :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>K3 :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>onbasis</typehead></typedecl>
+  <anno>K</anno>
+  <anno>K1</anno>
+  <anno>K2</anno>
+  <anno>K3</anno>
+</type>
+<type>
+  <name>ec_characteristic_two_field</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ec_characteristic_two_field">ec_characteristic_two_field()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{characteristic_two_field,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>M :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Basis :: <seetype marker="#ec_basis">ec_basis()</seetype>}</typehead></typedecl>
+  <anno>Basis</anno>
+  <anno>M</anno>
+</type>
+<type>
+  <name>ec_curve</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ec_curve">ec_curve()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{A :: <seetype marker="erlang#binary">binary()</seetype>, B :: <seetype marker="erlang#binary">binary()</seetype>, Seed :: none | <seetype marker="erlang#binary">binary()</seetype>}</typehead></typedecl>
+  <anno>A</anno>
+  <anno>B</anno>
+  <anno>Seed</anno>
+</type>
+<type>
+  <name>ec_explicit_curve</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ec_explicit_curve">ec_explicit_curve()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Field :: <seetype marker="#ec_field">ec_field()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Curve :: <seetype marker="#ec_curve">ec_curve()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>BasePoint :: <seetype marker="erlang#binary">binary()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Order :: <seetype marker="erlang#binary">binary()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CoFactor :: none | <seetype marker="erlang#binary">binary()</seetype>}</typehead></typedecl>
+  <anno>BasePoint</anno>
+  <anno>CoFactor</anno>
+  <anno>Curve</anno>
+  <anno>Field</anno>
+  <anno>Order</anno>
+</type>
+<type>
+  <name>ec_field</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ec_field">ec_field()</marker> = <seetype marker="#ec_prime_field">ec_prime_field()</seetype> | <seetype marker="#ec_characteristic_two_field">ec_characteristic_two_field()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ec_named_curve</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ec_named_curve">ec_named_curve()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>brainpoolP160r1 | brainpoolP160t1 | brainpoolP192r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>brainpoolP192t1 | brainpoolP224r1 | brainpoolP224t1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>brainpoolP256r1 | brainpoolP256t1 | brainpoolP320r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>brainpoolP320t1 | brainpoolP384r1 | brainpoolP384t1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>brainpoolP512r1 | brainpoolP512t1 | c2pnb163v1 | c2pnb163v2 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>c2pnb163v3 | c2pnb176v1 | c2pnb208w1 | c2pnb272w1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>c2pnb304w1 | c2pnb368w1 | c2tnb191v1 | c2tnb191v2 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>c2tnb191v3 | c2tnb239v1 | c2tnb239v2 | c2tnb239v3 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>c2tnb359v1 | c2tnb431r1 | ipsec3 | ipsec4 | prime192v1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>prime192v2 | prime192v3 | prime239v1 | prime239v2 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>prime239v3 | prime256v1 | secp112r1 | secp112r2 | secp128r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>secp128r2 | secp160k1 | secp160r1 | secp160r2 | secp192k1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>secp192r1 | secp224k1 | secp224r1 | secp256k1 | secp256r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>secp384r1 | secp521r1 | sect113r1 | sect113r2 | sect131r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sect131r2 | sect163k1 | sect163r1 | sect163r2 | sect193r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sect193r2 | sect233k1 | sect233r1 | sect239k1 | sect283k1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sect283r1 | sect409k1 | sect409r1 | sect571k1 | sect571r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>wtls1 | wtls10 | wtls11 | wtls12 | wtls3 | wtls4 | wtls5 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>wtls6 | wtls7 | wtls8 | wtls9</typehead></typedecl>
+</type>
+<type>
+  <name>ec_prime_field</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ec_prime_field">ec_prime_field()</marker> = {prime_field, Prime :: <seetype marker="erlang#integer">integer()</seetype>}</typehead></typedecl>
+  <anno>Prime</anno>
+</type>
+<type>
+  <name>ecdh_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ecdh_params">ecdh_params()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ec_named_curve">ec_named_curve()</seetype> | <seetype marker="#edwards_curve_dh">edwards_curve_dh()</seetype> | <seetype marker="#ec_explicit_curve">ec_explicit_curve()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ecdh_private</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ecdh_private">ecdh_private()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ecdh_public</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ecdh_public">ecdh_public()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ecdsa_digest_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ecdsa_digest_type">ecdsa_digest_type()</marker> = <seetype marker="#sha1">sha1()</seetype> | <seetype marker="#sha2">sha2()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ecdsa_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ecdsa_params">ecdsa_params()</marker> = <seetype marker="#ec_named_curve">ec_named_curve()</seetype> | <seetype marker="#ec_explicit_curve">ec_explicit_curve()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ecdsa_private</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ecdsa_private">ecdsa_private()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ecdsa_public</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ecdsa_public">ecdsa_public()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>eddsa_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-eddsa_params">eddsa_params()</marker> = <seetype marker="#edwards_curve_ed">edwards_curve_ed()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>eddsa_private</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-eddsa_private">eddsa_private()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>eddsa_public</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-eddsa_public">eddsa_public()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>edwards_curve_dh</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-edwards_curve_dh">edwards_curve_dh()</marker> = x25519 | x448</typehead></typedecl>
+</type>
+<type>
+  <name>edwards_curve_ed</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-edwards_curve_ed">edwards_curve_ed()</marker> = ed25519 | ed448</typehead></typedecl>
+</type>
+<type>
+  <name>engine_cmnd</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-engine_cmnd">engine_cmnd()</marker> = {<seetype marker="unicode#chardata">unicode:chardata()</seetype>, <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>engine_key_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-engine_key_ref">engine_key_ref()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{engine := <seetype marker="#engine_ref">engine_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>key_id := <seetype marker="#key_id">key_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>password =&gt; <seetype marker="#password">password()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>engine_method_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-engine_method_type">engine_method_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>engine_method_rsa | engine_method_dsa | engine_method_dh |<br/><nbsp/><nbsp/><nbsp/><nbsp/>engine_method_rand | engine_method_ecdh |<br/><nbsp/><nbsp/><nbsp/><nbsp/>engine_method_ecdsa | engine_method_ciphers |<br/><nbsp/><nbsp/><nbsp/><nbsp/>engine_method_digests | engine_method_store |<br/><nbsp/><nbsp/><nbsp/><nbsp/>engine_method_pkey_meths | engine_method_pkey_asn1_meths |<br/><nbsp/><nbsp/><nbsp/><nbsp/>engine_method_ec</typehead></typedecl>
+</type>
+<type>
+  <name>engine_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-engine_ref">engine_ref()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>hash_algorithm</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hash_algorithm">hash_algorithm()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha1">sha1()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha2">sha2()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha3">sha3()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha3_xof">sha3_xof()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#blake2">blake2()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>ripemd160 |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#compatibility_only_hash">compatibility_only_hash()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>hash_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hash_state">hash_state()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>hash_xof_algorithm</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hash_xof_algorithm">hash_xof_algorithm()</marker> = <seetype marker="#sha3_xof">sha3_xof()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>hmac_hash_algorithm</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hmac_hash_algorithm">hmac_hash_algorithm()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha1">sha1()</seetype> | <seetype marker="#sha2">sha2()</seetype> | <seetype marker="#sha3">sha3()</seetype> | <seetype marker="#compatibility_only_hash">compatibility_only_hash()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>key_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_id">key_id()</marker> = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>key_integer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_integer">key_integer()</marker> = <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>mac_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mac_state">mac_state()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>otp_padding</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-otp_padding">otp_padding()</marker> = zero | random</typehead></typedecl>
+</type>
+<type>
+  <name>padding</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-padding">padding()</marker> = <seetype marker="#cryptolib_padding">cryptolib_padding()</seetype> | <seetype marker="#otp_padding">otp_padding()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>password</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-password">password()</marker> = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>pk_encrypt_decrypt_algs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pk_encrypt_decrypt_algs">pk_encrypt_decrypt_algs()</marker> = rsa</typehead></typedecl>
+</type>
+<type>
+  <name>pk_encrypt_decrypt_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pk_encrypt_decrypt_opts">pk_encrypt_decrypt_opts()</marker> = [<seetype marker="#rsa_opt">rsa_opt()</seetype>] | <seetype marker="#rsa_compat_opts">rsa_compat_opts()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>pk_sign_verify_algs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pk_sign_verify_algs">pk_sign_verify_algs()</marker> = rsa | dss | ecdsa | eddsa</typehead></typedecl>
+</type>
+<type>
+  <name>pk_sign_verify_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pk_sign_verify_opts">pk_sign_verify_opts()</marker> = [<seetype marker="#rsa_sign_verify_opt">rsa_sign_verify_opt()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>rand_cache_seed</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rand_cache_seed">rand_cache_seed()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#nonempty_improper_list">nonempty_improper_list</seetype>(<seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>, <seetype marker="erlang#binary">binary()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_compat_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_compat_opts">rsa_compat_opts()</marker> = [{rsa_pad, <seetype marker="#rsa_padding">rsa_padding()</seetype>}] | <seetype marker="#rsa_padding">rsa_padding()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>rsa_digest_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_digest_type">rsa_digest_type()</marker> = <seetype marker="#sha1">sha1()</seetype> | <seetype marker="#sha2">sha2()</seetype> | md5 | ripemd160</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_opt">rsa_opt()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa_padding, <seetype marker="#rsa_padding">rsa_padding()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{signature_md, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa_mgf1_md, sha} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa_oaep_label, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa_oaep_md, sha}</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_padding</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_padding">rsa_padding()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa_pkcs1_padding | rsa_pkcs1_oaep_padding |<br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa_sslv23_padding | rsa_x931_padding | rsa_no_padding</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_params">rsa_params()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ModulusSizeInBits :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PublicExponent :: <seetype marker="#key_integer">key_integer()</seetype>}</typehead></typedecl>
+  <anno>ModulusSizeInBits</anno>
+  <anno>PublicExponent</anno>
+</type>
+<type>
+  <name>rsa_private</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_private">rsa_private()</marker> = [<seetype marker="#key_integer">key_integer()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_public</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_public">rsa_public()</marker> = [<seetype marker="#key_integer">key_integer()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_sign_verify_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_sign_verify_opt">rsa_sign_verify_opt()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa_padding, <seetype marker="#rsa_sign_verify_padding">rsa_sign_verify_padding()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa_pss_saltlen, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa_mgf1_md, <seetype marker="#sha2">sha2()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_sign_verify_padding</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_sign_verify_padding">rsa_sign_verify_padding()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa_pkcs1_padding | rsa_pkcs1_pss_padding | rsa_x931_padding |<br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa_no_padding</typehead></typedecl>
+</type>
+<type>
+  <name>sha1</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sha1">sha1()</marker> = sha</typehead></typedecl>
+</type>
+<type>
+  <name>sha2</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sha2">sha2()</marker> = sha224 | sha256 | sha384 | sha512</typehead></typedecl>
+</type>
+<type>
+  <name>sha3</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sha3">sha3()</marker> = sha3_224 | sha3_256 | sha3_384 | sha3_512</typehead></typedecl>
+</type>
+<type>
+  <name>sha3_xof</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sha3_xof">sha3_xof()</marker> = shake128 | shake256</typehead></typedecl>
+</type>
+<type>
+  <name>srp_comp_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_comp_params">srp_comp_params()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{user, <seetype marker="#srp_user_comp_params">srp_user_comp_params()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{host, <seetype marker="#srp_host_comp_params">srp_host_comp_params()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>srp_gen_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_gen_params">srp_gen_params()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{user, <seetype marker="#srp_user_gen_params">srp_user_gen_params()</seetype>} | {host, <seetype marker="#srp_host_gen_params">srp_host_gen_params()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>srp_host_comp_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_host_comp_params">srp_host_comp_params()</marker> = [<seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#atom">atom()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>srp_host_gen_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_host_gen_params">srp_host_gen_params()</marker> = [<seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#list">list()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>srp_private</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_private">srp_private()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>srp_public</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_public">srp_public()</marker> = <seetype marker="#key_integer">key_integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>srp_user_comp_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_user_comp_params">srp_user_comp_params()</marker> = [<seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#atom">atom()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>srp_user_gen_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_user_gen_params">srp_user_gen_params()</marker> = [<seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#list">list()</seetype>]</typehead></typedecl>
+</type>
+<spec>
+  <name>bytes_to_integer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>bytes_to_integer(Bin :: <seetype marker="erlang#binary">binary()</seetype>) -&gt; <seetype marker="erlang#integer">integer()</seetype></head></clause>
+  </contract>
+  <anno>Bin</anno>
+</spec>
+<spec>
+  <name>cipher_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cipher_info(Type) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#cipher">cipher()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{key_length := <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>iv_length := <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>block_size := <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>mode := CipherModes,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>type := undefined | <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>prop_aead := <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>CipherModes</typename><string>CipherModes = <br/><nbsp/><nbsp/><nbsp/><nbsp/>undefined | cbc_mode | ccm_mode | cfb_mode | ctr_mode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>ecb_mode | gcm_mode | ige_mode | ocb_mode | ofb_mode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>wrap_mode | xts_mode</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherModes</anno>
+  <anno>Result</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>compute_key</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>compute_key(Type, OthersPublicKey, MyPrivateKey, Params) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>SharedSecret</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = dh | ecdh | eddh | srp</string></subtype>
+        <subtype><typename>SharedSecret</typename><string>SharedSecret = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>OthersPublicKey</typename><string>OthersPublicKey = <seetype marker="#dh_public">dh_public()</seetype> | <seetype marker="#ecdh_public">ecdh_public()</seetype> | <seetype marker="#srp_public">srp_public()</seetype></string></subtype>
+        <subtype><typename>MyPrivateKey</typename><string>MyPrivateKey = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dh_private">dh_private()</seetype> | <seetype marker="#ecdh_private">ecdh_private()</seetype> | {<seetype marker="#srp_public">srp_public()</seetype>, <seetype marker="#srp_private">srp_private()</seetype>}</string></subtype>
+        <subtype><typename>Params</typename><string>Params = <seetype marker="#dh_params">dh_params()</seetype> | <seetype marker="#ecdh_params">ecdh_params()</seetype> | <seetype marker="#srp_comp_params">srp_comp_params()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>MyPrivateKey</anno>
+  <anno>OthersPublicKey</anno>
+  <anno>Params</anno>
+  <anno>SharedSecret</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>crypto_dyn_iv_init</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>crypto_dyn_iv_init(Cipher, Key, FlagOrOptions) -&gt; State</head>
+      <guard>
+        <subtype><typename>Cipher</typename><string>Cipher = <seetype marker="#cipher_iv">cipher_iv()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>FlagOrOptions</typename><string>FlagOrOptions = <seetype marker="#crypto_opts">crypto_opts()</seetype> | <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>State</typename><string>State = <seetype marker="#crypto_state">crypto_state()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cipher</anno>
+  <anno>FlagOrOptions</anno>
+  <anno>Key</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>crypto_dyn_iv_update</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>crypto_dyn_iv_update(State, Data, IV) -&gt; Result</head>
+      <guard>
+        <subtype><typename>State</typename><string>State = <seetype marker="#crypto_state">crypto_state()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = IV = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>IV</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>IV</anno>
+  <anno>Result</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>crypto_final</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>crypto_final(State) -&gt; FinalResult</head>
+      <guard>
+        <subtype><typename>State</typename><string>State = <seetype marker="#crypto_state">crypto_state()</seetype></string></subtype>
+        <subtype><typename>FinalResult</typename><string>FinalResult = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FinalResult</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>crypto_get_data</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>crypto_get_data(State) -&gt; Result</head>
+      <guard>
+        <subtype><typename>State</typename><string>State = <seetype marker="#crypto_state">crypto_state()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#map">map()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Result</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>crypto_init</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>crypto_init(Cipher, Key, FlagOrOptions) -&gt; State</head>
+      <guard>
+        <subtype><typename>Cipher</typename><string>Cipher = <seetype marker="#cipher_no_iv">cipher_no_iv()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>FlagOrOptions</typename><string>FlagOrOptions = <seetype marker="#crypto_opts">crypto_opts()</seetype> | <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>State</typename><string>State = <seetype marker="#crypto_state">crypto_state()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cipher</anno>
+  <anno>FlagOrOptions</anno>
+  <anno>Key</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>crypto_init</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>crypto_init(Cipher, Key, IV, FlagOrOptions) -&gt; State</head>
+      <guard>
+        <subtype><typename>Cipher</typename><string>Cipher = <seetype marker="#cipher_iv">cipher_iv()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = IV = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>IV</typename><string/></subtype>
+        <subtype><typename>FlagOrOptions</typename><string>FlagOrOptions = <seetype marker="#crypto_opts">crypto_opts()</seetype></string></subtype>
+        <subtype><typename>State</typename><string>State = <seetype marker="#crypto_state">crypto_state()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cipher</anno>
+  <anno>FlagOrOptions</anno>
+  <anno>IV</anno>
+  <anno>Key</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>crypto_one_time</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>crypto_one_time(Cipher, Key, Data, FlagOrOptions) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Cipher</typename><string>Cipher = <seetype marker="#cipher_no_iv">cipher_no_iv()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string/></subtype>
+        <subtype><typename>FlagOrOptions</typename><string>FlagOrOptions = <seetype marker="#crypto_opts">crypto_opts()</seetype> | <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cipher</anno>
+  <anno>Data</anno>
+  <anno>FlagOrOptions</anno>
+  <anno>Key</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>crypto_one_time</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>crypto_one_time(Cipher, Key, IV, Data, FlagOrOptions) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Cipher</typename><string>Cipher = <seetype marker="#cipher_iv">cipher_iv()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = IV = Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>IV</typename><string/></subtype>
+        <subtype><typename>Data</typename><string/></subtype>
+        <subtype><typename>FlagOrOptions</typename><string>FlagOrOptions = <seetype marker="#crypto_opts">crypto_opts()</seetype> | <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cipher</anno>
+  <anno>Data</anno>
+  <anno>FlagOrOptions</anno>
+  <anno>IV</anno>
+  <anno>Key</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>crypto_one_time_aead</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>crypto_one_time_aead(Cipher, Key, IV, InText, AAD,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>EncFlag :: true) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result</head>
+      <guard>
+        <subtype><typename>Cipher</typename><string>Cipher = <seetype marker="#cipher_aead">cipher_aead()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = IV = InText = AAD = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>IV</typename><string/></subtype>
+        <subtype><typename>InText</typename><string/></subtype>
+        <subtype><typename>AAD</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = EncryptResult</string></subtype>
+        <subtype><typename>EncryptResult</typename><string>EncryptResult = {OutCryptoText, OutTag}</string></subtype>
+        <subtype><typename>OutCryptoText</typename><string>OutCryptoText = OutTag = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>OutTag</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AAD</anno>
+  <anno>Cipher</anno>
+  <anno>EncFlag</anno>
+  <anno>EncryptResult</anno>
+  <anno>IV</anno>
+  <anno>InText</anno>
+  <anno>Key</anno>
+  <anno>OutCryptoText</anno>
+  <anno>OutTag</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>crypto_one_time_aead</name>
+  <arity>7</arity>
+  <contract>
+    <clause>
+      <head>crypto_one_time_aead(Cipher, Key, IV, InText, AAD, TagOrTagLength,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>EncFlag) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result</head>
+      <guard>
+        <subtype><typename>Cipher</typename><string>Cipher = <seetype marker="#cipher_aead">cipher_aead()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = IV = InText = AAD = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>IV</typename><string/></subtype>
+        <subtype><typename>InText</typename><string/></subtype>
+        <subtype><typename>AAD</typename><string/></subtype>
+        <subtype><typename>TagOrTagLength</typename><string>TagOrTagLength = EncryptTagLength | DecryptTag</string></subtype>
+        <subtype><typename>EncryptTagLength</typename><string>EncryptTagLength = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>DecryptTag</typename><string>DecryptTag = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>EncFlag</typename><string>EncFlag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = EncryptResult | DecryptResult</string></subtype>
+        <subtype><typename>EncryptResult</typename><string>EncryptResult = {OutCryptoText, OutTag}</string></subtype>
+        <subtype><typename>DecryptResult</typename><string>DecryptResult = OutPlainText | error</string></subtype>
+        <subtype><typename>OutCryptoText</typename><string>OutCryptoText = OutTag = OutPlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>OutTag</typename><string></string></subtype>
+        <subtype><typename>OutPlainText</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AAD</anno>
+  <anno>Cipher</anno>
+  <anno>DecryptResult</anno>
+  <anno>DecryptTag</anno>
+  <anno>EncFlag</anno>
+  <anno>EncryptResult</anno>
+  <anno>EncryptTagLength</anno>
+  <anno>IV</anno>
+  <anno>InText</anno>
+  <anno>Key</anno>
+  <anno>OutCryptoText</anno>
+  <anno>OutPlainText</anno>
+  <anno>OutTag</anno>
+  <anno>Result</anno>
+  <anno>TagOrTagLength</anno>
+</spec>
+<spec>
+  <name>crypto_update</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>crypto_update(State, Data) -&gt; Result</head>
+      <guard>
+        <subtype><typename>State</typename><string>State = <seetype marker="#crypto_state">crypto_state()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Result</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>ec_curve</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ec_curve(CurveName) -&gt; ExplicitCurve</head>
+      <guard>
+        <subtype><typename>CurveName</typename><string>CurveName = <seetype marker="#ec_named_curve">ec_named_curve()</seetype></string></subtype>
+        <subtype><typename>ExplicitCurve</typename><string>ExplicitCurve = <seetype marker="#ec_explicit_curve">ec_explicit_curve()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CurveName</anno>
+  <anno>ExplicitCurve</anno>
+</spec>
+<spec>
+  <name>ec_curves</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>ec_curves() -&gt; [EllipticCurve]</head>
+      <guard>
+        <subtype><typename>EllipticCurve</typename><string>EllipticCurve = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ec_named_curve">ec_named_curve()</seetype> | <seetype marker="#edwards_curve_dh">edwards_curve_dh()</seetype> | <seetype marker="#edwards_curve_ed">edwards_curve_ed()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EllipticCurve</anno>
+</spec>
+<spec>
+  <name>enable_fips_mode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>enable_fips_mode(Enable) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Enable</typename><string>Enable = Result = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Enable</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_add</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>engine_add(Engine) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_by_id</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>engine_by_id(EngineId) -&gt; Result</head>
+      <guard>
+        <subtype><typename>EngineId</typename><string>EngineId = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Engine :: <seetype marker="#engine_ref">engine_ref()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineId</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_ctrl_cmd_string</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>engine_ctrl_cmd_string(Engine, CmdName, CmdArg) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>CmdName</typename><string>CmdName = CmdArg = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>CmdArg</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CmdArg</anno>
+  <anno>CmdName</anno>
+  <anno>Engine</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_ctrl_cmd_string</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>engine_ctrl_cmd_string(Engine, CmdName, CmdArg, Optional) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>CmdName</typename><string>CmdName = CmdArg = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>CmdArg</typename><string/></subtype>
+        <subtype><typename>Optional</typename><string>Optional = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CmdArg</anno>
+  <anno>CmdName</anno>
+  <anno>Engine</anno>
+  <anno>Optional</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_get_all_methods</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>engine_get_all_methods() -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = [<seetype marker="#engine_method_type">engine_method_type()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_get_id</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>engine_get_id(Engine) -&gt; EngineId</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>EngineId</typename><string>EngineId = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineId</anno>
+</spec>
+<spec>
+  <name>engine_get_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>engine_get_name(Engine) -&gt; EngineName</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>EngineName</typename><string>EngineName = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineName</anno>
+</spec>
+<spec>
+  <name>engine_list</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>engine_list() -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = [EngineId :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EngineId</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_load</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>engine_load(EngineId, PreCmds, PostCmds) -&gt; Result</head>
+      <guard>
+        <subtype><typename>EngineId</typename><string>EngineId = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>PreCmds</typename><string>PreCmds = PostCmds = [<seetype marker="#engine_cmnd">engine_cmnd()</seetype>]</string></subtype>
+        <subtype><typename>PostCmds</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Engine :: <seetype marker="#engine_ref">engine_ref()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineId</anno>
+  <anno>PostCmds</anno>
+  <anno>PreCmds</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_load</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>engine_load(EngineId, PreCmds, PostCmds, EngineMethods) -&gt; Result</head>
+      <guard>
+        <subtype><typename>EngineId</typename><string>EngineId = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>PreCmds</typename><string>PreCmds = PostCmds = [<seetype marker="#engine_cmnd">engine_cmnd()</seetype>]</string></subtype>
+        <subtype><typename>PostCmds</typename><string/></subtype>
+        <subtype><typename>EngineMethods</typename><string>EngineMethods = [<seetype marker="#engine_method_type">engine_method_type()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Engine :: <seetype marker="#engine_ref">engine_ref()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineId</anno>
+  <anno>EngineMethods</anno>
+  <anno>PostCmds</anno>
+  <anno>PreCmds</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_methods_convert_to_bitmask</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>engine_register</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>engine_register(Engine, EngineMethods) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>EngineMethods</typename><string>EngineMethods = [<seetype marker="#engine_method_type">engine_method_type()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineMethods</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_remove</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>engine_remove(Engine) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_unload</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>engine_unload(Engine) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_unload</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>engine_unload(Engine, EngineMethods) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>EngineMethods</typename><string>EngineMethods = [<seetype marker="#engine_method_type">engine_method_type()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineMethods</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>engine_unregister</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>engine_unregister(Engine, EngineMethods) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>EngineMethods</typename><string>EngineMethods = [<seetype marker="#engine_method_type">engine_method_type()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineMethods</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>ensure_engine_loaded</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>ensure_engine_loaded(EngineId, LibPath) -&gt; Result</head>
+      <guard>
+        <subtype><typename>EngineId</typename><string>EngineId = LibPath = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>LibPath</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Engine :: <seetype marker="#engine_ref">engine_ref()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineId</anno>
+  <anno>LibPath</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>ensure_engine_loaded</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>ensure_engine_loaded(EngineId, LibPath, EngineMethods) -&gt; Result</head>
+      <guard>
+        <subtype><typename>EngineId</typename><string>EngineId = LibPath = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>LibPath</typename><string/></subtype>
+        <subtype><typename>EngineMethods</typename><string>EngineMethods = [<seetype marker="#engine_method_type">engine_method_type()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Engine :: <seetype marker="#engine_ref">engine_ref()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineId</anno>
+  <anno>EngineMethods</anno>
+  <anno>LibPath</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>ensure_engine_unloaded</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ensure_engine_unloaded(Engine) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>ensure_engine_unloaded</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>ensure_engine_unloaded(Engine, EngineMethods) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Engine</typename><string>Engine = <seetype marker="#engine_ref">engine_ref()</seetype></string></subtype>
+        <subtype><typename>EngineMethods</typename><string>EngineMethods = [<seetype marker="#engine_method_type">engine_method_type()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Engine</anno>
+  <anno>EngineMethods</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>exor</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>exor(Bin1 :: <seetype marker="erlang#iodata">iodata()</seetype>, Bin2 :: <seetype marker="erlang#iodata">iodata()</seetype>) -&gt; <seetype marker="erlang#binary">binary()</seetype></head></clause>
+  </contract>
+  <anno>Bin1</anno>
+  <anno>Bin2</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>generate_key</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>generate_key(Type, Params) -&gt; {PublicKey, PrivKeyOut}</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = dh | ecdh | eddh | eddsa | rsa | srp</string></subtype>
+        <subtype><typename>PublicKey</typename><string>PublicKey = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dh_public">dh_public()</seetype> | <seetype marker="#ecdh_public">ecdh_public()</seetype> | <seetype marker="#rsa_public">rsa_public()</seetype> | <seetype marker="#srp_public">srp_public()</seetype></string></subtype>
+        <subtype><typename>PrivKeyOut</typename><string>PrivKeyOut = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dh_private">dh_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecdh_private">ecdh_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_private">rsa_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#srp_public">srp_public()</seetype>, <seetype marker="#srp_private">srp_private()</seetype>}</string></subtype>
+        <subtype><typename>Params</typename><string>Params = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dh_params">dh_params()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecdh_params">ecdh_params()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#eddsa_params">eddsa_params()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_params">rsa_params()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#srp_gen_params">srp_gen_params()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Params</anno>
+  <anno>PrivKeyOut</anno>
+  <anno>PublicKey</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>generate_key</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>generate_key(Type, Params, PrivKeyIn) -&gt; {PublicKey, PrivKeyOut}</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = dh | ecdh | eddh | eddsa | rsa | srp</string></subtype>
+        <subtype><typename>PublicKey</typename><string>PublicKey = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dh_public">dh_public()</seetype> | <seetype marker="#ecdh_public">ecdh_public()</seetype> | <seetype marker="#rsa_public">rsa_public()</seetype> | <seetype marker="#srp_public">srp_public()</seetype></string></subtype>
+        <subtype><typename>PrivKeyIn</typename><string>PrivKeyIn = <br/><nbsp/><nbsp/><nbsp/><nbsp/>undefined |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dh_private">dh_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecdh_private">ecdh_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_private">rsa_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#srp_public">srp_public()</seetype>, <seetype marker="#srp_private">srp_private()</seetype>}</string></subtype>
+        <subtype><typename>PrivKeyOut</typename><string>PrivKeyOut = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dh_private">dh_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecdh_private">ecdh_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_private">rsa_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#srp_public">srp_public()</seetype>, <seetype marker="#srp_private">srp_private()</seetype>}</string></subtype>
+        <subtype><typename>Params</typename><string>Params = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dh_params">dh_params()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecdh_params">ecdh_params()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#eddsa_params">eddsa_params()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_params">rsa_params()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#srp_comp_params">srp_comp_params()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Params</anno>
+  <anno>PrivKeyIn</anno>
+  <anno>PrivKeyOut</anno>
+  <anno>PublicKey</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>get_test_engine</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hash</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hash(Type, Data) -&gt; Digest</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#hash_algorithm">hash_algorithm()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Digest</typename><string>Digest = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Digest</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>hash_equals</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hash_equals(BinA, BinB) -&gt; Result</head>
+      <guard>
+        <subtype><typename>BinA</typename><string>BinA = BinB = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>BinB</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BinA</anno>
+  <anno>BinB</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>hash_final</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hash_final(State) -&gt; Digest</head>
+      <guard>
+        <subtype><typename>State</typename><string>State = <seetype marker="#hash_state">hash_state()</seetype></string></subtype>
+        <subtype><typename>Digest</typename><string>Digest = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Digest</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>hash_final_xof</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hash_final_xof(State, Length) -&gt; Digest</head>
+      <guard>
+        <subtype><typename>State</typename><string>State = <seetype marker="#hash_state">hash_state()</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Digest</typename><string>Digest = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Digest</anno>
+  <anno>Length</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>hash_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hash_info(Type) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#hash_algorithm">hash_algorithm()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{size := <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>block_size := <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>type := <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Result</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>hash_init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hash_init(Type) -&gt; State</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#hash_algorithm">hash_algorithm()</seetype></string></subtype>
+        <subtype><typename>State</typename><string>State = <seetype marker="#hash_state">hash_state()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>State</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>hash_update</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hash_update(State, Data) -&gt; NewState</head>
+      <guard>
+        <subtype><typename>State</typename><string>State = NewState = <seetype marker="#hash_state">hash_state()</seetype></string></subtype>
+        <subtype><typename>NewState</typename><string/></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>NewState</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>hash_xof</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>hash_xof(Type, Data, Length) -&gt; Digest</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#hash_xof_algorithm">hash_xof_algorithm()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Digest</typename><string>Digest = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Digest</anno>
+  <anno>Length</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>info() -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#{compile_type := normal | debug | valgrind | asan,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cryptolib_version_compiled =&gt; <seetype marker="erlang#string">string()</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cryptolib_version_linked := <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>link_type := dynamic | static,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>otp_crypto_version := <seetype marker="erlang#string">string()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>info_fips</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>info_fips() -&gt; not_supported | not_enabled | enabled</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>info_lib</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>info_lib() -&gt; [{Name, VerNum, VerStr}]</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>VerNum</typename><string>VerNum = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>VerStr</typename><string>VerStr = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>VerNum</anno>
+  <anno>VerStr</anno>
+</spec>
+<spec>
+  <name>mac</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>mac(Type :: poly1305, Key, Data) -&gt; Mac</head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string/></subtype>
+        <subtype><typename>Mac</typename><string>Mac = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Key</anno>
+  <anno>Mac</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>mac</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>mac(Type, SubType, Key, Data) -&gt; Mac</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = hmac | cmac | poly1305</string></subtype>
+        <subtype><typename>SubType</typename><string>SubType = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#hmac_hash_algorithm">hmac_hash_algorithm()</seetype> | <seetype marker="#cmac_cipher_algorithm">cmac_cipher_algorithm()</seetype> | undefined</string></subtype>
+        <subtype><typename>Key</typename><string>Key = Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string/></subtype>
+        <subtype><typename>Mac</typename><string>Mac = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Key</anno>
+  <anno>Mac</anno>
+  <anno>SubType</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>macN</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>macN(Type :: poly1305, Key, Data, MacLength) -&gt; Mac</head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string/></subtype>
+        <subtype><typename>Mac</typename><string>Mac = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>MacLength</typename><string>MacLength = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Key</anno>
+  <anno>Mac</anno>
+  <anno>MacLength</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>macN</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>macN(Type, SubType, Key, Data, MacLength) -&gt; Mac</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = hmac | cmac | poly1305</string></subtype>
+        <subtype><typename>SubType</typename><string>SubType = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#hmac_hash_algorithm">hmac_hash_algorithm()</seetype> | <seetype marker="#cmac_cipher_algorithm">cmac_cipher_algorithm()</seetype> | undefined</string></subtype>
+        <subtype><typename>Key</typename><string>Key = Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string/></subtype>
+        <subtype><typename>Mac</typename><string>Mac = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>MacLength</typename><string>MacLength = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Key</anno>
+  <anno>Mac</anno>
+  <anno>MacLength</anno>
+  <anno>SubType</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>mac_final</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>mac_final(State) -&gt; Mac</head>
+      <guard>
+        <subtype><typename>State</typename><string>State = <seetype marker="#mac_state">mac_state()</seetype></string></subtype>
+        <subtype><typename>Mac</typename><string>Mac = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Mac</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>mac_finalN</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>mac_finalN(State, MacLength) -&gt; Mac</head>
+      <guard>
+        <subtype><typename>State</typename><string>State = <seetype marker="#mac_state">mac_state()</seetype></string></subtype>
+        <subtype><typename>MacLength</typename><string>MacLength = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Mac</typename><string>Mac = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Mac</anno>
+  <anno>MacLength</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>mac_init</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>mac_init(Type :: poly1305, Key) -&gt; State</head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>State</typename><string>State = <seetype marker="#mac_state">mac_state()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>State</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>mac_init</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>mac_init(Type, SubType, Key) -&gt; State</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = hmac | cmac | poly1305</string></subtype>
+        <subtype><typename>SubType</typename><string>SubType = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#hmac_hash_algorithm">hmac_hash_algorithm()</seetype> | <seetype marker="#cmac_cipher_algorithm">cmac_cipher_algorithm()</seetype> | undefined</string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>State</typename><string>State = <seetype marker="#mac_state">mac_state()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>State</anno>
+  <anno>SubType</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>mac_update</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>mac_update(State0, Data) -&gt; State</head>
+      <guard>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>State0</typename><string>State0 = State = <seetype marker="#mac_state">mac_state()</seetype></string></subtype>
+        <subtype><typename>State</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>State</anno>
+  <anno>State0</anno>
+</spec>
+<spec>
+  <name>mod_pow</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>mod_pow(N, P, M) -&gt; Result</head>
+      <guard>
+        <subtype><typename>N</typename><string>N = P = M = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>P</typename><string/></subtype>
+        <subtype><typename>M</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#binary">binary()</seetype> | error</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>M</anno>
+  <anno>N</anno>
+  <anno>P</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>packed_openssl_version</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>pbkdf2_hmac</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>pbkdf2_hmac(Digest, Pass, Salt, Iter, KeyLen) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Digest</typename><string>Digest = sha | sha224 | sha256 | sha384 | sha512</string></subtype>
+        <subtype><typename>Pass</typename><string>Pass = Salt = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Salt</typename><string/></subtype>
+        <subtype><typename>Iter</typename><string>Iter = KeyLen = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>KeyLen</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Digest</anno>
+  <anno>Iter</anno>
+  <anno>KeyLen</anno>
+  <anno>Pass</anno>
+  <anno>Result</anno>
+  <anno>Salt</anno>
+</spec>
+<spec>
+  <name>private_decrypt</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>private_decrypt(Algorithm, CipherText, PrivateKey, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PlainText</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="#pk_encrypt_decrypt_algs">pk_encrypt_decrypt_algs()</seetype></string></subtype>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>PrivateKey</typename><string>PrivateKey = <seetype marker="#rsa_private">rsa_private()</seetype> | <seetype marker="#engine_key_ref">engine_key_ref()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#pk_encrypt_decrypt_opts">pk_encrypt_decrypt_opts()</seetype></string></subtype>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>CipherText</anno>
+  <anno>Options</anno>
+  <anno>PlainText</anno>
+  <anno>PrivateKey</anno>
+</spec>
+<spec>
+  <name>private_encrypt</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>private_encrypt(Algorithm, PlainText, PrivateKey, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CipherText</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="#pk_encrypt_decrypt_algs">pk_encrypt_decrypt_algs()</seetype></string></subtype>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>PrivateKey</typename><string>PrivateKey = <seetype marker="#rsa_private">rsa_private()</seetype> | <seetype marker="#engine_key_ref">engine_key_ref()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#pk_encrypt_decrypt_opts">pk_encrypt_decrypt_opts()</seetype></string></subtype>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>CipherText</anno>
+  <anno>Options</anno>
+  <anno>PlainText</anno>
+  <anno>PrivateKey</anno>
+</spec>
+<spec>
+  <name>privkey_to_pubkey</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>privkey_to_pubkey(Type, EnginePrivateKeyRef) -&gt; PublicKey</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = rsa | dss</string></subtype>
+        <subtype><typename>EnginePrivateKeyRef</typename><string>EnginePrivateKeyRef = <seetype marker="#engine_key_ref">engine_key_ref()</seetype></string></subtype>
+        <subtype><typename>PublicKey</typename><string>PublicKey = <seetype marker="#rsa_public">rsa_public()</seetype> | <seetype marker="#dss_public">dss_public()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EnginePrivateKeyRef</anno>
+  <anno>PublicKey</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>public_decrypt</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>public_decrypt(Algorithm, CipherText, PublicKey, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PlainText</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="#pk_encrypt_decrypt_algs">pk_encrypt_decrypt_algs()</seetype></string></subtype>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>PublicKey</typename><string>PublicKey = <seetype marker="#rsa_public">rsa_public()</seetype> | <seetype marker="#engine_key_ref">engine_key_ref()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#pk_encrypt_decrypt_opts">pk_encrypt_decrypt_opts()</seetype></string></subtype>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>CipherText</anno>
+  <anno>Options</anno>
+  <anno>PlainText</anno>
+  <anno>PublicKey</anno>
+</spec>
+<spec>
+  <name>public_encrypt</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>public_encrypt(Algorithm, PlainText, PublicKey, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CipherText</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="#pk_encrypt_decrypt_algs">pk_encrypt_decrypt_algs()</seetype></string></subtype>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>PublicKey</typename><string>PublicKey = <seetype marker="#rsa_public">rsa_public()</seetype> | <seetype marker="#engine_key_ref">engine_key_ref()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#pk_encrypt_decrypt_opts">pk_encrypt_decrypt_opts()</seetype></string></subtype>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>CipherText</anno>
+  <anno>Options</anno>
+  <anno>PlainText</anno>
+  <anno>PublicKey</anno>
+</spec>
+<spec>
+  <name>rand_cache_plugin_next</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rand_plugin_aes_jump</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rand_plugin_aes_jump_2pow20</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rand_plugin_aes_next</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rand_plugin_next</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rand_plugin_uniform</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rand_plugin_uniform</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rand_seed</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>rand_seed() -&gt; <seetype marker="rand#state">rand:state()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>rand_seed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rand_seed(Seed :: <seetype marker="erlang#binary">binary()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Seed</anno>
+</spec>
+<spec>
+  <name>rand_seed_alg</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rand_seed_alg(Alg :: <seetype marker="erlang#atom">atom()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="rand#alg_handler">rand:alg_handler()</seetype>, <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="#rand_cache_seed">rand_cache_seed()</seetype>}</head></clause>
+  </contract>
+  <anno>Alg</anno>
+</spec>
+<spec>
+  <name>rand_seed_alg</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rand_seed_alg(Alg :: <seetype marker="erlang#atom">atom()</seetype>, Seed :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="rand#alg_handler">rand:alg_handler()</seetype>, <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="#rand_cache_seed">rand_cache_seed()</seetype>}</head></clause>
+  </contract>
+  <anno>Alg</anno>
+  <anno>Seed</anno>
+</spec>
+<spec>
+  <name>rand_seed_alg_s</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rand_seed_alg_s(Alg :: <seetype marker="erlang#atom">atom()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="rand#alg_handler">rand:alg_handler()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#atom">atom()</seetype> | <seetype marker="#rand_cache_seed">rand_cache_seed()</seetype>}</head></clause>
+  </contract>
+  <anno>Alg</anno>
+</spec>
+<spec>
+  <name>rand_seed_alg_s</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rand_seed_alg_s(Alg :: <seetype marker="erlang#atom">atom()</seetype>, Seed :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="rand#alg_handler">rand:alg_handler()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#atom">atom()</seetype> | <seetype marker="#rand_cache_seed">rand_cache_seed()</seetype>}</head></clause>
+  </contract>
+  <anno>Alg</anno>
+  <anno>Seed</anno>
+</spec>
+<spec>
+  <name>rand_seed_s</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>rand_seed_s() -&gt; <seetype marker="rand#state">rand:state()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>rand_uniform</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rand_uniform(From :: <seetype marker="#crypto_integer">crypto_integer()</seetype>, To :: <seetype marker="#crypto_integer">crypto_integer()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#crypto_integer">crypto_integer()</seetype></head></clause>
+  </contract>
+  <anno>From</anno>
+  <anno>To</anno>
+</spec>
+<spec>
+  <name>sign</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>sign(Algorithm, DigestType, Msg, Key) -&gt; Signature</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="#pk_sign_verify_algs">pk_sign_verify_algs()</seetype></string></subtype>
+        <subtype><typename>DigestType</typename><string>DigestType = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_digest_type">rsa_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dss_digest_type">dss_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecdsa_digest_type">ecdsa_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>none</string></subtype>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#iodata">iodata()</seetype> | {digest, <seetype marker="erlang#iodata">iodata()</seetype>}</string></subtype>
+        <subtype><typename>Key</typename><string>Key = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_private">rsa_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dss_private">dss_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#ecdsa_private">ecdsa_private()</seetype> | <seetype marker="#ecdsa_params">ecdsa_params()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#eddsa_private">eddsa_private()</seetype> | <seetype marker="#eddsa_params">eddsa_params()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#engine_key_ref">engine_key_ref()</seetype></string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>DigestType</anno>
+  <anno>Key</anno>
+  <anno>Msg</anno>
+  <anno>Signature</anno>
+</spec>
+<spec>
+  <name>sign</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>sign(Algorithm, DigestType, Msg, Key, Options) -&gt; Signature</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="#pk_sign_verify_algs">pk_sign_verify_algs()</seetype></string></subtype>
+        <subtype><typename>DigestType</typename><string>DigestType = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_digest_type">rsa_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dss_digest_type">dss_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecdsa_digest_type">ecdsa_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>none</string></subtype>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#iodata">iodata()</seetype> | {digest, <seetype marker="erlang#iodata">iodata()</seetype>}</string></subtype>
+        <subtype><typename>Key</typename><string>Key = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_private">rsa_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dss_private">dss_private()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#ecdsa_private">ecdsa_private()</seetype> | <seetype marker="#ecdsa_params">ecdsa_params()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#eddsa_private">eddsa_private()</seetype> | <seetype marker="#eddsa_params">eddsa_params()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#engine_key_ref">engine_key_ref()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#pk_sign_verify_opts">pk_sign_verify_opts()</seetype></string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>DigestType</anno>
+  <anno>Key</anno>
+  <anno>Msg</anno>
+  <anno>Options</anno>
+  <anno>Signature</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>strong_rand_bytes</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>strong_rand_bytes(N :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>) -&gt; <seetype marker="erlang#binary">binary()</seetype></head></clause>
+  </contract>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>supports</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>supports() -&gt; [Support]</head>
+      <guard>
+        <subtype><typename>Support</typename><string>Support = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{hashs, Hashs} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ciphers, Ciphers} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{public_keys, PKs} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{macs, Macs} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{curves, Curves} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa_opts, RSAopts}</string></subtype>
+        <subtype><typename>Hashs</typename><string>Hashs = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#sha1">sha1()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha2">sha2()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha3">sha3()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha3_xof">sha3_xof()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#blake2">blake2()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ripemd160 |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#compatibility_only_hash">compatibility_only_hash()</seetype>]</string></subtype>
+        <subtype><typename>Ciphers</typename><string>Ciphers = [<seetype marker="#cipher">cipher()</seetype>]</string></subtype>
+        <subtype><typename>PKs</typename><string>PKs = [rsa | dss | ecdsa | dh | ecdh | eddh | ec_gf2m]</string></subtype>
+        <subtype><typename>Macs</typename><string>Macs = [hmac | cmac | poly1305]</string></subtype>
+        <subtype><typename>Curves</typename><string>Curves = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#ec_named_curve">ec_named_curve()</seetype> | <seetype marker="#edwards_curve_dh">edwards_curve_dh()</seetype> | <seetype marker="#edwards_curve_ed">edwards_curve_ed()</seetype>]</string></subtype>
+        <subtype><typename>RSAopts</typename><string>RSAopts = [<seetype marker="#rsa_sign_verify_opt">rsa_sign_verify_opt()</seetype> | <seetype marker="#rsa_opt">rsa_opt()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ciphers</anno>
+  <anno>Curves</anno>
+  <anno>Hashs</anno>
+  <anno>Macs</anno>
+  <anno>PKs</anno>
+  <anno>RSAopts</anno>
+  <anno>Support</anno>
+</spec>
+<spec>
+  <name>supports</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>supports(Type) -&gt; Support</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = hashs | ciphers | public_keys | macs | curves | rsa_opts</string></subtype>
+        <subtype><typename>Support</typename><string>Support = Hashs | Ciphers | PKs | Macs | Curves | RSAopts</string></subtype>
+        <subtype><typename>Hashs</typename><string>Hashs = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#sha1">sha1()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha2">sha2()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha3">sha3()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sha3_xof">sha3_xof()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#blake2">blake2()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ripemd160 |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#compatibility_only_hash">compatibility_only_hash()</seetype>]</string></subtype>
+        <subtype><typename>Ciphers</typename><string>Ciphers = [<seetype marker="#cipher">cipher()</seetype>]</string></subtype>
+        <subtype><typename>PKs</typename><string>PKs = [rsa | dss | ecdsa | dh | ecdh | eddh | ec_gf2m]</string></subtype>
+        <subtype><typename>Macs</typename><string>Macs = [hmac | cmac | poly1305]</string></subtype>
+        <subtype><typename>Curves</typename><string>Curves = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#ec_named_curve">ec_named_curve()</seetype> | <seetype marker="#edwards_curve_dh">edwards_curve_dh()</seetype> | <seetype marker="#edwards_curve_ed">edwards_curve_ed()</seetype>]</string></subtype>
+        <subtype><typename>RSAopts</typename><string>RSAopts = [<seetype marker="#rsa_sign_verify_opt">rsa_sign_verify_opt()</seetype> | <seetype marker="#rsa_opt">rsa_opt()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ciphers</anno>
+  <anno>Curves</anno>
+  <anno>Hashs</anno>
+  <anno>Macs</anno>
+  <anno>PKs</anno>
+  <anno>RSAopts</anno>
+  <anno>Support</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>verify</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>verify(Algorithm, DigestType, Msg, Signature, Key) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="#pk_sign_verify_algs">pk_sign_verify_algs()</seetype></string></subtype>
+        <subtype><typename>DigestType</typename><string>DigestType = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_digest_type">rsa_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dss_digest_type">dss_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecdsa_digest_type">ecdsa_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>none</string></subtype>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#iodata">iodata()</seetype> | {digest, <seetype marker="erlang#iodata">iodata()</seetype>}</string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_public">rsa_public()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dss_public">dss_public()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#ecdsa_public">ecdsa_public()</seetype> | <seetype marker="#ecdsa_params">ecdsa_params()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#eddsa_public">eddsa_public()</seetype> | <seetype marker="#eddsa_params">eddsa_params()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#engine_key_ref">engine_key_ref()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>DigestType</anno>
+  <anno>Key</anno>
+  <anno>Msg</anno>
+  <anno>Result</anno>
+  <anno>Signature</anno>
+</spec>
+<spec>
+  <name>verify</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>verify(Algorithm, DigestType, Msg, Signature, Key, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result</head>
+      <guard>
+        <subtype><typename>Algorithm</typename><string>Algorithm = <seetype marker="#pk_sign_verify_algs">pk_sign_verify_algs()</seetype></string></subtype>
+        <subtype><typename>DigestType</typename><string>DigestType = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_digest_type">rsa_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dss_digest_type">dss_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecdsa_digest_type">ecdsa_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>none</string></subtype>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#iodata">iodata()</seetype> | {digest, <seetype marker="erlang#iodata">iodata()</seetype>}</string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_public">rsa_public()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dss_public">dss_public()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#ecdsa_public">ecdsa_public()</seetype> | <seetype marker="#ecdsa_params">ecdsa_params()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#eddsa_public">eddsa_public()</seetype> | <seetype marker="#eddsa_params">eddsa_params()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#engine_key_ref">engine_key_ref()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#pk_sign_verify_opts">pk_sign_verify_opts()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>DigestType</anno>
+  <anno>Key</anno>
+  <anno>Msg</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+  <anno>Signature</anno>
+</spec>
+<spec>
+  <name>version</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:18.</timestamp>
+</module>

@@ -1,0 +1,209 @@
+<module name="prettypr">
+<type>
+  <name>deep_string</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-deep_string">deep_string()</marker> = [<seetype marker="erlang#char">char()</seetype> | <seetype marker="erlang#deep_string">deep_string()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>document</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-document">document()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>null |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#text{s = <seetype marker="erlang#deep_string">deep_string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#nest{n = <seetype marker="erlang#integer">integer()</seetype>, d = <seetype marker="#document">document()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#beside{d1 = <seetype marker="#document">document()</seetype>, d2 = <seetype marker="#document">document()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#above{d1 = <seetype marker="#document">document()</seetype>, d2 = <seetype marker="#document">document()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sep{ds = [<seetype marker="#document">document()</seetype>], i = <seetype marker="erlang#integer">integer()</seetype>, p = <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#float{d = <seetype marker="#document">document()</seetype>, h = <seetype marker="erlang#integer">integer()</seetype>, v = <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#union{d1 = <seetype marker="#document">document()</seetype>, d2 = <seetype marker="#document">document()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#fit{d = <seetype marker="#document">document()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>above</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>above(D1 :: <seetype marker="#document">document()</seetype>, D2 :: <seetype marker="#document">document()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#above{d1 = <seetype marker="#document">document()</seetype>, d2 = <seetype marker="#document">document()</seetype>}</head></clause>
+  </contract>
+  <anno>D1</anno>
+  <anno>D2</anno>
+</spec>
+<spec>
+  <name>beside</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>beside(D1 :: <seetype marker="#document">document()</seetype>, D2 :: <seetype marker="#document">document()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#beside{d1 = <seetype marker="#document">document()</seetype>, d2 = <seetype marker="#document">document()</seetype>}</head></clause>
+  </contract>
+  <anno>D1</anno>
+  <anno>D2</anno>
+</spec>
+<spec>
+  <name>best</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>best(D :: <seetype marker="#document">document()</seetype>, W :: <seetype marker="erlang#integer">integer()</seetype>, R :: <seetype marker="erlang#integer">integer()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>empty | <seetype marker="#document">document()</seetype></head></clause>
+  </contract>
+  <anno>D</anno>
+  <anno>R</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>break</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>break(D :: <seetype marker="#document">document()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#above{d1 = <seetype marker="#document">document()</seetype>, d2 = <seetype marker="#document">document()</seetype>}</head></clause>
+  </contract>
+  <anno>D</anno>
+</spec>
+<spec>
+  <name>empty</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>empty() -&gt; null</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>floating</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>floating(D :: <seetype marker="#document">document()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#float{d = <seetype marker="#document">document()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>h = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>v = <seetype marker="erlang#integer">integer()</seetype>}</head></clause>
+  </contract>
+  <anno>D</anno>
+</spec>
+<spec>
+  <name>floating</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>floating(D :: <seetype marker="#document">document()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>, V :: <seetype marker="erlang#integer">integer()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#float{d = <seetype marker="#document">document()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>h = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>v = <seetype marker="erlang#integer">integer()</seetype>}</head></clause>
+  </contract>
+  <anno>D</anno>
+  <anno>H</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>follow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>follow(D1 :: <seetype marker="#document">document()</seetype>, D2 :: <seetype marker="#document">document()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#beside{d1 = <seetype marker="#document">document()</seetype>, d2 = <seetype marker="#document">document()</seetype>}</head></clause>
+  </contract>
+  <anno>D1</anno>
+  <anno>D2</anno>
+</spec>
+<spec>
+  <name>follow</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>follow(D1 :: <seetype marker="#document">document()</seetype>, D2 :: <seetype marker="#document">document()</seetype>, N :: <seetype marker="erlang#integer">integer()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#beside{d1 = <seetype marker="#document">document()</seetype>, d2 = <seetype marker="#document">document()</seetype>}</head></clause>
+  </contract>
+  <anno>D1</anno>
+  <anno>D2</anno>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format(D :: <seetype marker="#document">document()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>D</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format(D :: <seetype marker="#document">document()</seetype>, W :: <seetype marker="erlang#integer">integer()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>D</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>format(D :: <seetype marker="#document">document()</seetype>, W :: <seetype marker="erlang#integer">integer()</seetype>, R :: <seetype marker="erlang#integer">integer()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>D</anno>
+  <anno>R</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>nest</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>nest(N :: <seetype marker="erlang#integer">integer()</seetype>, D :: <seetype marker="#document">document()</seetype>) -&gt; <seetype marker="#document">document()</seetype></head></clause>
+  </contract>
+  <anno>D</anno>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>null_text</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>null_text(S :: <seetype marker="erlang#string">string()</seetype>) -&gt; #text{s = <seetype marker="erlang#deep_string">deep_string()</seetype>}</head></clause>
+  </contract>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>par</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>par(Ds :: [<seetype marker="#document">document()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#sep{ds = [<seetype marker="#document">document()</seetype>], i = <seetype marker="erlang#integer">integer()</seetype>, p = <seetype marker="erlang#boolean">boolean()</seetype>}</head></clause>
+  </contract>
+  <anno>Ds</anno>
+</spec>
+<spec>
+  <name>par</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>par(Ds :: [<seetype marker="#document">document()</seetype>], N :: <seetype marker="erlang#integer">integer()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#sep{ds = [<seetype marker="#document">document()</seetype>], i = <seetype marker="erlang#integer">integer()</seetype>, p = <seetype marker="erlang#boolean">boolean()</seetype>}</head></clause>
+  </contract>
+  <anno>Ds</anno>
+  <anno>N</anno>
+</spec>
+<spec>
+  <name>sep</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sep(Ds :: [<seetype marker="#document">document()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#sep{ds = [<seetype marker="#document">document()</seetype>], i = <seetype marker="erlang#integer">integer()</seetype>, p = <seetype marker="erlang#boolean">boolean()</seetype>}</head></clause>
+  </contract>
+  <anno>Ds</anno>
+</spec>
+<spec>
+  <name>text</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>text(S :: <seetype marker="erlang#string">string()</seetype>) -&gt; #text{s = <seetype marker="erlang#deep_string">deep_string()</seetype>}</head></clause>
+  </contract>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>text_par</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>text_par(S :: <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="#document">document()</seetype></head></clause>
+  </contract>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>text_par</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>text_par(S :: <seetype marker="erlang#string">string()</seetype>, N :: <seetype marker="erlang#integer">integer()</seetype>) -&gt; <seetype marker="#document">document()</seetype></head></clause>
+  </contract>
+  <anno>N</anno>
+  <anno>S</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:23.</timestamp>
+</module>

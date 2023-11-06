@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE chapter SYSTEM "chapter.dtd">
+<chapter>
+<header>
+<title>Erlang Syntax and Metaprogramming tools
+</title>
+<prepared></prepared>
+<docno></docno>
+<date></date>
+<rev></rev>
+<file>chapter.xml</file></header>
+<section>
+<title>Overview</title>
+<p>This package contains modules for handling abstract syntax trees (ASTs)
+in Erlang, in a way that is compatible with the "abstract format" parse
+trees of the stdlib module <c>erl_parse</c>, together with utilities for reading
+source files, <seeerl marker="erl_prettypr">pretty-printing syntax trees</seeerl>, and doing
+<seeerl marker="merl">metaprogramming</seeerl> in Erlang.</p>
+
+<p>The abstract layer (defined in <seeerl marker="erl_syntax">erl_syntax</seeerl>) is nicely
+structured and the node types are context-independent. The layer makes
+it possible to transparently attach source-code comments and user
+annotations to nodes of the tree. Using the abstract layer makes
+applications less sensitive to changes in the <seeerl marker="stdlib:erl_parse">erl_parse(3)</seeerl>
+data structures, only requiring the <c>erl_syntax</c> module to be up-to-date.</p>
+
+<p>The pretty printer <seeerl marker="erl_prettypr">erl_prettypr</seeerl> is implemented on top of the
+library module <seeerl marker="prettypr">prettypr</seeerl>: this is a powerful and flexible generic
+pretty printing library, which is also distributed separately.</p>
+
+<p>For a short demonstration of parsing and pretty-printing, simply
+compile the included module <url href="demo.erl">demo.erl</url>,
+and execute <c>demo:run()</c> from the Erlang shell. It will compile the
+remaining modules and give you further instructions.
+</p></section></chapter>

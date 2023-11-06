@@ -1,0 +1,1238 @@
+<module name="file">
+<type>
+  <name>date_time</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-date_time">date_time()</marker> = <seetype marker="calendar#datetime">calendar:datetime()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>deep_list</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-deep_list">deep_list()</marker> = [<seetype marker="erlang#char">char()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="#deep_list">deep_list()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>delete_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-delete_option">delete_option()</marker> = raw</typehead></typedecl>
+</type>
+<type>
+  <name>fd</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fd">fd()</marker> = #file_descriptor{module = <seetype marker="erlang#module">module()</seetype>, data = <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>file_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file_info">file_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#file_info{size = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>type =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>device | directory | other | regular |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>symlink | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>access =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>read | write | read_write | none | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>atime =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#date_time">file:date_time()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>mtime =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#date_time">file:date_time()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ctime =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#date_time">file:date_time()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>mode = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>links = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>major_device = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>minor_device = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>inode = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>uid = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>gid = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | undefined}</typehead></typedecl>
+</type>
+<type>
+  <name>file_info_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file_info_option">file_info_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{time, local} | {time, universal} | {time, posix} | raw</typehead></typedecl>
+</type>
+<type>
+  <name>filename</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-filename">filename()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>filename_all</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-filename_all">filename_all()</marker> = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>io_device</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-io_device">io_device()</marker> = <seetype marker="erlang#pid">pid()</seetype> | <seetype marker="#fd">fd()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>location</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-location">location()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#integer">integer()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{bof, Offset :: <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cur, Offset :: <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, Offset :: <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>bof | cur | eof</typehead></typedecl>
+  <anno>Offset</anno>
+</type>
+<type>
+  <name>mode</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mode">mode()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>read | write | append | exclusive | raw | binary |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{delayed_write,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Size :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Delay :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>delayed_write |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{read_ahead, Size :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>read_ahead | compressed | compressed_one |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{encoding, <seetype marker="unicode#encoding">unicode:encoding()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sync</typehead></typedecl>
+  <anno>Delay</anno>
+  <anno>Size</anno>
+</type>
+<type>
+  <name>name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-name">name()</marker> = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="#deep_list">deep_list()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>name_all</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-name_all">name_all()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="#deep_list">deep_list()</seetype> | (RawFilename :: <seetype marker="erlang#binary">binary()</seetype>)</typehead></typedecl>
+  <anno>RawFilename</anno>
+</type>
+<type>
+  <name>posix</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-posix">posix()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>eacces | eagain | ebadf | ebadmsg | ebusy | edeadlk |<br/><nbsp/><nbsp/><nbsp/><nbsp/>edeadlock | edquot | eexist | efault | efbig | eftype |<br/><nbsp/><nbsp/><nbsp/><nbsp/>eintr | einval | eio | eisdir | eloop | emfile | emlink |<br/><nbsp/><nbsp/><nbsp/><nbsp/>emultihop | enametoolong | enfile | enobufs | enodev |<br/><nbsp/><nbsp/><nbsp/><nbsp/>enolck | enolink | enoent | enomem | enospc | enosr | enostr |<br/><nbsp/><nbsp/><nbsp/><nbsp/>enosys | enotblk | enotdir | enotsup | enxio | eopnotsupp |<br/><nbsp/><nbsp/><nbsp/><nbsp/>eoverflow | eperm | epipe | erange | erofs | espipe | esrch |<br/><nbsp/><nbsp/><nbsp/><nbsp/>estale | etxtbsy | exdev</typehead></typedecl>
+</type>
+<type>
+  <name>posix_file_advise</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-posix_file_advise">posix_file_advise()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>normal | sequential | random | no_reuse | will_need |<br/><nbsp/><nbsp/><nbsp/><nbsp/>dont_need</typehead></typedecl>
+</type>
+<type>
+  <name>sendfile_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sendfile_option">sendfile_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{chunk_size, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} | {use_threads, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>advise</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>advise(IoDevice, Offset, Length, Advise) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Offset</typename><string>Offset = Length = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Length</typename><string/></subtype>
+        <subtype><typename>Advise</typename><string>Advise = <seetype marker="#posix_file_advise">posix_file_advise()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Advise</anno>
+  <anno>IoDevice</anno>
+  <anno>Length</anno>
+  <anno>Offset</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>allocate</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>allocate(File, Offset, Length) -&gt; ok | {error, <seetype marker="#posix">posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Offset</typename><string>Offset = Length = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Length</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Length</anno>
+  <anno>Offset</anno>
+</spec>
+<spec>
+  <name>altname</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>altname(Name :: <seetype marker="#name_all">name_all()</seetype>) -&gt; <seetype marker="erlang#any">any()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>change_group</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>change_group(Filename, Gid) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Gid</typename><string>Gid = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Gid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>change_mode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>change_mode(Filename, Mode) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Mode</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>change_owner</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>change_owner(Filename, Uid) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Uid</typename><string>Uid = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Reason</anno>
+  <anno>Uid</anno>
+</spec>
+<spec>
+  <name>change_owner</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>change_owner(Filename, Uid, Gid) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Uid</typename><string>Uid = Gid = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Gid</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Gid</anno>
+  <anno>Reason</anno>
+  <anno>Uid</anno>
+</spec>
+<spec>
+  <name>change_time</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>change_time(Filename, Mtime) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Mtime</typename><string>Mtime = <seetype marker="#date_time">date_time()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Mtime</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>change_time</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>change_time(Filename, Atime, Mtime) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Atime</typename><string>Atime = Mtime = <seetype marker="#date_time">date_time()</seetype></string></subtype>
+        <subtype><typename>Mtime</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Atime</anno>
+  <anno>Filename</anno>
+  <anno>Mtime</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(IoDevice) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>consult</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>consult(Filename) -&gt; {ok, Terms} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Terms</typename><string>Terms = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+  <anno>Terms</anno>
+</spec>
+<spec>
+  <name>copy</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>copy(Source, Destination) -&gt; {ok, BytesCopied} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Source</typename><string>Source = Destination = <seetype marker="#io_device">io_device()</seetype> | Filename | {Filename, Modes}</string></subtype>
+        <subtype><typename>Destination</typename><string/></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Modes</typename><string>Modes = [<seetype marker="#mode">mode()</seetype>]</string></subtype>
+        <subtype><typename>BytesCopied</typename><string>BytesCopied = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BytesCopied</anno>
+  <anno>Destination</anno>
+  <anno>Filename</anno>
+  <anno>Modes</anno>
+  <anno>Reason</anno>
+  <anno>Source</anno>
+</spec>
+<spec>
+  <name>copy</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>copy(Source, Destination, ByteCount) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, BytesCopied} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Source</typename><string>Source = Destination = <seetype marker="#io_device">io_device()</seetype> | Filename | {Filename, Modes}</string></subtype>
+        <subtype><typename>Destination</typename><string/></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Modes</typename><string>Modes = [<seetype marker="#mode">mode()</seetype>]</string></subtype>
+        <subtype><typename>ByteCount</typename><string>ByteCount = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | infinity</string></subtype>
+        <subtype><typename>BytesCopied</typename><string>BytesCopied = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ByteCount</anno>
+  <anno>BytesCopied</anno>
+  <anno>Destination</anno>
+  <anno>Filename</anno>
+  <anno>Modes</anno>
+  <anno>Reason</anno>
+  <anno>Source</anno>
+</spec>
+<spec>
+  <name>copy_opened</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>datasync</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>datasync(IoDevice) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>del_dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>del_dir(Dir) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>del_dir_r</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>del_dir_r(File) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>delete</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>delete(Filename) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>delete</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete(Filename, Opts) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#delete_option">delete_option()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>eval</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>eval(Filename) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>eval</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>eval(Filename, Bindings) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Bindings</typename><string>Bindings = <seetype marker="erl_eval#binding_struct">erl_eval:binding_struct()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bindings</anno>
+  <anno>Filename</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(Reason) -&gt; Chars</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Chars</typename><string>Chars = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Chars</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>get_cwd</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_cwd() -&gt; {ok, Dir} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#filename">filename()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>get_cwd</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_cwd(Drive) -&gt; {ok, Dir} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Drive</typename><string>Drive = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#filename">filename()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Drive</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>ipread_s32bu_p32bu</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ipread_s32bu_p32bu_int</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>list_dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_dir(Dir) -&gt; {ok, Filenames} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Filenames</typename><string>Filenames = [<seetype marker="#filename">filename()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_translation, Filename :: <seetype marker="unicode#latin1_binary">unicode:latin1_binary()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+  <anno>Filenames</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>list_dir_all</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_dir_all(Dir) -&gt; {ok, Filenames} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Filenames</typename><string>Filenames = [<seetype marker="#filename_all">filename_all()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Filenames</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>make_dir</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>make_dir(Dir) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>make_link</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>make_link(Existing, New) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Existing</typename><string>Existing = New = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>New</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Existing</anno>
+  <anno>New</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>make_symlink</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>make_symlink(Existing, New) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Existing</typename><string>Existing = New = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>New</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Existing</anno>
+  <anno>New</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>native_name_encoding</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>native_name_encoding() -&gt; latin1 | utf8</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>open(File, Modes) -&gt; {ok, IoDevice} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = Filename | <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Modes</typename><string>Modes = [<seetype marker="#mode">mode()</seetype> | ram | directory]</string></subtype>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | system_limit</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Filename</anno>
+  <anno>IoDevice</anno>
+  <anno>Modes</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>path_consult</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>path_consult(Path, Filename) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Terms, FullName} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = [Dir]</string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string/></subtype>
+        <subtype><typename>Terms</typename><string>Terms = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>FullName</typename><string>FullName = <seetype marker="#filename_all">filename_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+  <anno>FullName</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Path</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+  <anno>Terms</anno>
+</spec>
+<spec>
+  <name>path_eval</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>path_eval(Path, Filename) -&gt; {ok, FullName} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = [Dir :: <seetype marker="#name_all">name_all()</seetype>]</string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>FullName</typename><string>FullName = <seetype marker="#filename_all">filename_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+  <anno>FullName</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Path</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>path_eval</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>path_eval(Path, Filename, Bindings) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, FullName} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = [Dir :: <seetype marker="#name_all">name_all()</seetype>]</string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Bindings</typename><string>Bindings = <seetype marker="erl_eval#binding_struct">erl_eval:binding_struct()</seetype></string></subtype>
+        <subtype><typename>FullName</typename><string>FullName = <seetype marker="#filename_all">filename_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bindings</anno>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+  <anno>FullName</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Path</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>path_open</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>path_open(Path, Filename, Modes) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, IoDevice, FullName} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = [Dir :: <seetype marker="#name_all">name_all()</seetype>]</string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Modes</typename><string>Modes = [<seetype marker="#mode">mode()</seetype> | directory]</string></subtype>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>FullName</typename><string>FullName = <seetype marker="#filename_all">filename_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | system_limit</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+  <anno>FullName</anno>
+  <anno>IoDevice</anno>
+  <anno>Modes</anno>
+  <anno>Path</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>path_script</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>path_script(Path, Filename) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Value, FullName} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = [Dir :: <seetype marker="#name_all">name_all()</seetype>]</string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>FullName</typename><string>FullName = <seetype marker="#filename_all">filename_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+  <anno>FullName</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Path</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>path_script</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>path_script(Path, Filename, Bindings) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Value, FullName} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Path</typename><string>Path = [Dir :: <seetype marker="#name_all">name_all()</seetype>]</string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Bindings</typename><string>Bindings = <seetype marker="erl_eval#binding_struct">erl_eval:binding_struct()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>FullName</typename><string>FullName = <seetype marker="#filename_all">filename_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bindings</anno>
+  <anno>Dir</anno>
+  <anno>Filename</anno>
+  <anno>FullName</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Path</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>pid2name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pid2name(Pid) -&gt; {ok, Filename} | undefined</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#filename_all">filename_all()</seetype></string></subtype>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>position</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>position(IoDevice, Location) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, NewPosition} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>NewPosition</typename><string>NewPosition = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Location</anno>
+  <anno>NewPosition</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>pread</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pread(IoDevice, LocNums) -&gt; {ok, DataL} | eof | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>LocNums</typename><string>LocNums = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{Location :: <seetype marker="#location">location()</seetype>, Number :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}]</string></subtype>
+        <subtype><typename>DataL</typename><string>DataL = [Data]</string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype> | eof</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>DataL</anno>
+  <anno>IoDevice</anno>
+  <anno>LocNums</anno>
+  <anno>Location</anno>
+  <anno>Number</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>pread</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pread(IoDevice, Location, Number) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Data} | eof | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>IoDevice</anno>
+  <anno>Location</anno>
+  <anno>Number</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>pwrite</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pwrite(IoDevice, LocBytes) -&gt; ok | {error, {N, Reason}}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>LocBytes</typename><string>LocBytes = [{Location :: <seetype marker="#location">location()</seetype>, Bytes :: <seetype marker="erlang#iodata">iodata()</seetype>}]</string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>IoDevice</anno>
+  <anno>LocBytes</anno>
+  <anno>Location</anno>
+  <anno>N</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>pwrite</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pwrite(IoDevice, Location, Bytes) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Location</typename><string>Location = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Bytes</typename><string>Bytes = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>IoDevice</anno>
+  <anno>Location</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>raw_read_file_info</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>raw_write_file_info</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>read</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read(IoDevice, Number) -&gt; {ok, Data} | eof | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_translation, unicode, latin1}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>IoDevice</anno>
+  <anno>Number</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>read_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>read_file(Filename) -&gt; {ok, Binary} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Binary</typename><string>Binary = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated | system_limit</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Binary</anno>
+  <anno>Filename</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>read_file_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>read_file_info(File) -&gt; {ok, FileInfo} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="#name_all">name_all()</seetype> | <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="#file_info">file_info()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>FileInfo</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>read_file_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read_file_info(File, Opts) -&gt; {ok, FileInfo} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="#name_all">name_all()</seetype> | <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#file_info_option">file_info_option()</seetype>]</string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="#file_info">file_info()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>FileInfo</anno>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>read_line</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>read_line(IoDevice) -&gt; {ok, Data} | eof | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_translation, unicode, latin1}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>IoDevice</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>read_link</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>read_link(Name) -&gt; {ok, Filename} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#filename">filename()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>read_link_all</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>read_link_all(Name) -&gt; {ok, Filename} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#filename_all">filename_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>read_link_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>read_link_info(Name) -&gt; {ok, FileInfo} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="#file_info">file_info()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileInfo</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>read_link_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read_link_info(Name, Opts) -&gt; {ok, FileInfo} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#file_info_option">file_info_option()</seetype>]</string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="#file_info">file_info()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileInfo</anno>
+  <anno>Name</anno>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>rename</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rename(Source, Destination) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Source</typename><string>Source = Destination = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Destination</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Destination</anno>
+  <anno>Reason</anno>
+  <anno>Source</anno>
+</spec>
+<spec>
+  <name>script</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>script(Filename) -&gt; {ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>script</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>script(Filename, Bindings) -&gt; {ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Bindings</typename><string>Bindings = <seetype marker="erl_eval#binding_struct">erl_eval:binding_struct()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#posix">posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>badarg | terminated | system_limit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Line :: <seetype marker="erlang#integer">integer()</seetype>, Mod :: <seetype marker="erlang#module">module()</seetype>, Term :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bindings</anno>
+  <anno>Filename</anno>
+  <anno>Line</anno>
+  <anno>Mod</anno>
+  <anno>Reason</anno>
+  <anno>Term</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>sendfile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>sendfile(Filename, Socket) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="inet#posix">inet:posix()</seetype> | closed | badarg | not_owner}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Socket</typename><string>Socket = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#socket">inet:socket()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="socket#socket">socket:socket()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="erlang#iolist">iolist()</seetype>) -&gt; ok | {error, <seetype marker="inet#posix">inet:posix()</seetype> | closed})</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>sendfile</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>sendfile(RawFile, Socket, Offset, Bytes, Opts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="inet#posix">inet:posix()</seetype> | closed | badarg | not_owner}</head>
+      <guard>
+        <subtype><typename>RawFile</typename><string>RawFile = <seetype marker="#fd">fd()</seetype></string></subtype>
+        <subtype><typename>Socket</typename><string>Socket = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#socket">inet:socket()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="socket#socket">socket:socket()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="erlang#iolist">iolist()</seetype>) -&gt; ok | {error, <seetype marker="inet#posix">inet:posix()</seetype> | closed})</string></subtype>
+        <subtype><typename>Offset</typename><string>Offset = Bytes = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Bytes</typename><string/></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#sendfile_option">sendfile_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>Offset</anno>
+  <anno>Opts</anno>
+  <anno>RawFile</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>set_cwd</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_cwd(Dir) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#name">name()</seetype> | EncodedBinary</string></subtype>
+        <subtype><typename>EncodedBinary</typename><string>EncodedBinary = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | no_translation</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>EncodedBinary</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>sync</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sync(IoDevice) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>truncate</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>truncate(IoDevice) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>write</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>write(IoDevice, Bytes) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#io_device">io_device()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Bytes</typename><string>Bytes = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>IoDevice</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>write_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>write_file(Filename, Bytes) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Bytes</typename><string>Bytes = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated | system_limit</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>Filename</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>write_file</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>write_file(Filename, Bytes, Modes) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Bytes</typename><string>Bytes = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+        <subtype><typename>Modes</typename><string>Modes = [<seetype marker="#mode">mode()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg | terminated | system_limit</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bytes</anno>
+  <anno>Filename</anno>
+  <anno>Modes</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>write_file_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>write_file_info(Filename, FileInfo) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="#file_info">file_info()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileInfo</anno>
+  <anno>Filename</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>write_file_info</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>write_file_info(Filename, FileInfo, Opts) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="#name_all">name_all()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#file_info_option">file_info_option()</seetype>]</string></subtype>
+        <subtype><typename>FileInfo</typename><string>FileInfo = <seetype marker="#file_info">file_info()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#posix">posix()</seetype> | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileInfo</anno>
+  <anno>Filename</anno>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:48.</timestamp>
+</module>

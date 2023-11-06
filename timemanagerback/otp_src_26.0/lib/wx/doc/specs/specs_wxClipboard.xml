@@ -1,0 +1,182 @@
+<module name="wxClipboard">
+<type>
+  <name>wxClipboard</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxClipboard">wxClipboard()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>addData</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>addData(This, Data) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="wxDataObject#wxDataObject">wxDataObject:wxDataObject()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>clear(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxClipboard">wxClipboard()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>flush</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>flush(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>get</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get() -&gt; <seetype marker="#wxClipboard">wxClipboard()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>getData</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getData(This, Data) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="wxDataObject#wxDataObject">wxDataObject:wxDataObject()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isOpened</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isOpened(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isSupported</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>isSupported(This, Format) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxClipboard">wxClipboard()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>open(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setData</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setData(This, Data) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="wxDataObject#wxDataObject">wxDataObject:wxDataObject()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>usePrimarySelection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>usePrimarySelection(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>usePrimarySelection</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>usePrimarySelection(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxClipboard">wxClipboard()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {primary, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:25.</timestamp>
+</module>
