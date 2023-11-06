@@ -46,7 +46,9 @@
         <i class="bi bi-trash3-fill text-danger" @click="deleteWorkingTime"></i>
       </button>
     </div>
-    <!-- edit workingtime modal  -->
+
+    <!-- edit workingtime modal -->
+    <!-- Should be a separate component -->
     <modal :show="showEditModal" :toggleModale="toggleEditModale">
       <section class="row justify-content-center">
         <div class="col-12">
@@ -65,7 +67,6 @@
               placeholder="Email"
               required
             />
-
             <button class="btn btn-info col-12 mt-4" type="submit">Editer</button>
           </form>
         </div>
@@ -74,6 +75,8 @@
     <!-- end edit workingtime modal  -->
   </div>
 </template>
+
+
 <script>
 import axios from 'axios'
 import config from '../../config'

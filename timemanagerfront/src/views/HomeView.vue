@@ -10,7 +10,7 @@
         </h1>
       </div>
       <div class="col-6">
-        <img src="../../public/images/home-illustration.jpg" class="img-fluid" alt="" />
+        <img src="../../public/images/home-illustration.jpg" class="img-fluid" alt="illustration maison" />
       </div>
     </div>
   </div>

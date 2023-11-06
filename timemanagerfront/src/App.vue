@@ -28,7 +28,7 @@ import { RouterLink, RouterView } from 'vue-router'
               >
             </li>
             <li class="nav-item">
-              <RouterLink to="/workigTimes" class="nav-link active" aria-current="page"
+              <RouterLink to="/workingTimes" class="nav-link active" aria-current="page"
                 >Horaires</RouterLink
               >
             </li>
