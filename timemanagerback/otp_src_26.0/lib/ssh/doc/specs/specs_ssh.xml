@@ -1,0 +1,1203 @@
+<module name="ssh">
+<type>
+  <name>'exec_fun/1'</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exec_fun%2f1">'exec_fun/1'()</marker> = fun((Cmd :: <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="#exec_result">exec_result()</seetype>)</typehead></typedecl>
+  <anno>Cmd</anno>
+</type>
+<type>
+  <name>'exec_fun/2'</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exec_fun%2f2">'exec_fun/2'()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Cmd :: <seetype marker="erlang#string">string()</seetype>, User :: <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="#exec_result">exec_result()</seetype>)</typehead></typedecl>
+  <anno>Cmd</anno>
+  <anno>User</anno>
+</type>
+<type>
+  <name>'exec_fun/3'</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exec_fun%2f3">'exec_fun/3'()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Cmd :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>User :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ClientAddr :: <seetype marker="#ip_port">ip_port()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exec_result">exec_result()</seetype>)</typehead></typedecl>
+  <anno>ClientAddr</anno>
+  <anno>Cmd</anno>
+  <anno>User</anno>
+</type>
+<type>
+  <name>'shell_fun/1'</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-shell_fun%2f1">'shell_fun/1'()</marker> = fun((User :: <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="erlang#pid">pid()</seetype>)</typehead></typedecl>
+  <anno>User</anno>
+</type>
+<type>
+  <name>'shell_fun/2'</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-shell_fun%2f2">'shell_fun/2'()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((User :: <seetype marker="erlang#string">string()</seetype>, PeerAddr :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>) -&gt; <seetype marker="erlang#pid">pid()</seetype>)</typehead></typedecl>
+  <anno>PeerAddr</anno>
+  <anno>User</anno>
+</type>
+<type>
+  <name>accept_callback</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-accept_callback">accept_callback()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((PeerName :: <seetype marker="erlang#string">string()</seetype>, <seetype marker="#fingerprint">fingerprint()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((PeerName :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#fingerprint">fingerprint()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+  <anno>PeerName</anno>
+  <anno>Port</anno>
+</type>
+<type>
+  <name>accept_hosts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-accept_hosts">accept_hosts()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#accept_callback">accept_callback()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{HashAlgoSpec :: <seetype marker="#fp_digest_alg">fp_digest_alg()</seetype>, <seetype marker="#accept_callback">accept_callback()</seetype>}</typehead></typedecl>
+  <anno>HashAlgoSpec</anno>
+</type>
+<type>
+  <name>alg_entry</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-alg_entry">alg_entry()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{kex, [<seetype marker="#kex_alg">kex_alg()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{public_key, [<seetype marker="#pubkey_alg">pubkey_alg()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cipher, <seetype marker="#double_algs">double_algs</seetype>(<seetype marker="#cipher_alg">cipher_alg()</seetype>)} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mac, <seetype marker="#double_algs">double_algs</seetype>(<seetype marker="#mac_alg">mac_alg()</seetype>)} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{compression, <seetype marker="#double_algs">double_algs</seetype>(<seetype marker="#compression_alg">compression_alg()</seetype>)}</typehead></typedecl>
+</type>
+<type>
+  <name>algs_list</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-algs_list">algs_list()</marker> = [<seetype marker="#alg_entry">alg_entry()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>auth_methods_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-auth_methods_common_option">auth_methods_common_option()</marker> = {auth_methods, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>authentication_client_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-authentication_client_options">authentication_client_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{user, <seetype marker="erlang#string">string()</seetype>} | {password, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>authentication_daemon_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-authentication_daemon_options">authentication_daemon_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_file#system_dir_daemon_option">ssh_file:system_dir_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{auth_method_kb_interactive_data, <seetype marker="#prompt_texts">prompt_texts()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{user_passwords, [{UserName :: <seetype marker="erlang#string">string()</seetype>, Pwd :: <seetype marker="erlang#string">string()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pk_check_user, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{password, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pwdfun, <seetype marker="#pwdfun_2">pwdfun_2()</seetype> | <seetype marker="#pwdfun_4">pwdfun_4()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_auth_needed, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+  <anno>Pwd</anno>
+  <anno>UserName</anno>
+</type>
+<type>
+  <name>callbacks_daemon_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-callbacks_daemon_options">callbacks_daemon_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{failfun,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun((User :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PeerAddress :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Reason :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype>)} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{connectfun,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun((User :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PeerAddress :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Method :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype>)}</typehead></typedecl>
+  <anno>Method</anno>
+  <anno>PeerAddress</anno>
+  <anno>Reason</anno>
+  <anno>User</anno>
+</type>
+<type>
+  <name>channel_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-channel_id">channel_id()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>cipher_alg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher_alg">cipher_alg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>'3des-cbc' | 'AEAD_AES_128_GCM' | 'AEAD_AES_256_GCM' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'aes128-cbc' | 'aes128-ctr' | 'aes128-gcm@openssh.com' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'aes192-ctr' | 'aes192-cbc' | 'aes256-cbc' | 'aes256-ctr' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'aes256-gcm@openssh.com' | 'chacha20-poly1305@openssh.com'</typehead></typedecl>
+</type>
+<type>
+  <name>client_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_option">client_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_file#pubkey_passphrase_client_options">ssh_file:pubkey_passphrase_client_options()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#host_accepting_client_options">host_accepting_client_options()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#authentication_client_options">authentication_client_options()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#diffie_hellman_group_exchange_client_option">diffie_hellman_group_exchange_client_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#connect_timeout_client_option">connect_timeout_client_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#recv_ext_info_client_option">recv_ext_info_client_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#opaque_client_options">opaque_client_options()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="gen_tcp#connect_option">gen_tcp:connect_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#common_option">common_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>client_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_options">client_options()</marker> = [<seetype marker="#client_option">client_option()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-common_option">common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_file#user_dir_common_option">ssh_file:user_dir_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#profile_common_option">profile_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#max_idle_time_common_option">max_idle_time_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#max_log_item_len_common_option">max_log_item_len_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#key_cb_common_option">key_cb_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#disconnectfun_common_option">disconnectfun_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#unexpectedfun_common_option">unexpectedfun_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ssh_msg_debug_fun_common_option">ssh_msg_debug_fun_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rekey_limit_common_option">rekey_limit_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#id_string_common_option">id_string_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#pref_public_key_algs_common_option">pref_public_key_algs_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#preferred_algorithms_common_option">preferred_algorithms_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#modify_algorithms_common_option">modify_algorithms_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#auth_methods_common_option">auth_methods_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#inet_common_option">inet_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#fd_common_option">fd_common_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>common_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-common_options">common_options()</marker> = [<seetype marker="#common_option">common_option()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>compression_alg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-compression_alg">compression_alg()</marker> = none | zlib | 'zlib@openssh.com'</typehead></typedecl>
+</type>
+<type>
+  <name>conn_info_algs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-conn_info_algs">conn_info_algs()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{kex, <seetype marker="#kex_alg">kex_alg()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{hkey, <seetype marker="#pubkey_alg">pubkey_alg()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{encrypt, <seetype marker="#cipher_alg">cipher_alg()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{decrypt, <seetype marker="#cipher_alg">cipher_alg()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{send_mac, <seetype marker="#mac_alg">mac_alg()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{recv_mac, <seetype marker="#mac_alg">mac_alg()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{compress, <seetype marker="#compression_alg">compression_alg()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{decompress, <seetype marker="#compression_alg">compression_alg()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{send_ext_info, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{recv_ext_info, <seetype marker="erlang#boolean">boolean()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>conn_info_channels</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-conn_info_channels">conn_info_channels()</marker> = [<seetype marker="proplists#proplist">proplists:proplist()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>connect_timeout_client_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-connect_timeout_client_option">connect_timeout_client_option()</marker> = {connect_timeout, <seetype marker="erlang#timeout">timeout()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>connection_info_tuple</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-connection_info_tuple">connection_info_tuple()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{client_version, <seetype marker="#version">version()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_version, <seetype marker="#version">version()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{user, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{peer, {<seetype marker="inet#hostname">inet:hostname()</seetype>, <seetype marker="#ip_port">ip_port()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sockname, <seetype marker="#ip_port">ip_port()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{options, <seetype marker="#client_options">client_options()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{algorithms, <seetype marker="#conn_info_algs">conn_info_algs()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{channels, <seetype marker="#conn_info_channels">conn_info_channels()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>connection_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-connection_ref">connection_ref()</marker> = <seetype marker="erlang#pid">pid()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>daemon_info_tuple</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-daemon_info_tuple">daemon_info_tuple()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, <seetype marker="inet#port_number">inet:port_number()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ip, <seetype marker="inet#ip_address">inet:ip_address()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{profile, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{options, <seetype marker="#daemon_options">daemon_options()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-daemon_option">daemon_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#subsystem_daemon_option">subsystem_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#shell_daemon_option">shell_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exec_daemon_option">exec_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ssh_cli_daemon_option">ssh_cli_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#tcpip_tunnel_out_daemon_option">tcpip_tunnel_out_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#tcpip_tunnel_in_daemon_option">tcpip_tunnel_in_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#authentication_daemon_options">authentication_daemon_options()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#diffie_hellman_group_exchange_daemon_option">diffie_hellman_group_exchange_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#max_initial_idle_time_daemon_option">max_initial_idle_time_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#negotiation_timeout_daemon_option">negotiation_timeout_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#hello_timeout_daemon_option">hello_timeout_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#hardening_daemon_options">hardening_daemon_options()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#callbacks_daemon_options">callbacks_daemon_options()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#send_ext_info_daemon_option">send_ext_info_daemon_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#opaque_daemon_options">opaque_daemon_options()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="gen_tcp#listen_option">gen_tcp:listen_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#common_option">common_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>daemon_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-daemon_options">daemon_options()</marker> = [<seetype marker="#daemon_option">daemon_option()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>daemon_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-daemon_ref">daemon_ref()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>deprecated_exec_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-deprecated_exec_opt">deprecated_exec_opt()</marker> = <seetype marker="erlang#function">function()</seetype> | <seetype marker="#mod_fun_args">mod_fun_args()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>diffie_hellman_group_exchange_client_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-diffie_hellman_group_exchange_client_option">diffie_hellman_group_exchange_client_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{dh_gex_limits,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Min :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>I :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Max :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}}</typehead></typedecl>
+  <anno>I</anno>
+  <anno>Max</anno>
+  <anno>Min</anno>
+</type>
+<type>
+  <name>diffie_hellman_group_exchange_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-diffie_hellman_group_exchange_daemon_option">diffie_hellman_group_exchange_daemon_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{dh_gex_groups,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#explicit_group">explicit_group()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#explicit_group_file">explicit_group_file()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ssh_moduli_file">ssh_moduli_file()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{dh_gex_limits, {Min :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>, Max :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}}</typehead></typedecl>
+  <anno>Max</anno>
+  <anno>Min</anno>
+</type>
+<type>
+  <name>disconnectfun_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-disconnectfun_common_option">disconnectfun_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{disconnectfun, fun((Reason :: <seetype marker="erlang#term">term()</seetype>) -&gt; void | <seetype marker="erlang#any">any()</seetype>)}</typehead></typedecl>
+  <anno>Reason</anno>
+</type>
+<type>
+  <name>double_algs</name>
+  <n_vars>1</n_vars>
+  <typedecl>
+      <typehead><marker id="type-double_algs">double_algs(AlgType)</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{client2server, [AlgType]} | {server2client, [AlgType]}] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[AlgType]</typehead></typedecl>
+  <anno>AlgType</anno>
+</type>
+<type>
+  <name>exec_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exec_daemon_option">exec_daemon_option()</marker> = {exec, <seetype marker="#exec_spec">exec_spec()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>exec_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exec_fun">exec_fun()</marker> = <seetype marker="#exec_fun%2f1">'exec_fun/1'()</seetype> | <seetype marker="#exec_fun%2f2">'exec_fun/2'()</seetype> | <seetype marker="#exec_fun%2f3">'exec_fun/3'()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>exec_result</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exec_result">exec_result()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Result :: <seetype marker="erlang#term">term()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</type>
+<type>
+  <name>exec_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exec_spec">exec_spec()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{direct, <seetype marker="#exec_fun">exec_fun()</seetype>} | disabled | <seetype marker="#deprecated_exec_opt">deprecated_exec_opt()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>explicit_group</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-explicit_group">explicit_group()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Size :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>G :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>P :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}</typehead></typedecl>
+  <anno>G</anno>
+  <anno>P</anno>
+  <anno>Size</anno>
+</type>
+<type>
+  <name>explicit_group_file</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-explicit_group_file">explicit_group_file()</marker> = {file, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>fd_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fd_common_option">fd_common_option()</marker> = {fd, <seetype marker="gen_tcp#socket">gen_tcp:socket()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>fingerprint</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fingerprint">fingerprint()</marker> = <seetype marker="erlang#string">string()</seetype> | [<seetype marker="erlang#string">string()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>fp_digest_alg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fp_digest_alg">fp_digest_alg()</marker> = md5 | <seetype marker="crypto#sha1">crypto:sha1()</seetype> | <seetype marker="crypto#sha2">crypto:sha2()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>hardening_daemon_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hardening_daemon_options">hardening_daemon_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_sessions, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_channels, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{parallel_login, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minimal_remote_max_packet_size, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>hello_timeout_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hello_timeout_daemon_option">hello_timeout_daemon_option()</marker> = {hello_timeout, <seetype marker="erlang#timeout">timeout()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>host</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-host">host()</marker> = <seetype marker="erlang#string">string()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype> | loopback</typehead></typedecl>
+</type>
+<type>
+  <name>host_accepting_client_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-host_accepting_client_options">host_accepting_client_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{silently_accept_hosts, <seetype marker="#accept_hosts">accept_hosts()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{user_interaction, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{save_accepted_host, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{quiet_mode, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>id_string_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-id_string_common_option">id_string_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{id_string,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#string">string()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>random |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{random, Nmin :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>, Nmax :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}}</typehead></typedecl>
+  <anno>Nmax</anno>
+  <anno>Nmin</anno>
+</type>
+<type>
+  <name>inet_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-inet_common_option">inet_common_option()</marker> = {inet, inet | inet6}</typehead></typedecl>
+</type>
+<type>
+  <name>internal_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-internal_options">internal_options()</marker> = <seetype marker="ssh_options#private_options">ssh_options:private_options()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ip_port</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ip_port">ip_port()</marker> = {<seetype marker="inet#ip_address">inet:ip_address()</seetype>, <seetype marker="inet#port_number">inet:port_number()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>kb_int_fun_3</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-kb_int_fun_3">kb_int_fun_3()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Peer :: <seetype marker="#ip_port">ip_port()</seetype>, User :: <seetype marker="erlang#string">string()</seetype>, Service :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#kb_int_tuple">kb_int_tuple()</seetype>)</typehead></typedecl>
+  <anno>Peer</anno>
+  <anno>Service</anno>
+  <anno>User</anno>
+</type>
+<type>
+  <name>kb_int_fun_4</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-kb_int_fun_4">kb_int_fun_4()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Peer :: <seetype marker="#ip_port">ip_port()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>User :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Service :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State :: <seetype marker="erlang#any">any()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#kb_int_tuple">kb_int_tuple()</seetype>)</typehead></typedecl>
+  <anno>Peer</anno>
+  <anno>Service</anno>
+  <anno>State</anno>
+  <anno>User</anno>
+</type>
+<type>
+  <name>kb_int_tuple</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-kb_int_tuple">kb_int_tuple()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Name :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Instruction :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Prompt :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Echo :: <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+  <anno>Echo</anno>
+  <anno>Instruction</anno>
+  <anno>Name</anno>
+  <anno>Prompt</anno>
+</type>
+<type>
+  <name>kex_alg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-kex_alg">kex_alg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>'diffie-hellman-group-exchange-sha1' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'diffie-hellman-group-exchange-sha256' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'diffie-hellman-group1-sha1' | 'diffie-hellman-group14-sha1' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'diffie-hellman-group14-sha256' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'diffie-hellman-group16-sha512' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'diffie-hellman-group18-sha512' | 'curve25519-sha256' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'curve25519-sha256@libssh.org' | 'curve448-sha512' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'ecdh-sha2-nistp256' | 'ecdh-sha2-nistp384' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'ecdh-sha2-nistp521'</typehead></typedecl>
+</type>
+<type>
+  <name>key_cb_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_cb_common_option">key_cb_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{key_cb,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Module :: <seetype marker="erlang#atom">atom()</seetype> | {Module :: <seetype marker="erlang#atom">atom()</seetype>, Opts :: [<seetype marker="erlang#term">term()</seetype>]}}</typehead></typedecl>
+  <anno>Module</anno>
+  <anno>Opts</anno>
+</type>
+<type>
+  <name>limit_bytes</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-limit_bytes">limit_bytes()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | infinity</typehead></typedecl>
+</type>
+<type>
+  <name>limit_time</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-limit_time">limit_time()</marker> = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | infinity</typehead></typedecl>
+</type>
+<type>
+  <name>mac_alg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mac_alg">mac_alg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>'AEAD_AES_128_GCM' | 'AEAD_AES_256_GCM' | 'hmac-sha1' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'hmac-sha1-etm@openssh.com' | 'hmac-sha1-96' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'hmac-sha2-256' | 'hmac-sha2-512' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'hmac-sha2-256-etm@openssh.com' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'hmac-sha2-512-etm@openssh.com'</typehead></typedecl>
+</type>
+<type>
+  <name>max_idle_time_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-max_idle_time_common_option">max_idle_time_common_option()</marker> = {idle_time, <seetype marker="erlang#timeout">timeout()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>max_initial_idle_time_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-max_initial_idle_time_daemon_option">max_initial_idle_time_daemon_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_initial_idle_time, <seetype marker="erlang#timeout">timeout()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>max_log_item_len_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-max_log_item_len_common_option">max_log_item_len_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_log_item_len, <seetype marker="#limit_bytes">limit_bytes()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>mod_args</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mod_args">mod_args()</marker> = {Module :: <seetype marker="erlang#atom">atom()</seetype>, Args :: <seetype marker="erlang#list">list()</seetype>}</typehead></typedecl>
+  <anno>Args</anno>
+  <anno>Module</anno>
+</type>
+<type>
+  <name>mod_fun_args</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mod_fun_args">mod_fun_args()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Module :: <seetype marker="erlang#atom">atom()</seetype>, Function :: <seetype marker="erlang#atom">atom()</seetype>, Args :: <seetype marker="erlang#list">list()</seetype>}</typehead></typedecl>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+</type>
+<type>
+  <name>modify_algorithms_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-modify_algorithms_common_option">modify_algorithms_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{modify_algorithms, <seetype marker="#modify_algs_list">modify_algs_list()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>modify_algs_list</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-modify_algs_list">modify_algs_list()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{append, <seetype marker="#algs_list">algs_list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{prepend, <seetype marker="#algs_list">algs_list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{rm, <seetype marker="#algs_list">algs_list()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>negotiation_timeout_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-negotiation_timeout_daemon_option">negotiation_timeout_daemon_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{negotiation_timeout, <seetype marker="erlang#timeout">timeout()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>opaque_client_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-opaque_client_options">opaque_client_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{keyboard_interact_fun,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Name :: <seetype marker="erlang#iodata">iodata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Instruction :: <seetype marker="erlang#iodata">iodata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Prompts :: [{Prompt :: <seetype marker="erlang#iodata">iodata()</seetype>, Echo :: <seetype marker="erlang#boolean">boolean()</seetype>}]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[Response :: <seetype marker="erlang#iodata">iodata()</seetype>])} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#opaque_common_options">opaque_common_options()</seetype></typehead></typedecl>
+  <anno>Echo</anno>
+  <anno>Instruction</anno>
+  <anno>Name</anno>
+  <anno>Prompt</anno>
+  <anno>Prompts</anno>
+  <anno>Response</anno>
+</type>
+<type>
+  <name>opaque_common_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-opaque_common_options">opaque_common_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{transport, {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#atom">atom()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{vsn, {<seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tstflg, [<seetype marker="erlang#term">term()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_file#user_dir_fun_common_option">ssh_file:user_dir_fun_common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_random_length_padding, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>opaque_daemon_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-opaque_daemon_options">opaque_daemon_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{infofun, <seetype marker="erlang#function">function()</seetype>} | <seetype marker="#opaque_common_options">opaque_common_options()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>open_socket</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-open_socket">open_socket()</marker> = <seetype marker="gen_tcp#socket">gen_tcp:socket()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>pref_public_key_algs_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pref_public_key_algs_common_option">pref_public_key_algs_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{pref_public_key_algs, [<seetype marker="#pubkey_alg">pubkey_alg()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>preferred_algorithms_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-preferred_algorithms_common_option">preferred_algorithms_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{preferred_algorithms, <seetype marker="#algs_list">algs_list()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>profile_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-profile_common_option">profile_common_option()</marker> = {profile, <seetype marker="erlang#atom">atom()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>prompt_texts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-prompt_texts">prompt_texts()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#kb_int_tuple">kb_int_tuple()</seetype> | <seetype marker="#kb_int_fun_3">kb_int_fun_3()</seetype> | <seetype marker="#kb_int_fun_4">kb_int_fun_4()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>protocol_version</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-protocol_version">protocol_version()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Major :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>, Minor :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+  <anno>Major</anno>
+  <anno>Minor</anno>
+</type>
+<type>
+  <name>pubkey_alg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pubkey_alg">pubkey_alg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>'ecdsa-sha2-nistp256' | 'ecdsa-sha2-nistp384' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'ecdsa-sha2-nistp521' | 'ssh-ed25519' | 'ssh-ed448' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'rsa-sha2-256' | 'rsa-sha2-512' | 'ssh-dss' | 'ssh-rsa'</typehead></typedecl>
+</type>
+<type>
+  <name>pwdfun_2</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pwdfun_2">pwdfun_2()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((User :: <seetype marker="erlang#string">string()</seetype>, Password :: <seetype marker="erlang#string">string()</seetype> | pubkey) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+  <anno>Password</anno>
+  <anno>User</anno>
+</type>
+<type>
+  <name>pwdfun_4</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pwdfun_4">pwdfun_4()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((User :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Password :: <seetype marker="erlang#string">string()</seetype> | pubkey,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PeerAddress :: <seetype marker="#ip_port">ip_port()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State :: <seetype marker="erlang#any">any()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>disconnect |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#boolean">boolean()</seetype>, NewState :: <seetype marker="erlang#any">any()</seetype>})</typehead></typedecl>
+  <anno>NewState</anno>
+  <anno>Password</anno>
+  <anno>PeerAddress</anno>
+  <anno>State</anno>
+  <anno>User</anno>
+</type>
+<type>
+  <name>recv_ext_info_client_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-recv_ext_info_client_option">recv_ext_info_client_option()</marker> = {recv_ext_info, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>rekey_limit_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rekey_limit_common_option">rekey_limit_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{rekey_limit,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Bytes ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#limit_bytes">limit_bytes()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Minutes :: <seetype marker="#limit_time">limit_time()</seetype>, Bytes :: <seetype marker="#limit_bytes">limit_bytes()</seetype>}}</typehead></typedecl>
+  <anno>Bytes</anno>
+  <anno>Minutes</anno>
+</type>
+<type>
+  <name>role</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-role">role()</marker> = client | server</typehead></typedecl>
+</type>
+<type>
+  <name>send_ext_info_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-send_ext_info_daemon_option">send_ext_info_daemon_option()</marker> = {send_ext_info, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>shell_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-shell_daemon_option">shell_daemon_option()</marker> = {shell, <seetype marker="#shell_spec">shell_spec()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>shell_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-shell_fun">shell_fun()</marker> = <seetype marker="#shell_fun%2f1">'shell_fun/1'()</seetype> | <seetype marker="#shell_fun%2f2">'shell_fun/2'()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>shell_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-shell_spec">shell_spec()</marker> = <seetype marker="#mod_fun_args">mod_fun_args()</seetype> | <seetype marker="#shell_fun">shell_fun()</seetype> | disabled</typehead></typedecl>
+</type>
+<type>
+  <name>software_version</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-software_version">software_version()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ssh_channel_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ssh_channel_id">ssh_channel_id()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>ssh_cli_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ssh_cli_daemon_option">ssh_cli_daemon_option()</marker> = {ssh_cli, <seetype marker="#mod_args">mod_args()</seetype> | no_cli}</typehead></typedecl>
+</type>
+<type>
+  <name>ssh_connection_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ssh_connection_ref">ssh_connection_ref()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>ssh_daemon_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ssh_daemon_ref">ssh_daemon_ref()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>ssh_moduli_file</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ssh_moduli_file">ssh_moduli_file()</marker> = {ssh_moduli_file, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>ssh_msg_debug_fun_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ssh_msg_debug_fun_common_option">ssh_msg_debug_fun_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ssh_msg_debug_fun,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>AlwaysDisplay :: <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Msg :: <seetype marker="erlang#binary">binary()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>LanguageTag :: <seetype marker="erlang#binary">binary()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#any">any()</seetype>)}</typehead></typedecl>
+  <anno>AlwaysDisplay</anno>
+  <anno>LanguageTag</anno>
+  <anno>Msg</anno>
+</type>
+<type>
+  <name>subsystem_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-subsystem_daemon_option">subsystem_daemon_option()</marker> = {subsystems, <seetype marker="#subsystem_specs">subsystem_specs()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>subsystem_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-subsystem_spec">subsystem_spec()</marker> = {Name :: <seetype marker="erlang#string">string()</seetype>, <seetype marker="#mod_args">mod_args()</seetype>}</typehead></typedecl>
+  <anno>Name</anno>
+</type>
+<type>
+  <name>subsystem_specs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-subsystem_specs">subsystem_specs()</marker> = [<seetype marker="#subsystem_spec">subsystem_spec()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>tcpip_tunnel_in_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tcpip_tunnel_in_daemon_option">tcpip_tunnel_in_daemon_option()</marker> = {tcpip_tunnel_in, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>tcpip_tunnel_out_daemon_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tcpip_tunnel_out_daemon_option">tcpip_tunnel_out_daemon_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{tcpip_tunnel_out, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>unexpectedfun_common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-unexpectedfun_common_option">unexpectedfun_common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{unexpectedfun,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Message :: <seetype marker="erlang#term">term()</seetype>, {Host :: <seetype marker="erlang#term">term()</seetype>, Port :: <seetype marker="erlang#term">term()</seetype>}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>report | skip)}</typehead></typedecl>
+  <anno>Host</anno>
+  <anno>Message</anno>
+  <anno>Port</anno>
+</type>
+<type>
+  <name>version</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-version">version()</marker> = {<seetype marker="#protocol_version">protocol_version()</seetype>, <seetype marker="#software_version">software_version()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>channel_info</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>channel_info(ConnectionRef :: <seetype marker="#connection_ref">connection_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ChannelId :: <seetype marker="#channel_id">channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options :: [<seetype marker="erlang#atom">atom()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="proplists#proplist">proplists:proplist()</seetype></head></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>chk_algos_opts</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>chk_algos_opts(Opts :: <seetype marker="#client_options">client_options()</seetype> | <seetype marker="#daemon_options">daemon_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#internal_options">internal_options()</seetype> | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(ConnectionRef) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="#connection_ref">connection_ref()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectionRef</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>connect(OpenTcpSocket, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#connection_ref">connection_ref()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>OpenTcpSocket</typename><string>OpenTcpSocket = <seetype marker="#open_socket">open_socket()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#client_options">client_options()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OpenTcpSocket</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>connect(Host :: <seetype marker="#open_socket">open_socket()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="#client_options">client_options()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options :: <seetype marker="erlang#timeout">timeout()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#connection_ref">connection_ref()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Options</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>connect(Host :: <seetype marker="#host">host()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options :: <seetype marker="#client_options">client_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#connection_ref">connection_ref()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Options</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>connect(Host, Port, Options, NegotiationTimeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#connection_ref">connection_ref()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#client_options">client_options()</seetype></string></subtype>
+        <subtype><typename>NegotiationTimeout</typename><string>NegotiationTimeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>NegotiationTimeout</anno>
+  <anno>Options</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>connection_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>connection_info(ConnectionRef) -&gt; InfoTupleList</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="#connection_ref">connection_ref()</seetype></string></subtype>
+        <subtype><typename>InfoTupleList</typename><string>InfoTupleList = [InfoTuple]</string></subtype>
+        <subtype><typename>InfoTuple</typename><string>InfoTuple = <seetype marker="#connection_info_tuple">connection_info_tuple()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectionRef</anno>
+  <anno>InfoTuple</anno>
+  <anno>InfoTupleList</anno>
+</spec>
+<spec>
+  <name>connection_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>connection_info(ConnectionRef, Key :: ItemList | Item) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>InfoTupleList | InfoTuple</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="#connection_ref">connection_ref()</seetype></string></subtype>
+        <subtype><typename>ItemList</typename><string>ItemList = [Item]</string></subtype>
+        <subtype><typename>Item</typename><string>Item = <br/><nbsp/><nbsp/><nbsp/><nbsp/>client_version | server_version | user | peer | sockname |<br/><nbsp/><nbsp/><nbsp/><nbsp/>options | algorithms | sockname</string></subtype>
+        <subtype><typename>InfoTupleList</typename><string>InfoTupleList = [InfoTuple]</string></subtype>
+        <subtype><typename>InfoTuple</typename><string>InfoTuple = <seetype marker="#connection_info_tuple">connection_info_tuple()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectionRef</anno>
+  <anno>InfoTuple</anno>
+  <anno>InfoTupleList</anno>
+  <anno>Item</anno>
+  <anno>ItemList</anno>
+  <anno>Key</anno>
+</spec>
+<spec>
+  <name>daemon</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>daemon(Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#daemon_ref">daemon_ref()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>daemon</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>daemon(Port :: <seetype marker="inet#port_number">inet:port_number()</seetype> | <seetype marker="#open_socket">open_socket()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>UserOptions :: <seetype marker="#daemon_options">daemon_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#daemon_ref">daemon_ref()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Port</anno>
+  <anno>UserOptions</anno>
+</spec>
+<spec>
+  <name>daemon</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>daemon(Host0 :: any | <seetype marker="inet#ip_address">inet:ip_address()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port0 :: <seetype marker="inet#port_number">inet:port_number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>UserOptions0 :: <seetype marker="#daemon_options">daemon_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#daemon_ref">daemon_ref()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Host0</anno>
+  <anno>Port0</anno>
+  <anno>UserOptions0</anno>
+</spec>
+<spec>
+  <name>daemon</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>daemon(Host0 :: socket,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port0 :: <seetype marker="#open_socket">open_socket()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>UserOptions0 :: <seetype marker="#daemon_options">daemon_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#daemon_ref">daemon_ref()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Host0</anno>
+  <anno>Port0</anno>
+  <anno>UserOptions0</anno>
+</spec>
+<spec>
+  <name>daemon_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>daemon_info(DaemonRef) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, InfoTupleList} | {error, bad_daemon_ref}</head>
+      <guard>
+        <subtype><typename>DaemonRef</typename><string>DaemonRef = <seetype marker="#daemon_ref">daemon_ref()</seetype></string></subtype>
+        <subtype><typename>InfoTupleList</typename><string>InfoTupleList = [InfoTuple]</string></subtype>
+        <subtype><typename>InfoTuple</typename><string>InfoTuple = <seetype marker="#daemon_info_tuple">daemon_info_tuple()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DaemonRef</anno>
+  <anno>InfoTuple</anno>
+  <anno>InfoTupleList</anno>
+</spec>
+<spec>
+  <name>daemon_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>daemon_info(DaemonRef, Key :: ItemList | Item) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>InfoTupleList | InfoTuple | {error, bad_daemon_ref}</head>
+      <guard>
+        <subtype><typename>DaemonRef</typename><string>DaemonRef = <seetype marker="#daemon_ref">daemon_ref()</seetype></string></subtype>
+        <subtype><typename>ItemList</typename><string>ItemList = [Item]</string></subtype>
+        <subtype><typename>Item</typename><string>Item = ip | port | profile | options</string></subtype>
+        <subtype><typename>InfoTupleList</typename><string>InfoTupleList = [InfoTuple]</string></subtype>
+        <subtype><typename>InfoTuple</typename><string>InfoTuple = <seetype marker="#daemon_info_tuple">daemon_info_tuple()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DaemonRef</anno>
+  <anno>InfoTuple</anno>
+  <anno>InfoTupleList</anno>
+  <anno>Item</anno>
+  <anno>ItemList</anno>
+  <anno>Key</anno>
+</spec>
+<spec>
+  <name>daemon_replace_options</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>daemon_replace_options(DaemonRef, NewUserOptions) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#daemon_ref">daemon_ref()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>DaemonRef</typename><string>DaemonRef = <seetype marker="#daemon_ref">daemon_ref()</seetype></string></subtype>
+        <subtype><typename>NewUserOptions</typename><string>NewUserOptions = <seetype marker="#daemon_options">daemon_options()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DaemonRef</anno>
+  <anno>NewUserOptions</anno>
+</spec>
+<spec>
+  <name>default_algorithms</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>default_algorithms() -&gt; <seetype marker="#algs_list">algs_list()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>get_sock_opts</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_sock_opts(ConnectionRef, SocketGetOptions) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="#connection_ref">connection_ref()</seetype></string></subtype>
+        <subtype><typename>SocketGetOptions</typename><string>SocketGetOptions = [<seetype marker="gen_tcp#option_name">gen_tcp:option_name()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectionRef</anno>
+  <anno>SocketGetOptions</anno>
+</spec>
+<spec>
+  <name>hostkey_fingerprint</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hostkey_fingerprint(Key :: <seetype marker="public_key#public_key">public_key:public_key()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Key</anno>
+</spec>
+<spec>
+  <name>hostkey_fingerprint</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hostkey_fingerprint(TypeOrTypes, Key) -&gt; StringOrString</head>
+      <guard>
+        <subtype><typename>TypeOrTypes</typename><string>TypeOrTypes = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="public_key#digest_type">public_key:digest_type()</seetype> | [<seetype marker="public_key#digest_type">public_key:digest_type()</seetype>]</string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="public_key#public_key">public_key:public_key()</seetype></string></subtype>
+        <subtype><typename>StringOrString</typename><string>StringOrString = <seetype marker="erlang#string">string()</seetype> | [<seetype marker="erlang#string">string()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>StringOrString</anno>
+  <anno>TypeOrTypes</anno>
+</spec>
+<spec>
+  <name>is_host</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>set_sock_opts</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_sock_opts(ConnectionRef, SocketOptions) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="#connection_ref">connection_ref()</seetype></string></subtype>
+        <subtype><typename>SocketOptions</typename><string>SocketOptions = [<seetype marker="gen_tcp#option">gen_tcp:option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectionRef</anno>
+  <anno>SocketOptions</anno>
+</spec>
+<spec>
+  <name>shell</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>shell(ConnectionRef :: <seetype marker="#open_socket">open_socket()</seetype> | <seetype marker="#host">host()</seetype> | <seetype marker="#connection_ref">connection_ref()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>ConnectionRef</anno>
+</spec>
+<spec>
+  <name>shell</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>shell(Dest :: <seetype marker="#open_socket">open_socket()</seetype> | <seetype marker="#host">host()</seetype>, Options :: <seetype marker="#client_options">client_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Dest</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>shell</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>shell(Host, Port, Options) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#client_options">client_options()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Options</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>ssh_dbg_flags</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_format</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_format</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_off</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_on</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ssh_dbg_trace_points</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(Type) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = permanent | transient | temporary</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>stop_daemon</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop_daemon(DaemonRef :: <seetype marker="#daemon_ref">daemon_ref()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>DaemonRef</anno>
+</spec>
+<spec>
+  <name>stop_daemon</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>stop_daemon(Address :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>stop_daemon</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>stop_daemon(Address :: any | <seetype marker="inet#ip_address">inet:ip_address()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Profile :: <seetype marker="erlang#atom">atom()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>Port</anno>
+  <anno>Profile</anno>
+</spec>
+<spec>
+  <name>stop_listener</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop_listener(SysSup :: <seetype marker="#daemon_ref">daemon_ref()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>SysSup</anno>
+</spec>
+<spec>
+  <name>stop_listener</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>stop_listener(Address :: <seetype marker="inet#ip_address">inet:ip_address()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>stop_listener</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>stop_listener(Address :: any | <seetype marker="inet#ip_address">inet:ip_address()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Profile :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>Port</anno>
+  <anno>Profile</anno>
+</spec>
+<spec>
+  <name>tcpip_tunnel_from_server</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>tcpip_tunnel_from_server(ConnectionRef, ListenHost, ListenPort,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ConnectToHost, ConnectToPort) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TrueListenPort} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="#connection_ref">connection_ref()</seetype></string></subtype>
+        <subtype><typename>ListenHost</typename><string>ListenHost = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>ListenPort</typename><string>ListenPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>ConnectToHost</typename><string>ConnectToHost = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>ConnectToPort</typename><string>ConnectToPort = TrueListenPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>TrueListenPort</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectToHost</anno>
+  <anno>ConnectToPort</anno>
+  <anno>ConnectionRef</anno>
+  <anno>ListenHost</anno>
+  <anno>ListenPort</anno>
+  <anno>TrueListenPort</anno>
+</spec>
+<spec>
+  <name>tcpip_tunnel_from_server</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>tcpip_tunnel_from_server(ConnectionRef, ListenHost, ListenPort,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ConnectToHost, ConnectToPort, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TrueListenPort} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="#connection_ref">connection_ref()</seetype></string></subtype>
+        <subtype><typename>ListenHost</typename><string>ListenHost = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>ListenPort</typename><string>ListenPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>ConnectToHost</typename><string>ConnectToHost = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>ConnectToPort</typename><string>ConnectToPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>TrueListenPort</typename><string>TrueListenPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectToHost</anno>
+  <anno>ConnectToPort</anno>
+  <anno>ConnectionRef</anno>
+  <anno>ListenHost</anno>
+  <anno>ListenPort</anno>
+  <anno>Timeout</anno>
+  <anno>TrueListenPort</anno>
+</spec>
+<spec>
+  <name>tcpip_tunnel_to_server</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>tcpip_tunnel_to_server(ConnectionRef, ListenHost, ListenPort,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ConnectToHost, ConnectToPort) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TrueListenPort} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="#connection_ref">connection_ref()</seetype></string></subtype>
+        <subtype><typename>ListenHost</typename><string>ListenHost = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>ListenPort</typename><string>ListenPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>ConnectToHost</typename><string>ConnectToHost = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>ConnectToPort</typename><string>ConnectToPort = TrueListenPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>TrueListenPort</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectToHost</anno>
+  <anno>ConnectToPort</anno>
+  <anno>ConnectionRef</anno>
+  <anno>ListenHost</anno>
+  <anno>ListenPort</anno>
+  <anno>TrueListenPort</anno>
+</spec>
+<spec>
+  <name>tcpip_tunnel_to_server</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>tcpip_tunnel_to_server(ConnectionRef, ListenHost, ListenPort,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ConnectToHost, ConnectToPort, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TrueListenPort} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="#connection_ref">connection_ref()</seetype></string></subtype>
+        <subtype><typename>ListenHost</typename><string>ListenHost = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>ListenPort</typename><string>ListenPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>ConnectToHost</typename><string>ConnectToHost = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>ConnectToPort</typename><string>ConnectToPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>TrueListenPort</typename><string>TrueListenPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectToHost</anno>
+  <anno>ConnectToPort</anno>
+  <anno>ConnectionRef</anno>
+  <anno>ListenHost</anno>
+  <anno>ListenPort</anno>
+  <anno>Timeout</anno>
+  <anno>TrueListenPort</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:52.</timestamp>
+</module>

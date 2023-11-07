@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>edoc_layout_chunks</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>edoc_layout_chunks.xml</file></header>
+<module>edoc_layout_chunks</module>
+<modulesummary>Convert EDoc module documentation to an
+  EEP-48
+  docs_v1 chunk.</modulesummary>
+<description>
+<p>Convert EDoc module documentation to an
+  <url href="https://www.erlang.org/erlang-enhancement-proposals/eep-0048.html">EEP-48</url>
+  <c>docs_v1</c> chunk.</p>
+ 
+  <p>This layout is only expected to work with <seeerl marker="edoc_doclet_chunks">edoc_doclet_chunks</seeerl>.
+  Section <url href="chapter.html#Using_the_EDoc_API">Using the EDoc API</url>  
+in the EDoc User's Guide shows an example of using this module.</p>
+ 
+  <p>This module breaks the convention stated in <c>edoc_doclet</c> to not rely on <c>edoc.hrl</c>
+  in doclets and layouts. It uses <c>#entry{}</c> records directly to recover information
+  that is not otherwise available to layouts.</p></description>
+<section><title>DATA TYPES</title><marker id="types"/>
+
+<taglist>
+<tag><marker id="type-beam_language"/>beam_language() = atom()</tag>
+<item><p/> </item>
+<tag><marker id="type-doc"/>doc() = #{<seeerl marker="#type-doc_language">doc_language()</seeerl> =&gt; <seeerl marker="#type-doc_string">doc_string()</seeerl>} | none | hidden</tag>
+<item><p/> </item>
+<tag><marker id="type-doc_language"/>doc_language() = binary()</tag>
+<item><p/> </item>
+<tag><marker id="type-doc_string"/>doc_string() = binary()</tag>
+<item><p/> </item>
+<tag><marker id="type-docs_v1"/>docs_v1() = #docs_v1{anno=<seeerl marker="stdlib:erl_anno#type-anno">erl_anno:anno()</seeerl>, beam_language=<seeerl marker="#type-beam_language">beam_language()</seeerl>, format=<seeerl marker="#type-mime_type">mime_type()</seeerl>, module_doc=<seeerl marker="#type-doc">doc()</seeerl>, metadata=<seeerl marker="#type-metadata">metadata()</seeerl>, docs=[<seeerl marker="#type-docs_v1_entry">docs_v1_entry()</seeerl>]}</tag>
+<item><p/>
+<p>  The Docs v1 chunk according to EEP 48.</p>
+</item>
+<tag><marker id="type-docs_v1_entry"/>docs_v1_entry() = {_KindNameArity::{atom(), atom(), arity()}, _Anno::<seeerl marker="stdlib:erl_anno#type-anno">erl_anno:anno()</seeerl>, _Signature::<seeerl marker="#type-signature">signature()</seeerl>, _Doc::<seeerl marker="#type-doc">doc()</seeerl>, _Metadata::<seeerl marker="#type-metadata">metadata()</seeerl>}</tag>
+<item><p/>
+<p>  A tuple equivalent to the <c>#docs_v1_entry{}</c> record,
+  but with the record name field skipped.</p>
+</item>
+<tag><marker id="type-metadata"/>metadata() = map()</tag>
+<item><p/> </item>
+<tag><marker id="type-mime_type"/>mime_type() = binary()</tag>
+<item><p/> </item>
+<tag><marker id="type-signature"/>signature() = [binary()]</tag>
+<item><p/> </item>
+</taglist></section>
+<funcs>
+<func>
+<name since="">module(Doc::<seeerl marker="edoc:edoc#type-edoc_module">edoc:edoc_module()</seeerl>, Options::<seeerl marker="stdlib:proplists#type-proplist">proplists:proplist()</seeerl>) -&gt; binary()</name>
+<fsummary>Convert EDoc module documentation to an EEP-48 style doc chunk.</fsummary>
+
+<desc><marker id="module-2"/>
+
+<p>Convert EDoc module documentation to an EEP-48 style doc chunk.</p>
+</desc></func></funcs>
+<section><title>See also</title><p><seeerl marker="edoc_doclet_chunks">edoc_doclet_chunks</seeerl>, <seeerl marker="stdlib:shell_docs">shell_docs(3)</seeerl></p></section>
+<authors>
+
+<aname>Radek Szymczyszyn</aname>
+<email>lavrin@gmail.com</email></authors></erlref>

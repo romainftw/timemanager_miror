@@ -1,0 +1,637 @@
+<module name="application">
+<type>
+  <name>application_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-application_opt">application_opt()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{description, Description :: <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{vsn, Vsn :: <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{id, Id :: <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{modules, [Module :: <seetype marker="erlang#module">module()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{registered, Names :: [Name :: <seetype marker="erlang#atom">atom()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{applications, [Application :: <seetype marker="erlang#atom">atom()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{included_applications, [Application :: <seetype marker="erlang#atom">atom()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{env, [{Par :: <seetype marker="erlang#atom">atom()</seetype>, Val :: <seetype marker="erlang#term">term()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{start_phases,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{Phase :: <seetype marker="erlang#atom">atom()</seetype>, PhaseArgs :: <seetype marker="erlang#term">term()</seetype>}] | undefined} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{maxT, MaxT :: <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{maxP, MaxP :: <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | infinity} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mod, Start :: {Module :: <seetype marker="erlang#module">module()</seetype>, StartArgs :: <seetype marker="erlang#term">term()</seetype>}}</typehead></typedecl>
+  <anno>Application</anno>
+  <anno>Description</anno>
+  <anno>Id</anno>
+  <anno>MaxP</anno>
+  <anno>MaxT</anno>
+  <anno>Module</anno>
+  <anno>Name</anno>
+  <anno>Names</anno>
+  <anno>Par</anno>
+  <anno>Phase</anno>
+  <anno>PhaseArgs</anno>
+  <anno>Start</anno>
+  <anno>StartArgs</anno>
+  <anno>Val</anno>
+  <anno>Vsn</anno>
+</type>
+<type>
+  <name>application_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-application_spec">application_spec()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{application,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Application :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>AppSpecKeys :: [<seetype marker="#application_opt">application_opt()</seetype>]}</typehead></typedecl>
+  <anno>AppSpecKeys</anno>
+  <anno>Application</anno>
+</type>
+<type>
+  <name>restart_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-restart_type">restart_type()</marker> = permanent | transient | temporary</typehead></typedecl>
+</type>
+<type>
+  <name>start_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-start_type">start_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>normal |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{takeover, Node :: <seetype marker="erlang#node">node()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{failover, Node :: <seetype marker="erlang#node">node()</seetype>}</typehead></typedecl>
+  <anno>Node</anno>
+</type>
+<type>
+  <name>tuple_of</name>
+  <n_vars>1</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tuple_of">tuple_of(_T)</marker> = <seetype marker="erlang#tuple">tuple()</seetype></typehead></typedecl>
+  <anno>_T</anno>
+</type>
+<spec>
+  <name>ensure_all_started</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ensure_all_started(Applications) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Started} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Applications</typename><string>Applications = <seetype marker="erlang#atom">atom()</seetype> | [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>Started</typename><string>Started = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Applications</anno>
+  <anno>Reason</anno>
+  <anno>Started</anno>
+</spec>
+<spec>
+  <name>ensure_all_started</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>ensure_all_started(Applications, Type) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Started} | {error, AppReason}</head>
+      <guard>
+        <subtype><typename>Applications</typename><string>Applications = <seetype marker="erlang#atom">atom()</seetype> | [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#restart_type">restart_type()</seetype></string></subtype>
+        <subtype><typename>Started</typename><string>Started = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>AppReason</typename><string>AppReason = {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AppReason</anno>
+  <anno>Applications</anno>
+  <anno>Started</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>ensure_all_started</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>ensure_all_started(Applications, Type, Mode) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Started} | {error, AppReason}</head>
+      <guard>
+        <subtype><typename>Applications</typename><string>Applications = <seetype marker="erlang#atom">atom()</seetype> | [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#restart_type">restart_type()</seetype></string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = serial | concurrent</string></subtype>
+        <subtype><typename>Started</typename><string>Started = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>AppReason</typename><string>AppReason = {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AppReason</anno>
+  <anno>Applications</anno>
+  <anno>Mode</anno>
+  <anno>Started</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>ensure_started</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ensure_started(Application) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>ensure_started</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>ensure_started(Application, Type) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#restart_type">restart_type()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>get_all_env</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_all_env() -&gt; Env</head>
+      <guard>
+        <subtype><typename>Env</typename><string>Env = [{Par :: <seetype marker="erlang#atom">atom()</seetype>, Val :: <seetype marker="erlang#term">term()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Env</anno>
+  <anno>Par</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>get_all_env</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_all_env(Application) -&gt; Env</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Env</typename><string>Env = [{Par :: <seetype marker="erlang#atom">atom()</seetype>, Val :: <seetype marker="erlang#term">term()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Env</anno>
+  <anno>Par</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>get_all_key</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_all_key() -&gt; [] | {ok, Keys}</head>
+      <guard>
+        <subtype><typename>Keys</typename><string>Keys = [{Key :: <seetype marker="erlang#atom">atom()</seetype>, Val :: <seetype marker="erlang#term">term()</seetype>}, ...]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Keys</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>get_all_key</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_all_key(Application) -&gt; undefined | Keys</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Keys</typename><string>Keys = {ok, [{Key :: <seetype marker="erlang#atom">atom()</seetype>, Val :: <seetype marker="erlang#term">term()</seetype>}, ...]}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Key</anno>
+  <anno>Keys</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>get_application</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_application() -&gt; undefined | {ok, Application}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+</spec>
+<spec>
+  <name>get_application</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_application(PidOrModule) -&gt; undefined | {ok, Application}</head>
+      <guard>
+        <subtype><typename>PidOrModule</typename><string>PidOrModule = (Pid :: <seetype marker="erlang#pid">pid()</seetype>) | (Module :: <seetype marker="erlang#module">module()</seetype>)</string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Module</anno>
+  <anno>Pid</anno>
+  <anno>PidOrModule</anno>
+</spec>
+<spec>
+  <name>get_env</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_env(Par) -&gt; undefined | {ok, Val}</head>
+      <guard>
+        <subtype><typename>Par</typename><string>Par = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Val</typename><string>Val = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Par</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>get_env</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_env(Application, Par) -&gt; undefined | {ok, Val}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = Par = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Par</typename><string/></subtype>
+        <subtype><typename>Val</typename><string>Val = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Par</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>get_env</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_env(Application, Par, Def) -&gt; Val</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = Par = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Par</typename><string/></subtype>
+        <subtype><typename>Def</typename><string>Def = Val = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Val</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Def</anno>
+  <anno>Par</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>get_key</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_key(Key) -&gt; undefined | {ok, Val}</head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Val</typename><string>Val = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>get_key</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_key(Application, Key) -&gt; undefined | {ok, Val}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = Key = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string/></subtype>
+        <subtype><typename>Val</typename><string>Val = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Key</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>get_supervisor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_supervisor(Application) -&gt; undefined | {ok, Pid}</head>
+      <guard>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>info() -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>load</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>load(AppDescr) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>AppDescr</typename><string>AppDescr = Application | (AppSpec :: <seetype marker="#application_spec">application_spec()</seetype>)</string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AppDescr</anno>
+  <anno>AppSpec</anno>
+  <anno>Application</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>load</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>load(AppDescr, Distributed) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>AppDescr</typename><string>AppDescr = Application | (AppSpec :: <seetype marker="#application_spec">application_spec()</seetype>)</string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Distributed</typename><string>Distributed = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Application, Nodes} | {Application, Time, Nodes} | default</string></subtype>
+        <subtype><typename>Nodes</typename><string>Nodes = [<seetype marker="erlang#node">node()</seetype> | <seetype marker="#tuple_of">tuple_of</seetype>(<seetype marker="erlang#node">node()</seetype>)]</string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AppDescr</anno>
+  <anno>AppSpec</anno>
+  <anno>Application</anno>
+  <anno>Distributed</anno>
+  <anno>Nodes</anno>
+  <anno>Reason</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>loaded_applications</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>loaded_applications() -&gt; [{Application, Description, Vsn}]</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Description</typename><string>Description = Vsn = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Vsn</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Description</anno>
+  <anno>Vsn</anno>
+</spec>
+<spec>
+  <name>permit</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>permit(Application, Permission) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Permission</typename><string>Permission = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Permission</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>set_env</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_env(Config) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = [{Application, Env}]</string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Env</typename><string>Env = [{Par :: <seetype marker="erlang#atom">atom()</seetype>, Val :: <seetype marker="erlang#term">term()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Config</anno>
+  <anno>Env</anno>
+  <anno>Par</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>set_env</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_env(Config, Opts) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = [{Application, Env}]</string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Env</typename><string>Env = [{Par :: <seetype marker="erlang#atom">atom()</seetype>, Val :: <seetype marker="erlang#term">term()</seetype>}]</string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} | {persistent, <seetype marker="erlang#boolean">boolean()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Config</anno>
+  <anno>Env</anno>
+  <anno>Opts</anno>
+  <anno>Par</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>set_env</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_env(Application, Par, Val) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = Par = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Par</typename><string/></subtype>
+        <subtype><typename>Val</typename><string>Val = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Par</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>set_env</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>set_env(Application, Par, Val, Opts) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = Par = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Par</typename><string/></subtype>
+        <subtype><typename>Val</typename><string>Val = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} | {persistent, <seetype marker="erlang#boolean">boolean()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Opts</anno>
+  <anno>Par</anno>
+  <anno>Val</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(Application) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start(Application, Type) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#restart_type">restart_type()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>start_boot</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start_boot(Application :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Application</anno>
+</spec>
+<spec>
+  <name>start_boot</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start_boot(Application :: <seetype marker="erlang#atom">atom()</seetype>, RestartType :: <seetype marker="#restart_type">restart_type()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>RestartType</anno>
+</spec>
+<spec>
+  <name>start_type</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_type() -&gt; StartType | undefined | local</head>
+      <guard>
+        <subtype><typename>StartType</typename><string>StartType = <seetype marker="#start_type">start_type()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>StartType</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(Application) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>takeover</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>takeover(Application, Type) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#restart_type">restart_type()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>unload</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unload(Application) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>unset_env</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>unset_env(Application, Par) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = Par = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Par</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Par</anno>
+</spec>
+<spec>
+  <name>unset_env</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>unset_env(Application, Par, Opts) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = Par = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Par</typename><string/></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} | {persistent, <seetype marker="erlang#boolean">boolean()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Opts</anno>
+  <anno>Par</anno>
+</spec>
+<spec>
+  <name>which_applications</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>which_applications() -&gt; [{Application, Description, Vsn}]</head>
+      <guard>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Description</typename><string>Description = Vsn = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Vsn</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Description</anno>
+  <anno>Vsn</anno>
+</spec>
+<spec>
+  <name>which_applications</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>which_applications(Timeout) -&gt; [{Application, Description, Vsn}]</head>
+      <guard>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Description</typename><string>Description = Vsn = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Vsn</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Description</anno>
+  <anno>Timeout</anno>
+  <anno>Vsn</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:46.</timestamp>
+</module>

@@ -1,0 +1,291 @@
+<module name="wxListEvent">
+<type>
+  <name>wxList</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxList">wxList()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#wxList{type = <seetype marker="wxListEvent#wxListEventType">wxListEvent:wxListEventType()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>code = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>oldItemIndex = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>itemIndex = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>col = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>pointDrag = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}}</typehead></typedecl>
+  <anno>X</anno>
+  <anno>Y</anno>
+</type>
+<type>
+  <name>wxListEvent</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxListEvent">wxListEvent()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>wxListEventType</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxListEventType">wxListEventType()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_begin_drag | command_list_begin_rdrag |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_begin_label_edit | command_list_end_label_edit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_delete_item | command_list_delete_all_items |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_key_down | command_list_insert_item |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_col_click | command_list_col_right_click |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_col_begin_drag | command_list_col_dragging |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_col_end_drag | command_list_item_selected |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_item_deselected | command_list_item_right_click |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_item_middle_click | command_list_item_activated |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_list_item_focused | command_list_cache_hint</typehead></typedecl>
+</type>
+<spec>
+  <name>allow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCacheFrom</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getCacheFrom(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCacheTo</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getCacheTo(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getClientData</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getColumn</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getColumn(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getData</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getData(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getExtraLong</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getId</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getImage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getImage(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getIndex</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getIndex(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getInt</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getItem(This) -&gt; <seetype marker="wxListItem#wxListItem">wxListItem:wxListItem()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getKeyCode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getKeyCode(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLabel</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLabel(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMask</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMask(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPoint</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPoint(This) -&gt; {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getSelection</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSkipped</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getString</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getText</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getText(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getTimestamp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isAllowed</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isChecked</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isCommandEvent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isEditCancelled</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isEditCancelled(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxListEvent">wxListEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isSelection</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>resumePropagation</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setInt</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setString</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>shouldPropagate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>skip</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>skip</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>stopPropagation</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>veto</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:38.</timestamp>
+</module>

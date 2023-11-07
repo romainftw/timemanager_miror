@@ -1,0 +1,959 @@
+<module name="dets">
+<type>
+  <name>access</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-access">access()</marker> = read | read_write</typehead></typedecl>
+</type>
+<type>
+  <name>auto_save</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-auto_save">auto_save()</marker> = infinity | <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>bindings_cont</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-bindings_cont">bindings_cont()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>cont</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cont">cont()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>keypos</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-keypos">keypos()</marker> = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>match_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-match_spec">match_spec()</marker> = <seetype marker="ets#match_spec">ets:match_spec()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>no_slots</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-no_slots">no_slots()</marker> = default | <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>object</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-object">object()</marker> = <seetype marker="erlang#tuple">tuple()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>object_cont</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-object_cont">object_cont()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>pattern</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pattern">pattern()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#tuple">tuple()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>select_cont</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-select_cont">select_cont()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>tab_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tab_name">tab_name()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-type">type()</marker> = bag | duplicate_bag | set</typehead></typedecl>
+</type>
+<spec>
+  <name>add_user</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>all</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>all() -&gt; [<seetype marker="#tab_name">tab_name()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>bchunk</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>bchunk(Name, Continuation) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Continuation2, Data} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>'$end_of_table' |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Continuation</typename><string>Continuation = start | <seetype marker="#cont">cont()</seetype></string></subtype>
+        <subtype><typename>Continuation2</typename><string>Continuation2 = <seetype marker="#cont">cont()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#tuple">tuple()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Continuation2</anno>
+  <anno>Data</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(Name) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>delete</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete(Name, Key) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>delete_all_objects</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>delete_all_objects(Name) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>delete_object</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete_object(Name, Object) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Object</typename><string>Object = <seetype marker="#object">object()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Object</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>file_info</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>first</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>first(Name) -&gt; Key | '$end_of_table'</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>foldl</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>foldl(Function, Acc0, Name) -&gt; Acc | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = fun((Object :: <seetype marker="#object">object()</seetype>, AccIn) -&gt; AccOut)</string></subtype>
+        <subtype><typename>Acc0</typename><string>Acc0 = Acc = AccIn = AccOut = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Acc</typename><string></string></subtype>
+        <subtype><typename>AccIn</typename><string></string></subtype>
+        <subtype><typename>AccOut</typename><string></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Acc</anno>
+  <anno>Acc0</anno>
+  <anno>AccIn</anno>
+  <anno>AccOut</anno>
+  <anno>Function</anno>
+  <anno>Name</anno>
+  <anno>Object</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>foldr</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>foldr(Function, Acc0, Name) -&gt; Acc | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = fun((Object :: <seetype marker="#object">object()</seetype>, AccIn) -&gt; AccOut)</string></subtype>
+        <subtype><typename>Acc0</typename><string>Acc0 = Acc = AccIn = AccOut = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Acc</typename><string></string></subtype>
+        <subtype><typename>AccIn</typename><string></string></subtype>
+        <subtype><typename>AccOut</typename><string></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Acc</anno>
+  <anno>Acc0</anno>
+  <anno>AccIn</anno>
+  <anno>AccOut</anno>
+  <anno>Function</anno>
+  <anno>Name</anno>
+  <anno>Object</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>from_ets</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>from_ets(Name, EtsTab) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>EtsTab</typename><string>EtsTab = <seetype marker="ets#table">ets:table()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EtsTab</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>fsck</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fsck</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_head_field</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(Name) -&gt; InfoList | undefined</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>InfoList</typename><string>InfoList = [InfoTuple]</string></subtype>
+        <subtype><typename>InfoTuple</typename><string>InfoTuple = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_size, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{filename, <seetype marker="file#name">file:name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keypos, <seetype marker="#keypos">keypos()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{type, <seetype marker="#type">type()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>InfoList</anno>
+  <anno>InfoTuple</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>info(Name, Item) -&gt; Value | undefined</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Item</typename><string>Item = <br/><nbsp/><nbsp/><nbsp/><nbsp/>access | auto_save | bchunk_format | hash | file_size |<br/><nbsp/><nbsp/><nbsp/><nbsp/>filename | keypos | memory | no_keys | no_objects | no_slots |<br/><nbsp/><nbsp/><nbsp/><nbsp/>owner | ram_file | safe_fixed | safe_fixed_monotonic_time |<br/><nbsp/><nbsp/><nbsp/><nbsp/>size | type</string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Name</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>init_table</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>init_table(Name, InitFun) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>InitFun</typename><string>InitFun = fun((Arg) -&gt; Res)</string></subtype>
+        <subtype><typename>Arg</typename><string>Arg = read | close</string></subtype>
+        <subtype><typename>Res</typename><string>Res = <br/><nbsp/><nbsp/><nbsp/><nbsp/>end_of_input |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{[<seetype marker="#object">object()</seetype>], InitFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Data, InitFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#tuple">tuple()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arg</anno>
+  <anno>Data</anno>
+  <anno>InitFun</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>init_table</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>init_table(Name, InitFun, Options) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>InitFun</typename><string>InitFun = fun((Arg) -&gt; Res)</string></subtype>
+        <subtype><typename>Arg</typename><string>Arg = read | close</string></subtype>
+        <subtype><typename>Res</typename><string>Res = <br/><nbsp/><nbsp/><nbsp/><nbsp/>end_of_input |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{[<seetype marker="#object">object()</seetype>], InitFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Data, InitFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {min_no_slots, <seetype marker="#no_slots">no_slots()</seetype>} | {format, term | bchunk}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#tuple">tuple()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arg</anno>
+  <anno>Data</anno>
+  <anno>InitFun</anno>
+  <anno>Name</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>insert(Name, Objects) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Objects</typename><string>Objects = <seetype marker="#object">object()</seetype> | [<seetype marker="#object">object()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Objects</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>insert_new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>insert_new(Name, Objects) -&gt; <seetype marker="erlang#boolean">boolean()</seetype> | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Objects</typename><string>Objects = <seetype marker="#object">object()</seetype> | [<seetype marker="#object">object()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Objects</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>internal_close</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>internal_open</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>is_compatible_bchunk_format</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>is_compatible_bchunk_format(Name, BchunkFormat) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>BchunkFormat</typename><string>BchunkFormat = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BchunkFormat</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>is_dets_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_dets_file(Filename) -&gt; <seetype marker="erlang#boolean">boolean()</seetype> | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>istart_link</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>lookup</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>lookup(Name, Key) -&gt; Objects | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Objects</typename><string>Objects = [<seetype marker="#object">object()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Name</anno>
+  <anno>Objects</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>lookup_keys</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>match</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>match(Continuation) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{[Match], Continuation2} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>'$end_of_table' |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Continuation</typename><string>Continuation = Continuation2 = <seetype marker="#bindings_cont">bindings_cont()</seetype></string></subtype>
+        <subtype><typename>Continuation2</typename><string/></subtype>
+        <subtype><typename>Match</typename><string>Match = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Continuation2</anno>
+  <anno>Match</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>match</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>match(Name, Pattern) -&gt; [Match] | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#pattern">pattern()</seetype></string></subtype>
+        <subtype><typename>Match</typename><string>Match = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Match</anno>
+  <anno>Name</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>match</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>match(Name, Pattern, N) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{[Match], Continuation} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>'$end_of_table' |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#pattern">pattern()</seetype></string></subtype>
+        <subtype><typename>N</typename><string>N = default | <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Continuation</typename><string>Continuation = <seetype marker="#bindings_cont">bindings_cont()</seetype></string></subtype>
+        <subtype><typename>Match</typename><string>Match = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Match</anno>
+  <anno>N</anno>
+  <anno>Name</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>match_delete</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>match_delete(Name, Pattern) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#pattern">pattern()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>match_object</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>match_object(Continuation) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Objects, Continuation2} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>'$end_of_table' |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Continuation</typename><string>Continuation = Continuation2 = <seetype marker="#object_cont">object_cont()</seetype></string></subtype>
+        <subtype><typename>Continuation2</typename><string/></subtype>
+        <subtype><typename>Objects</typename><string>Objects = [<seetype marker="#object">object()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Continuation2</anno>
+  <anno>Objects</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>match_object</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>match_object(Name, Pattern) -&gt; Objects | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#pattern">pattern()</seetype></string></subtype>
+        <subtype><typename>Objects</typename><string>Objects = [<seetype marker="#object">object()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Objects</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>match_object</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>match_object(Name, Pattern, N) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Objects, Continuation} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>'$end_of_table' |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#pattern">pattern()</seetype></string></subtype>
+        <subtype><typename>N</typename><string>N = default | <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Continuation</typename><string>Continuation = <seetype marker="#object_cont">object_cont()</seetype></string></subtype>
+        <subtype><typename>Objects</typename><string>Objects = [<seetype marker="#object">object()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>N</anno>
+  <anno>Name</anno>
+  <anno>Objects</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>member</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>member(Name, Key) -&gt; <seetype marker="erlang#boolean">boolean()</seetype> | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>next</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>next(Name, Key1) -&gt; Key2 | '$end_of_table'</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Key1</typename><string>Key1 = Key2 = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Key2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key1</anno>
+  <anno>Key2</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>open_file</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>open_file(Filename) -&gt; {ok, Reference} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>Reference</typename><string>Reference = <seetype marker="erlang#reference">reference()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Reason</anno>
+  <anno>Reference</anno>
+</spec>
+<spec>
+  <name>open_file</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>open_file(Name, Args) -&gt; {ok, Name} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [OpenArg]</string></subtype>
+        <subtype><typename>OpenArg</typename><string>OpenArg = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{access, <seetype marker="#access">access()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{auto_save, <seetype marker="#auto_save">auto_save()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{estimated_no_objects, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file, <seetype marker="file#name">file:name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_no_slots, <seetype marker="#no_slots">no_slots()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{min_no_slots, <seetype marker="#no_slots">no_slots()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keypos, <seetype marker="#keypos">keypos()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ram_file, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{repair, <seetype marker="erlang#boolean">boolean()</seetype> | force} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{type, <seetype marker="#type">type()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Name</anno>
+  <anno>OpenArg</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>pid2name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pid2name(Pid) -&gt; {ok, Name} | undefined</head>
+      <guard>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>remove_user</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>repair_continuation</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>repair_continuation(Continuation, MatchSpec) -&gt; Continuation2</head>
+      <guard>
+        <subtype><typename>Continuation</typename><string>Continuation = Continuation2 = <seetype marker="#select_cont">select_cont()</seetype></string></subtype>
+        <subtype><typename>Continuation2</typename><string/></subtype>
+        <subtype><typename>MatchSpec</typename><string>MatchSpec = <seetype marker="#match_spec">match_spec()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Continuation2</anno>
+  <anno>MatchSpec</anno>
+</spec>
+<spec>
+  <name>safe_fixtable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>safe_fixtable(Name, Fix) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Fix</typename><string>Fix = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fix</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>select</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>select(Continuation) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Selection, Continuation2} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>'$end_of_table' |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Continuation</typename><string>Continuation = Continuation2 = <seetype marker="#select_cont">select_cont()</seetype></string></subtype>
+        <subtype><typename>Continuation2</typename><string/></subtype>
+        <subtype><typename>Selection</typename><string>Selection = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>Continuation2</anno>
+  <anno>Reason</anno>
+  <anno>Selection</anno>
+</spec>
+<spec>
+  <name>select</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>select(Name, MatchSpec) -&gt; Selection | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>MatchSpec</typename><string>MatchSpec = <seetype marker="#match_spec">match_spec()</seetype></string></subtype>
+        <subtype><typename>Selection</typename><string>Selection = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>MatchSpec</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Selection</anno>
+</spec>
+<spec>
+  <name>select</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>select(Name, MatchSpec, N) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Selection, Continuation} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>'$end_of_table' |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>MatchSpec</typename><string>MatchSpec = <seetype marker="#match_spec">match_spec()</seetype></string></subtype>
+        <subtype><typename>N</typename><string>N = default | <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Continuation</typename><string>Continuation = <seetype marker="#select_cont">select_cont()</seetype></string></subtype>
+        <subtype><typename>Selection</typename><string>Selection = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Continuation</anno>
+  <anno>MatchSpec</anno>
+  <anno>N</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+  <anno>Selection</anno>
+</spec>
+<spec>
+  <name>select_delete</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>select_delete(Name, MatchSpec) -&gt; N | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>MatchSpec</typename><string>MatchSpec = <seetype marker="#match_spec">match_spec()</seetype></string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>MatchSpec</anno>
+  <anno>N</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>slot</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>slot(Name, I) -&gt; '$end_of_table' | Objects | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>I</typename><string>I = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Objects</typename><string>Objects = [<seetype marker="#object">object()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>I</anno>
+  <anno>Name</anno>
+  <anno>Objects</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>sync</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sync(Name) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>system_code_change</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_continue</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_terminate</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>table</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>table(Name) -&gt; QueryHandle</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>QueryHandle</typename><string>QueryHandle = <seetype marker="qlc#query_handle">qlc:query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>QueryHandle</anno>
+</spec>
+<spec>
+  <name>table</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>table(Name, Options) -&gt; QueryHandle</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {n_objects, Limit} | {traverse, TraverseMethod}</string></subtype>
+        <subtype><typename>Limit</typename><string>Limit = default | <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>TraverseMethod</typename><string>TraverseMethod = first_next | select | {select, <seetype marker="#match_spec">match_spec()</seetype>}</string></subtype>
+        <subtype><typename>QueryHandle</typename><string>QueryHandle = <seetype marker="qlc#query_handle">qlc:query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Limit</anno>
+  <anno>Name</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>QueryHandle</anno>
+  <anno>TraverseMethod</anno>
+</spec>
+<spec>
+  <name>to_ets</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>to_ets(Name, EtsTab) -&gt; EtsTab | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>EtsTab</typename><string>EtsTab = <seetype marker="ets#table">ets:table()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EtsTab</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>traverse</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>traverse(Name, Fun) -&gt; Return | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = fun((Object) -&gt; FunReturn)</string></subtype>
+        <subtype><typename>Object</typename><string>Object = <seetype marker="#object">object()</seetype></string></subtype>
+        <subtype><typename>FunReturn</typename><string>FunReturn = <br/><nbsp/><nbsp/><nbsp/><nbsp/>continue | {continue, Val} | {done, Value} | OtherValue</string></subtype>
+        <subtype><typename>Return</typename><string>Return = [<seetype marker="erlang#term">term()</seetype>] | OtherValue</string></subtype>
+        <subtype><typename>Val</typename><string>Val = Value = OtherValue = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string></string></subtype>
+        <subtype><typename>OtherValue</typename><string></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>FunReturn</anno>
+  <anno>Name</anno>
+  <anno>Object</anno>
+  <anno>OtherValue</anno>
+  <anno>Reason</anno>
+  <anno>Return</anno>
+  <anno>Val</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>update_counter</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_counter(Name, Key, Increment) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#tab_name">tab_name()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Increment</typename><string>Increment = {Pos, Incr} | Incr</string></subtype>
+        <subtype><typename>Pos</typename><string>Pos = Incr = Result = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Incr</typename><string></string></subtype>
+        <subtype><typename>Result</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Incr</anno>
+  <anno>Increment</anno>
+  <anno>Key</anno>
+  <anno>Name</anno>
+  <anno>Pos</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>verbose</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>verbose</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>view</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>where</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:19.</timestamp>
+</module>

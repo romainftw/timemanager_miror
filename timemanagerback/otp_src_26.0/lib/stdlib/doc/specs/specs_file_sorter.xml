@@ -1,0 +1,417 @@
+<module name="file_sorter">
+<type>
+  <name>file_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file_name">file_name()</marker> = <seetype marker="file#name">file:name()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>file_names</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file_names">file_names()</marker> = [<seetype marker="file#name">file:name()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>format</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-format">format()</marker> = binary_term | term | binary | <seetype marker="#format_fun">format_fun()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>format_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-format_fun">format_fun()</marker> = fun((<seetype marker="erlang#binary">binary()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>header_length</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-header_length">header_length()</marker> = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>i_command</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-i_command">i_command()</marker> = read | close</typehead></typedecl>
+</type>
+<type>
+  <name>i_reply</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-i_reply">i_reply()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>end_of_input |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{end_of_input, <seetype marker="#value">value()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{[<seetype marker="#object">object()</seetype>], <seetype marker="#infun">infun()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#input_reply">input_reply()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>infun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-infun">infun()</marker> = fun((<seetype marker="#i_command">i_command()</seetype>) -&gt; <seetype marker="#i_reply">i_reply()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>input</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-input">input()</marker> = <seetype marker="#file_names">file_names()</seetype> | <seetype marker="#infun">infun()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>input_reply</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-input_reply">input_reply()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>key_pos</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_pos">key_pos()</marker> = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | [<seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>no_files</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-no_files">no_files()</marker> = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>o_command</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-o_command">o_command()</marker> = {value, <seetype marker="#value">value()</seetype>} | [<seetype marker="#object">object()</seetype>] | close</typehead></typedecl>
+</type>
+<type>
+  <name>o_reply</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-o_reply">o_reply()</marker> = <seetype marker="#outfun">outfun()</seetype> | <seetype marker="#output_reply">output_reply()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>object</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-object">object()</marker> = <seetype marker="erlang#term">term()</seetype> | <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option">option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{compressed, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{header, <seetype marker="#header_length">header_length()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{format, <seetype marker="#format">format()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_files, <seetype marker="#no_files">no_files()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{order, <seetype marker="#order">order()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, <seetype marker="#size">size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir, <seetype marker="#tmp_directory">tmp_directory()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-options">options()</marker> = [<seetype marker="#option">option()</seetype>] | <seetype marker="#option">option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>order</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-order">order()</marker> = ascending | descending | <seetype marker="#order_fun">order_fun()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>order_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-order_fun">order_fun()</marker> = fun((<seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>outfun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-outfun">outfun()</marker> = fun((<seetype marker="#o_command">o_command()</seetype>) -&gt; <seetype marker="#o_reply">o_reply()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>output</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-output">output()</marker> = <seetype marker="#file_name">file_name()</seetype> | <seetype marker="#outfun">outfun()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>output_reply</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-output_reply">output_reply()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>reason</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-reason">reason()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>bad_object |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{bad_object, <seetype marker="#file_name">file_name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{bad_term, <seetype marker="#file_name">file_name()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#file_name">file_name()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#posix">file:posix()</seetype> | badarg | system_limit} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{premature_eof, <seetype marker="#file_name">file_name()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>size</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-size">size()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>tmp_directory</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tmp_directory">tmp_directory()</marker> = [] | <seetype marker="file#name">file:name()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>value</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-value">value()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>check</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>check(FileName) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="#file_name">file_name()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = {ok, [Result]} | {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {FileName, TermPosition, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>TermPosition</typename><string>TermPosition = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>Reply</anno>
+  <anno>Result</anno>
+  <anno>TermPosition</anno>
+</spec>
+<spec>
+  <name>check</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>check(FileNames, Options) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>FileNames</typename><string>FileNames = <seetype marker="#file_names">file_names()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = {ok, [Result]} | {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {FileName, TermPosition, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="#file_name">file_name()</seetype></string></subtype>
+        <subtype><typename>TermPosition</typename><string>TermPosition = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>FileNames</anno>
+  <anno>Options</anno>
+  <anno>Reply</anno>
+  <anno>Result</anno>
+  <anno>TermPosition</anno>
+</spec>
+<spec>
+  <name>keycheck</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>keycheck(KeyPos, FileName) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>KeyPos</typename><string>KeyPos = <seetype marker="#key_pos">key_pos()</seetype></string></subtype>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="#file_name">file_name()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = {ok, [Result]} | {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {FileName, TermPosition, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>TermPosition</typename><string>TermPosition = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>KeyPos</anno>
+  <anno>Reply</anno>
+  <anno>Result</anno>
+  <anno>TermPosition</anno>
+</spec>
+<spec>
+  <name>keycheck</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>keycheck(KeyPos, FileNames, Options) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>KeyPos</typename><string>KeyPos = <seetype marker="#key_pos">key_pos()</seetype></string></subtype>
+        <subtype><typename>FileNames</typename><string>FileNames = <seetype marker="#file_names">file_names()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = {ok, [Result]} | {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {FileName, TermPosition, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="#file_name">file_name()</seetype></string></subtype>
+        <subtype><typename>TermPosition</typename><string>TermPosition = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>FileNames</anno>
+  <anno>KeyPos</anno>
+  <anno>Options</anno>
+  <anno>Reply</anno>
+  <anno>Result</anno>
+  <anno>TermPosition</anno>
+</spec>
+<spec>
+  <name>keymerge</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>keymerge(KeyPos, FileNames, Output) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>KeyPos</typename><string>KeyPos = <seetype marker="#key_pos">key_pos()</seetype></string></subtype>
+        <subtype><typename>FileNames</typename><string>FileNames = <seetype marker="#file_names">file_names()</seetype></string></subtype>
+        <subtype><typename>Output</typename><string>Output = <seetype marker="#output">output()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileNames</anno>
+  <anno>KeyPos</anno>
+  <anno>Output</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>keymerge</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>keymerge(KeyPos, FileNames, Output, Options) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>KeyPos</typename><string>KeyPos = <seetype marker="#key_pos">key_pos()</seetype></string></subtype>
+        <subtype><typename>FileNames</typename><string>FileNames = <seetype marker="#file_names">file_names()</seetype></string></subtype>
+        <subtype><typename>Output</typename><string>Output = <seetype marker="#output">output()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileNames</anno>
+  <anno>KeyPos</anno>
+  <anno>Options</anno>
+  <anno>Output</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>keysort</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>keysort(KeyPos, FileName) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>KeyPos</typename><string>KeyPos = <seetype marker="#key_pos">key_pos()</seetype></string></subtype>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="#file_name">file_name()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#input_reply">input_reply()</seetype> | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>KeyPos</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>keysort</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>keysort(KeyPos, Input, Output) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>KeyPos</typename><string>KeyPos = <seetype marker="#key_pos">key_pos()</seetype></string></subtype>
+        <subtype><typename>Input</typename><string>Input = <seetype marker="#input">input()</seetype></string></subtype>
+        <subtype><typename>Output</typename><string>Output = <seetype marker="#output">output()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#input_reply">input_reply()</seetype> | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Input</anno>
+  <anno>KeyPos</anno>
+  <anno>Output</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>keysort</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>keysort(KeyPos, Input, Output, Options) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>KeyPos</typename><string>KeyPos = <seetype marker="#key_pos">key_pos()</seetype></string></subtype>
+        <subtype><typename>Input</typename><string>Input = <seetype marker="#input">input()</seetype></string></subtype>
+        <subtype><typename>Output</typename><string>Output = <seetype marker="#output">output()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#input_reply">input_reply()</seetype> | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Input</anno>
+  <anno>KeyPos</anno>
+  <anno>Options</anno>
+  <anno>Output</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>merge</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>merge(FileNames, Output) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>FileNames</typename><string>FileNames = <seetype marker="#file_names">file_names()</seetype></string></subtype>
+        <subtype><typename>Output</typename><string>Output = <seetype marker="#output">output()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileNames</anno>
+  <anno>Output</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>merge</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>merge(FileNames, Output, Options) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>FileNames</typename><string>FileNames = <seetype marker="#file_names">file_names()</seetype></string></subtype>
+        <subtype><typename>Output</typename><string>Output = <seetype marker="#output">output()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileNames</anno>
+  <anno>Options</anno>
+  <anno>Output</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>sort</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sort(FileName) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>FileName</typename><string>FileName = <seetype marker="#file_name">file_name()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#input_reply">input_reply()</seetype> | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FileName</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>sort</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>sort(Input, Output) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>Input</typename><string>Input = <seetype marker="#input">input()</seetype></string></subtype>
+        <subtype><typename>Output</typename><string>Output = <seetype marker="#output">output()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#input_reply">input_reply()</seetype> | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Input</anno>
+  <anno>Output</anno>
+  <anno>Reply</anno>
+</spec>
+<spec>
+  <name>sort</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>sort(Input, Output, Options) -&gt; Reply</head>
+      <guard>
+        <subtype><typename>Input</typename><string>Input = <seetype marker="#input">input()</seetype></string></subtype>
+        <subtype><typename>Output</typename><string>Output = <seetype marker="#output">output()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Reply</typename><string>Reply = ok | {error, <seetype marker="#reason">reason()</seetype>} | <seetype marker="#input_reply">input_reply()</seetype> | <seetype marker="#output_reply">output_reply()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Input</anno>
+  <anno>Options</anno>
+  <anno>Output</anno>
+  <anno>Reply</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:22.</timestamp>
+</module>

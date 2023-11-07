@@ -1,0 +1,531 @@
+<module name="wxMemoryDC">
+<type>
+  <name>wxMemoryDC</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxMemoryDC">wxMemoryDC()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>blit</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>blit</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>calcBoundingBox</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>crossHair</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxMemoryDC">wxMemoryDC()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroyClippingRegion</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>deviceToLogicalX</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>deviceToLogicalXRel</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>deviceToLogicalY</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>deviceToLogicalYRel</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawArc</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawBitmap</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawBitmap</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawCheckMark</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawCircle</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawEllipse</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawEllipse</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawEllipticArc</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawIcon</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawLabel</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawLabel</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawLine</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawLines</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawLines</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawPoint</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawPolygon</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawPolygon</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawRectangle</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawRectangle</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawRotatedText</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawRoundedRectangle</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawRoundedRectangle</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>drawText</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>endDoc</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>endPage</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>floodFill</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>floodFill</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBackgroundMode</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getBrush</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCharHeight</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getCharWidth</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getClippingBox</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getFont</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getLayoutDirection</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getLogicalFunction</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMapMode</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMultiLineTextExtent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMultiLineTextExtent</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPPI</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPartialTextExtents</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPen</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPixel</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSizeMM</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextBackground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextExtent</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTextForeground</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getUserScale</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>gradientFillConcentric</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>gradientFillConcentric</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>gradientFillLinear</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>gradientFillLinear</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isOk</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>logicalToDeviceX</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>logicalToDeviceXRel</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>logicalToDeviceY</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>logicalToDeviceYRel</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>maxX</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>maxY</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>minX</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>minY</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxMemoryDC">wxMemoryDC()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Dc) -&gt; <seetype marker="#wxMemoryDC">wxMemoryDC()</seetype></head>
+      <guard>
+        <subtype><typename>Dc</typename><string>Dc = <seetype marker="wxDC#wxDC">wxDC:wxDC()</seetype> | <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dc</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>resetBoundingBox</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>selectObject</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>selectObject(This, Bitmap) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMemoryDC">wxMemoryDC()</seetype></string></subtype>
+        <subtype><typename>Bitmap</typename><string>Bitmap = <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bitmap</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>selectObjectAsSource</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>selectObjectAsSource(This, Bitmap) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMemoryDC">wxMemoryDC()</seetype></string></subtype>
+        <subtype><typename>Bitmap</typename><string>Bitmap = <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bitmap</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setAxisOrientation</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBackground</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBackgroundMode</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBrush</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setClippingRegion</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setClippingRegion</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDeviceOrigin</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setFont</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setLayoutDirection</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setLogicalFunction</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMapMode</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setPalette</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setPen</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTextBackground</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setTextForeground</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setUserScale</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>startDoc</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>startPage</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:40.</timestamp>
+</module>

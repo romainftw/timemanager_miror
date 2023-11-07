@@ -1,0 +1,1050 @@
+<module name="ct_netconfc">
+<type>
+  <name>client</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client">client()</marker> = <seetype marker="#handle">handle()</seetype> | <seetype marker="#server_id">server_id()</seetype> | <seetype marker="ct#target_name">ct:target_name()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>error_reason</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error_reason">error_reason()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>handle</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handle">handle()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>host</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-host">host()</marker> = <seetype marker="inet#hostname">inet:hostname()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>netconf_db</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-netconf_db">netconf_db()</marker> = running | startup | candidate</typehead></typedecl>
+</type>
+<type>
+  <name>notification</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-notification">notification()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{notification, <seetype marker="#xml_attributes">xml_attributes()</seetype>, [<seetype marker="#simple_xml">simple_xml()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option">option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{host | ssh, <seetype marker="#host">host()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, <seetype marker="inet#port_number">inet:port_number()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{capability, <seetype marker="erlang#string">string()</seetype> | [<seetype marker="erlang#string">string()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{receiver, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh#client_option">ssh:client_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>server_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_id">server_id()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>session_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-session_option">session_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{receiver, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{capability, <seetype marker="erlang#string">string()</seetype> | [<seetype marker="erlang#string">string()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>simple_xml</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-simple_xml">simple_xml()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#xml_tag">xml_tag()</seetype>, <seetype marker="#xml_attributes">xml_attributes()</seetype>, <seetype marker="#xml_content">xml_content()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#xml_tag">xml_tag()</seetype>, <seetype marker="#xml_content">xml_content()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#xml_tag">xml_tag()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>stream_data</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-stream_data">stream_data()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{description, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{replaySupport, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{replayLogCreationTime, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{replayLogAgedTime, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>stream_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-stream_name">stream_name()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>streams</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-streams">streams()</marker> = [{<seetype marker="#stream_name">stream_name()</seetype>, [<seetype marker="#stream_data">stream_data()</seetype>]}]</typehead></typedecl>
+</type>
+<type>
+  <name>xml_attribute_tag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xml_attribute_tag">xml_attribute_tag()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>xml_attribute_value</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xml_attribute_value">xml_attribute_value()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>xml_attributes</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xml_attributes">xml_attributes()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="#xml_attribute_tag">xml_attribute_tag()</seetype>, <seetype marker="#xml_attribute_value">xml_attribute_value()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>xml_content</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xml_content">xml_content()</marker> = [<seetype marker="#simple_xml">simple_xml()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>xml_tag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xml_tag">xml_tag()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>xpath</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xpath">xpath()</marker> = {xpath, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>xs_datetime</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xs_datetime">xs_datetime()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>action</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>action(Client, Action) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Action</typename><string>Action = <seetype marker="#simple_xml">simple_xml()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {ok, [<seetype marker="#simple_xml">simple_xml()</seetype>]} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Action</anno>
+  <anno>Client</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>action</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>action(Client, Action, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Action</typename><string>Action = <seetype marker="#simple_xml">simple_xml()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {ok, [<seetype marker="#simple_xml">simple_xml()</seetype>]} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Action</anno>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close_session</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close_session(Client) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>close_session</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>close_session(Client, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>connect(Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>connect(KeyOrName, ExtraOptions) -&gt; Result</head>
+      <guard>
+        <subtype><typename>KeyOrName</typename><string>KeyOrName = <seetype marker="ct#key_or_name">ct:key_or_name()</seetype></string></subtype>
+        <subtype><typename>ExtraOptions</typename><string>ExtraOptions = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExtraOptions</anno>
+  <anno>KeyOrName</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>copy_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>copy_config(Client, Target, Source) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = Source = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Source</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Source</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>copy_config</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>copy_config(Client, Target, Source, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = Source = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Source</typename><string/></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Source</anno>
+  <anno>Target</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>create_subscription</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>create_subscription</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>create_subscription(Client, Values) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Values</typename><string>Values = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{stream =&gt; Stream,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>filter =&gt; Filter,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>start =&gt; StartTime,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>stop =&gt; StopTime}</string></subtype>
+        <subtype><typename>Stream</typename><string>Stream = <seetype marker="#stream_name">stream_name()</seetype></string></subtype>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#simple_xml">simple_xml()</seetype> | [<seetype marker="#simple_xml">simple_xml()</seetype>]</string></subtype>
+        <subtype><typename>StartTime</typename><string>StartTime = StopTime = <seetype marker="#xs_datetime">xs_datetime()</seetype></string></subtype>
+        <subtype><typename>StopTime</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Filter</anno>
+  <anno>Result</anno>
+  <anno>StartTime</anno>
+  <anno>StopTime</anno>
+  <anno>Stream</anno>
+  <anno>Values</anno>
+</spec>
+<spec>
+  <name>create_subscription</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>create_subscription(Client, Values :: <seetype marker="erlang#list">list()</seetype> | <seetype marker="erlang#timeout">timeout()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Values</anno>
+</spec>
+<spec>
+  <name>create_subscription</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>create_subscription(Client, Values, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Values</typename><string>Values = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{stream =&gt; Stream,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>filter =&gt; Filter,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>start =&gt; StartTime,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>stop =&gt; StopTime}</string></subtype>
+        <subtype><typename>Stream</typename><string>Stream = <seetype marker="#stream_name">stream_name()</seetype></string></subtype>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#simple_xml">simple_xml()</seetype> | [<seetype marker="#simple_xml">simple_xml()</seetype>]</string></subtype>
+        <subtype><typename>StartTime</typename><string>StartTime = StopTime = <seetype marker="#xs_datetime">xs_datetime()</seetype></string></subtype>
+        <subtype><typename>StopTime</typename><string/></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Filter</anno>
+  <anno>Result</anno>
+  <anno>StartTime</anno>
+  <anno>StopTime</anno>
+  <anno>Stream</anno>
+  <anno>Timeout</anno>
+  <anno>Values</anno>
+</spec>
+<spec>
+  <name>create_subscription</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>create_subscription(Client,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Values :: <seetype marker="erlang#list">list()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Timeout :: <seetype marker="erlang#list">list()</seetype> | <seetype marker="erlang#timeout">timeout()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+  <anno>Values</anno>
+</spec>
+<spec>
+  <name>create_subscription</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>create_subscription</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>create_subscription</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>delete_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete_config(Client, Target) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = startup | candidate</string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>delete_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>delete_config(Client, Target, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = startup | candidate</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>disconnect(Conn) -&gt; ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>Conn</typename><string>Conn = <seetype marker="#handle">handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Conn</anno>
+</spec>
+<spec>
+  <name>edit_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>edit_config(Client, Target, Config) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#simple_xml">simple_xml()</seetype> | [<seetype marker="#simple_xml">simple_xml()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Config</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>edit_config</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>edit_config(Client, Target, Config, OptParams) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#simple_xml">simple_xml()</seetype> | [<seetype marker="#simple_xml">simple_xml()</seetype>]</string></subtype>
+        <subtype><typename>OptParams</typename><string>OptParams = [<seetype marker="#simple_xml">simple_xml()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Config</anno>
+  <anno>OptParams</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>edit_config</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>edit_config(Client, Target, Config, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#simple_xml">simple_xml()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Config</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>edit_config</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>edit_config(Client, Target, Config, OptParams, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#simple_xml">simple_xml()</seetype> | [<seetype marker="#simple_xml">simple_xml()</seetype>]</string></subtype>
+        <subtype><typename>OptParams</typename><string>OptParams = [<seetype marker="#simple_xml">simple_xml()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Config</anno>
+  <anno>OptParams</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>format_data</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get(Client, Filter) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#simple_xml">simple_xml()</seetype> | <seetype marker="#xpath">xpath()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, [<seetype marker="#simple_xml">simple_xml()</seetype>]} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Filter</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>get</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get(Client, Filter, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#simple_xml">simple_xml()</seetype> | <seetype marker="#xpath">xpath()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, [<seetype marker="#simple_xml">simple_xml()</seetype>]} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Filter</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>get_capabilities</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_capabilities(Client) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = [<seetype marker="erlang#string">string()</seetype>] | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>get_capabilities</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_capabilities(Client, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = [<seetype marker="erlang#string">string()</seetype>] | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>get_config</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_config(Client, Source, Filter) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Source</typename><string>Source = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#simple_xml">simple_xml()</seetype> | <seetype marker="#xpath">xpath()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, [<seetype marker="#simple_xml">simple_xml()</seetype>]} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Filter</anno>
+  <anno>Result</anno>
+  <anno>Source</anno>
+</spec>
+<spec>
+  <name>get_config</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>get_config(Client, Source, Filter, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Source</typename><string>Source = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#simple_xml">simple_xml()</seetype> | <seetype marker="#xpath">xpath()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, [<seetype marker="#simple_xml">simple_xml()</seetype>]} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Filter</anno>
+  <anno>Result</anno>
+  <anno>Source</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>get_event_streams</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_event_streams(Client) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#streams">streams()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>get_event_streams</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_event_streams(Client, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#streams">streams()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>get_event_streams</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_event_streams(Client, Streams) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Streams</typename><string>Streams = [<seetype marker="#stream_name">stream_name()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#streams">streams()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Streams</anno>
+</spec>
+<spec>
+  <name>get_event_streams</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_event_streams(Client, Streams, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Streams</typename><string>Streams = [<seetype marker="#stream_name">stream_name()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#streams">streams()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Streams</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>get_session_id</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_session_id(Client) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>get_session_id</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_session_id(Client, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>handle_msg</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_msg</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hello</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hello(Client) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>hello</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hello(Client, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>hello</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>hello(Client, Options, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [{capability, [<seetype marker="erlang#string">string()</seetype>]}]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>kill_session</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>kill_session(Client, SessionId) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>SessionId</typename><string>SessionId = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>SessionId</anno>
+</spec>
+<spec>
+  <name>kill_session</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>kill_session(Client, SessionId, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>SessionId</typename><string>SessionId = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>SessionId</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>lock</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>lock(Client, Target) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>lock</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>lock(Client, Target, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>only_open</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>only_open(Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>only_open</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>only_open(KeyOrName, ExtraOptions) -&gt; Result</head>
+      <guard>
+        <subtype><typename>KeyOrName</typename><string>KeyOrName = <seetype marker="ct#key_or_name">ct:key_or_name()</seetype></string></subtype>
+        <subtype><typename>ExtraOptions</typename><string>ExtraOptions = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExtraOptions</anno>
+  <anno>KeyOrName</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>open(Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>open(KeyOrName, ExtraOption) -&gt; Result</head>
+      <guard>
+        <subtype><typename>KeyOrName</typename><string>KeyOrName = <seetype marker="ct#key_or_name">ct:key_or_name()</seetype></string></subtype>
+        <subtype><typename>ExtraOption</typename><string>ExtraOption = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ExtraOption</anno>
+  <anno>KeyOrName</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send(Client, SimpleXml) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>SimpleXml</typename><string>SimpleXml = <seetype marker="#simple_xml">simple_xml()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#simple_xml">simple_xml()</seetype> | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>SimpleXml</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send(Client, SimpleXml, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>SimpleXml</typename><string>SimpleXml = <seetype marker="#simple_xml">simple_xml()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#simple_xml">simple_xml()</seetype> | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>SimpleXml</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>send_rpc</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send_rpc(Client, SimpleXml) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>SimpleXml</typename><string>SimpleXml = <seetype marker="#simple_xml">simple_xml()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = [<seetype marker="#simple_xml">simple_xml()</seetype>] | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>SimpleXml</anno>
+</spec>
+<spec>
+  <name>send_rpc</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send_rpc(Client, SimpleXml, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>SimpleXml</typename><string>SimpleXml = <seetype marker="#simple_xml">simple_xml()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = [<seetype marker="#simple_xml">simple_xml()</seetype>] | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>SimpleXml</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>session</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>session(Conn) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Conn</typename><string>Conn = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Conn</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>session</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>session(Conn, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Conn</typename><string>Conn = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#session_option">session_option()</seetype>]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Conn</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>session</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>session(KeyOrName, Conn) -&gt; Result</head>
+      <guard>
+        <subtype><typename>KeyOrName</typename><string>KeyOrName = <seetype marker="ct#key_or_name">ct:key_or_name()</seetype></string></subtype>
+        <subtype><typename>Conn</typename><string>Conn = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Conn</anno>
+  <anno>KeyOrName</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>session</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>session(KeyOrName, Conn, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Conn</typename><string>Conn = <seetype marker="#handle">handle()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#session_option">session_option()</seetype>]</string></subtype>
+        <subtype><typename>KeyOrName</typename><string>KeyOrName = <seetype marker="ct#key_or_name">ct:key_or_name()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="#handle">handle()</seetype>} | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Conn</anno>
+  <anno>KeyOrName</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>unlock</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>unlock(Client, Target) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+</spec>
+<spec>
+  <name>unlock</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>unlock(Client, Target, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Client</typename><string>Client = <seetype marker="#client">client()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#netconf_db">netconf_db()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, <seetype marker="#error_reason">error_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Client</anno>
+  <anno>Result</anno>
+  <anno>Target</anno>
+  <anno>Timeout</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:12.</timestamp>
+</module>

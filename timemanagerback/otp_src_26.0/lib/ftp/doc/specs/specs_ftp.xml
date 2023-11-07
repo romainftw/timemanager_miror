@@ -1,0 +1,486 @@
+<module name="ftp">
+<spec>
+  <name>account</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>account(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Acc :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Acc</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>append</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>append(Pid :: <seetype marker="erlang#pid">pid()</seetype>, LocalFileName :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>LocalFileName</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>append</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>append(Pid :: <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>LocalFileName :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>RemoteFileName :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>LocalFileName</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFileName</anno>
+</spec>
+<spec>
+  <name>append_bin</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>append_bin(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Bin :: <seetype marker="erlang#binary">binary()</seetype>, RemoteFile :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Bin</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFile</anno>
+</spec>
+<spec>
+  <name>append_chunk</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>append_chunk(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Bin :: <seetype marker="erlang#binary">binary()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Bin</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>append_chunk_end</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>append_chunk_end(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt; ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>append_chunk_start</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>append_chunk_start(Pid :: <seetype marker="erlang#pid">pid()</seetype>, RemoteFile :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFile</anno>
+</spec>
+<spec>
+  <name>cd</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cd(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Dir :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>delete</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete(Pid :: <seetype marker="erlang#pid">pid()</seetype>, File :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>formaterror</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>formaterror(Tag :: <seetype marker="erlang#atom">atom()</seetype> | {error, <seetype marker="erlang#atom">atom()</seetype>}) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Tag</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>latest_ctrl_response</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>latest_ctrl_response(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>lcd</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>lcd(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Dir :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>lpwd</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>lpwd(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt; {ok, Dir :: <seetype marker="erlang#string">string()</seetype>}</head></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>ls</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ls(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Listing :: <seetype marker="erlang#string">string()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Listing</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>ls</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>ls(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Dir :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Listing :: <seetype marker="erlang#string">string()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Listing</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>mkdir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>mkdir(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Dir :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>nlist</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>nlist(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Listing :: <seetype marker="erlang#string">string()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Listing</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>nlist</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>nlist(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Pathname :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Listing :: <seetype marker="erlang#string">string()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Listing</anno>
+  <anno>Pathname</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>open(Host :: <seetype marker="erlang#string">string()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Pid :: <seetype marker="erlang#pid">pid()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>open(Host :: <seetype marker="erlang#string">string()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype>, Opts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Pid :: <seetype marker="erlang#pid">pid()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = StartOption | OpenOption</string></subtype>
+        <subtype><typename>StartOption</typename><string>StartOption = {verbose, Verbose} | {debug, Debug}</string></subtype>
+        <subtype><typename>Verbose</typename><string>Verbose = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Debug</typename><string>Debug = disable | debug | trace</string></subtype>
+        <subtype><typename>OpenOption</typename><string>OpenOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipfamily, IpFamily} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, Port :: <seetype marker="erlang#port">port()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mode, Mode} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tls, TLSOptions :: [<seetype marker="ssl#tls_option">ssl:tls_option()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tls_sec_method, TLSSecMethod :: ftps | ftpes} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tls_ctrl_session_reuse, TLSSessionReuse :: <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{timeout, Timeout :: <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{dtimeout, DTimeout :: <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{progress, Progress} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sock_ctrl, SocketCtrls} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sock_data_act, [SocketControl]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sock_data_pass, [SocketControl]}</string></subtype>
+        <subtype><typename>SocketCtrls</typename><string>SocketCtrls = [SocketControl]</string></subtype>
+        <subtype><typename>IpFamily</typename><string>IpFamily = inet | inet6 | inet6fb4</string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = active | passive</string></subtype>
+        <subtype><typename>Module</typename><string>Module = Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string/></subtype>
+        <subtype><typename>InitialData</typename><string>InitialData = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Progress</typename><string>Progress = ignore | {Module, Function, InitialData}</string></subtype>
+        <subtype><typename>SocketControl</typename><string>SocketControl = <seetype marker="gen_tcp#option">gen_tcp:option()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DTimeout</anno>
+  <anno>Debug</anno>
+  <anno>Function</anno>
+  <anno>Host</anno>
+  <anno>InitialData</anno>
+  <anno>IpFamily</anno>
+  <anno>Mode</anno>
+  <anno>Module</anno>
+  <anno>OpenOption</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Pid</anno>
+  <anno>Port</anno>
+  <anno>Progress</anno>
+  <anno>Reason</anno>
+  <anno>SocketControl</anno>
+  <anno>SocketCtrls</anno>
+  <anno>StartOption</anno>
+  <anno>TLSOptions</anno>
+  <anno>TLSSecMethod</anno>
+  <anno>TLSSessionReuse</anno>
+  <anno>Timeout</anno>
+  <anno>Verbose</anno>
+</spec>
+<spec>
+  <name>pwd</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pwd(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Dir :: <seetype marker="erlang#string">string()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>quote</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>quote(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Cmd :: <seetype marker="erlang#string">string()</seetype>) -&gt; [FTPLine :: <seetype marker="erlang#string">string()</seetype>]</head></clause>
+  </contract>
+  <anno>Cmd</anno>
+  <anno>FTPLine</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>recv</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>recv(Pid :: <seetype marker="erlang#pid">pid()</seetype>, RemoteFileName :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFileName</anno>
+</spec>
+<spec>
+  <name>recv</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>recv(Pid :: <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>RemoteFileName :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>LocalFileName :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>LocalFileName</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFileName</anno>
+</spec>
+<spec>
+  <name>recv_bin</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>recv_bin(Pid :: <seetype marker="erlang#pid">pid()</seetype>, RemoteFile :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Bin :: <seetype marker="erlang#binary">binary()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Bin</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFile</anno>
+</spec>
+<spec>
+  <name>recv_chunk</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>recv_chunk(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Bin :: <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Bin</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>recv_chunk_start</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>recv_chunk_start(Pid :: <seetype marker="erlang#pid">pid()</seetype>, RemoteFile :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFile</anno>
+</spec>
+<spec>
+  <name>rename</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>rename(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Old :: <seetype marker="erlang#string">string()</seetype>, New :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>New</anno>
+  <anno>Old</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>rmdir</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rmdir(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Dir :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send(Pid :: <seetype marker="erlang#pid">pid()</seetype>, LocalFileName :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>LocalFileName</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send(Pid :: <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>LocalFileName :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>RemoteFileName :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>LocalFileName</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFileName</anno>
+</spec>
+<spec>
+  <name>send_bin</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send_bin(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Bin :: <seetype marker="erlang#binary">binary()</seetype>, RemoteFile :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Bin</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFile</anno>
+</spec>
+<spec>
+  <name>send_chunk</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send_chunk(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Bin :: <seetype marker="erlang#binary">binary()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Bin</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>send_chunk_end</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>send_chunk_end(Pid :: <seetype marker="erlang#pid">pid()</seetype>) -&gt; ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>send_chunk_start</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send_chunk_start(Pid :: <seetype marker="erlang#pid">pid()</seetype>, RemoteFile :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>RemoteFile</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>type</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>type(Pid :: <seetype marker="erlang#pid">pid()</seetype>, Type :: ascii | binary) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>user</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>user(Pid :: <seetype marker="erlang#pid">pid()</seetype>, User :: <seetype marker="erlang#string">string()</seetype>, Pass :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Pass</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>User</anno>
+</spec>
+<spec>
+  <name>user</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>user(Pid :: <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>User :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Pass :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Account :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Account</anno>
+  <anno>Pass</anno>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>User</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:58.</timestamp>
+</module>

@@ -1,0 +1,386 @@
+<module name="wxMenuItem">
+<type>
+  <name>wxMenuItem</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxMenuItem">wxMenuItem()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>check</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>check(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>check</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>check(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {check, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxMenuItem">wxMenuItem()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>enable(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enable(This, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {enable, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getBitmap</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getBitmap(This) -&gt; <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getHelp</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getHelp(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getId</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getId(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemLabel</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getItemLabel(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getItemLabelText</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getItemLabelText(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getKind</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getKind(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLabel</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLabel(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLabelFromText</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLabelFromText(Text) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Text</anno>
+</spec>
+<spec>
+  <name>getLabelText</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLabelText(Text) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>Text</typename><string>Text = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Text</anno>
+</spec>
+<spec>
+  <name>getMenu</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMenu(This) -&gt; <seetype marker="wxMenu#wxMenu">wxMenu:wxMenu()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSubMenu</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSubMenu(This) -&gt; <seetype marker="wxMenu#wxMenu">wxMenu:wxMenu()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getText</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getText(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isCheckable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isCheckable(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isChecked</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isChecked(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isEnabled</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isEnabled(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isSeparator</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isSeparator(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isSubMenu</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isSubMenu(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxMenuItem">wxMenuItem()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Options :: [Option]) -&gt; <seetype marker="#wxMenuItem">wxMenuItem()</seetype></head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{parentMenu, <seetype marker="wxMenu#wxMenu">wxMenu:wxMenu()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{id, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{text, <seetype marker="unicode#chardata">unicode:chardata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{help, <seetype marker="unicode#chardata">unicode:chardata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{kind, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{subMenu, <seetype marker="wxMenu#wxMenu">wxMenu:wxMenu()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setBitmap</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setBitmap(This, Bmp) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+        <subtype><typename>Bmp</typename><string>Bmp = <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bmp</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setHelp</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setHelp(This, HelpString) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+        <subtype><typename>HelpString</typename><string>HelpString = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HelpString</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setItemLabel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setItemLabel(This, Label) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Label</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setMenu</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMenu(This, Menu) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+        <subtype><typename>Menu</typename><string>Menu = <seetype marker="wxMenu#wxMenu">wxMenu:wxMenu()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Menu</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setSubMenu</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setSubMenu(This, Menu) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+        <subtype><typename>Menu</typename><string>Menu = <seetype marker="wxMenu#wxMenu">wxMenu:wxMenu()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Menu</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setText</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setText(This, Label) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxMenuItem">wxMenuItem()</seetype></string></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Label</anno>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:40.</timestamp>
+</module>

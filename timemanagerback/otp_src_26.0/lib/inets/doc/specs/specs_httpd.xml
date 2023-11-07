@@ -1,0 +1,253 @@
+<module name="httpd">
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(Pid) -&gt; HttpInformation</head>
+      <guard>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>HttpInformation</typename><string>HttpInformation = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommonOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommunicationOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[ModOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[LimitOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[AdminOption]</string></subtype>
+        <subtype><typename>CommonOption</typename><string>CommonOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_name, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_root, Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{document_root, Path}</string></subtype>
+        <subtype><typename>CommunicationOption</typename><string>CommunicationOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{bind_address, <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype> | any} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{profile, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_type,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ip_comm |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ip_comm, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipfamily, inet | inet6} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minimum_bytes_per_second, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>ModOption</typename><string>ModOption = {modules, <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>LimitOption</typename><string>LimitOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{customize, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{disable_chunked_transfer_encoding_send, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive_timeout, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_body_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_clients, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_header_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_content_length, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_uri_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_keep_alive_request, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_client_body_chunk, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>AdminOption</typename><string>AdminOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_types,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{MimeType :: <seetype marker="erlang#string">string()</seetype>, Extension :: <seetype marker="erlang#string">string()</seetype>}] | Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_type, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_admin, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_tokens,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none | prod | major | minor | minimal | os | full |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{private, <seetype marker="erlang#string">string()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{logger, Options :: <seetype marker="erlang#list">list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_format, common | combined} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error_log_format, pretty | compact}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AdminOption</anno>
+  <anno>CommonOption</anno>
+  <anno>CommunicationOption</anno>
+  <anno>Extension</anno>
+  <anno>HttpInformation</anno>
+  <anno>LimitOption</anno>
+  <anno>MimeType</anno>
+  <anno>ModOption</anno>
+  <anno>Options</anno>
+  <anno>Path</anno>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>info(Pid, Properties) -&gt; HttpInformation</head>
+      <guard>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Properties</typename><string>Properties = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>HttpInformation</typename><string>HttpInformation = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommonOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommunicationOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[ModOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[LimitOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[AdminOption]</string></subtype>
+        <subtype><typename>CommonOption</typename><string>CommonOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_name, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_root, Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{document_root, Path}</string></subtype>
+        <subtype><typename>CommunicationOption</typename><string>CommunicationOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{bind_address, <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype> | any} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{profile, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_type,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ip_comm |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ip_comm, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipfamily, inet | inet6} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minimum_bytes_per_second, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>ModOption</typename><string>ModOption = {modules, <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>LimitOption</typename><string>LimitOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{customize, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{disable_chunked_transfer_encoding_send, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive_timeout, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_body_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_clients, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_header_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_content_length, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_uri_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_keep_alive_request, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_client_body_chunk, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>AdminOption</typename><string>AdminOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_types,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{MimeType :: <seetype marker="erlang#string">string()</seetype>, Extension :: <seetype marker="erlang#string">string()</seetype>}] | Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_type, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_admin, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_tokens,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none | prod | major | minor | minimal | os | full |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{private, <seetype marker="erlang#string">string()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{logger, Options :: <seetype marker="erlang#list">list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_format, common | combined} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error_log_format, pretty | compact}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AdminOption</anno>
+  <anno>CommonOption</anno>
+  <anno>CommunicationOption</anno>
+  <anno>Extension</anno>
+  <anno>HttpInformation</anno>
+  <anno>LimitOption</anno>
+  <anno>MimeType</anno>
+  <anno>ModOption</anno>
+  <anno>Options</anno>
+  <anno>Path</anno>
+  <anno>Pid</anno>
+  <anno>Properties</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>info(Address, Port) -&gt; HttpInformation</head>
+      <guard>
+        <subtype><typename>Address</typename><string>Address = <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>HttpInformation</typename><string>HttpInformation = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommonOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommunicationOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[ModOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[LimitOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[AdminOption]</string></subtype>
+        <subtype><typename>CommonOption</typename><string>CommonOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_name, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_root, Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{document_root, Path}</string></subtype>
+        <subtype><typename>CommunicationOption</typename><string>CommunicationOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{bind_address, <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype> | any} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{profile, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_type,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ip_comm |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ip_comm, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipfamily, inet | inet6} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minimum_bytes_per_second, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>ModOption</typename><string>ModOption = {modules, <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>LimitOption</typename><string>LimitOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{customize, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{disable_chunked_transfer_encoding_send, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive_timeout, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_body_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_clients, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_header_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_content_length, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_uri_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_keep_alive_request, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_client_body_chunk, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>AdminOption</typename><string>AdminOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_types,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{MimeType :: <seetype marker="erlang#string">string()</seetype>, Extension :: <seetype marker="erlang#string">string()</seetype>}] | Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_type, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_admin, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_tokens,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none | prod | major | minor | minimal | os | full |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{private, <seetype marker="erlang#string">string()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{logger, Options :: <seetype marker="erlang#list">list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_format, common | combined} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error_log_format, pretty | compact}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>AdminOption</anno>
+  <anno>CommonOption</anno>
+  <anno>CommunicationOption</anno>
+  <anno>Extension</anno>
+  <anno>HttpInformation</anno>
+  <anno>LimitOption</anno>
+  <anno>MimeType</anno>
+  <anno>ModOption</anno>
+  <anno>Options</anno>
+  <anno>Path</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>info(Address, Port, Profile) -&gt; HttpInformation</head>
+      <guard>
+        <subtype><typename>Address</typename><string>Address = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | any</string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>HttpInformation</typename><string>HttpInformation = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommonOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommunicationOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[ModOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[LimitOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[AdminOption]</string></subtype>
+        <subtype><typename>CommonOption</typename><string>CommonOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_name, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_root, Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{document_root, Path}</string></subtype>
+        <subtype><typename>CommunicationOption</typename><string>CommunicationOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{bind_address, <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype> | any} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{profile, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_type,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ip_comm |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ip_comm, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipfamily, inet | inet6} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minimum_bytes_per_second, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>ModOption</typename><string>ModOption = {modules, <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>LimitOption</typename><string>LimitOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{customize, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{disable_chunked_transfer_encoding_send, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive_timeout, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_body_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_clients, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_header_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_content_length, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_uri_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_keep_alive_request, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_client_body_chunk, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>AdminOption</typename><string>AdminOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_types,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{MimeType :: <seetype marker="erlang#string">string()</seetype>, Extension :: <seetype marker="erlang#string">string()</seetype>}] | Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_type, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_admin, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_tokens,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none | prod | major | minor | minimal | os | full |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{private, <seetype marker="erlang#string">string()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{logger, Options :: <seetype marker="erlang#list">list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_format, common | combined} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error_log_format, pretty | compact}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>AdminOption</anno>
+  <anno>CommonOption</anno>
+  <anno>CommunicationOption</anno>
+  <anno>Extension</anno>
+  <anno>HttpInformation</anno>
+  <anno>LimitOption</anno>
+  <anno>MimeType</anno>
+  <anno>ModOption</anno>
+  <anno>Options</anno>
+  <anno>Path</anno>
+  <anno>Port</anno>
+  <anno>Profile</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>info(Address, Port, Properties) -&gt; HttpInformation</head>
+      <guard>
+        <subtype><typename>Address</typename><string>Address = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | any</string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Properties</typename><string>Properties = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>HttpInformation</typename><string>HttpInformation = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommonOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommunicationOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[ModOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[LimitOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[AdminOption]</string></subtype>
+        <subtype><typename>CommonOption</typename><string>CommonOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_name, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_root, Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{document_root, Path}</string></subtype>
+        <subtype><typename>CommunicationOption</typename><string>CommunicationOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{bind_address, <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype> | any} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{profile, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_type,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ip_comm |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ip_comm, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipfamily, inet | inet6} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minimum_bytes_per_second, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>ModOption</typename><string>ModOption = {modules, <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>LimitOption</typename><string>LimitOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{customize, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{disable_chunked_transfer_encoding_send, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive_timeout, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_body_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_clients, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_header_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_content_length, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_uri_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_keep_alive_request, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_client_body_chunk, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>AdminOption</typename><string>AdminOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_types,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{MimeType :: <seetype marker="erlang#string">string()</seetype>, Extension :: <seetype marker="erlang#string">string()</seetype>}] | Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_type, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_admin, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_tokens,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none | prod | major | minor | minimal | os | full |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{private, <seetype marker="erlang#string">string()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{logger, Options :: <seetype marker="erlang#list">list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_format, common | combined} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error_log_format, pretty | compact}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>AdminOption</anno>
+  <anno>CommonOption</anno>
+  <anno>CommunicationOption</anno>
+  <anno>Extension</anno>
+  <anno>HttpInformation</anno>
+  <anno>LimitOption</anno>
+  <anno>MimeType</anno>
+  <anno>ModOption</anno>
+  <anno>Options</anno>
+  <anno>Path</anno>
+  <anno>Port</anno>
+  <anno>Properties</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>info(Address, Port, Profile, Properties) -&gt; HttpInformation</head>
+      <guard>
+        <subtype><typename>Address</typename><string>Address = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | any</string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Properties</typename><string>Properties = [<seetype marker="erlang#atom">atom()</seetype>]</string></subtype>
+        <subtype><typename>Path</typename><string>Path = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>HttpInformation</typename><string>HttpInformation = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommonOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[CommunicationOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[ModOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[LimitOption] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[AdminOption]</string></subtype>
+        <subtype><typename>CommonOption</typename><string>CommonOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_name, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_root, Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{document_root, Path}</string></subtype>
+        <subtype><typename>CommunicationOption</typename><string>CommunicationOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{bind_address, <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype> | any} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{profile, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_type,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ip_comm |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ip_comm, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl, <seetype marker="ssl#tls_option">ssl:tls_option()</seetype> | <seetype marker="gen_tcp#option">gen_tcp:option()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipfamily, inet | inet6} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{minimum_bytes_per_second, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>ModOption</typename><string>ModOption = {modules, <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>LimitOption</typename><string>LimitOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{customize, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{disable_chunked_transfer_encoding_send, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive_timeout, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_body_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_clients, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_header_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_content_length, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_uri_size, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_keep_alive_request, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_client_body_chunk, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>AdminOption</typename><string>AdminOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_types,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{MimeType :: <seetype marker="erlang#string">string()</seetype>, Extension :: <seetype marker="erlang#string">string()</seetype>}] | Path} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mime_type, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_admin, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_tokens,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>none | prod | major | minor | minimal | os | full |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{private, <seetype marker="erlang#string">string()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{logger, Options :: <seetype marker="erlang#list">list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_format, common | combined} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error_log_format, pretty | compact}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>AdminOption</anno>
+  <anno>CommonOption</anno>
+  <anno>CommunicationOption</anno>
+  <anno>Extension</anno>
+  <anno>HttpInformation</anno>
+  <anno>LimitOption</anno>
+  <anno>MimeType</anno>
+  <anno>ModOption</anno>
+  <anno>Options</anno>
+  <anno>Path</anno>
+  <anno>Port</anno>
+  <anno>Profile</anno>
+  <anno>Properties</anno>
+</spec>
+<spec>
+  <name>parse_query</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>parse_query(QueryString) -&gt; QueryList | <seetype marker="uri_string#error">uri_string:error()</seetype></head>
+      <guard>
+        <subtype><typename>QueryString</typename><string>QueryString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>QueryList</typename><string>QueryList = [{<seetype marker="unicode#chardata">unicode:chardata()</seetype>, <seetype marker="unicode#chardata">unicode:chardata()</seetype> | true}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>QueryList</anno>
+  <anno>QueryString</anno>
+</spec>
+<spec>
+  <name>reload_config</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>reload_config(Config, Mode) -&gt; ok | {error, Reason} | <seetype marker="erlang#no_return">no_return()</seetype></head>
+      <guard>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="file#name_all">file:name_all()</seetype> | [{Option, Value}]</string></subtype>
+        <subtype><typename>Mode</typename><string>Mode = non_disturbing | disturbing | blocked</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>Mode</anno>
+  <anno>Option</anno>
+  <anno>Reason</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>service_info</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>services</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start_service</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start_standalone</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>stop_service</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:23.</timestamp>
+</module>

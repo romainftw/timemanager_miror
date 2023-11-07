@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE chapter SYSTEM "chapter.dtd">
+<chapter>
+<header>
+<copyright>
+<year>2023</year>
+<year>2023</year>
+<holder>Ericsson AB. All Rights Reserved.</holder>
+</copyright>
+<legalnotice>
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</legalnotice>
+
+<title>SystemTap and Erlang/OTP</title>
+<prepared>emd2exml</prepared>
+<responsible>emd2exml</responsible>
+<docno>1</docno>
+<approved>yes</approved>
+<checked>yes</checked>
+<date>2023-5-15</date>
+<rev>1</rev>
+<file>SYSTEMTAP.xml</file>
+</header>
+
+<section>
+<marker id="Introduction"/>
+<title>Introduction</title>
+
+<p>
+SystemTap is DTrace for Linux. In fact Erlang's SystemTap support
+is built using SystemTap's DTrace compatibility's layer. For an
+introduction to Erlang DTrace support read <seeguide marker="DTRACE">$ERL_TOP/HOWTO/DTRACE.md</seeguide>.
+</p>
+
+</section>
+
+<section>
+<marker id="Requisites"/>
+<title>Requisites</title>
+
+<list type="bulleted"><item>
+<p>Linux Kernel with UTRACE support
+</p>
+
+<p>check for UTRACE support in your current kernel:
+</p>
+
+<code type="none">
+# grep CONFIG_UTRACE /boot/config-`uname -r`
+CONFIG_UTRACE=y
+</code>
+<p>Fedora 16 is known to contain UTRACE, for most other Linux distributions
+a custom build kernel will be required.
+Check Fedora's SystemTap documentation for additional required packages
+(e.g. Kernel Debug Symbols)
+</p>
+
+</item>
+<item>
+<p>SystemTap > 1.6
+</p>
+
+<p>A the time of writing this, the latest released version of SystemTap is
+version 1.6. Erlang's DTrace support requires a MACRO that was introduced
+after that release. So either get a newer release or build SystemTap from
+git yourself (see: http://sourceware.org/systemtap/getinvolved.html)
+</p>
+</item></list>
+</section>
+
+<section>
+<marker id="Building-Erlang"/>
+<title>Building Erlang</title>
+
+<p>
+Configure and build Erlang with SystemTap support:
+</p>
+
+<code type="none">
+# ./configure --with-dynamic-trace=systemtap + whatever args you need
+# make
+</code>
+</section>
+
+<section>
+<marker id="Testing"/>
+<title>Testing</title>
+
+<p>
+SystemTap, unlike DTrace, needs to know what binary it is tracing and has to
+be able to read that binary before it starts tracing. Your probe script
+therefore has to reference the correct beam emulator and stap needs to be able
+to find that binary.
+The examples are written for "beam", but other versions such as "beam.smp" or
+"beam.debug.smp" might exist (depending on your configuration). Make sure you
+either specify the full the path of the binary in the probe or your "beam"
+binary is in the search path.
+</p>
+
+<p>
+All available probes can be listed like this:
+</p>
+
+<code type="none">
+# stap -L &apos;process("beam").mark("*")&apos;
+</code>
+<p>
+or:
+</p>
+
+<code type="none">
+# PATH=/path/to/beam:$PATH stap -L &apos;process("beam").mark("*")&apos;
+</code>
+<p>
+Probes in the dtrace.so NIF library like this:
+</p>
+
+<code type="none">
+# PATH=/path/to/dtrace/priv/lib:$PATH stap -L &apos;process("dtrace.so").mark("*")&apos;
+</code>
+</section>
+
+<section>
+<marker id="Running-SystemTap-scripts"/>
+<title>Running SystemTap scripts</title>
+
+<p>
+Adjust the process("beam") reference to your beam version and attach the script
+to a running "beam" instance:
+</p>
+
+<code type="none">
+# stap /path/to/probe/script/port1.systemtap -x &lt;pid of beam&gt;
+</code>
+</section>
+
+</chapter>
+

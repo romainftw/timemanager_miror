@@ -1,0 +1,256 @@
+<module name="erl_tar">
+<type>
+  <name>add_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-add_opt">add_opt()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>dereference | verbose |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{chunks, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{atime, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mtime, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ctime, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{uid, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{gid, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>add_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-add_type">add_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#name_in_archive">name_in_archive()</seetype> | {<seetype marker="#name_in_archive">name_in_archive()</seetype>, <seetype marker="file#filename_all">file:filename_all()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>create_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-create_opt">create_opt()</marker> = compressed | cooked | dereference | verbose</typehead></typedecl>
+</type>
+<type>
+  <name>extract_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-extract_opt">extract_opt()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cwd, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{files, [<seetype marker="#name_in_archive">name_in_archive()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>compressed | cooked | memory | keep_old_files | verbose</typehead></typedecl>
+</type>
+<type>
+  <name>file_op</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file_op">file_op()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((write | close | read2 | position,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#user_data">user_data()</seetype>, <seetype marker="erlang#iodata">iodata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#user_data">user_data()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#user_data">user_data()</seetype>, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#user_data">user_data()</seetype>, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | eof |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="erlang#term">term()</seetype>})</typehead></typedecl>
+</type>
+<type>
+  <name>filelist</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-filelist">filelist()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="file#filename">file:filename()</seetype> | {<seetype marker="#name_in_archive">name_in_archive()</seetype>, <seetype marker="file#filename_all">file:filename_all()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>gid</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-gid">gid()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>mode</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mode">mode()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>name_in_archive</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-name_in_archive">name_in_archive()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>open_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-open_type">open_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="file#filename_all">file:filename_all()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{binary, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file, <seetype marker="file#io_device">file:io_device()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>tar_descriptor</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tar_descriptor">tar_descriptor()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>tar_entry</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tar_entry">tar_entry()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Name :: <seetype marker="#name_in_archive">name_in_archive()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Type :: <seetype marker="#typeflag">typeflag()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Size :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>MTime :: <seetype marker="#tar_time">tar_time()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Mode :: <seetype marker="#mode">mode()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Uid :: <seetype marker="#uid">uid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Gid :: <seetype marker="#gid">gid()</seetype>}</typehead></typedecl>
+  <anno>Gid</anno>
+  <anno>MTime</anno>
+  <anno>Mode</anno>
+  <anno>Name</anno>
+  <anno>Size</anno>
+  <anno>Type</anno>
+  <anno>Uid</anno>
+</type>
+<type>
+  <name>tar_time</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tar_time">tar_time()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>typeflag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-typeflag">typeflag()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>regular | link | symlink | char | block | directory | fifo |<br/><nbsp/><nbsp/><nbsp/><nbsp/>reserved | unknown</typehead></typedecl>
+</type>
+<type>
+  <name>uid</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-uid">uid()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>user_data</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-user_data">user_data()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>add</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add(TarDescriptor, AddType, Options) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>TarDescriptor</typename><string>TarDescriptor = <seetype marker="#tar_descriptor">tar_descriptor()</seetype></string></subtype>
+        <subtype><typename>AddType</typename><string>AddType = <seetype marker="#add_type">add_type()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#add_opt">add_opt()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AddType</anno>
+  <anno>Options</anno>
+  <anno>TarDescriptor</anno>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>add(TarDescriptor, Filename, NameInArchive, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>TarDescriptor</typename><string>TarDescriptor = <seetype marker="#tar_descriptor">tar_descriptor()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#filename_all">file:filename_all()</seetype></string></subtype>
+        <subtype><typename>NameInArchive</typename><string>NameInArchive = <seetype marker="#name_in_archive">name_in_archive()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#add_opt">add_opt()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>NameInArchive</anno>
+  <anno>Options</anno>
+  <anno>TarDescriptor</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(TarDescriptor :: <seetype marker="#tar_descriptor">tar_descriptor()</seetype>) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>TarDescriptor</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>create(Name :: <seetype marker="file#filename_all">file:filename_all()</seetype>, FileList :: <seetype marker="#filelist">filelist()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, {<seetype marker="erlang#string">string()</seetype>, <seetype marker="erlang#term">term()</seetype>}}</head></clause>
+  </contract>
+  <anno>FileList</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>create(Name :: <seetype marker="file#filename_all">file:filename_all()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FileList :: <seetype marker="#filelist">filelist()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options :: [<seetype marker="#create_opt">create_opt()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>} | {error, {<seetype marker="erlang#string">string()</seetype>, <seetype marker="erlang#term">term()</seetype>}}</head></clause>
+  </contract>
+  <anno>FileList</anno>
+  <anno>Name</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>extract</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>extract(Open :: <seetype marker="#open_type">open_type()</seetype>) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Open</anno>
+</spec>
+<spec>
+  <name>extract</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>extract(Open :: <seetype marker="#open_type">open_type()</seetype>, Opts :: [<seetype marker="#extract_opt">extract_opt()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [{<seetype marker="erlang#string">string()</seetype>, <seetype marker="erlang#binary">binary()</seetype>}]} | {error, <seetype marker="erlang#term">term()</seetype>} | ok</head></clause>
+  </contract>
+  <anno>Open</anno>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(Atom :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Atom</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>init(UserData :: <seetype marker="#user_data">user_data()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>AccessMode :: write | read,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Fun :: <seetype marker="#file_op">file_op()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#tar_descriptor">tar_descriptor()</seetype>} | {error, badarg}</head></clause>
+  </contract>
+  <anno>AccessMode</anno>
+  <anno>Fun</anno>
+  <anno>UserData</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>open(Open :: <seetype marker="#open_type">open_type()</seetype>, Mode :: [write | compressed | cooked]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#tar_descriptor">tar_descriptor()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Mode</anno>
+  <anno>Open</anno>
+</spec>
+<spec>
+  <name>t</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>t(Name :: <seetype marker="file#filename">file:filename()</seetype>) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>table</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>table(Open :: <seetype marker="#open_type">open_type()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [<seetype marker="#name_in_archive">name_in_archive()</seetype>]} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Open</anno>
+</spec>
+<spec>
+  <name>table</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>table(Open :: <seetype marker="#open_type">open_type()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Opts :: [compressed | verbose | cooked]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [<seetype marker="#name_in_archive">name_in_archive()</seetype> | <seetype marker="#tar_entry">tar_entry()</seetype>]} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Open</anno>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>tt</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tt(Name :: <seetype marker="#open_type">open_type()</seetype>) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:22.</timestamp>
+</module>

@@ -1,0 +1,644 @@
+<module name="io_lib">
+<type>
+  <name>chars</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chars">chars()</marker> = [<seetype marker="erlang#char">char()</seetype> | <seetype marker="#chars">chars()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>chars_limit</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chars_limit">chars_limit()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>continuation</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-continuation">continuation()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>depth</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-depth">depth()</marker> = -1 | <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>format_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-format_spec">format_spec()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{control_char := <seetype marker="erlang#char">char()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>args := [<seetype marker="erlang#any">any()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>width := none | <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>adjust := left | right,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>precision := none | <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>pad_char := <seetype marker="erlang#char">char()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>encoding := unicode | latin1,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>strings := <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>maps_order =&gt; <seetype marker="maps#iterator_order">maps:iterator_order()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>fread_error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fread_error">fread_error()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>atom | based | character | float | format | input | integer |<br/><nbsp/><nbsp/><nbsp/><nbsp/>string | unsigned</typehead></typedecl>
+</type>
+<type>
+  <name>fread_item</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fread_item">fread_item()</marker> = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#float">float()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>latin1_string</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-latin1_string">latin1_string()</marker> = [<seetype marker="unicode#latin1_char">unicode:latin1_char()</seetype>]</typehead></typedecl>
+</type>
+<spec>
+  <name>build_text</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>build_text(FormatList) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>FormatList</typename><string>FormatList = [<seetype marker="erlang#char">char()</seetype> | <seetype marker="#format_spec">format_spec()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FormatList</anno>
+</spec>
+<spec>
+  <name>build_text</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>build_text(FormatList, Options) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>FormatList</typename><string>FormatList = [<seetype marker="erlang#char">char()</seetype> | <seetype marker="#format_spec">format_spec()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {chars_limit, CharsLimit}</string></subtype>
+        <subtype><typename>CharsLimit</typename><string>CharsLimit = <seetype marker="#chars_limit">chars_limit()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CharsLimit</anno>
+  <anno>FormatList</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>char_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>char_list(Term) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>chars_length</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>chars_length(S :: <seetype marker="#chars">chars()</seetype>) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>collect_chars</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>collect_chars</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>collect_line</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>collect_line</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>deep_char_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>deep_char_list(Term) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>deep_latin1_char_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>deep_latin1_char_list(Term) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>deep_unicode_char_list</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format(Format, Data) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>format(Format, Data, Options) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {chars_limit, CharsLimit}</string></subtype>
+        <subtype><typename>CharsLimit</typename><string>CharsLimit = <seetype marker="#chars_limit">chars_limit()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CharsLimit</anno>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>format_prompt</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_prompt(Prompt :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="#chars">chars()</seetype></head></clause>
+  </contract>
+  <anno>Prompt</anno>
+</spec>
+<spec>
+  <name>format_prompt</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format_prompt(Prompt :: <seetype marker="erlang#term">term()</seetype>, Encoding :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="#chars">chars()</seetype></head></clause>
+  </contract>
+  <anno>Encoding</anno>
+  <anno>Prompt</anno>
+</spec>
+<spec>
+  <name>fread</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>fread(Format, String) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>String</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, InputList :: [<seetype marker="#fread_item">fread_item()</seetype>], LeftOverChars :: <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{more,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>RestFormat :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Nchars :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>InputStack :: <seetype marker="#chars">chars()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {fread, What :: <seetype marker="#fread_error">fread_error()</seetype>}}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+  <anno>InputList</anno>
+  <anno>InputStack</anno>
+  <anno>LeftOverChars</anno>
+  <anno>Nchars</anno>
+  <anno>RestFormat</anno>
+  <anno>Result</anno>
+  <anno>String</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>fread</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>fread(Continuation, CharSpec, Format) -&gt; Return</head>
+      <guard>
+        <subtype><typename>Continuation</typename><string>Continuation = <seetype marker="#continuation">continuation()</seetype> | []</string></subtype>
+        <subtype><typename>CharSpec</typename><string>CharSpec = <seetype marker="erlang#string">string()</seetype> | eof</string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Return</typename><string>Return = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{more, Continuation1 :: <seetype marker="#continuation">continuation()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{done, Result, LeftOverChars :: <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, InputList :: [<seetype marker="#fread_item">fread_item()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>eof |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {fread, What :: <seetype marker="#fread_error">fread_error()</seetype>}}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CharSpec</anno>
+  <anno>Continuation</anno>
+  <anno>Continuation1</anno>
+  <anno>Format</anno>
+  <anno>InputList</anno>
+  <anno>LeftOverChars</anno>
+  <anno>Result</anno>
+  <anno>Return</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>fwrite</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>fwrite(Format, Data) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>fwrite</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>fwrite(Format, Data, Options) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {chars_limit, CharsLimit}</string></subtype>
+        <subtype><typename>CharsLimit</typename><string>CharsLimit = <seetype marker="#chars_limit">chars_limit()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CharsLimit</anno>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>get_until</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_until</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>indentation</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>indentation(String, StartIndent) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>StartIndent</typename><string>StartIndent = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>StartIndent</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>latin1_char_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>latin1_char_list(Term) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>limit_term</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>limit_term(Term :: <seetype marker="erlang#term">term()</seetype>, Depth :: <seetype marker="#depth">depth()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Depth</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>nl</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>nl() -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>print(Term) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>print(Term, Column, LineLength, Depth) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Column</typename><string>Column = LineLength = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>LineLength</typename><string/></subtype>
+        <subtype><typename>Depth</typename><string>Depth = <seetype marker="#depth">depth()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Column</anno>
+  <anno>Depth</anno>
+  <anno>LineLength</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>printable_latin1_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>printable_latin1_list(Term) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>printable_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>printable_list(Term) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>printable_unicode_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>printable_unicode_list(Term) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>quote_atom</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>quote_atom(Atom :: <seetype marker="erlang#atom">atom()</seetype>, Cs0 :: <seetype marker="#chars">chars()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Atom</anno>
+  <anno>Cs0</anno>
+</spec>
+<spec>
+  <name>scan_format</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>scan_format(Format, Data) -&gt; FormatList</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>FormatList</typename><string>FormatList = [<seetype marker="erlang#char">char()</seetype> | <seetype marker="#format_spec">format_spec()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>FormatList</anno>
+</spec>
+<spec>
+  <name>unscan_format</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unscan_format(FormatList) -&gt; {Format, Data}</head>
+      <guard>
+        <subtype><typename>FormatList</typename><string>FormatList = [<seetype marker="erlang#char">char()</seetype> | <seetype marker="#format_spec">format_spec()</seetype>]</string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="io#format">io:format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>FormatList</anno>
+</spec>
+<spec>
+  <name>write</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write(Term) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>write</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>write(Term, Depth) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Depth</typename><string>Depth = <seetype marker="#depth">depth()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Depth</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>write</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>write(Term, Options) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{chars_limit, CharsLimit} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{depth, Depth} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{encoding, latin1 | utf8 | unicode}</string></subtype>
+        <subtype><typename>CharsLimit</typename><string>CharsLimit = <seetype marker="#chars_limit">chars_limit()</seetype></string></subtype>
+        <subtype><typename>Depth</typename><string>Depth = <seetype marker="#depth">depth()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CharsLimit</anno>
+  <anno>Depth</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>write</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>write(Term :: <seetype marker="erlang#term">term()</seetype>, D :: <seetype marker="#depth">depth()</seetype>, X3 :: <seetype marker="erlang#boolean">boolean()</seetype>) -&gt; <seetype marker="#chars">chars()</seetype></head></clause>
+  </contract>
+  <anno>D</anno>
+  <anno>Term</anno>
+  <anno>X3</anno>
+</spec>
+<spec>
+  <name>write_atom</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write_atom(Atom) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Atom</typename><string>Atom = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Atom</anno>
+</spec>
+<spec>
+  <name>write_atom_as_latin1</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write_atom_as_latin1(Atom) -&gt; <seetype marker="#latin1_string">latin1_string()</seetype></head>
+      <guard>
+        <subtype><typename>Atom</typename><string>Atom = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Atom</anno>
+</spec>
+<spec>
+  <name>write_binary</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>write_char</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write_char(Char) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>Char</typename><string>Char = <seetype marker="erlang#char">char()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Char</anno>
+</spec>
+<spec>
+  <name>write_char_as_latin1</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write_char_as_latin1(Char) -&gt; <seetype marker="#latin1_string">latin1_string()</seetype></head>
+      <guard>
+        <subtype><typename>Char</typename><string>Char = <seetype marker="erlang#char">char()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Char</anno>
+</spec>
+<spec>
+  <name>write_latin1_char</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write_latin1_char(Latin1Char) -&gt; <seetype marker="#latin1_string">latin1_string()</seetype></head>
+      <guard>
+        <subtype><typename>Latin1Char</typename><string>Latin1Char = <seetype marker="unicode#latin1_char">unicode:latin1_char()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Latin1Char</anno>
+</spec>
+<spec>
+  <name>write_latin1_string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write_latin1_string(Latin1String) -&gt; <seetype marker="#latin1_string">latin1_string()</seetype></head>
+      <guard>
+        <subtype><typename>Latin1String</typename><string>Latin1String = <seetype marker="#latin1_string">latin1_string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Latin1String</anno>
+</spec>
+<spec>
+  <name>write_latin1_string</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>write_latin1_string(S :: <seetype marker="#latin1_string">latin1_string()</seetype>, Q :: <seetype marker="erlang#char">char()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#latin1_string">latin1_string()</seetype></head></clause>
+  </contract>
+  <anno>Q</anno>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>write_string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write_string(String) -&gt; <seetype marker="#chars">chars()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>write_string</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>write_string(S :: <seetype marker="erlang#string">string()</seetype>, Q :: <seetype marker="erlang#char">char()</seetype>) -&gt; <seetype marker="#chars">chars()</seetype></head></clause>
+  </contract>
+  <anno>Q</anno>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>write_string_as_latin1</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write_string_as_latin1(String) -&gt; <seetype marker="#latin1_string">latin1_string()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>write_string_as_latin1</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>write_string_as_latin1(S :: <seetype marker="erlang#string">string()</seetype>, Q :: <seetype marker="erlang#char">char()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#latin1_string">latin1_string()</seetype></head></clause>
+  </contract>
+  <anno>Q</anno>
+  <anno>S</anno>
+</spec>
+<spec>
+  <name>write_unicode_char</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>write_unicode_string</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:23.</timestamp>
+</module>

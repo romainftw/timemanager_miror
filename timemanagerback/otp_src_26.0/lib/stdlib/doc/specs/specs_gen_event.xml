@@ -1,0 +1,545 @@
+<module name="gen_event">
+<type>
+  <name>add_handler_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-add_handler_ret">add_handler_ret()</marker> = ok | <seetype marker="erlang#term">term()</seetype> | {'EXIT', <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>debug_flag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-debug_flag">debug_flag()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>trace | log | statistics | debug | {logfile, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>del_handler_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-del_handler_ret">del_handler_ret()</marker> = ok | <seetype marker="erlang#term">term()</seetype> | {'EXIT', <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>emgr_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-emgr_name">emgr_name()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{local, <seetype marker="erlang#atom">atom()</seetype>} | {global, <seetype marker="erlang#term">term()</seetype>} | {via, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>emgr_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-emgr_ref">emgr_ref()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#atom">atom()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#atom">atom()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{global, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{via, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>format_status</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-format_status">format_status()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{state =&gt; <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>message =&gt; <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>reason =&gt; <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>log =&gt; [<seetype marker="sys#system_event">sys:system_event()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>handler</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handler">handler()</marker> = <seetype marker="erlang#atom">atom()</seetype> | {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>handler_args</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handler_args">handler_args()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option">option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{debug, [<seetype marker="#debug_flag">debug_flag()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{spawn_opt, [<seetype marker="proc_lib#start_spawn_option">proc_lib:start_spawn_option()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{hibernate_after, <seetype marker="erlang#timeout">timeout()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>request_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-request_id">request_id()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>request_id_collection</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-request_id_collection">request_id_collection()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>response_timeout</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-response_timeout">response_timeout()</marker> = <seetype marker="erlang#timeout">timeout()</seetype> | {abs, <seetype marker="erlang#integer">integer()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>start_mon_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-start_mon_ret">start_mon_ret()</marker> = {ok, {<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#reference">reference()</seetype>}} | {error, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>start_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-start_ret">start_ret()</marker> = {ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>add_handler</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_handler(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>, Handler :: <seetype marker="#handler">handler()</seetype>, Args :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Handler</anno>
+  <anno>M</anno>
+</spec>
+<spec>
+  <name>add_sup_handler</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_sup_handler(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Handler :: <seetype marker="#handler">handler()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Args :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Handler</anno>
+  <anno>M</anno>
+</spec>
+<spec>
+  <name>call</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>call(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>, Handler :: <seetype marker="#handler">handler()</seetype>, Query :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Handler</anno>
+  <anno>M</anno>
+  <anno>Query</anno>
+</spec>
+<spec>
+  <name>call</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>call(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Handler :: <seetype marker="#handler">handler()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Query :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Timeout :: <seetype marker="erlang#timeout">timeout()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Handler</anno>
+  <anno>M</anno>
+  <anno>Query</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>check_response</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>check_response(Msg, ReqId) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>ReqId</typename><string>ReqId = <seetype marker="#request_id">request_id()</seetype></string></subtype>
+        <subtype><typename>Response</typename><string>Response = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, Reply :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Reason :: <seetype marker="erlang#term">term()</seetype>, <seetype marker="#emgr_ref">emgr_ref()</seetype>}}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = Response | no_reply</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Msg</anno>
+  <anno>Reason</anno>
+  <anno>Reply</anno>
+  <anno>ReqId</anno>
+  <anno>Response</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>check_response</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>check_response(Msg, ReqIdCollection, Delete) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>ReqIdCollection</typename><string>ReqIdCollection = <seetype marker="#request_id_collection">request_id_collection()</seetype></string></subtype>
+        <subtype><typename>Delete</typename><string>Delete = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Response</typename><string>Response = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, Reply :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Reason :: <seetype marker="erlang#term">term()</seetype>, <seetype marker="#emgr_ref">emgr_ref()</seetype>}}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Response,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Label :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_request | no_reply</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Delete</anno>
+  <anno>Label</anno>
+  <anno>Msg</anno>
+  <anno>NewReqIdCollection</anno>
+  <anno>Reason</anno>
+  <anno>Reply</anno>
+  <anno>ReqIdCollection</anno>
+  <anno>Response</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>delete_handler</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>delete_handler(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Handler :: <seetype marker="#handler">handler()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Args :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Handler</anno>
+  <anno>M</anno>
+</spec>
+<spec>
+  <name>format_log</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>format_log</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>format_status</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>init_it</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>notify</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>notify(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>, Event :: <seetype marker="erlang#term">term()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Event</anno>
+  <anno>M</anno>
+</spec>
+<spec>
+  <name>receive_response</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>receive_response(ReqId, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>ReqId</typename><string>ReqId = <seetype marker="#request_id">request_id()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="#response_timeout">response_timeout()</seetype></string></subtype>
+        <subtype><typename>Response</typename><string>Response = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, Reply :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Reason :: <seetype marker="erlang#term">term()</seetype>, <seetype marker="#emgr_ref">emgr_ref()</seetype>}}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = Response | timeout</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Reply</anno>
+  <anno>ReqId</anno>
+  <anno>Response</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>receive_response</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>receive_response(ReqIdCollection, Timeout, Delete) -&gt; Result</head>
+      <guard>
+        <subtype><typename>ReqIdCollection</typename><string>ReqIdCollection = <seetype marker="#request_id_collection">request_id_collection()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="#response_timeout">response_timeout()</seetype></string></subtype>
+        <subtype><typename>Delete</typename><string>Delete = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Response</typename><string>Response = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, Reply :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Reason :: <seetype marker="erlang#term">term()</seetype>, <seetype marker="#emgr_ref">emgr_ref()</seetype>}}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Response,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Label :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_request | timeout</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Delete</anno>
+  <anno>Label</anno>
+  <anno>NewReqIdCollection</anno>
+  <anno>Reason</anno>
+  <anno>Reply</anno>
+  <anno>ReqIdCollection</anno>
+  <anno>Response</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>reqids_add</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>reqids_add(ReqId :: <seetype marker="#request_id">request_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Label :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype></head></clause>
+  </contract>
+  <anno>Label</anno>
+  <anno>NewReqIdCollection</anno>
+  <anno>ReqId</anno>
+  <anno>ReqIdCollection</anno>
+</spec>
+<spec>
+  <name>reqids_new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>reqids_new() -&gt; NewReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype></head></clause>
+  </contract>
+  <anno>NewReqIdCollection</anno>
+</spec>
+<spec>
+  <name>reqids_size</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>reqids_size(ReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+  <anno>ReqIdCollection</anno>
+</spec>
+<spec>
+  <name>reqids_to_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>reqids_to_list(ReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{ReqId :: <seetype marker="#request_id">request_id()</seetype>, Label :: <seetype marker="erlang#term">term()</seetype>}]</head></clause>
+  </contract>
+  <anno>Label</anno>
+  <anno>ReqId</anno>
+  <anno>ReqIdCollection</anno>
+</spec>
+<spec>
+  <name>send_request</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send_request(EventMgrRef :: <seetype marker="#emgr_ref">emgr_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Handler :: <seetype marker="#handler">handler()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Request :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ReqId :: <seetype marker="#request_id">request_id()</seetype></head></clause>
+  </contract>
+  <anno>EventMgrRef</anno>
+  <anno>Handler</anno>
+  <anno>ReqId</anno>
+  <anno>Request</anno>
+</spec>
+<spec>
+  <name>send_request</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>send_request(EventMgrRef :: <seetype marker="#emgr_ref">emgr_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Handler :: <seetype marker="#handler">handler()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Request :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Label :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype></head></clause>
+  </contract>
+  <anno>EventMgrRef</anno>
+  <anno>Handler</anno>
+  <anno>Label</anno>
+  <anno>NewReqIdCollection</anno>
+  <anno>ReqIdCollection</anno>
+  <anno>Request</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; <seetype marker="#start_ret">start_ret()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(Name :: <seetype marker="#emgr_name">emgr_name()</seetype> | [<seetype marker="#option">option()</seetype>]) -&gt; <seetype marker="#start_ret">start_ret()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start(Name :: <seetype marker="#emgr_name">emgr_name()</seetype>, Options :: [<seetype marker="#option">option()</seetype>]) -&gt; <seetype marker="#start_ret">start_ret()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_link() -&gt; <seetype marker="#start_ret">start_ret()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start_link(Name :: <seetype marker="#emgr_name">emgr_name()</seetype> | [<seetype marker="#option">option()</seetype>]) -&gt; <seetype marker="#start_ret">start_ret()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start_link(Name :: <seetype marker="#emgr_name">emgr_name()</seetype>, Options :: [<seetype marker="#option">option()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#start_ret">start_ret()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>start_monitor</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_monitor() -&gt; <seetype marker="#start_mon_ret">start_mon_ret()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start_monitor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start_monitor(Name :: <seetype marker="#emgr_name">emgr_name()</seetype> | [<seetype marker="#option">option()</seetype>]) -&gt; <seetype marker="#start_mon_ret">start_mon_ret()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>start_monitor</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start_monitor(Name :: <seetype marker="#emgr_name">emgr_name()</seetype>, Options :: [<seetype marker="#option">option()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#start_mon_ret">start_mon_ret()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>M</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>swap_handler</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>swap_handler(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>X2 :: {<seetype marker="#handler">handler()</seetype>, <seetype marker="erlang#term">term()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>X3 :: {<seetype marker="#handler">handler()</seetype>, <seetype marker="erlang#term">term()</seetype>}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>M</anno>
+  <anno>X2</anno>
+  <anno>X3</anno>
+</spec>
+<spec>
+  <name>swap_sup_handler</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>swap_sup_handler(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>X2 :: {<seetype marker="#handler">handler()</seetype>, <seetype marker="erlang#term">term()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>X3 :: {<seetype marker="#handler">handler()</seetype>, <seetype marker="erlang#term">term()</seetype>}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>M</anno>
+  <anno>X2</anno>
+  <anno>X3</anno>
+</spec>
+<spec>
+  <name>sync_notify</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>sync_notify(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>, Event :: <seetype marker="erlang#term">term()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Event</anno>
+  <anno>M</anno>
+</spec>
+<spec>
+  <name>system_code_change</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_continue</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_get_state</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_replace_state</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_terminate</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>system_terminate(Reason :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Parent :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Debug :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>X4 :: [<seetype marker="erlang#term">term()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>Debug</anno>
+  <anno>Parent</anno>
+  <anno>Reason</anno>
+  <anno>X4</anno>
+</spec>
+<spec>
+  <name>wait_response</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>wait_response(ReqId, WaitTime) -&gt; Result</head>
+      <guard>
+        <subtype><typename>ReqId</typename><string>ReqId = <seetype marker="#request_id">request_id()</seetype></string></subtype>
+        <subtype><typename>WaitTime</typename><string>WaitTime = <seetype marker="#response_timeout">response_timeout()</seetype></string></subtype>
+        <subtype><typename>Response</typename><string>Response = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, Reply :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Reason :: <seetype marker="erlang#term">term()</seetype>, <seetype marker="#emgr_ref">emgr_ref()</seetype>}}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = Response | timeout</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Reply</anno>
+  <anno>ReqId</anno>
+  <anno>Response</anno>
+  <anno>Result</anno>
+  <anno>WaitTime</anno>
+</spec>
+<spec>
+  <name>wait_response</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>wait_response(ReqIdCollection, WaitTime, Delete) -&gt; Result</head>
+      <guard>
+        <subtype><typename>ReqIdCollection</typename><string>ReqIdCollection = <seetype marker="#request_id_collection">request_id_collection()</seetype></string></subtype>
+        <subtype><typename>WaitTime</typename><string>WaitTime = <seetype marker="#response_timeout">response_timeout()</seetype></string></subtype>
+        <subtype><typename>Delete</typename><string>Delete = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Response</typename><string>Response = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, Reply :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {Reason :: <seetype marker="erlang#term">term()</seetype>, <seetype marker="#emgr_ref">emgr_ref()</seetype>}}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Response,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Label :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NewReqIdCollection :: <seetype marker="#request_id_collection">request_id_collection()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_request | timeout</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Delete</anno>
+  <anno>Label</anno>
+  <anno>NewReqIdCollection</anno>
+  <anno>Reason</anno>
+  <anno>Reply</anno>
+  <anno>ReqIdCollection</anno>
+  <anno>Response</anno>
+  <anno>Result</anno>
+  <anno>WaitTime</anno>
+</spec>
+<spec>
+  <name>wake_hib</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>which_handlers</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>which_handlers(M :: <seetype marker="#emgr_ref">emgr_ref()</seetype>) -&gt; [<seetype marker="#handler">handler()</seetype>]</head></clause>
+  </contract>
+  <anno>M</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:23.</timestamp>
+</module>

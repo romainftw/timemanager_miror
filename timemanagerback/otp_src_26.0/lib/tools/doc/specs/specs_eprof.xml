@@ -1,0 +1,370 @@
+<module name="eprof">
+<type>
+  <name>analyze_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyze_type">analyze_type()</marker> = procs | total</typehead></typedecl>
+</type>
+<type>
+  <name>trace_pattern_mfa</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_pattern_mfa">trace_pattern_mfa()</marker> = {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#arity">arity()</seetype> | '_'}</typehead></typedecl>
+</type>
+<spec>
+  <name>analyze</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>analyze() -&gt; ok | nothing_to_analyze</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyze(Type) -&gt; ok | nothing_to_analyze</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#analyze_type">analyze_type()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>analyze(Type, Options) -&gt; ok | nothing_to_analyze</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="#analyze_type">analyze_type()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {filter, Filter} | {sort, Sort}</string></subtype>
+        <subtype><typename>Filter</typename><string>Filter = [{calls, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} | {time, <seetype marker="erlang#float">float()</seetype>}]</string></subtype>
+        <subtype><typename>Sort</typename><string>Sort = time | calls | mfa</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filter</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Sort</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>dump</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>dump_data</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>log(File) -&gt; ok</head>
+      <guard>
+        <subtype><typename>File</typename><string>File = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>profile(Fun) -&gt; {ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun(() -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>Value</typename><string>Value = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Reason</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>profile(Rootset) -&gt; profiling | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>profile(Fun, Options) -&gt; {ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun(() -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [set_on_spawn | {set_on_spawn, <seetype marker="erlang#boolean">boolean()</seetype>}]</string></subtype>
+        <subtype><typename>Value</typename><string>Value = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>profile(Rootset, Fun) -&gt; {ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = fun(() -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>Value</typename><string>Value = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>profile(Rootset, Fun, Pattern) -&gt; {ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = fun(() -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#trace_pattern_mfa">trace_pattern_mfa()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>profile(Rootset, Module, Function, Args) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Value</typename><string>Value = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>profile(Rootset, Fun, Pattern, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = fun(() -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#trace_pattern_mfa">trace_pattern_mfa()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [set_on_spawn | {set_on_spawn, <seetype marker="erlang#boolean">boolean()</seetype>}]</string></subtype>
+        <subtype><typename>Value</typename><string>Value = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Options</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>profile(Rootset, Module, Function, Args, Pattern) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#trace_pattern_mfa">trace_pattern_mfa()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>profile(Rootset, Module, Function, Args, Pattern, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Value} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#trace_pattern_mfa">trace_pattern_mfa()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [set_on_spawn | {set_on_spawn, <seetype marker="erlang#boolean">boolean()</seetype>}]</string></subtype>
+        <subtype><typename>Value</typename><string>Value = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Options</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; {ok, Pid} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {already_started, Pid}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>start_profiling</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start_profiling(Rootset) -&gt; profiling | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+</spec>
+<spec>
+  <name>start_profiling</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start_profiling(Rootset, Pattern) -&gt; profiling | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#trace_pattern_mfa">trace_pattern_mfa()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+</spec>
+<spec>
+  <name>start_profiling</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>start_profiling(Rootset, Pattern, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>profiling | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Rootset</typename><string>Rootset = [<seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype>]</string></subtype>
+        <subtype><typename>Pattern</typename><string>Pattern = <seetype marker="#trace_pattern_mfa">trace_pattern_mfa()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [set_on_spawn | {set_on_spawn, <seetype marker="erlang#boolean">boolean()</seetype>}]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Pattern</anno>
+  <anno>Reason</anno>
+  <anno>Rootset</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; stopped</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>stop_profiling</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop_profiling() -&gt; profiling_stopped | profiling_already_stopped</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:03.</timestamp>
+</module>

@@ -1,0 +1,168 @@
+<module name="erl_features">
+<type>
+  <name>error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error">error()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{erl_features,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_features, [<seetype marker="erlang#atom">atom()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{incorrect_features, [<seetype marker="erlang#atom">atom()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{not_configurable, [<seetype marker="erlang#atom">atom()</seetype>]}}</typehead></typedecl>
+</type>
+<type>
+  <name>feature</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-feature">feature()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>release</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-release">release()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>status</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-status">status()</marker> = experimental | approved | permanent | rejected</typehead></typedecl>
+</type>
+<type>
+  <name>type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-type">type()</marker> = extension | backwards_incompatible_change</typehead></typedecl>
+</type>
+<spec>
+  <name>all</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>all() -&gt; [<seetype marker="#feature">feature()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>configurable</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>configurable() -&gt; [<seetype marker="#feature">feature()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>enabled</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>enabled() -&gt; [<seetype marker="#feature">feature()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(Reason) -&gt; <seetype marker="erlang#iolist">iolist()</seetype></head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format_error(Reason, StackTrace) -&gt; ErrorDescription</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>StackTrace</typename><string>StackTrace = <seetype marker="erlang#stacktrace">erlang:stacktrace()</seetype></string></subtype>
+        <subtype><typename>ArgumentPosition</typename><string>ArgumentPosition = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>ErrorDescription</typename><string>ErrorDescription = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{ArgumentPosition =&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>general =&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>reason =&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ArgumentPosition</anno>
+  <anno>ErrorDescription</anno>
+  <anno>Reason</anno>
+  <anno>StackTrace</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(Feature :: <seetype marker="#feature">feature()</seetype>) -&gt; FeatureInfoMap | <seetype marker="erlang#no_return">no_return()</seetype></head>
+      <guard>
+        <subtype><typename>Description</typename><string>Description = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>FeatureInfoMap</typename><string>FeatureInfoMap = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{description := Description,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>short := Description,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>type := <seetype marker="#type">type()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>keywords := [<seetype marker="erlang#atom">atom()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>status := <seetype marker="#status">status()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>experimental =&gt; <seetype marker="#release">release()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>approved =&gt; <seetype marker="#release">release()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>permanent =&gt; <seetype marker="#release">release()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>rejected =&gt; <seetype marker="#release">release()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Description</anno>
+  <anno>Feature</anno>
+  <anno>FeatureInfoMap</anno>
+</spec>
+<spec>
+  <name>keyword_fun</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>keyword_fun(Opts :: [<seetype marker="erlang#term">term()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>KeywordFun :: fun((<seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {[<seetype marker="#feature">feature()</seetype>], fun((<seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#error">error()</seetype>}</head></clause>
+  </contract>
+  <anno>KeywordFun</anno>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>keyword_fun</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>keyword_fun(Ind :: enable | disable,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Feature :: <seetype marker="#feature">feature()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Ftrs :: [<seetype marker="#feature">feature()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>KeywordFun :: fun((<seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {[<seetype marker="#feature">feature()</seetype>], fun((<seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#error">error()</seetype>}</head></clause>
+  </contract>
+  <anno>Feature</anno>
+  <anno>Ftrs</anno>
+  <anno>Ind</anno>
+  <anno>KeywordFun</anno>
+</spec>
+<spec>
+  <name>keywords</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>keywords() -&gt; [<seetype marker="erlang#atom">atom()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>keywords</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>keywords(Ftr :: <seetype marker="#feature">feature()</seetype>) -&gt; [<seetype marker="erlang#atom">atom()</seetype>] | <seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>Ftr</anno>
+</spec>
+<spec>
+  <name>long</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>long(Feature :: <seetype marker="#feature">feature()</seetype>) -&gt; <seetype marker="erlang#iolist">iolist()</seetype> | <seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>Feature</anno>
+</spec>
+<spec>
+  <name>short</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>short(Feature :: <seetype marker="#feature">feature()</seetype>) -&gt; <seetype marker="erlang#iolist">iolist()</seetype> | <seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>Feature</anno>
+</spec>
+<spec>
+  <name>used</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>used(Module :: <seetype marker="erlang#module">module()</seetype> | <seetype marker="file#filename">file:filename()</seetype>) -&gt; [<seetype marker="#feature">feature()</seetype>]</head></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:20.</timestamp>
+</module>

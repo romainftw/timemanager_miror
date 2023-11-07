@@ -1,0 +1,175 @@
+<module name="atomics">
+<type>
+  <name>atomics_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-atomics_ref">atomics_ref()</marker></typehead></typedecl>
+</type>
+<spec>
+  <name>add</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add(Ref, Ix, Incr) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Ref</typename><string>Ref = <seetype marker="#atomics_ref">atomics_ref()</seetype></string></subtype>
+        <subtype><typename>Ix</typename><string>Ix = Incr = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Incr</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Incr</anno>
+  <anno>Ix</anno>
+  <anno>Ref</anno>
+</spec>
+<spec>
+  <name>add_get</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_get(Ref, Ix, Incr) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>Ref</typename><string>Ref = <seetype marker="#atomics_ref">atomics_ref()</seetype></string></subtype>
+        <subtype><typename>Ix</typename><string>Ix = Incr = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Incr</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Incr</anno>
+  <anno>Ix</anno>
+  <anno>Ref</anno>
+</spec>
+<spec>
+  <name>compare_exchange</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>compare_exchange(Ref, Ix, Expected, Desired) -&gt; ok | <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>Ref</typename><string>Ref = <seetype marker="#atomics_ref">atomics_ref()</seetype></string></subtype>
+        <subtype><typename>Ix</typename><string>Ix = Expected = Desired = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Expected</typename><string></string></subtype>
+        <subtype><typename>Desired</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Desired</anno>
+  <anno>Expected</anno>
+  <anno>Ix</anno>
+  <anno>Ref</anno>
+</spec>
+<spec>
+  <name>exchange</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>exchange(Ref, Ix, Desired) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>Ref</typename><string>Ref = <seetype marker="#atomics_ref">atomics_ref()</seetype></string></subtype>
+        <subtype><typename>Ix</typename><string>Ix = Desired = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Desired</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Desired</anno>
+  <anno>Ix</anno>
+  <anno>Ref</anno>
+</spec>
+<spec>
+  <name>get</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get(Ref, Ix) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>Ref</typename><string>Ref = <seetype marker="#atomics_ref">atomics_ref()</seetype></string></subtype>
+        <subtype><typename>Ix</typename><string>Ix = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ix</anno>
+  <anno>Ref</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(Ref) -&gt; Info</head>
+      <guard>
+        <subtype><typename>Ref</typename><string>Ref = <seetype marker="#atomics_ref">atomics_ref()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{size := Size, max := Max, min := Min, memory := Memory}</string></subtype>
+        <subtype><typename>Size</typename><string>Size = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Max</typename><string>Max = Min = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Min</typename><string/></subtype>
+        <subtype><typename>Memory</typename><string>Memory = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Info</anno>
+  <anno>Max</anno>
+  <anno>Memory</anno>
+  <anno>Min</anno>
+  <anno>Ref</anno>
+  <anno>Size</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Arity, Opts) -&gt; <seetype marker="#atomics_ref">atomics_ref()</seetype></head>
+      <guard>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = {signed, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+</spec>
+<spec>
+  <name>put</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>put(Ref, Ix, Value) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Ref</typename><string>Ref = <seetype marker="#atomics_ref">atomics_ref()</seetype></string></subtype>
+        <subtype><typename>Ix</typename><string>Ix = Value = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ix</anno>
+  <anno>Ref</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>sub</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>sub(Ref, Ix, Decr) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Ref</typename><string>Ref = <seetype marker="#atomics_ref">atomics_ref()</seetype></string></subtype>
+        <subtype><typename>Ix</typename><string>Ix = Decr = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Decr</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Decr</anno>
+  <anno>Ix</anno>
+  <anno>Ref</anno>
+</spec>
+<spec>
+  <name>sub_get</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>sub_get(Ref, Ix, Decr) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>Ref</typename><string>Ref = <seetype marker="#atomics_ref">atomics_ref()</seetype></string></subtype>
+        <subtype><typename>Ix</typename><string>Ix = Decr = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Decr</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Decr</anno>
+  <anno>Ix</anno>
+  <anno>Ref</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:38:10.</timestamp>
+</module>

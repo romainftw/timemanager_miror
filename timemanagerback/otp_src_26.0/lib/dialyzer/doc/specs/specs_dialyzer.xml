@@ -1,0 +1,180 @@
+<module name="dialyzer">
+<type>
+  <name>dial_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dial_option">dial_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{files, [FileName :: <seetype marker="file#filename">file:filename()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{files_rec, [DirName :: <seetype marker="file#filename">file:filename()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{defines, [{Macro :: <seetype marker="erlang#atom">atom()</seetype>, Value :: <seetype marker="erlang#term">term()</seetype>}]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{from, src_code | byte_code} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{init_plt, FileName :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{plts, [FileName :: <seetype marker="file#filename">file:filename()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{include_dirs, [DirName :: <seetype marker="file#filename">file:filename()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{output_file, FileName :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{metrics_file, FileName :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{module_lookup_file, FileName :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{output_plt, FileName :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{check_plt, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{analysis_type,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>succ_typings | plt_add | plt_build | plt_check | plt_remove |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>incremental} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warnings, [<seetype marker="#warn_option">warn_option()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{get_warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{use_spec, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{filename_opt, <seetype marker="#filename_opt">filename_opt()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{callgraph_file, <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mod_deps_file, <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warning_files_rec, [DirName :: <seetype marker="file#filename">file:filename()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error_location, <seetype marker="#error_location">error_location()</seetype>}</typehead></typedecl>
+  <anno>DirName</anno>
+  <anno>FileName</anno>
+  <anno>Macro</anno>
+  <anno>Value</anno>
+</type>
+<type>
+  <name>dial_warn_tag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dial_warn_tag">dial_warn_tag()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_behaviour | warn_bin_construction | warn_callgraph |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_contract_extra_return | warn_contract_missing_return |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_contract_not_equal | warn_contract_range |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_contract_subtype | warn_contract_supertype |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_contract_syntax | warn_contract_types |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_failing_call | warn_fun_app | warn_map_construction |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_matching | warn_non_proper_list | warn_not_called |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_opaque | warn_overlapping_contract |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_return_no_exit | warn_return_only_exit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>warn_undefined_callbacks | warn_unknown | warn_umatched_return</typehead></typedecl>
+</type>
+<type>
+  <name>dial_warning</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dial_warning">dial_warning()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Tag :: <seetype marker="#dial_warn_tag">dial_warn_tag()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Id :: <seetype marker="#file_location">file_location()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Msg :: {<seetype marker="erlang#atom">atom()</seetype>, [<seetype marker="erlang#term">term()</seetype>]}}</typehead></typedecl>
+  <anno>Id</anno>
+  <anno>Msg</anno>
+  <anno>Tag</anno>
+</type>
+<type>
+  <name>error_location</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error_location">error_location()</marker> = column | line</typehead></typedecl>
+</type>
+<type>
+  <name>file_location</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file_location">file_location()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{File :: <seetype marker="file#filename">file:filename()</seetype>, Location :: <seetype marker="erl_anno#location">erl_anno:location()</seetype>}</typehead></typedecl>
+  <anno>File</anno>
+  <anno>Location</anno>
+</type>
+<type>
+  <name>filename_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-filename_opt">filename_opt()</marker> = basename | fullpath</typehead></typedecl>
+</type>
+<type>
+  <name>format_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-format_option">format_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{indent_opt, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{filename_opt, <seetype marker="#filename_opt">filename_opt()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error_location, <seetype marker="#error_location">error_location()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>warn_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-warn_option">warn_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>error_handling | no_behaviours | no_contracts | no_fail_call |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_fun_app | no_improper_lists | no_match | no_missing_calls |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_opaque | no_return | no_undefined_callbacks |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_underspecs | no_unknown | no_unused | underspecs |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unknown | unmatched_returns | overspecs | specdiffs |<br/><nbsp/><nbsp/><nbsp/><nbsp/>extra_return | no_extra_return | missing_return |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_missing_return</typehead></typedecl>
+</type>
+<spec>
+  <name>format_warning</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_warning(Warnings) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>Warnings</typename><string>Warnings = <seetype marker="#dial_warning">dial_warning()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Warnings</anno>
+</spec>
+<spec>
+  <name>format_warning</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format_warning(Warnings, Options) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>Warnings</typename><string>Warnings = <seetype marker="#dial_warning">dial_warning()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#filename_opt">filename_opt()</seetype> | [<seetype marker="#format_option">format_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Warnings</anno>
+</spec>
+<spec>
+  <name>gui</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>gui() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>gui</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>gui(Options) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#dial_option">dial_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>plain_cl</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>plain_cl() -&gt; <seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>plt_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>plt_info(Plt) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, ClassicResult | IncrementalResult} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Plt</typename><string>Plt = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>ClassicResult</typename><string>ClassicResult = [{files, [<seetype marker="file#filename">file:filename()</seetype>]}]</string></subtype>
+        <subtype><typename>IncrementalResult</typename><string>IncrementalResult = {incremental, [{modules, [<seetype marker="erlang#module">module()</seetype>]}]}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = not_valid | no_such_file | read_error</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ClassicResult</anno>
+  <anno>IncrementalResult</anno>
+  <anno>Plt</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>run</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>run(Options) -&gt; Warnings</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#dial_option">dial_option()</seetype>]</string></subtype>
+        <subtype><typename>Warnings</typename><string>Warnings = [<seetype marker="#dial_warning">dial_warning()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Warnings</anno>
+</spec>
+<spec>
+  <name>run_report_modules_analyzed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>run_report_modules_analyzed(Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Warnings, ModulesAnalyzed}</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#dial_option">dial_option()</seetype>]</string></subtype>
+        <subtype><typename>Warnings</typename><string>Warnings = [<seetype marker="#dial_warning">dial_warning()</seetype>]</string></subtype>
+        <subtype><typename>ModulesAnalyzed</typename><string>ModulesAnalyzed = [<seetype marker="erlang#module">module()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ModulesAnalyzed</anno>
+  <anno>Options</anno>
+  <anno>Warnings</anno>
+</spec>
+<spec>
+  <name>run_report_modules_changed_and_analyzed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>run_report_modules_changed_and_analyzed(Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Warnings,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ModulesChanged,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ModulesAnalyzed}</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#dial_option">dial_option()</seetype>]</string></subtype>
+        <subtype><typename>Warnings</typename><string>Warnings = [<seetype marker="#dial_warning">dial_warning()</seetype>]</string></subtype>
+        <subtype><typename>ModulesChanged</typename><string>ModulesChanged = undefined | [<seetype marker="erlang#module">module()</seetype>]</string></subtype>
+        <subtype><typename>ModulesAnalyzed</typename><string>ModulesAnalyzed = [<seetype marker="erlang#module">module()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ModulesAnalyzed</anno>
+  <anno>ModulesChanged</anno>
+  <anno>Options</anno>
+  <anno>Warnings</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:57.</timestamp>
+</module>

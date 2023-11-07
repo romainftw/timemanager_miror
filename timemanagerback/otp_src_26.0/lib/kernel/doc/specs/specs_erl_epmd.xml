@@ -1,0 +1,257 @@
+<module name="erl_epmd">
+<type>
+  <name>calls</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-calls">calls()</marker> = client_info_req | stop | {register, <seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-state">state()</marker> = #state{}</typehead></typedecl>
+</type>
+<spec>
+  <name>address_please</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>address_please(Name, Host, AddressFamily) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Success | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="erlang#string">string()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>AddressFamily</typename><string>AddressFamily = inet | inet6</string></subtype>
+        <subtype><typename>Port</typename><string>Port = Version = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Version</typename><string/></subtype>
+        <subtype><typename>Success</typename><string>Success = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="inet#ip_address">inet:ip_address()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="inet#ip_address">inet:ip_address()</seetype>, Port, Version}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AddressFamily</anno>
+  <anno>Host</anno>
+  <anno>Name</anno>
+  <anno>Port</anno>
+  <anno>Success</anno>
+  <anno>Version</anno>
+</spec>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>code_change(OldVsn :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="#state">state()</seetype>, Extra :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Extra</anno>
+  <anno>OldVsn</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handle_call(X1 :: <seetype marker="#calls">calls()</seetype>, From :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, <seetype marker="erlang#term">term()</seetype>, <seetype marker="#state">state()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{stop, shutdown, ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>From</anno>
+  <anno>State</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_cast(X1 :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="#state">state()</seetype>) -&gt; {noreply, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>State</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_info(X1 :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="#state">state()</seetype>) -&gt; {noreply, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>State</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(X1 :: <seetype marker="erlang#term">term()</seetype>) -&gt; {ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>listen_port_please</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>listen_port_please(Name, Host) -&gt; {ok, Port}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Name</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>names</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>names() -&gt; {ok, [{Name, Port}]} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = address | <seetype marker="file#posix">file:posix()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Port</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>names</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>names(Host) -&gt; {ok, [{Name, Port}]} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = address | <seetype marker="file#posix">file:posix()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Name</anno>
+  <anno>Port</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>port_please</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>port_please(Name, Host) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{port, Port, Version} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>noport | closed |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = Version = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Version</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Name</anno>
+  <anno>Port</anno>
+  <anno>Version</anno>
+</spec>
+<spec>
+  <name>port_please</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>port_please(Name, Host, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{port, Port, Version} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>noport | closed |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype> | <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | infinity</string></subtype>
+        <subtype><typename>Port</typename><string>Port = Version = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Version</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Name</anno>
+  <anno>Port</anno>
+  <anno>Timeout</anno>
+  <anno>Version</anno>
+</spec>
+<spec>
+  <name>register_node</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>register_node(Name, Port) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = Creation = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Creation</typename><string/></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, Creation} | {error, already_registered} | <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Creation</anno>
+  <anno>Name</anno>
+  <anno>Port</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>register_node</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>register_node(Name, Port, Driver) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Driver</typename><string>Driver = inet_tcp | inet6_tcp | inet | inet6</string></subtype>
+        <subtype><typename>Creation</typename><string>Creation = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | -1</string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, Creation} | {error, already_registered} | <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Creation</anno>
+  <anno>Driver</anno>
+  <anno>Name</anno>
+  <anno>Port</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_link() -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>} | ignore | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>terminate(X1 :: <seetype marker="erlang#term">term()</seetype>, State :: <seetype marker="#state">state()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>State</anno>
+  <anno>X1</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:47.</timestamp>
+</module>

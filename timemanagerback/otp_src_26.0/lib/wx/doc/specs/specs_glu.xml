@@ -1,0 +1,554 @@
+<module name="glu">
+<type>
+  <name>enum</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-enum">enum()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>f</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-f">f()</marker> = <seetype marker="erlang#float">float()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>i</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-i">i()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>m12</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-m12">m12()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>, <seetype marker="#f">f()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>m16</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-m16">m16()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#f">f()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>matrix</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-matrix">matrix()</marker> = <seetype marker="#m12">m12()</seetype> | <seetype marker="#m16">m16()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>mem</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mem">mem()</marker> = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#tuple">tuple()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>vertex</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-vertex">vertex()</marker> = {<seetype marker="erlang#float">float()</seetype>, <seetype marker="erlang#float">float()</seetype>, <seetype marker="erlang#float">float()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>build1DMipmapLevels</name>
+  <arity>9</arity>
+  <contract>
+    <clause>
+      <head>build1DMipmapLevels(Target, InternalFormat, Width, Format, Type,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Level, Base, Max, Data) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#i">i()</seetype></head>
+      <guard>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>InternalFormat</typename><string>InternalFormat = Width = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string/></subtype>
+        <subtype><typename>Format</typename><string>Format = Type = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string/></subtype>
+        <subtype><typename>Level</typename><string>Level = Base = Max = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Base</typename><string/></subtype>
+        <subtype><typename>Max</typename><string/></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base</anno>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>InternalFormat</anno>
+  <anno>Level</anno>
+  <anno>Max</anno>
+  <anno>Target</anno>
+  <anno>Type</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>build1DMipmaps</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>build1DMipmaps(Target, InternalFormat, Width, Format, Type, Data) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#i">i()</seetype></head>
+      <guard>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>InternalFormat</typename><string>InternalFormat = Width = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string/></subtype>
+        <subtype><typename>Format</typename><string>Format = Type = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string/></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>InternalFormat</anno>
+  <anno>Target</anno>
+  <anno>Type</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>build2DMipmapLevels</name>
+  <arity>10</arity>
+  <contract>
+    <clause>
+      <head>build2DMipmapLevels(Target, InternalFormat, Width, Height, Format,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Type, Level, Base, Max, Data) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#i">i()</seetype></head>
+      <guard>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>InternalFormat</typename><string>InternalFormat = Width = Height = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string/></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Format</typename><string>Format = Type = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string/></subtype>
+        <subtype><typename>Level</typename><string>Level = Base = Max = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Base</typename><string/></subtype>
+        <subtype><typename>Max</typename><string/></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base</anno>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>Height</anno>
+  <anno>InternalFormat</anno>
+  <anno>Level</anno>
+  <anno>Max</anno>
+  <anno>Target</anno>
+  <anno>Type</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>build2DMipmaps</name>
+  <arity>7</arity>
+  <contract>
+    <clause>
+      <head>build2DMipmaps(Target, InternalFormat, Width, Height, Format,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Type, Data) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#i">i()</seetype></head>
+      <guard>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>InternalFormat</typename><string>InternalFormat = Width = Height = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string/></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Format</typename><string>Format = Type = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string/></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>Height</anno>
+  <anno>InternalFormat</anno>
+  <anno>Target</anno>
+  <anno>Type</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>build3DMipmapLevels</name>
+  <arity>11</arity>
+  <contract>
+    <clause>
+      <head>build3DMipmapLevels(Target, InternalFormat, Width, Height, Depth,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Format, Type, Level, Base, Max, Data) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#i">i()</seetype></head>
+      <guard>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>InternalFormat</typename><string>InternalFormat = Width = Height = Depth = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string/></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Depth</typename><string/></subtype>
+        <subtype><typename>Format</typename><string>Format = Type = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string/></subtype>
+        <subtype><typename>Level</typename><string>Level = Base = Max = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Base</typename><string/></subtype>
+        <subtype><typename>Max</typename><string/></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base</anno>
+  <anno>Data</anno>
+  <anno>Depth</anno>
+  <anno>Format</anno>
+  <anno>Height</anno>
+  <anno>InternalFormat</anno>
+  <anno>Level</anno>
+  <anno>Max</anno>
+  <anno>Target</anno>
+  <anno>Type</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>build3DMipmaps</name>
+  <arity>8</arity>
+  <contract>
+    <clause>
+      <head>build3DMipmaps(Target, InternalFormat, Width, Height, Depth,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Format, Type, Data) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#i">i()</seetype></head>
+      <guard>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>InternalFormat</typename><string>InternalFormat = Width = Height = Depth = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string/></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Depth</typename><string/></subtype>
+        <subtype><typename>Format</typename><string>Format = Type = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string/></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Depth</anno>
+  <anno>Format</anno>
+  <anno>Height</anno>
+  <anno>InternalFormat</anno>
+  <anno>Target</anno>
+  <anno>Type</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>checkExtension</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>checkExtension(ExtName :: <seetype marker="erlang#string">string()</seetype>, ExtString :: <seetype marker="erlang#string">string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>0 | 1</head></clause>
+  </contract>
+  <anno>ExtName</anno>
+  <anno>ExtString</anno>
+</spec>
+<spec>
+  <name>cylinder</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>cylinder(Quad :: <seetype marker="#i">i()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Base :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Top :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Height :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Slices :: <seetype marker="#i">i()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Stacks :: <seetype marker="#i">i()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Base</anno>
+  <anno>Height</anno>
+  <anno>Quad</anno>
+  <anno>Slices</anno>
+  <anno>Stacks</anno>
+  <anno>Top</anno>
+</spec>
+<spec>
+  <name>deleteQuadric</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>deleteQuadric(Quad :: <seetype marker="#i">i()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Quad</anno>
+</spec>
+<spec>
+  <name>disk</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>disk(Quad :: <seetype marker="#i">i()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Inner :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Outer :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Slices :: <seetype marker="#i">i()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Loops :: <seetype marker="#i">i()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Inner</anno>
+  <anno>Loops</anno>
+  <anno>Outer</anno>
+  <anno>Quad</anno>
+  <anno>Slices</anno>
+</spec>
+<spec>
+  <name>errorString</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>errorString(Error :: <seetype marker="#enum">enum()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Error</anno>
+</spec>
+<spec>
+  <name>getString</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getString(Name :: <seetype marker="#enum">enum()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>lookAt</name>
+  <arity>9</arity>
+  <contract>
+    <clause>
+      <head>lookAt(EyeX, EyeY, EyeZ, CenterX, CenterY, CenterZ, UpX, UpY, UpZ) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head>
+      <guard>
+        <subtype><typename>EyeX</typename><string>EyeX = EyeY = EyeZ = CenterX = CenterY = CenterZ = UpX = UpY = UpZ = <seetype marker="#f">f()</seetype></string></subtype>
+        <subtype><typename>EyeY</typename><string></string></subtype>
+        <subtype><typename>EyeZ</typename><string></string></subtype>
+        <subtype><typename>CenterX</typename><string></string></subtype>
+        <subtype><typename>CenterY</typename><string></string></subtype>
+        <subtype><typename>CenterZ</typename><string></string></subtype>
+        <subtype><typename>UpX</typename><string></string></subtype>
+        <subtype><typename>UpY</typename><string></string></subtype>
+        <subtype><typename>UpZ</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CenterX</anno>
+  <anno>CenterY</anno>
+  <anno>CenterZ</anno>
+  <anno>EyeX</anno>
+  <anno>EyeY</anno>
+  <anno>EyeZ</anno>
+  <anno>UpX</anno>
+  <anno>UpY</anno>
+  <anno>UpZ</anno>
+</spec>
+<spec>
+  <name>newQuadric</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>newQuadric() -&gt; <seetype marker="#i">i()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>ortho2D</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>ortho2D(Left :: <seetype marker="#f">f()</seetype>, Right :: <seetype marker="#f">f()</seetype>, Bottom :: <seetype marker="#f">f()</seetype>, Top :: <seetype marker="#f">f()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Bottom</anno>
+  <anno>Left</anno>
+  <anno>Right</anno>
+  <anno>Top</anno>
+</spec>
+<spec>
+  <name>partialDisk</name>
+  <arity>7</arity>
+  <contract>
+    <clause>
+      <head>partialDisk(Quad, Inner, Outer, Slices, Loops, Start, Sweep) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Quad</typename><string>Quad = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Inner</typename><string>Inner = Outer = <seetype marker="#f">f()</seetype></string></subtype>
+        <subtype><typename>Outer</typename><string/></subtype>
+        <subtype><typename>Slices</typename><string>Slices = Loops = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>Loops</typename><string/></subtype>
+        <subtype><typename>Start</typename><string>Start = Sweep = <seetype marker="#f">f()</seetype></string></subtype>
+        <subtype><typename>Sweep</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Inner</anno>
+  <anno>Loops</anno>
+  <anno>Outer</anno>
+  <anno>Quad</anno>
+  <anno>Slices</anno>
+  <anno>Start</anno>
+  <anno>Sweep</anno>
+</spec>
+<spec>
+  <name>perspective</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>perspective(Fovy :: <seetype marker="#f">f()</seetype>, Aspect :: <seetype marker="#f">f()</seetype>, ZNear :: <seetype marker="#f">f()</seetype>, ZFar :: <seetype marker="#f">f()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Aspect</anno>
+  <anno>Fovy</anno>
+  <anno>ZFar</anno>
+  <anno>ZNear</anno>
+</spec>
+<spec>
+  <name>pickMatrix</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>pickMatrix(X :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>DelX :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>DelY :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Viewport :: {<seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>DelX</anno>
+  <anno>DelY</anno>
+  <anno>Viewport</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>project</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>project(ObjX, ObjY, ObjZ, Model, Proj, View) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#i">i()</seetype>, WinX :: <seetype marker="#f">f()</seetype>, WinY :: <seetype marker="#f">f()</seetype>, WinZ :: <seetype marker="#f">f()</seetype>}</head>
+      <guard>
+        <subtype><typename>ObjX</typename><string>ObjX = ObjY = ObjZ = <seetype marker="#f">f()</seetype></string></subtype>
+        <subtype><typename>ObjY</typename><string/></subtype>
+        <subtype><typename>ObjZ</typename><string/></subtype>
+        <subtype><typename>Model</typename><string>Model = Proj = <seetype marker="#matrix">matrix()</seetype></string></subtype>
+        <subtype><typename>Proj</typename><string/></subtype>
+        <subtype><typename>View</typename><string>View = {<seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Model</anno>
+  <anno>ObjX</anno>
+  <anno>ObjY</anno>
+  <anno>ObjZ</anno>
+  <anno>Proj</anno>
+  <anno>View</anno>
+  <anno>WinX</anno>
+  <anno>WinY</anno>
+  <anno>WinZ</anno>
+</spec>
+<spec>
+  <name>quadricDrawStyle</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>quadricDrawStyle(Quad :: <seetype marker="#i">i()</seetype>, Draw :: <seetype marker="#enum">enum()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Draw</anno>
+  <anno>Quad</anno>
+</spec>
+<spec>
+  <name>quadricNormals</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>quadricNormals(Quad :: <seetype marker="#i">i()</seetype>, Normal :: <seetype marker="#enum">enum()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Normal</anno>
+  <anno>Quad</anno>
+</spec>
+<spec>
+  <name>quadricOrientation</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>quadricOrientation(Quad :: <seetype marker="#i">i()</seetype>, Orientation :: <seetype marker="#enum">enum()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Orientation</anno>
+  <anno>Quad</anno>
+</spec>
+<spec>
+  <name>quadricTexture</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>quadricTexture(Quad :: <seetype marker="#i">i()</seetype>, Texture :: 0 | 1) -&gt; ok</head></clause>
+  </contract>
+  <anno>Quad</anno>
+  <anno>Texture</anno>
+</spec>
+<spec>
+  <name>scaleImage</name>
+  <arity>9</arity>
+  <contract>
+    <clause>
+      <head>scaleImage(Format, WIn, HIn, TypeIn, DataIn, WOut, HOut, TypeOut,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>DataOut) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#i">i()</seetype></head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>WIn</typename><string>WIn = HIn = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>HIn</typename><string/></subtype>
+        <subtype><typename>TypeIn</typename><string>TypeIn = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>DataIn</typename><string>DataIn = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>WOut</typename><string>WOut = HOut = <seetype marker="#i">i()</seetype></string></subtype>
+        <subtype><typename>HOut</typename><string/></subtype>
+        <subtype><typename>TypeOut</typename><string>TypeOut = <seetype marker="#enum">enum()</seetype></string></subtype>
+        <subtype><typename>DataOut</typename><string>DataOut = <seetype marker="#mem">mem()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DataIn</anno>
+  <anno>DataOut</anno>
+  <anno>Format</anno>
+  <anno>HIn</anno>
+  <anno>HOut</anno>
+  <anno>TypeIn</anno>
+  <anno>TypeOut</anno>
+  <anno>WIn</anno>
+  <anno>WOut</anno>
+</spec>
+<spec>
+  <name>sphere</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>sphere(Quad :: <seetype marker="#i">i()</seetype>, Radius :: <seetype marker="#f">f()</seetype>, Slices :: <seetype marker="#i">i()</seetype>, Stacks :: <seetype marker="#i">i()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Quad</anno>
+  <anno>Radius</anno>
+  <anno>Slices</anno>
+  <anno>Stacks</anno>
+</spec>
+<spec>
+  <name>tesselate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>tesselate(Normal, Vs :: [Vs]) -&gt; {Triangles, VertexPos}</head>
+      <guard>
+        <subtype><typename>Normal</typename><string>Normal = Vs = <seetype marker="#vertex">vertex()</seetype></string></subtype>
+        <subtype><typename>Vs</typename><string/></subtype>
+        <subtype><typename>Triangles</typename><string>Triangles = [<seetype marker="erlang#integer">integer()</seetype>]</string></subtype>
+        <subtype><typename>VertexPos</typename><string>VertexPos = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Normal</anno>
+  <anno>Triangles</anno>
+  <anno>VertexPos</anno>
+  <anno>Vs</anno>
+</spec>
+<spec>
+  <name>unProject</name>
+  <arity>6</arity>
+  <contract>
+    <clause>
+      <head>unProject(WinX, WinY, WinZ, Model, Proj, View) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#i">i()</seetype>, ObjX :: <seetype marker="#f">f()</seetype>, ObjY :: <seetype marker="#f">f()</seetype>, ObjZ :: <seetype marker="#f">f()</seetype>}</head>
+      <guard>
+        <subtype><typename>WinX</typename><string>WinX = WinY = WinZ = <seetype marker="#f">f()</seetype></string></subtype>
+        <subtype><typename>WinY</typename><string/></subtype>
+        <subtype><typename>WinZ</typename><string/></subtype>
+        <subtype><typename>Model</typename><string>Model = Proj = <seetype marker="#matrix">matrix()</seetype></string></subtype>
+        <subtype><typename>Proj</typename><string/></subtype>
+        <subtype><typename>View</typename><string>View = {<seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Model</anno>
+  <anno>ObjX</anno>
+  <anno>ObjY</anno>
+  <anno>ObjZ</anno>
+  <anno>Proj</anno>
+  <anno>View</anno>
+  <anno>WinX</anno>
+  <anno>WinY</anno>
+  <anno>WinZ</anno>
+</spec>
+<spec>
+  <name>unProject4</name>
+  <arity>9</arity>
+  <contract>
+    <clause>
+      <head>unProject4(WinX, WinY, WinZ, ClipW, Model, Proj, View, NearVal,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FarVal) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#i">i()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ObjX :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ObjY :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ObjZ :: <seetype marker="#f">f()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ObjW :: <seetype marker="#f">f()</seetype>}</head>
+      <guard>
+        <subtype><typename>WinX</typename><string>WinX = WinY = WinZ = ClipW = <seetype marker="#f">f()</seetype></string></subtype>
+        <subtype><typename>WinY</typename><string/></subtype>
+        <subtype><typename>WinZ</typename><string/></subtype>
+        <subtype><typename>ClipW</typename><string/></subtype>
+        <subtype><typename>Model</typename><string>Model = Proj = <seetype marker="#matrix">matrix()</seetype></string></subtype>
+        <subtype><typename>Proj</typename><string/></subtype>
+        <subtype><typename>View</typename><string>View = {<seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>, <seetype marker="#i">i()</seetype>}</string></subtype>
+        <subtype><typename>NearVal</typename><string>NearVal = FarVal = <seetype marker="#f">f()</seetype></string></subtype>
+        <subtype><typename>FarVal</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ClipW</anno>
+  <anno>FarVal</anno>
+  <anno>Model</anno>
+  <anno>NearVal</anno>
+  <anno>ObjW</anno>
+  <anno>ObjX</anno>
+  <anno>ObjY</anno>
+  <anno>ObjZ</anno>
+  <anno>Proj</anno>
+  <anno>View</anno>
+  <anno>WinX</anno>
+  <anno>WinY</anno>
+  <anno>WinZ</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:55.</timestamp>
+</module>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE chapter SYSTEM "chapter.dtd">
+<chapter>
+<header>
+<copyright>
+<year>2023</year>
+<year>2023</year>
+<holder>Ericsson AB. All Rights Reserved.</holder>
+</copyright>
+<legalnotice>
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</legalnotice>
+
+<title>BEAM SSA Checks</title>
+<prepared>emd2exml</prepared>
+<responsible>emd2exml</responsible>
+<docno>1</docno>
+<approved>yes</approved>
+<checked>yes</checked>
+<date>2023-5-15</date>
+<rev>1</rev>
+<file>ssa_checks.xml</file>
+</header>
+
+<p>
+While developing optimizations operating on the BEAM SSA it is often
+hard to check that various transforms have the intended effect. For
+example, unless a transform produces crashing code, it is hard to
+detect that the transform is broken. Likewise missing an optimization
+opportunity is also hard to detect.
+</p>
+
+<p>
+To simplify the creation of tests on BEAM SSA the compiler has an
+internal mode in which it parses and checks assertions on the
+structure and content of the produced BEAM SSA code. This is a short
+introduction to the syntax and semantics of the SSA checker
+functionality.
+</p>
+
+<section>
+<marker id="Syntax"/>
+<title>Syntax</title>
+
+<p>
+SSA checks are embedded in the source code as comments starting with
+with one of <c>%ssa%</c>, <c>%%ssa%</c> or <c>%%%ssa%</c>. This is a short
+introduction the syntax, for the full syntax please refer to the
+<c>ssa_check_when_clause</c> production in <c>erl_parse.yrl</c>.
+</p>
+
+<p>
+SSA checks can be placed inside any Erlang function, for example:
+</p>
+
+<code type="none">
+t0() -&gt;
+%ssa% () when post_ssa_opt -&gt;
+%ssa%   ret(#{}).
+  #{}.
+</code>
+<p>
+will check that <c>t0/0</c> returns the literal <c>#{}</c>. If we want to check
+that a function returns its first formal parameter, we can write:
+</p>
+
+<code type="none">
+t1(A, _B) -&gt;
+%ssa% (X, _) when post_ssa_opt -&gt;
+%ssa%   ret(X).
+  A.
+</code>
+<p>
+Note how we match the first formal parameter using <c>X</c>. The reason for
+having our own formal parameters for the SSA check, is that we don't
+want to introduce new identifiers at the Erlang level to support
+SSA-level checks. Consider if <c>t1/2</c> had been defined as <c>t1([A|As],
+B)</c> we would have had to introduce a new identifier for the aggregate
+value <c>[A|As]</c>.
+</p>
+
+<p>
+The full syntax for a SSA check clause is:
+</p>
+
+<code type="none">
+&lt;expected-result&gt;? (&lt;formals&gt;) when &lt;pipeline-location&gt; -&gt; &lt;checks&gt; &apos;.&apos;
+</code>
+<p>
+where <c>&lt;expected-result&gt;</c> can be one of <c>pass</c> (the check must
+succeed), <c>fail</c> and <c>xfail</c> (the check must fail). Omitting
+<c>&lt;expected-result&gt;</c> is parsed as an implicit <c>pass</c>.
+</p>
+
+<p>
+<c>&lt;formals&gt;</c> is a comma-separated list of variables.
+</p>
+
+<p>
+<c>&lt;pipeline-location&gt;</c> specifies when in the compiler pipeline to run
+the checks. For now the only supported value for <c>&lt;pipeline-location&gt;</c>
+is <c>post_ssa_opt</c> which runs the checks after the <c>ssa_opt</c> pass.
+</p>
+
+<p>
+<c>&lt;checks&gt;</c> is a comma-separated list of matches against the BEAM SSA
+code. For non-flow-control operations the syntax is:
+</p>
+
+<code type="none">
+&lt;variable&gt; = &lt;operation&gt; ( &lt;arguments&gt; ) &lt;annotation&gt;?
+</code>
+<p>
+where <c>&lt;operation&gt;</c> is the <c>#b_set.op</c> field from the internal SSA
+representation. BIFs are written as <c>bif:&lt;atom&gt;</c>.
+</p>
+
+<p>
+<c>&lt;arguments&gt;</c> is a comma-separated list of variables or literals.
+</p>
+
+<p>
+For flow control operations and labels, the syntax is as follows:
+</p>
+
+<code type="none">
+br(&lt;bool&gt;, &lt;true-label&gt;, &lt;false-label&gt;)
+
+switch(&lt;value&gt;, &lt;fail-label&gt;, [{&lt;label&gt;,&lt;value&gt;},...])
+
+ret(&lt;value&gt;)
+
+label &lt;value&gt;
+</code>
+<p>
+where <c>&lt;value&gt;</c> is a literal or a variable.
+</p>
+
+<p>
+A check can also include an assertion on operation annotations. The
+assertion is written as a map-like pattern following the argument
+list, for example:
+</p>
+
+<code type="none">
+t0() -&gt;
+%ssa% () when post_ssa_opt -&gt;
+%ssa% _ = call(fun return_int/0) { result_type =&gt; {t_integer,{17,17}},
+%ssa%                              location =&gt; {_,32} },
+%ssa% _ = call(fun return_tuple/0) {
+%ssa%    result_type =&gt; {t_tuple,2,true,#{1 =&gt; {t_integer,{1,1}},
+%ssa%                                     2 =&gt; {t_integer,{2,2}}}}
+%ssa% }.
+    X = return_int(),
+    Y = return_tuple(),
+    {X, Y}.
+</code>
+</section>
+
+<section>
+<marker id="Semantics"/>
+<title>Semantics</title>
+
+<p>
+When an SSA assertion is matched against the BEAM SSA for a function,
+patterns are applied sequentially. If the current pattern doesn't
+match, the checker tries with the next instruction. If the checker
+reaches the end of the SSA representation without having matched all
+patterns, the check is considered failed otherwise the assertion is
+considered successful. When a pattern is matched against an SSA
+operation, the values of variables already bound are considered and if
+the patterns matches, free variables introduced in the successfully
+matched pattern are bound to the values they have in the matched
+operation.
+</p>
+
+</section>
+
+<section>
+<marker id="Compiler-integration"/>
+<title>Compiler integration</title>
+
+<p>
+The BEAM SSA checker is enabled by the compiler option
+<c>{check_ssa,post_ssa_opt}</c>. When enabled, a failed SSA assertion will
+be reported using the same mechanisms as an ordinary compilation
+error.
+</p>
+
+</section>
+
+<section>
+<marker id="Limitations"/>
+<title>Limitations</title>
+
+<list type="bulleted"><item>
+Unbound variables are not allowed in the key-part of map literals nor
+in annotation assertions.
+</item></list>
+</section>
+
+</chapter>
+

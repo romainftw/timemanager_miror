@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>epp_dodger</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>epp_dodger.xml</file></header>
+<module>epp_dodger</module>
+<modulesummary>epp_dodger - bypasses the Erlang preprocessor.</modulesummary>
+<description>
+<p><c>epp_dodger</c> - bypasses the Erlang preprocessor.</p>
+ 
+  <p>This module tokenises and parses most Erlang source code without
+  expanding preprocessor directives and macro applications, as long as
+  these are syntactically "well-behaved". Because the normal parse
+  trees of the <c>erl_parse</c> module cannot represent these things
+  (normally, they are expanded by the Erlang preprocessor <seeerl marker="stdlib:epp">epp(3)</seeerl> before the parser sees them), an extended syntax tree
+  is created, using the <seeerl marker="erl_syntax">erl_syntax</seeerl> module.</p></description>
+<section><title>DATA TYPES</title><marker id="types"/>
+
+<taglist>
+<tag><marker id="type-errorinfo"/>errorinfo() = <seeerl marker="stdlib:erl_scan#type-error_info">erl_scan:error_info()</seeerl></tag>
+<item><p/> </item>
+<tag><marker id="type-option"/>option() = atom() | {atom(), term()}</tag>
+<item><p/> </item>
+</taglist></section>
+<funcs>
+<func>
+<name since="">parse(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>}</name>
+<fsummary>Equivalent to parse(IODevice, 1).
+</fsummary>
+
+<desc><marker id="parse-1"/>
+<p>Equivalent to <seemfa marker="#parse/2">parse(IODevice, 1)</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">parse(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>, L::<seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>}</name>
+<fsummary>Equivalent to parse(IODevice, StartLocation, []).
+</fsummary>
+
+<desc><marker id="parse-2"/>
+<p>Equivalent to <seemfa marker="#parse/3">parse(IODevice, StartLocation, [])</seemfa>.</p>
+<p><em>See also:</em> <seemfa marker="#parse/1">parse/1</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">parse(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>, L0::<seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>, Options::[<seeerl marker="#type-option">option()</seeerl>]) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>}</name>
+<fsummary>Reads and parses program text from an I/O stream.</fsummary>
+
+<desc><marker id="parse-3"/>
+
+<p>Reads and parses program text from an I/O stream. Characters are
+  read from <c>IODevice</c> until end-of-file; apart from this, the
+  behaviour is the same as for <seemfa marker="#parse_file/2">parse_file/2</seemfa>. <c>StartLocation</c> is the
+  initial location.
+ </p>
+<p><em>See also:</em> <seemfa marker="#parse/2">parse/2</seemfa>, <seemfa marker="#parse_file/2">parse_file/2</seemfa>, <seemfa marker="#parse_form/2">parse_form/2</seemfa>, <seemfa marker="#quick_parse/3">quick_parse/3</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">parse_file(File::<seeerl marker="kernel:file#type-filename">file:filename()</seeerl>) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>} | {error, <seeerl marker="#type-errorinfo">errorinfo()</seeerl>}</name>
+<fsummary>Equivalent to parse_file(File, []).
+</fsummary>
+
+<desc><marker id="parse_file-1"/>
+<p>Equivalent to <seemfa marker="#parse_file/2">parse_file(File, [])</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">parse_file(File::<seeerl marker="kernel:file#type-filename">file:filename()</seeerl>, Options::[<seeerl marker="#type-option">option()</seeerl>]) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>} | {error, <seeerl marker="#type-errorinfo">errorinfo()</seeerl>}</name>
+<fsummary>Reads and parses a file.</fsummary>
+
+<desc><marker id="parse_file-2"/>
+
+<p>Reads and parses a file. If successful, <c>{ok, Forms}</c>
+  is returned, where <c>Forms</c> is a list of abstract syntax
+  trees representing the "program forms" of the file (cf.
+  <c>erl_syntax:is_form/1</c>). Otherwise, <c>{error, errorinfo()}</c> is
+  returned, typically if the file could not be opened. Note that
+  parse errors show up as error markers in the returned list of
+  forms; they do not cause this function to fail or return
+  <c>{error, errorinfo()}</c>.</p>
+ 
+  <p>Options:
+  </p><taglist>
+    <tag><c>{no_fail, boolean()}</c></tag>
+    <item><p>If <c>true</c>, this makes <c>epp_dodger</c> replace any program forms
+    that could not be parsed with nodes of type <c>text</c> (see <seemfa marker="erl_syntax#text/1">erl_syntax:text/1</seemfa>), representing the raw token sequence of the
+    form, instead of reporting a parse error. The default value is
+    <c>false</c>.</p></item>
+    <tag><c>{clever, boolean()}</c></tag>
+    <item><p>If set to <c>true</c>, this makes <c>epp_dodger</c> try to repair the
+    source code as it seems fit, in certain cases where parsing would
+    otherwise fail. Currently, it inserts <c>++</c>-operators between string
+    literals and macros where it looks like concatenation was intended.
+    The default value is <c>false</c>.</p></item>
+  </taglist><p>
+ </p>
+<p><em>See also:</em> <seemfa marker="#parse/2">parse/2</seemfa>, <seemfa marker="#quick_parse_file/1">quick_parse_file/1</seemfa>, <seemfa marker="erl_syntax#is_form/1">erl_syntax:is_form/1</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">parse_form(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>, L0::<seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>} | {eof, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>} | {error, <seeerl marker="#type-errorinfo">errorinfo()</seeerl>, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>}</name>
+<fsummary>Equivalent to parse_form(IODevice, StartLocation, []).
+</fsummary>
+
+<desc><marker id="parse_form-2"/>
+<p>Equivalent to <seemfa marker="#parse_form/3">parse_form(IODevice, StartLocation, [])</seemfa>.</p>
+<p><em>See also:</em> <seemfa marker="#quick_parse_form/2">quick_parse_form/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">parse_form(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>, L0::<seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>, Options::[<seeerl marker="#type-option">option()</seeerl>]) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>} | {eof, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>} | {error, <seeerl marker="#type-errorinfo">errorinfo()</seeerl>, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>}</name>
+<fsummary>Reads and parses a single program form from an I/O stream.</fsummary>
+
+<desc><marker id="parse_form-3"/>
+
+<p>Reads and parses a single program form from an I/O stream.
+  Characters are read from <c>IODevice</c> until an end-of-form
+  marker is found (a period character followed by whitespace), or until
+  end-of-file; apart from this, the behaviour is similar to that of
+  <c>parse/3</c>, except that the return values also contain the
+  final location given that <c>StartLocation</c> is the initial
+  location, and that <c>{eof, Location}</c> may be returned.
+ </p>
+<p><em>See also:</em> <seemfa marker="#parse/3">parse/3</seemfa>, <seemfa marker="#parse_form/2">parse_form/2</seemfa>, <seemfa marker="#quick_parse_form/3">quick_parse_form/3</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">quick_parse(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>}</name>
+<fsummary>Equivalent to quick_parse(IODevice, 1).
+</fsummary>
+
+<desc><marker id="quick_parse-1"/>
+<p>Equivalent to <seemfa marker="#quick_parse/2">quick_parse(IODevice, 1)</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">quick_parse(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>, L::<seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>}</name>
+<fsummary>Equivalent to quick_parse(IODevice, StartLocation, []).
+</fsummary>
+
+<desc><marker id="quick_parse-2"/>
+<p>Equivalent to <seemfa marker="#quick_parse/3">quick_parse(IODevice, StartLocation, [])</seemfa>.</p>
+<p><em>See also:</em> <seemfa marker="#quick_parse/1">quick_parse/1</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">quick_parse(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>, L0::<seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>, Options::[<seeerl marker="#type-option">option()</seeerl>]) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>}</name>
+<fsummary>Similar to parse/3, but does a more quick-and-dirty
+  processing of the code.</fsummary>
+
+<desc><marker id="quick_parse-3"/>
+
+<p>Similar to <seemfa marker="#parse/3">parse/3</seemfa>, but does a more quick-and-dirty
+  processing of the code. See <seemfa marker="#quick_parse_file/2">quick_parse_file/2</seemfa> for details.
+ </p>
+<p><em>See also:</em> <seemfa marker="#parse/3">parse/3</seemfa>, <seemfa marker="#quick_parse/2">quick_parse/2</seemfa>, <seemfa marker="#quick_parse_file/2">quick_parse_file/2</seemfa>, <seemfa marker="#quick_parse_form/2">quick_parse_form/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">quick_parse_file(File::<seeerl marker="kernel:file#type-filename">file:filename()</seeerl>) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>} | {error, <seeerl marker="#type-errorinfo">errorinfo()</seeerl>}</name>
+<fsummary>Equivalent to quick_parse_file(File, []).
+</fsummary>
+
+<desc><marker id="quick_parse_file-1"/>
+<p>Equivalent to <seemfa marker="#quick_parse_file/2">quick_parse_file(File, [])</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">quick_parse_file(File::<seeerl marker="kernel:file#type-filename">file:filename()</seeerl>, Options::[<seeerl marker="#type-option">option()</seeerl>]) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>} | {error, <seeerl marker="#type-errorinfo">errorinfo()</seeerl>}</name>
+<fsummary>Similar to parse_file/2, but does a more quick-and-dirty  
+processing of the code.</fsummary>
+
+<desc><marker id="quick_parse_file-2"/>
+
+<p>Similar to <seemfa marker="#parse_file/2">parse_file/2</seemfa>, but does a more quick-and-dirty  
+processing of the code. Macro definitions and other preprocessor  
+directives are discarded, and all macro calls are replaced with  
+atoms. This is useful when only the main structure of the code is of  
+interest, and not the details. Furthermore, the quick-parse method  
+can usually handle more strange cases than the normal, more exact  
+parsing.</p>
+ 
+  <p>Options: see <seemfa marker="#parse_file/2">parse_file/2</seemfa>. Note however that for
+  <c>quick_parse_file/2</c>, the option <c>no_fail</c> is <c>true</c> by default.
+ </p>
+<p><em>See also:</em> <seemfa marker="#parse_file/2">parse_file/2</seemfa>, <seemfa marker="#quick_parse/2">quick_parse/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">quick_parse_form(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>, L0::<seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>} | {eof, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>} | {error, <seeerl marker="#type-errorinfo">errorinfo()</seeerl>, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>}</name>
+<fsummary>Equivalent to quick_parse_form(IODevice, StartLocation, []).
+</fsummary>
+
+<desc><marker id="quick_parse_form-2"/>
+<p>Equivalent to <seemfa marker="#quick_parse_form/3">quick_parse_form(IODevice, StartLocation, [])</seemfa>.</p>
+<p><em>See also:</em> <seemfa marker="#parse_form/2">parse_form/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">quick_parse_form(Dev::<seeerl marker="kernel:file#type-io_device">file:io_device()</seeerl>, L0::<seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>, Options::[<seeerl marker="#type-option">option()</seeerl>]) -&gt; {ok, <seeerl marker="syntax_tools:erl_syntax#type-forms">erl_syntax:forms()</seeerl>, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>} | {eof, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>} | {error, <seeerl marker="#type-errorinfo">errorinfo()</seeerl>, <seeerl marker="stdlib:erl_anno#type-location">erl_anno:location()</seeerl>}</name>
+<fsummary>Similar to parse_form/3, but does a more quick-and-dirty
+  processing of the code.</fsummary>
+
+<desc><marker id="quick_parse_form-3"/>
+
+<p>Similar to <seemfa marker="#parse_form/3">parse_form/3</seemfa>, but does a more quick-and-dirty
+  processing of the code. See <seemfa marker="#quick_parse_file/2">quick_parse_file/2</seemfa> for details.
+ </p>
+<p><em>See also:</em> <seemfa marker="#parse/3">parse/3</seemfa>, <seemfa marker="#parse_form/3">parse_form/3</seemfa>, <seemfa marker="#quick_parse_form/2">quick_parse_form/2</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">tokens_to_string(Ts::[term()]) -&gt; string()</name>
+<fsummary>Generates a string corresponding to the given token sequence.</fsummary>
+
+<desc><marker id="tokens_to_string-1"/>
+
+<p>Generates a string corresponding to the given token sequence.
+  The string can be re-tokenized to yield the same token list again.</p>
+</desc></func></funcs>
+
+<authors>
+
+<aname>Richard Carlsson</aname>
+<email>carlsson.richard@gmail.com</email></authors></erlref>

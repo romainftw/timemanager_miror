@@ -1,0 +1,1192 @@
+<module name="public_key">
+<type>
+  <name>asn1_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-asn1_type">asn1_type()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>bad_cert_reason</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-bad_cert_reason">bad_cert_reason()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>cert_expired | invalid_issuer | invalid_signature |<br/><nbsp/><nbsp/><nbsp/><nbsp/>name_not_permitted | missing_basic_constraint |<br/><nbsp/><nbsp/><nbsp/><nbsp/>invalid_key_usage |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{revoked, <seetype marker="#crl_reason">crl_reason()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>cert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cert">cert()</marker> = <seetype marker="#der_cert">der_cert()</seetype> | <seetype marker="#otp_cert">otp_cert()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>cert_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cert_id">cert_id()</marker> = {SerialNr :: <seetype marker="erlang#integer">integer()</seetype>, <seetype marker="#issuer_name">issuer_name()</seetype>}</typehead></typedecl>
+  <anno>SerialNr</anno>
+</type>
+<type>
+  <name>cert_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cert_opt">cert_opt()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{digest, <seetype marker="public_key#digest_type">public_key:digest_type()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{key, <seetype marker="public_key#key_params">public_key:key_params()</seetype> | <seetype marker="public_key#private_key">public_key:private_key()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{validity,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{From :: <seetype marker="erlang#timestamp">erlang:timestamp()</seetype>, To :: <seetype marker="erlang#timestamp">erlang:timestamp()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{extensions, [#'Extension'{}]}</typehead></typedecl>
+  <anno>From</anno>
+  <anno>To</anno>
+</type>
+<type>
+  <name>chain_end</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chain_end">chain_end()</marker> = root | peer</typehead></typedecl>
+</type>
+<type>
+  <name>chain_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chain_opts">chain_opts()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{<seetype marker="#chain_end">chain_end()</seetype> := [<seetype marker="#cert_opt">cert_opt()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>intermediates =&gt; [[<seetype marker="#cert_opt">cert_opt()</seetype>]]}</typehead></typedecl>
+</type>
+<type>
+  <name>cipher</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher">cipher()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>cipher_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher_info">cipher_info()</marker> = {<seetype marker="#cipher">cipher()</seetype>, <seetype marker="#cipher_info_params">cipher_info_params()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>cipher_info_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher_info_params">cipher_info_params()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#salt">salt()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{#'PBEParameter'{}, <seetype marker="#digest_type">digest_type()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#'PBES2-params'{}</typehead></typedecl>
+</type>
+<type>
+  <name>combined_cert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-combined_cert">combined_cert()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#cert{der = <seetype marker="public_key#der_encoded">public_key:der_encoded()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>otp = #'OTPCertificate'{}}</typehead></typedecl>
+</type>
+<type>
+  <name>conf_opt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-conf_opt">conf_opt()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cert, <seetype marker="public_key#der_encoded">public_key:der_encoded()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{key, <seetype marker="public_key#private_key">public_key:private_key()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cacerts, [<seetype marker="public_key#der_encoded">public_key:der_encoded()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>crl_reason</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crl_reason">crl_reason()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>unspecified | keyCompromise | cACompromise |<br/><nbsp/><nbsp/><nbsp/><nbsp/>affiliationChanged | superseded | cessationOfOperation |<br/><nbsp/><nbsp/><nbsp/><nbsp/>certificateHold | privilegeWithdrawn | aACompromise</typehead></typedecl>
+</type>
+<type>
+  <name>der_cert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-der_cert">der_cert()</marker> = <seetype marker="#der_encoded">der_encoded()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>der_encoded</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-der_encoded">der_encoded()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>der_or_encrypted_der</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-der_or_encrypted_der">der_or_encrypted_der()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>digest_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-digest_type">digest_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>none | sha1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="crypto#rsa_digest_type">crypto:rsa_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="crypto#dss_digest_type">crypto:dss_digest_type()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="crypto#ecdsa_digest_type">crypto:ecdsa_digest_type()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dsa_private_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dsa_private_key">dsa_private_key()</marker> = #'DSAPrivateKey'{}</typehead></typedecl>
+</type>
+<type>
+  <name>dsa_public_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dsa_public_key">dsa_public_key()</marker> = {<seetype marker="#dss_public_key">dss_public_key()</seetype>, #'Dss-Parms'{}}</typehead></typedecl>
+</type>
+<type>
+  <name>dss_public_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dss_public_key">dss_public_key()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ec_private_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ec_private_key">ec_private_key()</marker> = #'ECPrivateKey'{}</typehead></typedecl>
+</type>
+<type>
+  <name>ec_public_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ec_public_key">ec_public_key()</marker> = {#'ECPoint'{}, <seetype marker="#ecpk_parameters_api">ecpk_parameters_api()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>ecpk_parameters</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ecpk_parameters">ecpk_parameters()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ecParameters, #'ECParameters'{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{namedCurve, Oid :: <seetype marker="erlang#tuple">tuple()</seetype>}</typehead></typedecl>
+  <anno>Oid</anno>
+</type>
+<type>
+  <name>ecpk_parameters_api</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ecpk_parameters_api">ecpk_parameters_api()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ecpk_parameters">ecpk_parameters()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#'ECParameters'{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{namedCurve, Name :: <seetype marker="crypto#ec_named_curve">crypto:ec_named_curve()</seetype>}</typehead></typedecl>
+  <anno>Name</anno>
+</type>
+<type>
+  <name>ed_oid_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ed_oid_name">ed_oid_name()</marker> = 'id-Ed25519' | 'id-Ed448'</typehead></typedecl>
+</type>
+<type>
+  <name>ed_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ed_params">ed_params()</marker> = {namedCurve, <seetype marker="#ed_oid_name">ed_oid_name()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>ed_private_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ed_private_key">ed_private_key()</marker> = #'ECPrivateKey'{parameters = <seetype marker="#ed_params">ed_params()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>ed_public_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ed_public_key">ed_public_key()</marker> = {#'ECPoint'{}, <seetype marker="#ed_params">ed_params()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>issuer_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-issuer_name">issuer_name()</marker> = {rdnSequence, [[#'AttributeTypeAndValue'{}]]}</typehead></typedecl>
+</type>
+<type>
+  <name>key_oid_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_oid_name">key_oid_name()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>rsaEncryption | 'id-RSASSA-PSS' | 'id-ecPublicKey' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'id-Ed25519' | 'id-Ed448' | 'id-dsa'</typehead></typedecl>
+</type>
+<type>
+  <name>key_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_params">key_params()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#'DHParameter'{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{namedCurve, <seetype marker="#oid">oid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#'ECParameters'{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{rsa, Size :: <seetype marker="erlang#integer">integer()</seetype>, PubExp :: <seetype marker="erlang#integer">integer()</seetype>}</typehead></typedecl>
+  <anno>PubExp</anno>
+  <anno>Size</anno>
+</type>
+<type>
+  <name>oid</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-oid">oid()</marker> = <seetype marker="erlang#tuple">tuple()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>otp_cert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-otp_cert">otp_cert()</marker> = #'OTPCertificate'{}</typehead></typedecl>
+</type>
+<type>
+  <name>pem_entry</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pem_entry">pem_entry()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#pki_asn1_type">pki_asn1_type()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#der_or_encrypted_der">der_or_encrypted_der()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>not_encrypted | <seetype marker="#cipher_info">cipher_info()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>pki_asn1_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pki_asn1_type">pki_asn1_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>'Certificate' | 'RSAPrivateKey' | 'RSAPublicKey' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'SubjectPublicKeyInfo' | 'DSAPrivateKey' | 'DHParameter' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'PrivateKeyInfo' | 'CertificationRequest' | 'ContentInfo' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'CertificateList' | 'ECPrivateKey' | 'OneAsymmetricKey' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>'EcpkParameters'</typehead></typedecl>
+</type>
+<type>
+  <name>private_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-private_key">private_key()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_private_key">rsa_private_key()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_pss_private_key">rsa_pss_private_key()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dsa_private_key">dsa_private_key()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ec_private_key">ec_private_key()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ed_private_key">ed_private_key()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>public_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-public_key">public_key()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_public_key">rsa_public_key()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_pss_public_key">rsa_pss_public_key()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#dsa_public_key">dsa_public_key()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ec_public_key">ec_public_key()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ed_public_key">ed_public_key()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>public_key_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-public_key_info">public_key_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#key_oid_name">key_oid_name()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsa_public_key">rsa_public_key()</seetype> | #'ECPoint'{} | <seetype marker="#dss_public_key">dss_public_key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#public_key_params">public_key_params()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>public_key_params</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-public_key_params">public_key_params()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>'NULL' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#'RSASSA-PSS-params'{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{namedCurve, <seetype marker="#oid">oid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#'ECParameters'{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#'Dss-Parms'{}</typehead></typedecl>
+</type>
+<type>
+  <name>referenceID</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-referenceID">referenceID()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{uri_id | dns_id | ip | srv_id | <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="#oid">oid()</seetype>, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ip, <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>referenceIDs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-referenceIDs">referenceIDs()</marker> = [<seetype marker="#referenceID">referenceID()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_private_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_private_key">rsa_private_key()</marker> = #'RSAPrivateKey'{}</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_pss_private_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_pss_private_key">rsa_pss_private_key()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{#'RSAPrivateKey'{}, #'RSASSA-PSS-params'{}}</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_pss_public_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_pss_public_key">rsa_pss_public_key()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#rsa_pss_public_key">rsa_pss_public_key()</seetype>, #'RSASSA-PSS-params'{}}</typehead></typedecl>
+</type>
+<type>
+  <name>rsa_public_key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsa_public_key">rsa_public_key()</marker> = #'RSAPublicKey'{}</typehead></typedecl>
+</type>
+<type>
+  <name>salt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-salt">salt()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>test_config</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-test_config">test_config()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{server_config := [<seetype marker="#conf_opt">conf_opt()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>client_config := [<seetype marker="#conf_opt">conf_opt()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>test_root_cert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-test_root_cert">test_root_cert()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{cert := <seetype marker="#der_encoded">der_encoded()</seetype>, key := <seetype marker="public_key#private_key">public_key:private_key()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>cacerts_clear</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>cacerts_clear() -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>cacerts_get</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>cacerts_get() -&gt; [<seetype marker="#combined_cert">combined_cert()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>cacerts_load</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>cacerts_load() -&gt; ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>cacerts_load</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cacerts_load(File :: <seetype marker="file#filename_all">file:filename_all()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>compute_key</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>compute_key(OthersECDHkey, MyECDHkey) -&gt; SharedSecret</head>
+      <guard>
+        <subtype><typename>OthersECDHkey</typename><string>OthersECDHkey = #'ECPoint'{}</string></subtype>
+        <subtype><typename>MyECDHkey</typename><string>MyECDHkey = #'ECPrivateKey'{}</string></subtype>
+        <subtype><typename>SharedSecret</typename><string>SharedSecret = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>MyECDHkey</anno>
+  <anno>OthersECDHkey</anno>
+  <anno>SharedSecret</anno>
+</spec>
+<spec>
+  <name>compute_key</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>compute_key(OthersDHkey, MyDHkey, DHparms) -&gt; SharedSecret</head>
+      <guard>
+        <subtype><typename>OthersDHkey</typename><string>OthersDHkey = <seetype marker="crypto#dh_public">crypto:dh_public()</seetype></string></subtype>
+        <subtype><typename>MyDHkey</typename><string>MyDHkey = <seetype marker="crypto#dh_private">crypto:dh_private()</seetype></string></subtype>
+        <subtype><typename>DHparms</typename><string>DHparms = #'DHParameter'{}</string></subtype>
+        <subtype><typename>SharedSecret</typename><string>SharedSecret = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DHparms</anno>
+  <anno>MyDHkey</anno>
+  <anno>OthersDHkey</anno>
+  <anno>SharedSecret</anno>
+</spec>
+<spec>
+  <name>decrypt_private</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>decrypt_private(CipherText, Key) -&gt; PlainText</head>
+      <guard>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#rsa_private_key">rsa_private_key()</seetype></string></subtype>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherText</anno>
+  <anno>Key</anno>
+  <anno>PlainText</anno>
+</spec>
+<spec>
+  <name>decrypt_private</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>decrypt_private(CipherText, Key, Options) -&gt; PlainText</head>
+      <guard>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#rsa_private_key">rsa_private_key()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="crypto#pk_encrypt_decrypt_opts">crypto:pk_encrypt_decrypt_opts()</seetype></string></subtype>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherText</anno>
+  <anno>Key</anno>
+  <anno>Options</anno>
+  <anno>PlainText</anno>
+</spec>
+<spec>
+  <name>decrypt_public</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>decrypt_public(CipherText, Key) -&gt; PlainText</head>
+      <guard>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#rsa_public_key">rsa_public_key()</seetype></string></subtype>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherText</anno>
+  <anno>Key</anno>
+  <anno>PlainText</anno>
+</spec>
+<spec>
+  <name>decrypt_public</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>decrypt_public(CipherText, Key, Options) -&gt; PlainText</head>
+      <guard>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#rsa_public_key">rsa_public_key()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="crypto#pk_encrypt_decrypt_opts">crypto:pk_encrypt_decrypt_opts()</seetype></string></subtype>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherText</anno>
+  <anno>Key</anno>
+  <anno>Options</anno>
+  <anno>PlainText</anno>
+</spec>
+<spec>
+  <name>der_decode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>der_decode(Asn1Type, Der) -&gt; Entity</head>
+      <guard>
+        <subtype><typename>Asn1Type</typename><string>Asn1Type = <seetype marker="#asn1_type">asn1_type()</seetype></string></subtype>
+        <subtype><typename>Der</typename><string>Der = <seetype marker="#der_encoded">der_encoded()</seetype></string></subtype>
+        <subtype><typename>Entity</typename><string>Entity = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Asn1Type</anno>
+  <anno>Der</anno>
+  <anno>Entity</anno>
+</spec>
+<spec>
+  <name>der_encode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>der_encode(Asn1Type, Entity) -&gt; Der</head>
+      <guard>
+        <subtype><typename>Asn1Type</typename><string>Asn1Type = <seetype marker="#asn1_type">asn1_type()</seetype></string></subtype>
+        <subtype><typename>Entity</typename><string>Entity = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Der</typename><string>Der = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Asn1Type</anno>
+  <anno>Der</anno>
+  <anno>Entity</anno>
+</spec>
+<spec>
+  <name>dh_gex_group</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>dh_gex_group(MinSize, SuggestedSize, MaxSize, Groups) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {Size, Group}} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>MinSize</typename><string>MinSize = SuggestedSize = MaxSize = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>SuggestedSize</typename><string/></subtype>
+        <subtype><typename>MaxSize</typename><string/></subtype>
+        <subtype><typename>Groups</typename><string>Groups = undefined | [{Size, [Group]}]</string></subtype>
+        <subtype><typename>Size</typename><string>Size = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Group</typename><string>Group = {G, P}</string></subtype>
+        <subtype><typename>G</typename><string>G = P = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>P</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>G</anno>
+  <anno>Group</anno>
+  <anno>Groups</anno>
+  <anno>MaxSize</anno>
+  <anno>MinSize</anno>
+  <anno>P</anno>
+  <anno>Size</anno>
+  <anno>SuggestedSize</anno>
+</spec>
+<spec>
+  <name>dh_gex_group_sizes</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>dh_gex_group_sizes() -&gt; [<seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>encrypt_private</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>encrypt_private(PlainText, Key) -&gt; CipherText</head>
+      <guard>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#rsa_private_key">rsa_private_key()</seetype></string></subtype>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherText</anno>
+  <anno>Key</anno>
+  <anno>PlainText</anno>
+</spec>
+<spec>
+  <name>encrypt_private</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>encrypt_private(PlainText, Key, Options) -&gt; CipherText</head>
+      <guard>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#rsa_private_key">rsa_private_key()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="crypto#pk_encrypt_decrypt_opts">crypto:pk_encrypt_decrypt_opts()</seetype></string></subtype>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherText</anno>
+  <anno>Key</anno>
+  <anno>Options</anno>
+  <anno>PlainText</anno>
+</spec>
+<spec>
+  <name>encrypt_public</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>encrypt_public(PlainText, Key) -&gt; CipherText</head>
+      <guard>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#rsa_public_key">rsa_public_key()</seetype></string></subtype>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherText</anno>
+  <anno>Key</anno>
+  <anno>PlainText</anno>
+</spec>
+<spec>
+  <name>encrypt_public</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>encrypt_public(PlainText, Key, Options) -&gt; CipherText</head>
+      <guard>
+        <subtype><typename>PlainText</typename><string>PlainText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#rsa_public_key">rsa_public_key()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="crypto#pk_encrypt_decrypt_opts">crypto:pk_encrypt_decrypt_opts()</seetype></string></subtype>
+        <subtype><typename>CipherText</typename><string>CipherText = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherText</anno>
+  <anno>Key</anno>
+  <anno>Options</anno>
+  <anno>PlainText</anno>
+</spec>
+<spec>
+  <name>generate_key</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>generate_key(Params :: DHparams | ECparams | RSAparams) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>DHkeys | ECkey | RSAkey</head>
+      <guard>
+        <subtype><typename>DHparams</typename><string>DHparams = #'DHParameter'{}</string></subtype>
+        <subtype><typename>DHkeys</typename><string>DHkeys = {PublicDH :: <seetype marker="erlang#binary">binary()</seetype>, PrivateDH :: <seetype marker="erlang#binary">binary()</seetype>}</string></subtype>
+        <subtype><typename>ECparams</typename><string>ECparams = <seetype marker="#ecpk_parameters_api">ecpk_parameters_api()</seetype></string></subtype>
+        <subtype><typename>ECkey</typename><string>ECkey = #'ECPrivateKey'{}</string></subtype>
+        <subtype><typename>RSAparams</typename><string>RSAparams = {rsa, Size, PubExp}</string></subtype>
+        <subtype><typename>Size</typename><string>Size = PubExp = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>PubExp</typename><string/></subtype>
+        <subtype><typename>RSAkey</typename><string>RSAkey = #'RSAPrivateKey'{}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DHkeys</anno>
+  <anno>DHparams</anno>
+  <anno>ECkey</anno>
+  <anno>ECparams</anno>
+  <anno>Params</anno>
+  <anno>PrivateDH</anno>
+  <anno>PubExp</anno>
+  <anno>PublicDH</anno>
+  <anno>RSAkey</anno>
+  <anno>RSAparams</anno>
+  <anno>Size</anno>
+</spec>
+<spec>
+  <name>handle_trace</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ocsp_extensions</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ocsp_extensions(Nonce :: undefined | <seetype marker="erlang#binary">binary()</seetype>) -&gt; <seetype marker="erlang#list">list()</seetype></head></clause>
+  </contract>
+  <anno>Nonce</anno>
+</spec>
+<spec>
+  <name>ocsp_responder_id</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ocsp_responder_id(CertDer :: <seetype marker="erlang#binary">binary()</seetype>) -&gt; <seetype marker="erlang#binary">binary()</seetype></head></clause>
+  </contract>
+  <anno>CertDer</anno>
+</spec>
+<spec>
+  <name>oid2ssh_curvename</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>oid2ssh_curvename(X1 :: <seetype marker="#oid">oid()</seetype>) -&gt; <seetype marker="erlang#binary">binary()</seetype></head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>pem_decode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pem_decode(PemBin :: <seetype marker="erlang#binary">binary()</seetype>) -&gt; [<seetype marker="#pem_entry">pem_entry()</seetype>]</head></clause>
+  </contract>
+  <anno>PemBin</anno>
+</spec>
+<spec>
+  <name>pem_encode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pem_encode(PemEntries :: [<seetype marker="#pem_entry">pem_entry()</seetype>]) -&gt; <seetype marker="erlang#binary">binary()</seetype></head></clause>
+  </contract>
+  <anno>PemEntries</anno>
+</spec>
+<spec>
+  <name>pem_entry_decode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pem_entry_decode(PemEntry) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>PemEntry</typename><string>PemEntry = <seetype marker="#pem_entry">pem_entry()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PemEntry</anno>
+</spec>
+<spec>
+  <name>pem_entry_decode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pem_entry_decode(PemEntry, Password) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>PemEntry</typename><string>PemEntry = <seetype marker="#pem_entry">pem_entry()</seetype></string></subtype>
+        <subtype><typename>Password</typename><string>Password = <seetype marker="erlang#iodata">iodata()</seetype> | fun(() -&gt; <seetype marker="erlang#iodata">iodata()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Password</anno>
+  <anno>PemEntry</anno>
+</spec>
+<spec>
+  <name>pem_entry_encode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pem_entry_encode(Asn1Type, Entity) -&gt; <seetype marker="#pem_entry">pem_entry()</seetype></head>
+      <guard>
+        <subtype><typename>Asn1Type</typename><string>Asn1Type = <seetype marker="#pki_asn1_type">pki_asn1_type()</seetype></string></subtype>
+        <subtype><typename>Entity</typename><string>Entity = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Asn1Type</anno>
+  <anno>Entity</anno>
+</spec>
+<spec>
+  <name>pem_entry_encode</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pem_entry_encode(Asn1Type, Entity, InfoPwd) -&gt; <seetype marker="#pem_entry">pem_entry()</seetype></head>
+      <guard>
+        <subtype><typename>Asn1Type</typename><string>Asn1Type = <seetype marker="#pki_asn1_type">pki_asn1_type()</seetype></string></subtype>
+        <subtype><typename>Entity</typename><string>Entity = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>InfoPwd</typename><string>InfoPwd = {CipherInfo, Password}</string></subtype>
+        <subtype><typename>CipherInfo</typename><string>CipherInfo = <seetype marker="#cipher_info">cipher_info()</seetype></string></subtype>
+        <subtype><typename>Password</typename><string>Password = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Asn1Type</anno>
+  <anno>CipherInfo</anno>
+  <anno>Entity</anno>
+  <anno>InfoPwd</anno>
+  <anno>Password</anno>
+</spec>
+<spec>
+  <name>pkix_crl_issuer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_crl_issuer(CRL) -&gt; Issuer</head>
+      <guard>
+        <subtype><typename>CRL</typename><string>CRL = <seetype marker="#der_encoded">der_encoded()</seetype> | #'CertificateList'{}</string></subtype>
+        <subtype><typename>Issuer</typename><string>Issuer = <seetype marker="#issuer_name">issuer_name()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CRL</anno>
+  <anno>Issuer</anno>
+</spec>
+<spec>
+  <name>pkix_crl_verify</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pkix_crl_verify(CRL, Cert) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>CRL</typename><string>CRL = <seetype marker="#der_encoded">der_encoded()</seetype> | #'CertificateList'{}</string></subtype>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CRL</anno>
+  <anno>Cert</anno>
+</spec>
+<spec>
+  <name>pkix_crls_validate</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pkix_crls_validate(OTPcertificate, DPandCRLs, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CRLstatus</head>
+      <guard>
+        <subtype><typename>OTPcertificate</typename><string>OTPcertificate = #'OTPCertificate'{}</string></subtype>
+        <subtype><typename>DPandCRLs</typename><string>DPandCRLs = [DPandCRL]</string></subtype>
+        <subtype><typename>DPandCRL</typename><string>DPandCRL = {DP, {DerCRL, CRL}}</string></subtype>
+        <subtype><typename>DP</typename><string>DP = #'DistributionPoint'{}</string></subtype>
+        <subtype><typename>DerCRL</typename><string>DerCRL = <seetype marker="#der_encoded">der_encoded()</seetype></string></subtype>
+        <subtype><typename>CRL</typename><string>CRL = #'CertificateList'{}</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [{<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}]</string></subtype>
+        <subtype><typename>CRLstatus</typename><string>CRLstatus = valid | {bad_cert, BadCertReason}</string></subtype>
+        <subtype><typename>BadCertReason</typename><string>BadCertReason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>revocation_status_undetermined |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{revocation_status_undetermined, Reason :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{revoked, <seetype marker="#crl_reason">crl_reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BadCertReason</anno>
+  <anno>CRL</anno>
+  <anno>CRLstatus</anno>
+  <anno>DP</anno>
+  <anno>DPandCRL</anno>
+  <anno>DPandCRLs</anno>
+  <anno>DerCRL</anno>
+  <anno>OTPcertificate</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>pkix_decode_cert</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pkix_decode_cert(Cert, Type) -&gt; #'Certificate'{} | <seetype marker="#otp_cert">otp_cert()</seetype></head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#der_cert">der_cert()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = plain | otp</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>pkix_dist_point</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_dist_point(Cert) -&gt; DistPoint</head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype></string></subtype>
+        <subtype><typename>DistPoint</typename><string>DistPoint = #'DistributionPoint'{}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>DistPoint</anno>
+</spec>
+<spec>
+  <name>pkix_dist_points</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_dist_points(Cert) -&gt; DistPoints</head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype></string></subtype>
+        <subtype><typename>DistPoints</typename><string>DistPoints = [#'DistributionPoint'{}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>DistPoints</anno>
+</spec>
+<spec>
+  <name>pkix_encode</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pkix_encode(Asn1Type, Entity, Type) -&gt; Der</head>
+      <guard>
+        <subtype><typename>Asn1Type</typename><string>Asn1Type = <seetype marker="#asn1_type">asn1_type()</seetype></string></subtype>
+        <subtype><typename>Entity</typename><string>Entity = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = otp | plain</string></subtype>
+        <subtype><typename>Der</typename><string>Der = <seetype marker="#der_encoded">der_encoded()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Asn1Type</anno>
+  <anno>Der</anno>
+  <anno>Entity</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>pkix_hash_type</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_hash_type(HashOid :: <seetype marker="#oid">oid()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>DigestType ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>md5 | <seetype marker="crypto#sha1">crypto:sha1()</seetype> | <seetype marker="crypto#sha2">crypto:sha2()</seetype></head></clause>
+  </contract>
+  <anno>DigestType</anno>
+  <anno>HashOid</anno>
+</spec>
+<spec>
+  <name>pkix_is_fixed_dh_cert</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_is_fixed_dh_cert(Cert) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+</spec>
+<spec>
+  <name>pkix_is_issuer</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pkix_is_issuer(CertorCRL, IssuerCert) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>CertorCRL</typename><string>CertorCRL = <seetype marker="#cert">cert()</seetype> | #'CertificateList'{}</string></subtype>
+        <subtype><typename>IssuerCert</typename><string>IssuerCert = <seetype marker="#cert">cert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CertorCRL</anno>
+  <anno>IssuerCert</anno>
+</spec>
+<spec>
+  <name>pkix_is_self_signed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_is_self_signed(Cert) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+</spec>
+<spec>
+  <name>pkix_issuer_id</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pkix_issuer_id(Cert, IssuedBy) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, ID :: <seetype marker="#cert_id">cert_id()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype></string></subtype>
+        <subtype><typename>IssuedBy</typename><string>IssuedBy = self | other</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>ID</anno>
+  <anno>IssuedBy</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>pkix_match_dist_point</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pkix_match_dist_point(CRL, DistPoint) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>CRL</typename><string>CRL = <seetype marker="#der_encoded">der_encoded()</seetype> | #'CertificateList'{}</string></subtype>
+        <subtype><typename>DistPoint</typename><string>DistPoint = #'DistributionPoint'{}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CRL</anno>
+  <anno>DistPoint</anno>
+</spec>
+<spec>
+  <name>pkix_normalize_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_normalize_name(Issuer) -&gt; Normalized</head>
+      <guard>
+        <subtype><typename>Issuer</typename><string>Issuer = <seetype marker="#issuer_name">issuer_name()</seetype> | <seetype marker="#der_encoded">der_encoded()</seetype></string></subtype>
+        <subtype><typename>Normalized</typename><string>Normalized = <seetype marker="#issuer_name">issuer_name()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Issuer</anno>
+  <anno>Normalized</anno>
+</spec>
+<spec>
+  <name>pkix_ocsp_validate</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>pkix_ocsp_validate(Cert, IssuerCert, OcspRespDer, ResponderCerts,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NonceExt) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>valid | {bad_cert, Reason}</head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = IssuerCert = <seetype marker="#cert">cert()</seetype></string></subtype>
+        <subtype><typename>IssuerCert</typename><string/></subtype>
+        <subtype><typename>OcspRespDer</typename><string>OcspRespDer = <seetype marker="#der_encoded">der_encoded()</seetype></string></subtype>
+        <subtype><typename>ResponderCerts</typename><string>ResponderCerts = [<seetype marker="#der_cert">der_cert()</seetype>]</string></subtype>
+        <subtype><typename>NonceExt</typename><string>NonceExt = undefined | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>IssuerCert</anno>
+  <anno>NonceExt</anno>
+  <anno>OcspRespDer</anno>
+  <anno>Reason</anno>
+  <anno>ResponderCerts</anno>
+</spec>
+<spec>
+  <name>pkix_path_validation</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pkix_path_validation(Cert, CertChain, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {PublicKeyInfo, PolicyTree}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{bad_cert, Reason :: <seetype marker="#bad_cert_reason">bad_cert_reason()</seetype>}}</head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>CertChain</typename><string>CertChain = [<seetype marker="#cert">cert()</seetype> | <seetype marker="#combined_cert">combined_cert()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{max_path_length, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{verify_fun, {<seetype marker="erlang#function">function()</seetype>, <seetype marker="erlang#term">term()</seetype>}}]</string></subtype>
+        <subtype><typename>PublicKeyInfo</typename><string>PublicKeyInfo = <seetype marker="#public_key_info">public_key_info()</seetype></string></subtype>
+        <subtype><typename>PolicyTree</typename><string>PolicyTree = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>CertChain</anno>
+  <anno>Options</anno>
+  <anno>PolicyTree</anno>
+  <anno>PublicKeyInfo</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>pkix_sign</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pkix_sign(Cert, Key) -&gt; Der</head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = #'OTPTBSCertificate'{}</string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#private_key">private_key()</seetype></string></subtype>
+        <subtype><typename>Der</typename><string>Der = <seetype marker="#der_encoded">der_encoded()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>Der</anno>
+  <anno>Key</anno>
+</spec>
+<spec>
+  <name>pkix_sign_types</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_sign_types(AlgorithmId) -&gt; {DigestType, SignatureType}</head>
+      <guard>
+        <subtype><typename>AlgorithmId</typename><string>AlgorithmId = <seetype marker="#oid">oid()</seetype></string></subtype>
+        <subtype><typename>DigestType</typename><string>DigestType = <seetype marker="crypto#rsa_digest_type">crypto:rsa_digest_type()</seetype> | none</string></subtype>
+        <subtype><typename>SignatureType</typename><string>SignatureType = rsa | dsa | ecdsa | eddsa</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AlgorithmId</anno>
+  <anno>DigestType</anno>
+  <anno>SignatureType</anno>
+</spec>
+<spec>
+  <name>pkix_subject_id</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_subject_id(Cert) -&gt; ID</head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype></string></subtype>
+        <subtype><typename>ID</typename><string>ID = <seetype marker="#cert_id">cert_id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>ID</anno>
+</spec>
+<spec>
+  <name>pkix_test_data</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_test_data(ChainConf) -&gt; TestConf</head>
+      <guard>
+        <subtype><typename>ChainConf</typename><string>ChainConf = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{server_chain := <seetype marker="#chain_opts">chain_opts()</seetype>, client_chain := <seetype marker="#chain_opts">chain_opts()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#chain_opts">chain_opts()</seetype></string></subtype>
+        <subtype><typename>TestConf</typename><string>TestConf = <seetype marker="#test_config">test_config()</seetype> | [<seetype marker="#conf_opt">conf_opt()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChainConf</anno>
+  <anno>TestConf</anno>
+</spec>
+<spec>
+  <name>pkix_test_root_cert</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pkix_test_root_cert(Name, Options) -&gt; RootCert</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#cert_opt">cert_opt()</seetype>]</string></subtype>
+        <subtype><typename>RootCert</typename><string>RootCert = <seetype marker="#test_root_cert">test_root_cert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Options</anno>
+  <anno>RootCert</anno>
+</spec>
+<spec>
+  <name>pkix_verify</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pkix_verify(Cert, Key) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#der_cert">der_cert()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#public_key">public_key()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>Key</anno>
+</spec>
+<spec>
+  <name>pkix_verify_hostname</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pkix_verify_hostname(Cert, ReferenceIDs) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype></string></subtype>
+        <subtype><typename>ReferenceIDs</typename><string>ReferenceIDs = <seetype marker="#referenceIDs">referenceIDs()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>ReferenceIDs</anno>
+</spec>
+<spec>
+  <name>pkix_verify_hostname</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pkix_verify_hostname(Cert, ReferenceIDs, Options) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="#cert">cert()</seetype></string></subtype>
+        <subtype><typename>ReferenceIDs</typename><string>ReferenceIDs = <seetype marker="#referenceIDs">referenceIDs()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [{match_fun | fail_callback | fqdn_fun, <seetype marker="erlang#function">function()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>Options</anno>
+  <anno>ReferenceIDs</anno>
+</spec>
+<spec>
+  <name>pkix_verify_hostname_match_fun</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pkix_verify_hostname_match_fun(Protocol) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Protocol</typename><string>Protocol = https</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erlang#function">function()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Protocol</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>short_name_hash</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>short_name_hash(Name) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#issuer_name">issuer_name()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>sign</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>sign(Msg, DigestType, Key) -&gt; Signature</head>
+      <guard>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#binary">binary()</seetype> | {digest, <seetype marker="erlang#binary">binary()</seetype>}</string></subtype>
+        <subtype><typename>DigestType</typename><string>DigestType = <seetype marker="#digest_type">digest_type()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#private_key">private_key()</seetype></string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DigestType</anno>
+  <anno>Key</anno>
+  <anno>Msg</anno>
+  <anno>Signature</anno>
+</spec>
+<spec>
+  <name>sign</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>sign(Msg, DigestType, Key, Options) -&gt; Signature</head>
+      <guard>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#binary">binary()</seetype> | {digest, <seetype marker="erlang#binary">binary()</seetype>}</string></subtype>
+        <subtype><typename>DigestType</typename><string>DigestType = <seetype marker="#digest_type">digest_type()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#private_key">private_key()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="crypto#pk_sign_verify_opts">crypto:pk_sign_verify_opts()</seetype></string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DigestType</anno>
+  <anno>Key</anno>
+  <anno>Msg</anno>
+  <anno>Options</anno>
+  <anno>Signature</anno>
+</spec>
+<spec>
+  <name>ssh_curvename2oid</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ssh_curvename2oid(X1 :: <seetype marker="erlang#binary">binary()</seetype>) -&gt; <seetype marker="#oid">oid()</seetype></head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>verify</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>verify(Msg, DigestType, Signature, Key) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#binary">binary()</seetype> | {digest, <seetype marker="erlang#binary">binary()</seetype>}</string></subtype>
+        <subtype><typename>DigestType</typename><string>DigestType = <seetype marker="#digest_type">digest_type()</seetype></string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#public_key">public_key()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DigestType</anno>
+  <anno>Key</anno>
+  <anno>Msg</anno>
+  <anno>Signature</anno>
+</spec>
+<spec>
+  <name>verify</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>verify(Msg, DigestType, Signature, Key, Options) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Msg</typename><string>Msg = <seetype marker="erlang#binary">binary()</seetype> | {digest, <seetype marker="erlang#binary">binary()</seetype>}</string></subtype>
+        <subtype><typename>DigestType</typename><string>DigestType = <seetype marker="#digest_type">digest_type()</seetype></string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="#public_key">public_key()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="crypto#pk_sign_verify_opts">crypto:pk_sign_verify_opts()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DigestType</anno>
+  <anno>Key</anno>
+  <anno>Msg</anno>
+  <anno>Options</anno>
+  <anno>Signature</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:25.</timestamp>
+</module>

@@ -1,0 +1,570 @@
+<module name="wxTextAttr">
+<type>
+  <name>wxTextAttr</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxTextAttr">wxTextAttr()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxTextAttr">wxTextAttr()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getAlignment</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getAlignment(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getBackgroundColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getBackgroundColour(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFlags</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFlags(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFont</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFont(This) -&gt; <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFontEncoding</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFontEncoding(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFontFaceName</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFontFaceName(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFontSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFontSize(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFontStyle</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFontStyle(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFontUnderlined</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFontUnderlined(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFontWeight</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFontWeight(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLeftIndent</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLeftIndent(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLeftSubIndent</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLeftSubIndent(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getRightIndent</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getRightIndent(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getTabs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getTabs(This) -&gt; [<seetype marker="erlang#integer">integer()</seetype>]</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getTextColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getTextColour(This) -&gt; <seetype marker="wx#wx_colour4">wx:wx_colour4()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasBackgroundColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasBackgroundColour(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasFont</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasFont(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasTextColour</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasTextColour(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isDefault</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isDefault(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxTextAttr">wxTextAttr()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(ColText) -&gt; <seetype marker="#wxTextAttr">wxTextAttr()</seetype></head>
+      <guard>
+        <subtype><typename>ColText</typename><string>ColText = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ColText</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Attr) -&gt; <seetype marker="#wxTextAttr">wxTextAttr()</seetype></head>
+      <guard>
+        <subtype><typename>Attr</typename><string>Attr = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Attr</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(ColText, Options :: [Option]) -&gt; <seetype marker="#wxTextAttr">wxTextAttr()</seetype></head>
+      <guard>
+        <subtype><typename>ColText</typename><string>ColText = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{colBack, <seetype marker="wx#wx_colour">wx:wx_colour()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{font, <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{alignment, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ColText</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setAlignment</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setAlignment(This, Alignment) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Alignment</typename><string>Alignment = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Alignment</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setBackgroundColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setBackgroundColour(This, ColBack) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>ColBack</typename><string>ColBack = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ColBack</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFlags</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFlags(This, Flags) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Flags</typename><string>Flags = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFont</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFont(This, Font) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Font</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFont</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setFont(This, Font, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Font</typename><string>Font = <seetype marker="wxFont#wxFont">wxFont:wxFont()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {flags, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Font</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFontEncoding</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFontEncoding(This, Encoding) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Encoding</typename><string>Encoding = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Encoding</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFontFaceName</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFontFaceName(This, FaceName) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>FaceName</typename><string>FaceName = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FaceName</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFontFamily</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFontFamily(This, Family) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Family</typename><string>Family = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Family</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFontPixelSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFontPixelSize(This, PixelSize) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>PixelSize</typename><string>PixelSize = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PixelSize</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFontPointSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFontPointSize(This, PointSize) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>PointSize</typename><string>PointSize = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PointSize</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFontSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFontSize(This, PointSize) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>PointSize</typename><string>PointSize = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PointSize</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFontStyle</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFontStyle(This, FontStyle) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>FontStyle</typename><string>FontStyle = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FontStyle</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFontUnderlined</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFontUnderlined(This, Underlined) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Underlined</typename><string>Underlined = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Underlined</anno>
+</spec>
+<spec>
+  <name>setFontWeight</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFontWeight(This, FontWeight) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>FontWeight</typename><string>FontWeight = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>FontWeight</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setLeftIndent</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setLeftIndent(This, Indent) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Indent</typename><string>Indent = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Indent</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setLeftIndent</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setLeftIndent(This, Indent, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Indent</typename><string>Indent = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {subIndent, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Indent</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setRightIndent</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setRightIndent(This, Indent) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Indent</typename><string>Indent = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Indent</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setTabs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setTabs(This, Tabs) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>Tabs</typename><string>Tabs = [<seetype marker="erlang#integer">integer()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Tabs</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setTextColour</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setTextColour(This, ColText) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTextAttr">wxTextAttr()</seetype></string></subtype>
+        <subtype><typename>ColText</typename><string>ColText = <seetype marker="wx#wx_colour">wx:wx_colour()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ColText</anno>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:52.</timestamp>
+</module>

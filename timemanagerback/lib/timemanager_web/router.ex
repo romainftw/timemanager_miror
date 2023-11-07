@@ -27,13 +27,18 @@ defmodule TimemanagerWeb.Router do
     options "/*users", CommonController, :options
     resources "/users", UserController
     get "/user", UserController, :user
+    post "/login", UserController, :login
 
     options "/*clocks", CommonController, :options
     resources "/clocks", ClockController
+
     options "/*workingtimes", CommonController, :options
     resources "/workingtimes", WorkingtimeController
-    get "/workingtimes_start_end/:userID", WorkingtimeController, :showWorkingTimeByUserStartAndEnd
+    get "/workingtimes_start_end/:userID/:start/:end", WorkingtimeController, :showWorkingTimeByUserStartAndEnd
     get "/workingtime_by_user/:userID", WorkingtimeController, :showWorkingtimeByUser
+    get "/workingtimes/month_by_user/:userID", WorkingtimeController, :getUserWorkingHours
+    get "/workingtimes/day_by_user/:userID", WorkingtimeController, :getUserWorkingHoursToday
+    get "/workingtimes/week_by_user/:userID", WorkingtimeController, :getUserWorkingHoursThisWeek
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

@@ -1,0 +1,493 @@
+<module name="shell_docs">
+<type>
+  <name>chunk_element</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_element">chunk_element()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#chunk_element_type">chunk_element_type()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#chunk_element_attrs">chunk_element_attrs()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#chunk_elements">chunk_elements()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>chunk_element_attr</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_element_attr">chunk_element_attr()</marker> = {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>chunk_element_attrs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_element_attrs">chunk_element_attrs()</marker> = [<seetype marker="#chunk_element_attr">chunk_element_attr()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>chunk_element_block_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_element_block_type">chunk_element_block_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>p | 'div' | br | pre | ul | ol | li | dl | dt | dd | h1 | h2 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>h3 | h4 | h5 | h6</typehead></typedecl>
+</type>
+<type>
+  <name>chunk_element_inline_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_element_inline_type">chunk_element_inline_type()</marker> = a | code | em | strong | i | b</typehead></typedecl>
+</type>
+<type>
+  <name>chunk_element_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_element_type">chunk_element_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#chunk_element_inline_type">chunk_element_inline_type()</seetype> | <seetype marker="#chunk_element_block_type">chunk_element_block_type()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>chunk_elements</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-chunk_elements">chunk_elements()</marker> = [<seetype marker="#chunk_element">chunk_element()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>config</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-config">config()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{encoding =&gt; unicode | latin1,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>columns =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ansi =&gt; <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>docs_v1</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-docs_v1">docs_v1()</marker> = #docs_v1{}</typehead></typedecl>
+</type>
+<spec>
+  <name>get_callback_doc</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_callback_doc(Module :: <seetype marker="erlang#module">module()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Callback :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Arity :: <seetype marker="erlang#arity">arity()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{{Callback, Arity},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Anno, Signature,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#chunk_elements">chunk_elements()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Metadata}]</head>
+      <guard>
+        <subtype><typename>Callback</typename><string>Callback = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+        <subtype><typename>Anno</typename><string>Anno = <seetype marker="erl_anno#anno">erl_anno:anno()</seetype></string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = [<seetype marker="erlang#binary">binary()</seetype>]</string></subtype>
+        <subtype><typename>Metadata</typename><string>Metadata = <seetype marker="erlang#map">map()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Anno</anno>
+  <anno>Arity</anno>
+  <anno>Callback</anno>
+  <anno>Metadata</anno>
+  <anno>Module</anno>
+  <anno>Signature</anno>
+</spec>
+<spec>
+  <name>get_doc</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_doc(Module :: <seetype marker="erlang#module">module()</seetype>) -&gt; <seetype marker="#chunk_elements">chunk_elements()</seetype></head></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>get_doc</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_doc(Module :: <seetype marker="erlang#module">module()</seetype>, Function, Arity) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{{Function, Arity},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Anno, Signature,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#chunk_elements">chunk_elements()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Metadata}]</head>
+      <guard>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+        <subtype><typename>Anno</typename><string>Anno = <seetype marker="erl_anno#anno">erl_anno:anno()</seetype></string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = [<seetype marker="erlang#binary">binary()</seetype>]</string></subtype>
+        <subtype><typename>Metadata</typename><string>Metadata = <seetype marker="erlang#map">map()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Anno</anno>
+  <anno>Arity</anno>
+  <anno>Function</anno>
+  <anno>Metadata</anno>
+  <anno>Module</anno>
+  <anno>Signature</anno>
+</spec>
+<spec>
+  <name>get_type_doc</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_type_doc(Module :: <seetype marker="erlang#module">module()</seetype>, Type :: <seetype marker="erlang#atom">atom()</seetype>, Arity :: <seetype marker="erlang#arity">arity()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{{Type, Arity},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Anno, Signature,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#chunk_elements">chunk_elements()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Metadata}]</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+        <subtype><typename>Anno</typename><string>Anno = <seetype marker="erl_anno#anno">erl_anno:anno()</seetype></string></subtype>
+        <subtype><typename>Signature</typename><string>Signature = [<seetype marker="erlang#binary">binary()</seetype>]</string></subtype>
+        <subtype><typename>Metadata</typename><string>Metadata = <seetype marker="erlang#map">map()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Anno</anno>
+  <anno>Arity</anno>
+  <anno>Metadata</anno>
+  <anno>Module</anno>
+  <anno>Signature</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>normalize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>normalize(Docs) -&gt; NormalizedDocs</head>
+      <guard>
+        <subtype><typename>Docs</typename><string>Docs = NormalizedDocs = <seetype marker="#chunk_elements">chunk_elements()</seetype></string></subtype>
+        <subtype><typename>NormalizedDocs</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Docs</anno>
+  <anno>NormalizedDocs</anno>
+</spec>
+<spec>
+  <name>render</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>render(Module, Docs) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>render</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>render(Module, Docs, Config) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#config">config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>render</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>render(Module, Function, Docs) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, function_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Docs</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>render</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>render(Module, Function, Docs, Config) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#config">config()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, function_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>Docs</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>render</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>render(Module, Function, Arity, Docs) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, function_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Docs</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>render</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>render(Module, Function, Arity, Docs, Config) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#config">config()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, function_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Config</anno>
+  <anno>Docs</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>render_callback</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>render_callback(Module, Docs) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>render_callback</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>render_callback(Module, Docs, Config) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#config">config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>render_callback</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>render_callback(Module, Callback, Docs) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Callback</typename><string>Callback = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, callback_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Callback</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>render_callback</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>render_callback(Module, Callback, Docs, Config) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Callback</typename><string>Callback = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#config">config()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, callback_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Callback</anno>
+  <anno>Config</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>render_callback</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>render_callback(Module, Callback, Arity, Docs) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Callback</typename><string>Callback = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, callback_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Callback</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>render_callback</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>render_callback(Module, Callback, Arity, Docs, Config) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Callback</typename><string>Callback = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#config">config()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, callback_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Callback</anno>
+  <anno>Config</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+</spec>
+<spec>
+  <name>render_type</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>render_type(Module, Docs) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>render_type</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>render_type(Module, Docs, Config) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#config">config()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>render_type</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>render_type(Module, Type, Docs) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, type_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>render_type</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>render_type(Module, Type, Docs, Config) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#config">config()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, type_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>render_type</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>render_type(Module, Type, Arity, Docs) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, type_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>render_type</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>render_type(Module, Type, Arity, Docs, Config) -&gt; Res</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arity</typename><string>Arity = <seetype marker="erlang#arity">arity()</seetype></string></subtype>
+        <subtype><typename>Docs</typename><string>Docs = <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+        <subtype><typename>Config</typename><string>Config = <seetype marker="#config">config()</seetype></string></subtype>
+        <subtype><typename>Res</typename><string>Res = <seetype marker="unicode#chardata">unicode:chardata()</seetype> | {error, type_missing}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arity</anno>
+  <anno>Config</anno>
+  <anno>Docs</anno>
+  <anno>Module</anno>
+  <anno>Res</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>supported_tags</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>supported_tags() -&gt; [<seetype marker="#chunk_element_type">chunk_element_type()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>validate</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>validate(Module) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype> | <seetype marker="#docs_v1">docs_v1()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Module</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:27.</timestamp>
+</module>

@@ -1,0 +1,115 @@
+<module name="erl_tracer">
+<type>
+  <name>trace_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_opts">trace_opts()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{extra =&gt; <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>match_spec_result =&gt; <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>scheduler_id =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>timestamp =&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>timestamp | cpu_timestamp | monotonic | strict_monotonic}</typehead></typedecl>
+</type>
+<type>
+  <name>trace_tag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_tag">trace_tag()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#trace_tag_send">trace_tag_send()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#trace_tag_receive">trace_tag_receive()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#trace_tag_call">trace_tag_call()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#trace_tag_procs">trace_tag_procs()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#trace_tag_ports">trace_tag_ports()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#trace_tag_running_procs">trace_tag_running_procs()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#trace_tag_running_ports">trace_tag_running_ports()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#trace_tag_gc">trace_tag_gc()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>trace_tag_call</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_tag_call">trace_tag_call()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>call | return_to | return_from | exception_from</typehead></typedecl>
+</type>
+<type>
+  <name>trace_tag_gc</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_tag_gc">trace_tag_gc()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>gc_minor_start | gc_minor_end | gc_major_start | gc_major_end</typehead></typedecl>
+</type>
+<type>
+  <name>trace_tag_ports</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_tag_ports">trace_tag_ports()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>open | closed | link | unlink | getting_linked |<br/><nbsp/><nbsp/><nbsp/><nbsp/>getting_unlinked</typehead></typedecl>
+</type>
+<type>
+  <name>trace_tag_procs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_tag_procs">trace_tag_procs()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>spawn | spawned | exit | link | unlink | getting_linked |<br/><nbsp/><nbsp/><nbsp/><nbsp/>getting_unlinked | register | unregister</typehead></typedecl>
+</type>
+<type>
+  <name>trace_tag_receive</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_tag_receive">trace_tag_receive()</marker> = 'receive'</typehead></typedecl>
+</type>
+<type>
+  <name>trace_tag_running_ports</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_tag_running_ports">trace_tag_running_ports()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>in | out | in_exiting | out_exiting | out_exited</typehead></typedecl>
+</type>
+<type>
+  <name>trace_tag_running_procs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_tag_running_procs">trace_tag_running_procs()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>in | out | in_exiting | out_exiting | out_exited</typehead></typedecl>
+</type>
+<type>
+  <name>trace_tag_send</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_tag_send">trace_tag_send()</marker> = send | send_to_non_existing_process</typehead></typedecl>
+</type>
+<type>
+  <name>tracee</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tracee">tracee()</marker> = <seetype marker="erlang#port">port()</seetype> | <seetype marker="erlang#pid">pid()</seetype> | undefined</typehead></typedecl>
+</type>
+<type>
+  <name>tracer_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tracer_state">tracer_state()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>enabled</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>enabled(Tag :: trace_status,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TracerState :: <seetype marker="#tracer_state">tracer_state()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Tracee :: <seetype marker="#tracee">tracee()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>trace | remove</head></clause>
+  </contract>
+  <anno>Tag</anno>
+  <anno>Tracee</anno>
+  <anno>TracerState</anno>
+</spec>
+<spec>
+  <name>enabled</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>enabled(Tag :: <seetype marker="#trace_tag">trace_tag()</seetype> | seq_trace,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TracerState :: <seetype marker="#tracer_state">tracer_state()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Tracee :: <seetype marker="#tracee">tracee()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>trace | discard</head></clause>
+  </contract>
+  <anno>Tag</anno>
+  <anno>Tracee</anno>
+  <anno>TracerState</anno>
+</spec>
+<spec>
+  <name>on_load</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>trace(Tag :: <seetype marker="#trace_tag">trace_tag()</seetype> | seq_trace,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TracerState :: <seetype marker="#tracer_state">tracer_state()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Tracee :: <seetype marker="#tracee">tracee()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Msg :: <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Opts :: <seetype marker="#trace_opts">trace_opts()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#any">any()</seetype></head></clause>
+  </contract>
+  <anno>Msg</anno>
+  <anno>Opts</anno>
+  <anno>Tag</anno>
+  <anno>Tracee</anno>
+  <anno>TracerState</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:38:09.</timestamp>
+</module>

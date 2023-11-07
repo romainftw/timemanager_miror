@@ -1,0 +1,175 @@
+<module name="wxSizerFlags">
+<type>
+  <name>wxSizerFlags</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxSizerFlags">wxSizerFlags()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>align</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>align(This, Alignment) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+        <subtype><typename>Alignment</typename><string>Alignment = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Alignment</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>border</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>border(This) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>border</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>border(This, Options :: [Option]) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {direction, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>border</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>border(This, Direction, Borderinpixels) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+        <subtype><typename>Direction</typename><string>Direction = Borderinpixels = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Borderinpixels</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Borderinpixels</anno>
+  <anno>Direction</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>center</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>center(This) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>centre(This) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>expand</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>expand(This) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>left</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>left(This) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Options :: [Option]) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = {proportion, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>proportion</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>proportion(This, Proportion) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+        <subtype><typename>Proportion</typename><string>Proportion = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Proportion</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>right</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>right(This) -&gt; <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxSizerFlags">wxSizerFlags()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:49.</timestamp>
+</module>

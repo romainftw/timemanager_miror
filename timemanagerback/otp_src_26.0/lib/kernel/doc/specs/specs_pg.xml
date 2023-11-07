@@ -1,0 +1,274 @@
+<module name="pg">
+<type>
+  <name>group</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-group">group()</marker> = <seetype marker="erlang#any">any()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-state">state()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#state{scope = <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>local =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#{<seetype marker="erlang#pid">pid()</seetype> =&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{MRef :: <seetype marker="erlang#reference">reference()</seetype>, Groups :: [<seetype marker="#group">group()</seetype>]}},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>remote =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#{<seetype marker="erlang#pid">pid()</seetype> =&gt; {<seetype marker="erlang#reference">reference()</seetype>, #{<seetype marker="#group">group()</seetype> =&gt; [<seetype marker="erlang#pid">pid()</seetype>]}}},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>scope_monitors = #{<seetype marker="erlang#reference">reference()</seetype> =&gt; <seetype marker="erlang#pid">pid()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>group_monitors = #{<seetype marker="erlang#reference">reference()</seetype> =&gt; <seetype marker="#group">group()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>monitored_groups =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#{<seetype marker="#group">group()</seetype> =&gt; [{<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#reference">reference()</seetype>}]}}</typehead></typedecl>
+  <anno>Groups</anno>
+  <anno>MRef</anno>
+</type>
+<spec>
+  <name>demonitor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>demonitor(Ref :: <seetype marker="erlang#reference">reference()</seetype>) -&gt; ok | false</head></clause>
+  </contract>
+  <anno>Ref</anno>
+</spec>
+<spec>
+  <name>demonitor</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>demonitor(Scope :: <seetype marker="erlang#atom">atom()</seetype>, Ref :: <seetype marker="erlang#reference">reference()</seetype>) -&gt; ok | false</head></clause>
+  </contract>
+  <anno>Ref</anno>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>get_local_members</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_local_members(Group :: <seetype marker="#group">group()</seetype>) -&gt; [<seetype marker="erlang#pid">pid()</seetype>]</head></clause>
+  </contract>
+  <anno>Group</anno>
+</spec>
+<spec>
+  <name>get_local_members</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_local_members(Scope :: <seetype marker="erlang#atom">atom()</seetype>, Group :: <seetype marker="#group">group()</seetype>) -&gt; [<seetype marker="erlang#pid">pid()</seetype>]</head></clause>
+  </contract>
+  <anno>Group</anno>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>get_members</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_members(Group :: <seetype marker="#group">group()</seetype>) -&gt; [<seetype marker="erlang#pid">pid()</seetype>]</head></clause>
+  </contract>
+  <anno>Group</anno>
+</spec>
+<spec>
+  <name>get_members</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_members(Scope :: <seetype marker="erlang#atom">atom()</seetype>, Group :: <seetype marker="#group">group()</seetype>) -&gt; [<seetype marker="erlang#pid">pid()</seetype>]</head></clause>
+  </contract>
+  <anno>Group</anno>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handle_call(Call ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{join_local, Group :: <seetype marker="#group">group()</seetype>, Pid :: <seetype marker="erlang#pid">pid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{leave_local, Group :: <seetype marker="#group">group()</seetype>, Pid :: <seetype marker="erlang#pid">pid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>monitor |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{monitor, Group :: <seetype marker="#group">group()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{demonitor, Ref :: <seetype marker="erlang#reference">reference()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>From :: {<seetype marker="erlang#pid">pid()</seetype>, Tag :: <seetype marker="erlang#any">any()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | not_joined |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#reference">reference()</seetype>, #{<seetype marker="#group">group()</seetype> =&gt; [<seetype marker="erlang#pid">pid()</seetype>]}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>false,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Call</anno>
+  <anno>From</anno>
+  <anno>Group</anno>
+  <anno>Pid</anno>
+  <anno>Ref</anno>
+  <anno>State</anno>
+  <anno>Tag</anno>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_cast(X1 ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{sync,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Peer :: <seetype marker="erlang#pid">pid()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Groups :: [{<seetype marker="#group">group()</seetype>, [<seetype marker="erlang#pid">pid()</seetype>]}]},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Groups</anno>
+  <anno>Peer</anno>
+  <anno>State</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_info(Info ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{discover, Peer :: <seetype marker="erlang#pid">pid()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{discover, Peer :: <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#any">any()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{join, Peer :: <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="#group">group()</seetype>, <seetype marker="erlang#pid">pid()</seetype> | [<seetype marker="erlang#pid">pid()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{leave, Peer :: <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#pid">pid()</seetype> | [<seetype marker="erlang#pid">pid()</seetype>], [<seetype marker="#group">group()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{'DOWN', <seetype marker="erlang#reference">reference()</seetype>, process, <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{nodedown, <seetype marker="erlang#node">node()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{nodeup, <seetype marker="erlang#node">node()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>State :: <seetype marker="#state">state()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{noreply, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Info</anno>
+  <anno>Peer</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(X1 :: [Scope :: <seetype marker="erlang#atom">atom()</seetype>]) -&gt; {ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Scope</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>join</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>join(Group :: <seetype marker="#group">group()</seetype>, PidOrPids :: <seetype marker="erlang#pid">pid()</seetype> | [<seetype marker="erlang#pid">pid()</seetype>]) -&gt; ok</head></clause>
+  </contract>
+  <anno>Group</anno>
+  <anno>PidOrPids</anno>
+</spec>
+<spec>
+  <name>join</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>join(Scope :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Group :: <seetype marker="#group">group()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PidOrPids :: <seetype marker="erlang#pid">pid()</seetype> | [<seetype marker="erlang#pid">pid()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Group</anno>
+  <anno>PidOrPids</anno>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>leave</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>leave(Group :: <seetype marker="#group">group()</seetype>, PidOrPids :: <seetype marker="erlang#pid">pid()</seetype> | [<seetype marker="erlang#pid">pid()</seetype>]) -&gt; ok</head></clause>
+  </contract>
+  <anno>Group</anno>
+  <anno>PidOrPids</anno>
+</spec>
+<spec>
+  <name>leave</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>leave(Scope :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Group :: <seetype marker="#group">group()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PidOrPids :: <seetype marker="erlang#pid">pid()</seetype> | [<seetype marker="erlang#pid">pid()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | not_joined</head></clause>
+  </contract>
+  <anno>Group</anno>
+  <anno>PidOrPids</anno>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>monitor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>monitor(Group :: <seetype marker="#group">group()</seetype>) -&gt; {<seetype marker="erlang#reference">reference()</seetype>, [<seetype marker="erlang#pid">pid()</seetype>]}</head></clause>
+  </contract>
+  <anno>Group</anno>
+</spec>
+<spec>
+  <name>monitor</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>monitor(Scope :: <seetype marker="erlang#atom">atom()</seetype>, Group :: <seetype marker="#group">group()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#reference">reference()</seetype>, [<seetype marker="erlang#pid">pid()</seetype>]}</head></clause>
+  </contract>
+  <anno>Group</anno>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>monitor_scope</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>monitor_scope() -&gt; {<seetype marker="erlang#reference">reference()</seetype>, #{<seetype marker="#group">group()</seetype> =&gt; [<seetype marker="erlang#pid">pid()</seetype>]}}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>monitor_scope</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>monitor_scope(Scope :: <seetype marker="erlang#atom">atom()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#reference">reference()</seetype>, #{<seetype marker="#group">group()</seetype> =&gt; [<seetype marker="erlang#pid">pid()</seetype>]}}</head></clause>
+  </contract>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(Scope :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, <seetype marker="erlang#any">any()</seetype>}</head></clause>
+  </contract>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_link() -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, <seetype marker="erlang#any">any()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start_link(Scope :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, <seetype marker="erlang#any">any()</seetype>}</head></clause>
+  </contract>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>terminate(Reason :: <seetype marker="erlang#any">any()</seetype>, State :: <seetype marker="#state">state()</seetype>) -&gt; true</head></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>which_groups</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>which_groups() -&gt; [Group :: <seetype marker="#group">group()</seetype>]</head></clause>
+  </contract>
+  <anno>Group</anno>
+</spec>
+<spec>
+  <name>which_groups</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>which_groups(Scope :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; [Group :: <seetype marker="#group">group()</seetype>]</head></clause>
+  </contract>
+  <anno>Group</anno>
+  <anno>Scope</anno>
+</spec>
+<spec>
+  <name>which_local_groups</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>which_local_groups() -&gt; [Group :: <seetype marker="#group">group()</seetype>]</head></clause>
+  </contract>
+  <anno>Group</anno>
+</spec>
+<spec>
+  <name>which_local_groups</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>which_local_groups(Scope :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; [Group :: <seetype marker="#group">group()</seetype>]</head></clause>
+  </contract>
+  <anno>Group</anno>
+  <anno>Scope</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:50.</timestamp>
+</module>

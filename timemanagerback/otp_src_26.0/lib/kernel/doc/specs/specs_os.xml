@@ -1,0 +1,275 @@
+<module name="os">
+<type>
+  <name>env_var_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-env_var_name">env_var_name()</marker> = <seetype marker="erlang#nonempty_string">nonempty_string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>env_var_name_value</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-env_var_name_value">env_var_name_value()</marker> = <seetype marker="erlang#nonempty_string">nonempty_string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>env_var_value</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-env_var_value">env_var_value()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>os_command</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-os_command">os_command()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="io_lib#chars">io_lib:chars()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>os_command_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-os_command_opts">os_command_opts()</marker> = #{max_size =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | infinity}</typehead></typedecl>
+</type>
+<spec>
+  <name>cmd</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cmd(Command) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>Command</typename><string>Command = <seetype marker="#os_command">os_command()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Command</anno>
+</spec>
+<spec>
+  <name>cmd</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cmd(Command, Options) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>Command</typename><string>Command = <seetype marker="#os_command">os_command()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#os_command_opts">os_command_opts()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Command</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>env</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>env() -&gt; [{<seetype marker="#env_var_name">env_var_name()</seetype>, <seetype marker="#env_var_value">env_var_value()</seetype>}]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>find_executable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>find_executable(Name) -&gt; Filename | false</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = Filename = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Filename</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>find_executable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>find_executable(Name, Path) -&gt; Filename | false</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = Path = Filename = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Path</typename><string></string></subtype>
+        <subtype><typename>Filename</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>Name</anno>
+  <anno>Path</anno>
+</spec>
+<spec>
+  <name>getenv</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getenv() -&gt; [<seetype marker="#env_var_name_value">env_var_name_value()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>getenv</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getenv(VarName) -&gt; Value | false</head>
+      <guard>
+        <subtype><typename>VarName</typename><string>VarName = <seetype marker="#env_var_name">env_var_name()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="#env_var_value">env_var_value()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Value</anno>
+  <anno>VarName</anno>
+</spec>
+<spec>
+  <name>getenv</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getenv(VarName, DefaultValue) -&gt; Value</head>
+      <guard>
+        <subtype><typename>VarName</typename><string>VarName = <seetype marker="#env_var_name">env_var_name()</seetype></string></subtype>
+        <subtype><typename>DefaultValue</typename><string>DefaultValue = Value = <seetype marker="#env_var_value">env_var_value()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DefaultValue</anno>
+  <anno>Value</anno>
+  <anno>VarName</anno>
+</spec>
+<spec>
+  <name>getpid</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getpid() -&gt; Value</head>
+      <guard>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>perf_counter</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>perf_counter() -&gt; Counter</head>
+      <guard>
+        <subtype><typename>Counter</typename><string>Counter = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Counter</anno>
+</spec>
+<spec>
+  <name>perf_counter</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>perf_counter(Unit) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>Unit</typename><string>Unit = <seetype marker="erlang#time_unit">erlang:time_unit()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Unit</anno>
+</spec>
+<spec>
+  <name>putenv</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>putenv(VarName, Value) -&gt; true</head>
+      <guard>
+        <subtype><typename>VarName</typename><string>VarName = <seetype marker="#env_var_name">env_var_name()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="#env_var_value">env_var_value()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Value</anno>
+  <anno>VarName</anno>
+</spec>
+<spec>
+  <name>set_signal</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_signal(Signal, Option) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Signal</typename><string>Signal = <br/><nbsp/><nbsp/><nbsp/><nbsp/>sighup | sigquit | sigabrt | sigalrm | sigterm | sigusr1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sigusr2 | sigchld | sigstop | sigtstp</string></subtype>
+        <subtype><typename>Option</typename><string>Option = default | handle | ignore</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Signal</anno>
+</spec>
+<spec>
+  <name>system_time</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>system_time() -&gt; <seetype marker="erlang#integer">integer()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>system_time</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>system_time(Unit) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>Unit</typename><string>Unit = <seetype marker="erlang#time_unit">erlang:time_unit()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Unit</anno>
+</spec>
+<spec>
+  <name>timestamp</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>timestamp() -&gt; Timestamp</head>
+      <guard>
+        <subtype><typename>Timestamp</typename><string>Timestamp = <seetype marker="erlang#timestamp">erlang:timestamp()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Timestamp</anno>
+</spec>
+<spec>
+  <name>type</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>type() -&gt; {Osfamily, Osname}</head>
+      <guard>
+        <subtype><typename>Osfamily</typename><string>Osfamily = unix | win32</string></subtype>
+        <subtype><typename>Osname</typename><string>Osname = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Osfamily</anno>
+  <anno>Osname</anno>
+</spec>
+<spec>
+  <name>unsetenv</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unsetenv(VarName) -&gt; true</head>
+      <guard>
+        <subtype><typename>VarName</typename><string>VarName = <seetype marker="#env_var_name">env_var_name()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>VarName</anno>
+</spec>
+<spec>
+  <name>version</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>version() -&gt; VersionString | {Major, Minor, Release}</head>
+      <guard>
+        <subtype><typename>VersionString</typename><string>VersionString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Major</typename><string>Major = Minor = Release = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Minor</typename><string></string></subtype>
+        <subtype><typename>Release</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Major</anno>
+  <anno>Minor</anno>
+  <anno>Release</anno>
+  <anno>VersionString</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:51.</timestamp>
+</module>

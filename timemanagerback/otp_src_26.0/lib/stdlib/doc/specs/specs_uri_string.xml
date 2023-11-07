@@ -1,0 +1,257 @@
+<module name="uri_string">
+<type>
+  <name>error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error">error()</marker> = {error, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>uri_map</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-uri_map">uri_map()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{fragment =&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>host =&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>path =&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>port =&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | undefined,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>query =&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>scheme =&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>userinfo =&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>uri_string</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-uri_string">uri_string()</marker> = <seetype marker="erlang#iodata">iodata()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>allowed_characters</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>allowed_characters() -&gt; [{<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#list">list()</seetype>}]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>compose_query</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>compose_query(QueryList) -&gt; QueryString</head>
+      <guard>
+        <subtype><typename>QueryList</typename><string>QueryList = [{<seetype marker="unicode#chardata">unicode:chardata()</seetype>, <seetype marker="unicode#chardata">unicode:chardata()</seetype> | true}]</string></subtype>
+        <subtype><typename>QueryString</typename><string>QueryString = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>QueryList</anno>
+  <anno>QueryString</anno>
+</spec>
+<spec>
+  <name>compose_query</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>compose_query(QueryList, Options) -&gt; QueryString</head>
+      <guard>
+        <subtype><typename>QueryList</typename><string>QueryList = [{<seetype marker="unicode#chardata">unicode:chardata()</seetype>, <seetype marker="unicode#chardata">unicode:chardata()</seetype> | true}]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [{encoding, <seetype marker="erlang#atom">atom()</seetype>}]</string></subtype>
+        <subtype><typename>QueryString</typename><string>QueryString = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>QueryList</anno>
+  <anno>QueryString</anno>
+</spec>
+<spec>
+  <name>dissect_query</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>dissect_query(QueryString) -&gt; QueryList</head>
+      <guard>
+        <subtype><typename>QueryString</typename><string>QueryString = <seetype marker="#uri_string">uri_string()</seetype></string></subtype>
+        <subtype><typename>QueryList</typename><string>QueryList = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="unicode#chardata">unicode:chardata()</seetype>, <seetype marker="unicode#chardata">unicode:chardata()</seetype> | true}] | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>QueryList</anno>
+  <anno>QueryString</anno>
+</spec>
+<spec>
+  <name>is_host</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_host(Char :: <seetype marker="erlang#char">char()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Char</anno>
+</spec>
+<spec>
+  <name>is_path</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_path(Char :: <seetype marker="erlang#char">char()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Char</anno>
+</spec>
+<spec>
+  <name>normalize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>normalize(URI) -&gt; NormalizedURI</head>
+      <guard>
+        <subtype><typename>URI</typename><string>URI = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#uri_map">uri_map()</seetype></string></subtype>
+        <subtype><typename>NormalizedURI</typename><string>NormalizedURI = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>NormalizedURI</anno>
+  <anno>URI</anno>
+</spec>
+<spec>
+  <name>normalize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>normalize(URI, Options) -&gt; NormalizedURI</head>
+      <guard>
+        <subtype><typename>URI</typename><string>URI = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#uri_map">uri_map()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [return_map]</string></subtype>
+        <subtype><typename>NormalizedURI</typename><string>NormalizedURI = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#uri_map">uri_map()</seetype> | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>NormalizedURI</anno>
+  <anno>Options</anno>
+  <anno>URI</anno>
+</spec>
+<spec>
+  <name>parse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>parse(URIString) -&gt; URIMap</head>
+      <guard>
+        <subtype><typename>URIString</typename><string>URIString = <seetype marker="#uri_string">uri_string()</seetype></string></subtype>
+        <subtype><typename>URIMap</typename><string>URIMap = <seetype marker="#uri_map">uri_map()</seetype> | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>URIMap</anno>
+  <anno>URIString</anno>
+</spec>
+<spec>
+  <name>percent_decode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>percent_decode(URI) -&gt; Result</head>
+      <guard>
+        <subtype><typename>URI</typename><string>URI = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#uri_map">uri_map()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#uri_string">uri_string()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#uri_map">uri_map()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {invalid, {<seetype marker="erlang#atom">atom()</seetype>, {<seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype>}}}}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Result</anno>
+  <anno>URI</anno>
+</spec>
+<spec>
+  <name>quote</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>quote(Data) -&gt; QuotedData</head>
+      <guard>
+        <subtype><typename>Data</typename><string>Data = QuotedData = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>QuotedData</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>QuotedData</anno>
+</spec>
+<spec>
+  <name>quote</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>quote(Data, Safe) -&gt; QuotedData</head>
+      <guard>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Safe</typename><string>Safe = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>QuotedData</typename><string>QuotedData = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>QuotedData</anno>
+  <anno>Safe</anno>
+</spec>
+<spec>
+  <name>recompose</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>recompose(URIMap) -&gt; URIString</head>
+      <guard>
+        <subtype><typename>URIMap</typename><string>URIMap = <seetype marker="#uri_map">uri_map()</seetype></string></subtype>
+        <subtype><typename>URIString</typename><string>URIString = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>URIMap</anno>
+  <anno>URIString</anno>
+</spec>
+<spec>
+  <name>resolve</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>resolve(RefURI, BaseURI) -&gt; TargetURI</head>
+      <guard>
+        <subtype><typename>RefURI</typename><string>RefURI = BaseURI = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#uri_map">uri_map()</seetype></string></subtype>
+        <subtype><typename>BaseURI</typename><string/></subtype>
+        <subtype><typename>TargetURI</typename><string>TargetURI = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BaseURI</anno>
+  <anno>RefURI</anno>
+  <anno>TargetURI</anno>
+</spec>
+<spec>
+  <name>resolve</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>resolve(RefURI, BaseURI, Options) -&gt; TargetURI</head>
+      <guard>
+        <subtype><typename>RefURI</typename><string>RefURI = BaseURI = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#uri_map">uri_map()</seetype></string></subtype>
+        <subtype><typename>BaseURI</typename><string/></subtype>
+        <subtype><typename>Options</typename><string>Options = [return_map]</string></subtype>
+        <subtype><typename>TargetURI</typename><string>TargetURI = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#uri_map">uri_map()</seetype> | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BaseURI</anno>
+  <anno>Options</anno>
+  <anno>RefURI</anno>
+  <anno>TargetURI</anno>
+</spec>
+<spec>
+  <name>transcode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>transcode(URIString, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>URIString</typename><string>URIString = <seetype marker="#uri_string">uri_string()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{in_encoding, <seetype marker="unicode#encoding">unicode:encoding()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{out_encoding, <seetype marker="unicode#encoding">unicode:encoding()</seetype>}]</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#uri_string">uri_string()</seetype> | <seetype marker="#error">error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Result</anno>
+  <anno>URIString</anno>
+</spec>
+<spec>
+  <name>unquote</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>unquote(QuotedData) -&gt; Data</head>
+      <guard>
+        <subtype><typename>QuotedData</typename><string>QuotedData = Data = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>QuotedData</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:28.</timestamp>
+</module>

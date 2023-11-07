@@ -1,0 +1,1633 @@
+<module name="ssl">
+<type>
+  <name>active_msgs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-active_msgs">active_msgs()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl, <seetype marker="#sslsocket">sslsocket()</seetype>, Data :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#list">list()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl_closed, <seetype marker="#sslsocket">sslsocket()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl_error, <seetype marker="#sslsocket">sslsocket()</seetype>, Reason :: <seetype marker="erlang#any">any()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl_passive, <seetype marker="#sslsocket">sslsocket()</seetype>}</typehead></typedecl>
+  <anno>Data</anno>
+  <anno>Reason</anno>
+</type>
+<type>
+  <name>algo_filter</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-algo_filter">algo_filter()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="#kex_algo">kex_algo()</seetype> | <seetype marker="#cipher">cipher()</seetype> | <seetype marker="#hash">hash()</seetype> | aead | default_prf) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>true | false)</typehead></typedecl>
+</type>
+<type>
+  <name>allowed_cert_chain_length</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-allowed_cert_chain_length">allowed_cert_chain_length()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>anti_replay</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-anti_replay">anti_replay()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>'10k' | '100k' |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#bloom_filter_window_size">bloom_filter_window_size()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#bloom_filter_hash_functions">bloom_filter_hash_functions()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#bloom_filter_bits">bloom_filter_bits()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>app_level_protocol</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-app_level_protocol">app_level_protocol()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>beast_mitigation</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-beast_mitigation">beast_mitigation()</marker> = one_n_minus_one | zero_n | disabled</typehead></typedecl>
+</type>
+<type>
+  <name>bloom_filter_bits</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-bloom_filter_bits">bloom_filter_bits()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>bloom_filter_hash_functions</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-bloom_filter_hash_functions">bloom_filter_hash_functions()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>bloom_filter_window_size</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-bloom_filter_window_size">bloom_filter_window_size()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>cert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cert">cert()</marker> = <seetype marker="public_key#der_encoded">public_key:der_encoded()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>cert_key_conf</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cert_key_conf">cert_key_conf()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{cert =&gt; <seetype marker="#cert">cert()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>key =&gt; <seetype marker="#key">key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>certfile =&gt; <seetype marker="#cert_pem">cert_pem()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>keyfile =&gt; <seetype marker="#key_pem">key_pem()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>password =&gt; <seetype marker="#key_pem_password">key_pem_password()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>cert_pem</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cert_pem">cert_pem()</marker> = <seetype marker="file#filename">file:filename()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>certs_keys</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-certs_keys">certs_keys()</marker> = [<seetype marker="#cert_key_conf">cert_key_conf()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>cipher</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher">cipher()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_128_cbc | aes_256_cbc | aes_128_gcm | aes_256_gcm |<br/><nbsp/><nbsp/><nbsp/><nbsp/>aes_128_ccm | aes_256_ccm | aes_128_ccm_8 | aes_256_ccm_8 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>chacha20_poly1305 |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#legacy_cipher">legacy_cipher()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>cipher_filters</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher_filters">cipher_filters()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{key_exchange | cipher | mac | prf, <seetype marker="#algo_filter">algo_filter()</seetype>}]</typehead></typedecl>
+</type>
+<type>
+  <name>cipher_suites</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cipher_suites">cipher_suites()</marker> = <seetype marker="#ciphers">ciphers()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ciphers</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ciphers">ciphers()</marker> = [<seetype marker="#erl_cipher_suite">erl_cipher_suite()</seetype>] | <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>client_alpn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_alpn">client_alpn()</marker> = [<seetype marker="#app_level_protocol">app_level_protocol()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>client_cacerts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_cacerts">client_cacerts()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="public_key#der_encoded">public_key:der_encoded()</seetype>] | [<seetype marker="public_key#combined_cert">public_key:combined_cert()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>client_cafile</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_cafile">client_cafile()</marker> = <seetype marker="file#filename">file:filename()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>client_certificate_authorities</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_certificate_authorities">client_certificate_authorities()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>client_early_data</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_early_data">client_early_data()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>client_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_option">client_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{verify, <seetype marker="#client_verify_type">client_verify_type()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reuse_session, <seetype marker="#client_reuse_session">client_reuse_session()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reuse_sessions, <seetype marker="#client_reuse_sessions">client_reuse_sessions()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cacerts, <seetype marker="#client_cacerts">client_cacerts()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cacertfile, <seetype marker="#client_cafile">client_cafile()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{alpn_advertised_protocols, <seetype marker="#client_alpn">client_alpn()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{client_preferred_next_protocols,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#client_preferred_next_protocols">client_preferred_next_protocols()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{psk_identity, <seetype marker="#client_psk_identity">client_psk_identity()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{srp_identity, <seetype marker="#client_srp_identity">client_srp_identity()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_name_indication, <seetype marker="#sni">sni()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_fragment_length, <seetype marker="#max_fragment_length">max_fragment_length()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{customize_hostname_check, <seetype marker="#customize_hostname_check">customize_hostname_check()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{fallback, <seetype marker="#fallback">fallback()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{middlebox_comp_mode, <seetype marker="#middlebox_comp_mode">middlebox_comp_mode()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{certificate_authorities, <seetype marker="#client_certificate_authorities">client_certificate_authorities()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{session_tickets, <seetype marker="#client_session_tickets">client_session_tickets()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{use_ticket, <seetype marker="#use_ticket">use_ticket()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{early_data, <seetype marker="#client_early_data">client_early_data()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{use_srtp, <seetype marker="#use_srtp">use_srtp()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>client_preferred_next_protocols</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_preferred_next_protocols">client_preferred_next_protocols()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Precedence :: server | client,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ClientPrefs :: [<seetype marker="#app_level_protocol">app_level_protocol()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{Precedence :: server | client,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ClientPrefs :: [<seetype marker="#app_level_protocol">app_level_protocol()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Default :: <seetype marker="#app_level_protocol">app_level_protocol()</seetype>}</typehead></typedecl>
+  <anno>ClientPrefs</anno>
+  <anno>Default</anno>
+  <anno>Precedence</anno>
+</type>
+<type>
+  <name>client_psk_identity</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_psk_identity">client_psk_identity()</marker> = <seetype marker="#psk_identity">psk_identity()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>client_renegotiation</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_renegotiation">client_renegotiation()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>client_reuse_session</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_reuse_session">client_reuse_session()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#session_id">session_id()</seetype> | {<seetype marker="#session_id">session_id()</seetype>, SessionData :: <seetype marker="erlang#binary">binary()</seetype>}</typehead></typedecl>
+  <anno>SessionData</anno>
+</type>
+<type>
+  <name>client_reuse_sessions</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_reuse_sessions">client_reuse_sessions()</marker> = <seetype marker="erlang#boolean">boolean()</seetype> | save</typehead></typedecl>
+</type>
+<type>
+  <name>client_session_tickets</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_session_tickets">client_session_tickets()</marker> = disabled | manual | auto</typehead></typedecl>
+</type>
+<type>
+  <name>client_srp_identity</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_srp_identity">client_srp_identity()</marker> = <seetype marker="#srp_identity">srp_identity()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>client_verify_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-client_verify_type">client_verify_type()</marker> = <seetype marker="#verify_type">verify_type()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>common_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-common_info">common_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{protocol, <seetype marker="#protocol_version">protocol_version()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{session_id, <seetype marker="#session_id">session_id()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{session_resumption, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{selected_cipher_suite, <seetype marker="#erl_cipher_suite">erl_cipher_suite()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sni_hostname, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{srp_username, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>common_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-common_option">common_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{protocol, <seetype marker="#protocol">protocol()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{handshake, <seetype marker="#handshake_completion">handshake_completion()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cert, <seetype marker="#cert">cert()</seetype> | [<seetype marker="#cert">cert()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{certfile, <seetype marker="#cert_pem">cert_pem()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{key, <seetype marker="#key">key()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keyfile, <seetype marker="#key_pem">key_pem()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{password, <seetype marker="#key_pem_password">key_pem_password()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{certs_keys, <seetype marker="#certs_keys">certs_keys()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ciphers, <seetype marker="#cipher_suites">cipher_suites()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eccs, [<seetype marker="#named_curve">named_curve()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{signature_algs, <seetype marker="#signature_algs">signature_algs()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{signature_algs_cert, <seetype marker="#sign_schemes">sign_schemes()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{supported_groups, <seetype marker="#supported_groups">supported_groups()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{secure_renegotiate, <seetype marker="#secure_renegotiation">secure_renegotiation()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_secrets, <seetype marker="#keep_secrets">keep_secrets()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{depth, <seetype marker="#allowed_cert_chain_length">allowed_cert_chain_length()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verify_fun, <seetype marker="#custom_verify">custom_verify()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{crl_check, <seetype marker="#crl_check">crl_check()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{crl_cache, <seetype marker="#crl_cache_opts">crl_cache_opts()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_handshake_size, <seetype marker="#handshake_size">handshake_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{partial_chain, <seetype marker="#root_fun">root_fun()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{versions, <seetype marker="#protocol_versions">protocol_versions()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{user_lookup_fun, <seetype marker="#custom_user_lookup">custom_user_lookup()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_level, <seetype marker="#logging_level">logging_level()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{log_alert, <seetype marker="#log_alert">log_alert()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{hibernate_after, <seetype marker="#hibernate_after">hibernate_after()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{padding_check, <seetype marker="#padding_check">padding_check()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{beast_mitigation, <seetype marker="#beast_mitigation">beast_mitigation()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl_imp, <seetype marker="#ssl_imp">ssl_imp()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{session_tickets, <seetype marker="#session_tickets">session_tickets()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{key_update_at, <seetype marker="#key_update_at">key_update_at()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{receiver_spawn_opts, <seetype marker="#spawn_opts">spawn_opts()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sender_spawn_opts, <seetype marker="#spawn_opts">spawn_opts()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>connection_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-connection_info">connection_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#common_info">common_info()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#curve_info">curve_info()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ssl_options_info">ssl_options_info()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#security_info">security_info()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>connection_info_item</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-connection_info_item">connection_info_item()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>protocol | session_id | session_resumption |<br/><nbsp/><nbsp/><nbsp/><nbsp/>selected_cipher_suite | sni_hostname | srp_username | ecc |<br/><nbsp/><nbsp/><nbsp/><nbsp/>client_random | server_random | master_secret | keylog |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#tls_options_name">tls_options_name()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>connection_info_items</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-connection_info_items">connection_info_items()</marker> = [<seetype marker="#connection_info_item">connection_info_item()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>cookie</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cookie">cookie()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>crl_cache_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crl_cache_opts">crl_cache_opts()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Module :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{DbHandle :: internal | <seetype marker="erlang#term">term()</seetype>, Args :: <seetype marker="erlang#list">list()</seetype>}}</typehead></typedecl>
+  <anno>Args</anno>
+  <anno>DbHandle</anno>
+  <anno>Module</anno>
+</type>
+<type>
+  <name>crl_check</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-crl_check">crl_check()</marker> = <seetype marker="erlang#boolean">boolean()</seetype> | peer | best_effort</typehead></typedecl>
+</type>
+<type>
+  <name>curve_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-curve_info">curve_info()</marker> = {ecc, {named_curve, <seetype marker="erlang#term">term()</seetype>}}</typehead></typedecl>
+</type>
+<type>
+  <name>custom_user_lookup</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-custom_user_lookup">custom_user_lookup()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Lookupfun :: <seetype marker="erlang#function">function()</seetype>, UserState :: <seetype marker="erlang#any">any()</seetype>}</typehead></typedecl>
+  <anno>Lookupfun</anno>
+  <anno>UserState</anno>
+</type>
+<type>
+  <name>custom_verify</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-custom_verify">custom_verify()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Verifyfun :: <seetype marker="erlang#function">function()</seetype>, InitialUserState :: <seetype marker="erlang#any">any()</seetype>}</typehead></typedecl>
+  <anno>InitialUserState</anno>
+  <anno>Verifyfun</anno>
+</type>
+<type>
+  <name>customize_hostname_check</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-customize_hostname_check">customize_hostname_check()</marker> = <seetype marker="erlang#list">list()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dh_der</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dh_der">dh_der()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dh_file</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dh_file">dh_file()</marker> = <seetype marker="file#filename">file:filename()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>dtls_legacy_version</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dtls_legacy_version">dtls_legacy_version()</marker> = dtlsv1</typehead></typedecl>
+</type>
+<type>
+  <name>dtls_version</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-dtls_version">dtls_version()</marker> = 'dtlsv1.2' | <seetype marker="#dtls_legacy_version">dtls_legacy_version()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>erl_cipher_suite</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-erl_cipher_suite">erl_cipher_suite()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{key_exchange := <seetype marker="#kex_algo">kex_algo()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cipher := <seetype marker="#cipher">cipher()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>mac := <seetype marker="#hash">hash()</seetype> | aead,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>prf := <seetype marker="#hash">hash()</seetype> | default_prf}</typehead></typedecl>
+</type>
+<type>
+  <name>error_alert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error_alert">error_alert()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{tls_alert, {<seetype marker="#tls_alert">tls_alert()</seetype>, Description :: <seetype marker="erlang#string">string()</seetype>}}</typehead></typedecl>
+  <anno>Description</anno>
+</type>
+<type>
+  <name>fail_if_no_peer_cert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fail_if_no_peer_cert">fail_if_no_peer_cert()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>fallback</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-fallback">fallback()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>group</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-group">group()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>x25519 | x448 | secp256r1 | secp384r1 | secp521r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>ffdhe2048 | ffdhe3072 | ffdhe4096 | ffdhe6144 | ffdhe8192</typehead></typedecl>
+</type>
+<type>
+  <name>handshake_completion</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handshake_completion">handshake_completion()</marker> = hello | full</typehead></typedecl>
+</type>
+<type>
+  <name>handshake_size</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-handshake_size">handshake_size()</marker> = <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>hash</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hash">hash()</marker> = <seetype marker="#sha2">sha2()</seetype> | <seetype marker="#legacy_hash">legacy_hash()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>hibernate_after</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hibernate_after">hibernate_after()</marker> = <seetype marker="erlang#timeout">timeout()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>honor_cipher_order</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-honor_cipher_order">honor_cipher_order()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>honor_ecc_order</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-honor_ecc_order">honor_ecc_order()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>host</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-host">host()</marker> = <seetype marker="#hostname">hostname()</seetype> | <seetype marker="#ip_address">ip_address()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>hostname</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-hostname">hostname()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ip_address</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ip_address">ip_address()</marker> = <seetype marker="inet#ip_address">inet:ip_address()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>keep_secrets</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-keep_secrets">keep_secrets()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>kex_algo</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-kex_algo">kex_algo()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa | dhe_rsa | dhe_dss | ecdhe_ecdsa | ecdh_ecdsa |<br/><nbsp/><nbsp/><nbsp/><nbsp/>ecdh_rsa | srp_rsa | srp_dss | psk | dhe_psk | rsa_psk |<br/><nbsp/><nbsp/><nbsp/><nbsp/>dh_anon | ecdh_anon | srp_anon | any</typehead></typedecl>
+</type>
+<type>
+  <name>key</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key">key()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{'RSAPrivateKey' | 'DSAPrivateKey' | 'ECPrivateKey' |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>'PrivateKeyInfo',<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="public_key#der_encoded">public_key:der_encoded()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#{algorithm := rsa | dss | ecdsa,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>engine := <seetype marker="crypto#engine_ref">crypto:engine_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>key_id := <seetype marker="crypto#key_id">crypto:key_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>password =&gt; <seetype marker="crypto#password">crypto:password()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>key_pem</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_pem">key_pem()</marker> = <seetype marker="file#filename">file:filename()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>key_pem_password</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_pem_password">key_pem_password()</marker> = <seetype marker="erlang#iodata">iodata()</seetype> | fun(() -&gt; <seetype marker="erlang#iodata">iodata()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>key_update_at</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_update_at">key_update_at()</marker> = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>legacy_cipher</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-legacy_cipher">legacy_cipher()</marker> = rc4_128 | des_cbc | '3des_ede_cbc'</typehead></typedecl>
+</type>
+<type>
+  <name>legacy_hash</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-legacy_hash">legacy_hash()</marker> = sha224 | sha | md5</typehead></typedecl>
+</type>
+<type>
+  <name>legacy_named_curve</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-legacy_named_curve">legacy_named_curve()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>sect239k1 | sect233k1 | sect233r1 | secp224k1 | secp224r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sect193r1 | sect193r2 | secp192k1 | secp192r1 | sect163k1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sect163r1 | sect163r2 | secp160k1 | secp160r1 | secp160r2</typehead></typedecl>
+</type>
+<type>
+  <name>log_alert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-log_alert">log_alert()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>logging_level</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-logging_level">logging_level()</marker> = <seetype marker="logger#level">logger:level()</seetype> | none | all</typehead></typedecl>
+</type>
+<type>
+  <name>max_fragment_length</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-max_fragment_length">max_fragment_length()</marker> = undefined | 512 | 1024 | 2048 | 4096</typehead></typedecl>
+</type>
+<type>
+  <name>middlebox_comp_mode</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-middlebox_comp_mode">middlebox_comp_mode()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>named_curve</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-named_curve">named_curve()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>sect571r1 | sect571k1 | secp521r1 | brainpoolP512r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sect409k1 | sect409r1 | brainpoolP384r1 | secp384r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sect283k1 | sect283r1 | brainpoolP256r1 | secp256k1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>secp256r1 |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#legacy_named_curve">legacy_named_curve()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>old_cipher_suite</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-old_cipher_suite">old_cipher_suite()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#kex_algo">kex_algo()</seetype>, <seetype marker="#cipher">cipher()</seetype>, <seetype marker="#hash">hash()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#kex_algo">kex_algo()</seetype>, <seetype marker="#cipher">cipher()</seetype>, <seetype marker="#hash">hash()</seetype> | aead, <seetype marker="#hash">hash()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>padding_check</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-padding_check">padding_check()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>prf_random</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-prf_random">prf_random()</marker> = client_random | server_random</typehead></typedecl>
+</type>
+<type>
+  <name>protocol</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-protocol">protocol()</marker> = tls | dtls</typehead></typedecl>
+</type>
+<type>
+  <name>protocol_extensions</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-protocol_extensions">protocol_extensions()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{renegotiation_info =&gt; <seetype marker="erlang#binary">binary()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>signature_algs =&gt; <seetype marker="#signature_algs">signature_algs()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>alpn =&gt; <seetype marker="#app_level_protocol">app_level_protocol()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>srp =&gt; <seetype marker="erlang#binary">binary()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>next_protocol =&gt; <seetype marker="#app_level_protocol">app_level_protocol()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>max_frag_enum =&gt; 1..4,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ec_point_formats =&gt; [0..2],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>elliptic_curves =&gt; [<seetype marker="public_key#oid">public_key:oid()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>sni =&gt; <seetype marker="#hostname">hostname()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>protocol_version</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-protocol_version">protocol_version()</marker> = <seetype marker="#tls_version">tls_version()</seetype> | <seetype marker="#dtls_version">dtls_version()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>protocol_versions</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-protocol_versions">protocol_versions()</marker> = [<seetype marker="#protocol_version">protocol_version()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>psk_identity</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-psk_identity">psk_identity()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>reason</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-reason">reason()</marker> = <seetype marker="erlang#any">any()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>root_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-root_fun">root_fun()</marker> = <seetype marker="erlang#function">function()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>rsassa_pss_scheme</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rsassa_pss_scheme">rsassa_pss_scheme()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa_pss_rsae_sha256 | rsa_pss_rsae_sha384 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa_pss_rsae_sha512 | rsa_pss_pss_sha256 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa_pss_pss_sha384 | rsa_pss_pss_sha512</typehead></typedecl>
+</type>
+<type>
+  <name>secure_renegotiation</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-secure_renegotiation">secure_renegotiation()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>security_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-security_info">security_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{client_random, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{server_random, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{master_secret, <seetype marker="erlang#binary">binary()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>server_alpn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_alpn">server_alpn()</marker> = [<seetype marker="#app_level_protocol">app_level_protocol()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>server_cacerts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_cacerts">server_cacerts()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="public_key#der_encoded">public_key:der_encoded()</seetype>] | [<seetype marker="public_key#combined_cert">public_key:combined_cert()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>server_cafile</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_cafile">server_cafile()</marker> = <seetype marker="file#filename">file:filename()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>server_certificate_authorities</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_certificate_authorities">server_certificate_authorities()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>server_early_data</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_early_data">server_early_data()</marker> = disabled | enabled</typehead></typedecl>
+</type>
+<type>
+  <name>server_next_protocol</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_next_protocol">server_next_protocol()</marker> = [<seetype marker="#app_level_protocol">app_level_protocol()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>server_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_option">server_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cacerts, <seetype marker="#server_cacerts">server_cacerts()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cacertfile, <seetype marker="#server_cafile">server_cafile()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{dh, <seetype marker="#dh_der">dh_der()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{dhfile, <seetype marker="#dh_file">dh_file()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verify, <seetype marker="#server_verify_type">server_verify_type()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{fail_if_no_peer_cert, <seetype marker="#fail_if_no_peer_cert">fail_if_no_peer_cert()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{certificate_authorities, <seetype marker="#server_certificate_authorities">server_certificate_authorities()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reuse_sessions, <seetype marker="#server_reuse_sessions">server_reuse_sessions()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reuse_session, <seetype marker="#server_reuse_session">server_reuse_session()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{alpn_preferred_protocols, <seetype marker="#server_alpn">server_alpn()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{next_protocols_advertised, <seetype marker="#server_next_protocol">server_next_protocol()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{psk_identity, <seetype marker="#server_psk_identity">server_psk_identity()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sni_hosts, <seetype marker="#sni_hosts">sni_hosts()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sni_fun, <seetype marker="#sni_fun">sni_fun()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{honor_cipher_order, <seetype marker="#honor_cipher_order">honor_cipher_order()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{honor_ecc_order, <seetype marker="#honor_ecc_order">honor_ecc_order()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{client_renegotiation, <seetype marker="#client_renegotiation">client_renegotiation()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{session_tickets, <seetype marker="#server_session_tickets">server_session_tickets()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{stateless_tickets_seed, <seetype marker="#stateless_tickets_seed">stateless_tickets_seed()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{anti_replay, <seetype marker="#anti_replay">anti_replay()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cookie, <seetype marker="#cookie">cookie()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{early_data, <seetype marker="#server_early_data">server_early_data()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{use_srtp, <seetype marker="#use_srtp">use_srtp()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>server_psk_identity</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_psk_identity">server_psk_identity()</marker> = <seetype marker="#psk_identity">psk_identity()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>server_reuse_session</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_reuse_session">server_reuse_session()</marker> = <seetype marker="erlang#function">function()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>server_reuse_sessions</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_reuse_sessions">server_reuse_sessions()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>server_session_tickets</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_session_tickets">server_session_tickets()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>disabled | stateful | stateless | stateful_with_cert |<br/><nbsp/><nbsp/><nbsp/><nbsp/>stateless_with_cert</typehead></typedecl>
+</type>
+<type>
+  <name>server_verify_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_verify_type">server_verify_type()</marker> = <seetype marker="#verify_type">verify_type()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>session_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-session_id">session_id()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>session_tickets</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-session_tickets">session_tickets()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#client_session_tickets">client_session_tickets()</seetype> | <seetype marker="#server_session_tickets">server_session_tickets()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>sha2</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sha2">sha2()</marker> = sha256 | sha384 | sha512</typehead></typedecl>
+</type>
+<type>
+  <name>sign_algo</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sign_algo">sign_algo()</marker> = rsa | dsa | ecdsa | eddsa</typehead></typedecl>
+</type>
+<type>
+  <name>sign_scheme</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sign_scheme">sign_scheme()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>eddsa_ed25519 | eddsa_ed448 | ecdsa_secp256r1_sha256 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>ecdsa_secp384r1_sha384 | ecdsa_secp521r1_sha512 |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#rsassa_pss_scheme">rsassa_pss_scheme()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#sign_scheme_legacy">sign_scheme_legacy()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>sign_scheme_legacy</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sign_scheme_legacy">sign_scheme_legacy()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa_pkcs1_sha256 | rsa_pkcs1_sha384 | rsa_pkcs1_sha512 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>rsa_pkcs1_sha1 | ecdsa_sha1</typehead></typedecl>
+</type>
+<type>
+  <name>sign_schemes</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sign_schemes">sign_schemes()</marker> = [<seetype marker="#sign_scheme">sign_scheme()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>signature_algs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-signature_algs">signature_algs()</marker> = [{<seetype marker="#hash">hash()</seetype>, <seetype marker="#sign_algo">sign_algo()</seetype>} | <seetype marker="#sign_scheme">sign_scheme()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>sni</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sni">sni()</marker> = <seetype marker="#hostname">hostname()</seetype> | disable</typehead></typedecl>
+</type>
+<type>
+  <name>sni_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sni_fun">sni_fun()</marker> = fun((<seetype marker="erlang#string">string()</seetype>) -&gt; [] | undefined)</typehead></typedecl>
+</type>
+<type>
+  <name>sni_hosts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sni_hosts">sni_hosts()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="#hostname">hostname()</seetype>, [<seetype marker="#server_option">server_option()</seetype> | <seetype marker="#common_option">common_option()</seetype>]}]</typehead></typedecl>
+</type>
+<type>
+  <name>socket</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-socket">socket()</marker> = <seetype marker="gen_tcp#socket">gen_tcp:socket()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>socket_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-socket_option">socket_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="gen_tcp#connect_option">gen_tcp:connect_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="gen_tcp#listen_option">gen_tcp:listen_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="gen_udp#option">gen_udp:option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>spawn_opts</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-spawn_opts">spawn_opts()</marker> = [<seetype marker="erlang#spawn_opt_option">erlang:spawn_opt_option()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>srp_identity</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_identity">srp_identity()</marker> = {Username :: <seetype marker="erlang#string">string()</seetype>, Password :: <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+  <anno>Password</anno>
+  <anno>Username</anno>
+</type>
+<type>
+  <name>srp_param_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-srp_param_type">srp_param_type()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>srp_1024 | srp_1536 | srp_2048 | srp_3072 | srp_4096 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>srp_6144 | srp_8192</typehead></typedecl>
+</type>
+<type>
+  <name>ssl_imp</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ssl_imp">ssl_imp()</marker> = new | old</typehead></typedecl>
+</type>
+<type>
+  <name>ssl_options_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ssl_options_info">ssl_options_info()</marker> = <seetype marker="#tls_option">tls_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>sslsocket</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sslsocket">sslsocket()</marker> = <seetype marker="erlang#any">any()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>stateless_tickets_seed</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-stateless_tickets_seed">stateless_tickets_seed()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>supported_groups</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-supported_groups">supported_groups()</marker> = [<seetype marker="#group">group()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>tls_alert</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tls_alert">tls_alert()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>close_notify | unexpected_message | bad_record_mac |<br/><nbsp/><nbsp/><nbsp/><nbsp/>record_overflow | handshake_failure | bad_certificate |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unsupported_certificate | certificate_revoked |<br/><nbsp/><nbsp/><nbsp/><nbsp/>certificate_expired | certificate_unknown |<br/><nbsp/><nbsp/><nbsp/><nbsp/>illegal_parameter | unknown_ca | access_denied |<br/><nbsp/><nbsp/><nbsp/><nbsp/>decode_error | decrypt_error | export_restriction |<br/><nbsp/><nbsp/><nbsp/><nbsp/>protocol_version | insufficient_security | internal_error |<br/><nbsp/><nbsp/><nbsp/><nbsp/>inappropriate_fallback | user_canceled | no_renegotiation |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unsupported_extension | certificate_unobtainable |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unrecognized_name | bad_certificate_status_response |<br/><nbsp/><nbsp/><nbsp/><nbsp/>bad_certificate_hash_value | unknown_psk_identity |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_application_protocol</typehead></typedecl>
+</type>
+<type>
+  <name>tls_client_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tls_client_option">tls_client_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#client_option">client_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#common_option">common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#socket_option">socket_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#transport_option">transport_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>tls_legacy_version</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tls_legacy_version">tls_legacy_version()</marker> = tlsv1 | 'tlsv1.1'</typehead></typedecl>
+</type>
+<type>
+  <name>tls_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tls_option">tls_option()</marker> = <seetype marker="#tls_client_option">tls_client_option()</seetype> | <seetype marker="#tls_server_option">tls_server_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>tls_options_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tls_options_name">tls_options_name()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>tls_server_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tls_server_option">tls_server_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#server_option">server_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#common_option">common_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#socket_option">socket_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#transport_option">transport_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>tls_version</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tls_version">tls_version()</marker> = 'tlsv1.2' | 'tlsv1.3' | <seetype marker="#tls_legacy_version">tls_legacy_version()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>transport_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-transport_option">transport_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cb_info,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{CallbackModule :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>DataTag :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ClosedTag :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ErrTag :: <seetype marker="erlang#atom">atom()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cb_info,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{CallbackModule :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>DataTag :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ClosedTag :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ErrTag :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PassiveTag :: <seetype marker="erlang#atom">atom()</seetype>}}</typehead></typedecl>
+  <anno>CallbackModule</anno>
+  <anno>ClosedTag</anno>
+  <anno>DataTag</anno>
+  <anno>ErrTag</anno>
+  <anno>PassiveTag</anno>
+</type>
+<type>
+  <name>use_srtp</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-use_srtp">use_srtp()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{protection_profiles := [<seetype marker="erlang#binary">binary()</seetype>], mki =&gt; <seetype marker="erlang#binary">binary()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>use_ticket</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-use_ticket">use_ticket()</marker> = [<seetype marker="erlang#binary">binary()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>verify_type</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-verify_type">verify_type()</marker> = verify_none | verify_peer</typehead></typedecl>
+</type>
+<spec>
+  <name>append_cipher_suites</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>append_cipher_suites(Deferred, Suites) -&gt; <seetype marker="#ciphers">ciphers()</seetype></head>
+      <guard>
+        <subtype><typename>Deferred</typename><string>Deferred = <seetype marker="#ciphers">ciphers()</seetype> | <seetype marker="#cipher_filters">cipher_filters()</seetype></string></subtype>
+        <subtype><typename>Suites</typename><string>Suites = <seetype marker="#ciphers">ciphers()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Deferred</anno>
+  <anno>Suites</anno>
+</spec>
+<spec>
+  <name>cipher_suites</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cipher_suites(Description, Version) -&gt; <seetype marker="#ciphers">ciphers()</seetype></head>
+      <guard>
+        <subtype><typename>Description</typename><string>Description = <br/><nbsp/><nbsp/><nbsp/><nbsp/>default | all | exclusive | anonymous | exclusive_anonymous</string></subtype>
+        <subtype><typename>Version</typename><string>Version = <seetype marker="#protocol_version">protocol_version()</seetype> | <seetype marker="ssl_record#ssl_version">ssl_record:ssl_version()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Description</anno>
+  <anno>Version</anno>
+</spec>
+<spec>
+  <name>cipher_suites</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>cipher_suites(Description, Version, StringType :: rfc | openssl) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="erlang#string">string()</seetype>]</head>
+      <guard>
+        <subtype><typename>Description</typename><string>Description = default | all | exclusive | anonymous</string></subtype>
+        <subtype><typename>Version</typename><string>Version = <seetype marker="#protocol_version">protocol_version()</seetype> | <seetype marker="ssl_record#ssl_version">ssl_record:ssl_version()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Description</anno>
+  <anno>StringType</anno>
+  <anno>Version</anno>
+</spec>
+<spec>
+  <name>clear_pem_cache</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>clear_pem_cache() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(SslSocket) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>close(SslSocket, How) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {ok, <seetype marker="erlang#port">port()</seetype>} | {ok, <seetype marker="erlang#port">port()</seetype>, Data} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>How</typename><string>How = <seetype marker="erlang#timeout">timeout()</seetype> | {NewController :: <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#timeout">timeout()</seetype>}</string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>How</anno>
+  <anno>NewController</anno>
+  <anno>Reason</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>connect(TCPSocket, TLSOptions) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#sslsocket">sslsocket()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#reason">reason()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{option_not_a_key_value_tuple, <seetype marker="erlang#any">any()</seetype>}</head>
+      <guard>
+        <subtype><typename>TCPSocket</typename><string>TCPSocket = <seetype marker="#socket">socket()</seetype></string></subtype>
+        <subtype><typename>TLSOptions</typename><string>TLSOptions = [<seetype marker="#tls_client_option">tls_client_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>TCPSocket</anno>
+  <anno>TLSOptions</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>connect(TCPSocket, TLSOptions, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#sslsocket">sslsocket()</seetype>} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>TCPSocket</typename><string>TCPSocket = <seetype marker="#socket">socket()</seetype></string></subtype>
+        <subtype><typename>TLSOptions</typename><string>TLSOptions = [<seetype marker="#tls_client_option">tls_client_option()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>TCPSocket</anno>
+  <anno>TLSOptions</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>connect(Host, Port, TLSOptions) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#sslsocket">sslsocket()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#sslsocket">sslsocket()</seetype>, Ext :: <seetype marker="#protocol_extensions">protocol_extensions()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#reason">reason()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{option_not_a_key_value_tuple, <seetype marker="erlang#any">any()</seetype>}</head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>TLSOptions</typename><string>TLSOptions = [<seetype marker="#tls_client_option">tls_client_option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ext</anno>
+  <anno>Host</anno>
+  <anno>Port</anno>
+  <anno>TLSOptions</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>connect(Host, Port, TLSOptions, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#sslsocket">sslsocket()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#sslsocket">sslsocket()</seetype>, Ext :: <seetype marker="#protocol_extensions">protocol_extensions()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="#reason">reason()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{option_not_a_key_value_tuple, <seetype marker="erlang#any">any()</seetype>}</head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="#host">host()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>TLSOptions</typename><string>TLSOptions = [<seetype marker="#tls_client_option">tls_client_option()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ext</anno>
+  <anno>Host</anno>
+  <anno>Port</anno>
+  <anno>TLSOptions</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>connection_information</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>connection_information(SslSocket) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Result} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#connection_info">connection_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Result</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>connection_information</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>connection_information(SslSocket, Items) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Result} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Items</typename><string>Items = <seetype marker="#connection_info_items">connection_info_items()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#connection_info">connection_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Items</anno>
+  <anno>Result</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>controlling_process</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>controlling_process(SslSocket, NewOwner) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>NewOwner</typename><string>NewOwner = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>NewOwner</anno>
+  <anno>Reason</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>eccs</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>eccs() -&gt; NamedCurves</head>
+      <guard>
+        <subtype><typename>NamedCurves</typename><string>NamedCurves = [<seetype marker="#named_curve">named_curve()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>NamedCurves</anno>
+</spec>
+<spec>
+  <name>eccs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>eccs(Version) -&gt; NamedCurves</head>
+      <guard>
+        <subtype><typename>Version</typename><string>Version = <seetype marker="#protocol_version">protocol_version()</seetype></string></subtype>
+        <subtype><typename>NamedCurves</typename><string>NamedCurves = [<seetype marker="#named_curve">named_curve()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>NamedCurves</anno>
+  <anno>Version</anno>
+</spec>
+<spec>
+  <name>filter_cipher_suites</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>filter_cipher_suites(Suites, Filters) -&gt; Ciphers</head>
+      <guard>
+        <subtype><typename>Suites</typename><string>Suites = <seetype marker="#ciphers">ciphers()</seetype></string></subtype>
+        <subtype><typename>Filters</typename><string>Filters = <seetype marker="#cipher_filters">cipher_filters()</seetype></string></subtype>
+        <subtype><typename>Ciphers</typename><string>Ciphers = <seetype marker="#ciphers">ciphers()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ciphers</anno>
+  <anno>Filters</anno>
+  <anno>Suites</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(Reason :: Reason | {error, Reason}) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>getopts</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getopts(SslSocket, OptionNames) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, [<seetype marker="gen_tcp#option">gen_tcp:option()</seetype>]} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>OptionNames</typename><string>OptionNames = [<seetype marker="gen_tcp#option_name">gen_tcp:option_name()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionNames</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>getstat</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getstat(SslSocket) -&gt; {ok, OptionValues} | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>OptionValues</typename><string>OptionValues = [{<seetype marker="inet#stat_option">inet:stat_option()</seetype>, <seetype marker="erlang#integer">integer()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionValues</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>getstat</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getstat(SslSocket, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, OptionValues} | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="inet#stat_option">inet:stat_option()</seetype>]</string></subtype>
+        <subtype><typename>OptionValues</typename><string>OptionValues = [{<seetype marker="inet#stat_option">inet:stat_option()</seetype>, <seetype marker="erlang#integer">integer()</seetype>}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionValues</anno>
+  <anno>Options</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>groups</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>groups() -&gt; [<seetype marker="#group">group()</seetype>]</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>groups</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>groups(X1 :: default) -&gt; [<seetype marker="#group">group()</seetype>]</head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>handle_options</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handle_options(Opts :: [<seetype marker="erlang#any">any()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Role :: client | server,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Host :: undefined | <seetype marker="#host">host()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, #config{}}</head></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Opts</anno>
+  <anno>Role</anno>
+</spec>
+<spec>
+  <name>handle_trace</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handshake</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>handshake(HsSocket) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket, Ext} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>HsSocket</typename><string>HsSocket = SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>SslSocket</typename><string/></subtype>
+        <subtype><typename>Ext</typename><string>Ext = <seetype marker="#protocol_extensions">protocol_extensions()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = closed | timeout | <seetype marker="#error_alert">error_alert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ext</anno>
+  <anno>HsSocket</anno>
+  <anno>Reason</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>handshake</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handshake(HsSocket, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket, Ext} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>HsSocket</typename><string>HsSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Ext</typename><string>Ext = <seetype marker="#protocol_extensions">protocol_extensions()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = closed | timeout | <seetype marker="#error_alert">error_alert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ext</anno>
+  <anno>HsSocket</anno>
+  <anno>Reason</anno>
+  <anno>SslSocket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>handshake</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handshake(Socket, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket, Ext} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#socket">socket()</seetype> | <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#server_option">server_option()</seetype>]</string></subtype>
+        <subtype><typename>Ext</typename><string>Ext = <seetype marker="#protocol_extensions">protocol_extensions()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = closed | timeout | <seetype marker="#error_alert">error_alert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ext</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>handshake</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handshake(Socket, Options, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket, Ext} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#socket">socket()</seetype> | <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#server_option">server_option()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Ext</typename><string>Ext = <seetype marker="#protocol_extensions">protocol_extensions()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = closed | timeout | {options, <seetype marker="erlang#any">any()</seetype>} | <seetype marker="#error_alert">error_alert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Ext</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+  <anno>SslSocket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>handshake_cancel</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>handshake_cancel(Sslsocket :: #sslsocket{}) -&gt; <seetype marker="erlang#any">any()</seetype></head></clause>
+  </contract>
+  <anno>Sslsocket</anno>
+</spec>
+<spec>
+  <name>handshake_continue</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handshake_continue(HsSocket, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>HsSocket</typename><string>HsSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#tls_client_option">tls_client_option()</seetype> | <seetype marker="#tls_server_option">tls_server_option()</seetype>]</string></subtype>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = closed | timeout | <seetype marker="#error_alert">error_alert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HsSocket</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>handshake_continue</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handshake_continue(HsSocket, Options, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>HsSocket</typename><string>HsSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#tls_client_option">tls_client_option()</seetype> | <seetype marker="#tls_server_option">tls_server_option()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = closed | timeout | <seetype marker="#error_alert">error_alert()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HsSocket</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>SslSocket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>listen</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>listen(Port, Options) -&gt; {ok, ListenSocket} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="#tls_server_option">tls_server_option()</seetype>]</string></subtype>
+        <subtype><typename>ListenSocket</typename><string>ListenSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ListenSocket</anno>
+  <anno>Options</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>negotiated_protocol</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>negotiated_protocol(SslSocket) -&gt; {ok, Protocol} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Protocol</typename><string>Protocol = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = protocol_not_negotiated</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Protocol</anno>
+  <anno>Reason</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>peercert</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>peercert(SslSocket) -&gt; {ok, Cert} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Cert</typename><string>Cert = <seetype marker="public_key#der_encoded">public_key:der_encoded()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cert</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>peername</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>peername(SslSocket) -&gt; {ok, {Address, Port}} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Address</typename><string>Address = <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>Port</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>prepend_cipher_suites</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>prepend_cipher_suites(Preferred, Suites) -&gt; <seetype marker="#ciphers">ciphers()</seetype></head>
+      <guard>
+        <subtype><typename>Preferred</typename><string>Preferred = <seetype marker="#ciphers">ciphers()</seetype> | <seetype marker="#cipher_filters">cipher_filters()</seetype></string></subtype>
+        <subtype><typename>Suites</typename><string>Suites = <seetype marker="#ciphers">ciphers()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Preferred</anno>
+  <anno>Suites</anno>
+</spec>
+<spec>
+  <name>prf</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>prf(SslSocket, Secret, Label, Seed, WantedLength) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#binary">binary()</seetype>} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Secret</typename><string>Secret = <seetype marker="erlang#binary">binary()</seetype> | master_secret</string></subtype>
+        <subtype><typename>Label</typename><string>Label = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Seed</typename><string>Seed = [<seetype marker="erlang#binary">binary()</seetype> | <seetype marker="#prf_random">prf_random()</seetype>]</string></subtype>
+        <subtype><typename>WantedLength</typename><string>WantedLength = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Label</anno>
+  <anno>Secret</anno>
+  <anno>Seed</anno>
+  <anno>SslSocket</anno>
+  <anno>WantedLength</anno>
+</spec>
+<spec>
+  <name>recv</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>recv(SslSocket, Length) -&gt; {ok, Data} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#list">list()</seetype> | HttpPacket</string></subtype>
+        <subtype><typename>HttpPacket</typename><string>HttpPacket = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>HttpPacket</anno>
+  <anno>Length</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>recv</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>recv(SslSocket, Length, Timeout) -&gt; {ok, Data} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#list">list()</seetype> | HttpPacket</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>HttpPacket</typename><string>HttpPacket = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>HttpPacket</anno>
+  <anno>Length</anno>
+  <anno>SslSocket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>renegotiate</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>renegotiate(SslSocket) -&gt; ok | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send(SslSocket, Data) -&gt; ok | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#iodata">iodata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>setopts</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setopts(SslSocket, Options) -&gt; ok | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [<seetype marker="gen_tcp#option">gen_tcp:option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>shutdown</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>shutdown(SslSocket, How) -&gt; ok | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>How</typename><string>How = read | write | read_write</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>How</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>signature_algs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>signature_algs(Description, Version) -&gt; [<seetype marker="#signature_algs">signature_algs()</seetype>]</head>
+      <guard>
+        <subtype><typename>Description</typename><string>Description = default | all | exclusive</string></subtype>
+        <subtype><typename>Version</typename><string>Version = <seetype marker="#protocol_version">protocol_version()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Description</anno>
+  <anno>Version</anno>
+</spec>
+<spec>
+  <name>sockname</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sockname(SslSocket) -&gt; {ok, {Address, Port}} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Address</typename><string>Address = <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Address</anno>
+  <anno>Port</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; ok | {error, <seetype marker="#reason">reason()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(Type :: permanent | transient | temporary) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="#reason">reason()</seetype>}</head></clause>
+  </contract>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>str_to_suite</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>str_to_suite(CipherSuiteName) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#erl_cipher_suite">erl_cipher_suite()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {not_recognized, CipherSuiteName}}</head>
+      <guard>
+        <subtype><typename>CipherSuiteName</typename><string>CipherSuiteName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherSuiteName</anno>
+</spec>
+<spec>
+  <name>suite_to_openssl_str</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>suite_to_openssl_str(CipherSuite) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>CipherSuite</typename><string>CipherSuite = <seetype marker="#erl_cipher_suite">erl_cipher_suite()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherSuite</anno>
+</spec>
+<spec>
+  <name>suite_to_str</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>suite_to_str(CipherSuite) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>CipherSuite</typename><string>CipherSuite = <seetype marker="#erl_cipher_suite">erl_cipher_suite()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherSuite</anno>
+</spec>
+<spec>
+  <name>suite_to_str</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>suite_to_str(CipherSuite) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>CipherSuite</typename><string>CipherSuite = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{key_exchange := null,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>cipher := null,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>mac := null,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>prf := null}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CipherSuite</anno>
+</spec>
+<spec>
+  <name>tls_version</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transport_accept</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>transport_accept(ListenSocket) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>ListenSocket</typename><string>ListenSocket = SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>SslSocket</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ListenSocket</anno>
+  <anno>SslSocket</anno>
+</spec>
+<spec>
+  <name>transport_accept</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>transport_accept(ListenSocket, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, SslSocket} | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>ListenSocket</typename><string>ListenSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ListenSocket</anno>
+  <anno>SslSocket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>update_keys</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>update_keys(SslSocket, Type) -&gt; ok | {error, <seetype marker="#reason">reason()</seetype>}</head>
+      <guard>
+        <subtype><typename>SslSocket</typename><string>SslSocket = <seetype marker="#sslsocket">sslsocket()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = write | read_write</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>SslSocket</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>update_options</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_options(Opts :: [<seetype marker="erlang#any">any()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Role :: client | server,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>InheritedSslOpts :: <seetype marker="erlang#map">map()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#map">map()</seetype></head></clause>
+  </contract>
+  <anno>InheritedSslOpts</anno>
+  <anno>Opts</anno>
+  <anno>Role</anno>
+</spec>
+<spec>
+  <name>versions</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>versions() -&gt; [VersionInfo]</head>
+      <guard>
+        <subtype><typename>VersionInfo</typename><string>VersionInfo = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl_app, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{supported | available | implemented, [<seetype marker="#tls_version">tls_version()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{supported_dtls | available_dtls | implemented_dtls,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#dtls_version">dtls_version()</seetype>]}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>VersionInfo</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:30.</timestamp>
+</module>

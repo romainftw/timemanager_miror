@@ -1,0 +1,233 @@
+<module name="wxTreeEvent">
+<type>
+  <name>wxTree</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxTree">wxTree()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#wxTree{type = <seetype marker="wxTreeEvent#wxTreeEventType">wxTreeEvent:wxTreeEventType()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>item = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>itemOld = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>pointDrag = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}}</typehead></typedecl>
+  <anno>X</anno>
+  <anno>Y</anno>
+</type>
+<type>
+  <name>wxTreeEvent</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxTreeEvent">wxTreeEvent()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>wxTreeEventType</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxTreeEventType">wxTreeEventType()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_begin_drag | command_tree_begin_rdrag |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_begin_label_edit | command_tree_end_label_edit |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_delete_item | command_tree_get_info |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_set_info | command_tree_item_expanded |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_item_expanding | command_tree_item_collapsed |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_item_collapsing | command_tree_sel_changed |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_sel_changing | command_tree_key_down |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_item_activated | command_tree_item_right_click |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_item_middle_click | command_tree_end_drag |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_state_image_click |<br/><nbsp/><nbsp/><nbsp/><nbsp/>command_tree_item_gettooltip | command_tree_item_menu |<br/><nbsp/><nbsp/><nbsp/><nbsp/>dirctrl_selectionchanged | dirctrl_fileactivated</typehead></typedecl>
+</type>
+<spec>
+  <name>allow</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getClientData</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getExtraLong</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getId</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getInt</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getItem(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTreeEvent">wxTreeEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getKeyCode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getKeyCode(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTreeEvent">wxTreeEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getKeyEvent</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getKeyEvent(This) -&gt; <seetype marker="wxKeyEvent#wxKeyEvent">wxKeyEvent:wxKeyEvent()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTreeEvent">wxTreeEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLabel</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLabel(This) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTreeEvent">wxTreeEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getOldItem</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getOldItem(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTreeEvent">wxTreeEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPoint</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPoint(This) -&gt; {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTreeEvent">wxTreeEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getSelection</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSkipped</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getString</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getTimestamp</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isAllowed</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isChecked</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isCommandEvent</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isEditCancelled</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isEditCancelled(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTreeEvent">wxTreeEvent()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isSelection</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>resumePropagation</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setInt</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setString</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setToolTip</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setToolTip(This, Tooltip) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxTreeEvent">wxTreeEvent()</seetype></string></subtype>
+        <subtype><typename>Tooltip</typename><string>Tooltip = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Tooltip</anno>
+</spec>
+<spec>
+  <name>shouldPropagate</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>skip</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>skip</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>stopPropagation</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>veto</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:54.</timestamp>
+</module>

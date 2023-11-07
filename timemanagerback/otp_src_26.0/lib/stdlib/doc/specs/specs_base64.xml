@@ -1,0 +1,224 @@
+<module name="base64">
+<type>
+  <name>base64_alphabet</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-base64_alphabet">base64_alphabet()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>65..90 | 97..122 | 48..57 | 43 | 47 | 45 | 95 | 61</typehead></typedecl>
+</type>
+<type>
+  <name>base64_binary</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-base64_binary">base64_binary()</marker> = <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>base64_mode</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-base64_mode">base64_mode()</marker> = standard | urlsafe</typehead></typedecl>
+</type>
+<type>
+  <name>base64_string</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-base64_string">base64_string()</marker> = [<seetype marker="#base64_alphabet">base64_alphabet()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>byte_string</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-byte_string">byte_string()</marker> = [<seetype marker="erlang#byte">byte()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-options">options()</marker> = #{padding =&gt; <seetype marker="erlang#boolean">boolean()</seetype>, mode =&gt; <seetype marker="#base64_mode">base64_mode()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>decode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>decode(Base64) -&gt; Data</head>
+      <guard>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_string">base64_string()</seetype> | <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>Data</anno>
+</spec>
+<spec>
+  <name>decode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>decode(Base64, Options) -&gt; Data</head>
+      <guard>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_string">base64_string()</seetype> | <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>Data</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>decode_to_string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>decode_to_string(Base64) -&gt; DataString</head>
+      <guard>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_string">base64_string()</seetype> | <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+        <subtype><typename>DataString</typename><string>DataString = <seetype marker="#byte_string">byte_string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>DataString</anno>
+</spec>
+<spec>
+  <name>decode_to_string</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>decode_to_string(Base64, Options) -&gt; DataString</head>
+      <guard>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_string">base64_string()</seetype> | <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>DataString</typename><string>DataString = <seetype marker="#byte_string">byte_string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>DataString</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>encode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>encode(Data) -&gt; Base64</head>
+      <guard>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="#byte_string">byte_string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>Data</anno>
+</spec>
+<spec>
+  <name>encode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>encode(Data, Options) -&gt; Base64</head>
+      <guard>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="#byte_string">byte_string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>Data</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>encode_to_string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>encode_to_string(Data) -&gt; Base64String</head>
+      <guard>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="#byte_string">byte_string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Base64String</typename><string>Base64String = <seetype marker="#base64_string">base64_string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64String</anno>
+  <anno>Data</anno>
+</spec>
+<spec>
+  <name>encode_to_string</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>encode_to_string(Data, Options) -&gt; Base64String</head>
+      <guard>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="#byte_string">byte_string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Base64String</typename><string>Base64String = <seetype marker="#base64_string">base64_string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64String</anno>
+  <anno>Data</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>mime_decode</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>mime_decode(Base64) -&gt; Data</head>
+      <guard>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_string">base64_string()</seetype> | <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>Data</anno>
+</spec>
+<spec>
+  <name>mime_decode</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>mime_decode(Base64, Options) -&gt; Data</head>
+      <guard>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_string">base64_string()</seetype> | <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>Data</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>mime_decode_to_string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>mime_decode_to_string(Base64) -&gt; DataString</head>
+      <guard>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_string">base64_string()</seetype> | <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+        <subtype><typename>DataString</typename><string>DataString = <seetype marker="#byte_string">byte_string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>DataString</anno>
+</spec>
+<spec>
+  <name>mime_decode_to_string</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>mime_decode_to_string(Base64, Options) -&gt; DataString</head>
+      <guard>
+        <subtype><typename>Base64</typename><string>Base64 = <seetype marker="#base64_string">base64_string()</seetype> | <seetype marker="#base64_binary">base64_binary()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>DataString</typename><string>DataString = <seetype marker="#byte_string">byte_string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Base64</anno>
+  <anno>DataString</anno>
+  <anno>Options</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:18.</timestamp>
+</module>

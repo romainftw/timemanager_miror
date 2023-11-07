@@ -1,0 +1,267 @@
+<module name="wxHtmlEasyPrinting">
+<type>
+  <name>wxHtmlEasyPrinting</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxHtmlEasyPrinting">wxHtmlEasyPrinting()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPageSetupData</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPageSetupData(This) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxPageSetupDialogData#wxPageSetupDialogData">wxPageSetupDialogData:wxPageSetupDialogData()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPrintData</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPrintData(This) -&gt; <seetype marker="wxPrintData#wxPrintData">wxPrintData:wxPrintData()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Options :: [Option]) -&gt; <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{name, <seetype marker="unicode#chardata">unicode:chardata()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{parentWindow, <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>pageSetup</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pageSetup(This) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>previewFile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>previewFile(This, Htmlfile) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Htmlfile</typename><string>Htmlfile = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Htmlfile</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>previewText</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>previewText(This, Htmltext) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Htmltext</typename><string>Htmltext = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Htmltext</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>previewText</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>previewText(This, Htmltext, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Htmltext</typename><string>Htmltext = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {basepath, <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Htmltext</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>printFile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>printFile(This, Htmlfile) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Htmlfile</typename><string>Htmlfile = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Htmlfile</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>printText</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>printText(This, Htmltext) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Htmltext</typename><string>Htmltext = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Htmltext</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>printText</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>printText(This, Htmltext, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Htmltext</typename><string>Htmltext = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {basepath, <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Htmltext</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFonts</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setFonts(This, Normal_face, Fixed_face) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Normal_face</typename><string>Normal_face = Fixed_face = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Fixed_face</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fixed_face</anno>
+  <anno>Normal_face</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFonts</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>setFonts(This, Normal_face, Fixed_face, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Normal_face</typename><string>Normal_face = Fixed_face = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Fixed_face</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {sizes, [<seetype marker="erlang#integer">integer()</seetype>]}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fixed_face</anno>
+  <anno>Normal_face</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFooter</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFooter(This, Footer) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Footer</typename><string>Footer = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Footer</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFooter</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setFooter(This, Footer, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Footer</typename><string>Footer = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {pg, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Footer</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setHeader</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setHeader(This, Header) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Header</typename><string>Header = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Header</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setHeader</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setHeader(This, Header, Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxHtmlEasyPrinting">wxHtmlEasyPrinting()</seetype></string></subtype>
+        <subtype><typename>Header</typename><string>Header = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {pg, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Header</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:36.</timestamp>
+</module>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE erlref SYSTEM "erlref.dtd">
+<erlref>
+<header>
+<title>erl_comment_scan</title>
+<prepared></prepared>
+<responsible></responsible>
+<docno>1</docno>
+<approved></approved>
+<checked></checked>
+<date></date>
+<rev>A</rev>
+<file>erl_comment_scan.xml</file></header>
+<module>erl_comment_scan</module>
+<modulesummary>Functions for reading comment lines from Erlang source code.</modulesummary>
+<description>
+<p>Functions for reading comment lines from Erlang source code.</p></description>
+<section><title>DATA TYPES</title><marker id="types"/>
+
+<taglist>
+<tag><marker id="type-comment"/>comment() = {Line::integer(), Column::integer(), Indentation::integer(), Text::[string()]}</tag>
+<item><p/> </item>
+<tag><marker id="type-commentLine"/>commentLine() = {Line::integer(), Column::integer(), Indent::integer(), Text::string()}</tag>
+<item><p/> </item>
+</taglist></section>
+<funcs>
+<func>
+<name since="">file(Name::<seeerl marker="kernel:file#type-filename">file:filename()</seeerl>) -&gt; [<seeerl marker="#type-comment">comment()</seeerl>]</name>
+<fsummary>Extracts comments from an Erlang source code file.</fsummary>
+
+<desc><marker id="file-1"/>
+
+<p>Extracts comments from an Erlang source code file. Returns a
+  list of entries representing <em>multi-line</em> comments, listed in
+  order of increasing line-numbers. For each entry, <c>Text</c>
+  is a list of strings representing the consecutive comment lines in
+  top-down order; the strings contain <em>all</em> characters following
+  (but not including) the first comment-introducing <c>%</c>  
+character on the line, up to (but not including) the line-terminating  
+newline.</p>
+ 
+  <p>Furthermore, <c>Line</c> is the line number and
+  <c>Column</c> the left column of the comment (i.e., the column
+  of the comment-introducing <c>%</c> character).
+  <c>Indent</c> is the indentation (or padding), measured in
+  character positions between the last non-whitespace character before
+  the comment (or the left margin), and the left column of the comment.
+  <c>Line</c> and <c>Column</c> are always positive
+  integers, and <c>Indentation</c> is a nonnegative integer.</p>
+ 
+  <p>Evaluation exits with reason <c>{read, Reason}</c> if a read
+  error occurred, where <c>Reason</c> is an atom corresponding to
+  a Posix error code; see the module <seeerl marker="kernel:file">file(3)</seeerl> for details.</p>
+</desc></func>
+<func>
+<name since="">join_lines(Lines::[<seeerl marker="#type-commentLine">commentLine()</seeerl>]) -&gt; [<seeerl marker="#type-comment">comment()</seeerl>]</name>
+<fsummary>Joins individual comment lines into multi-line comments.</fsummary>
+
+<desc><marker id="join_lines-1"/>
+
+<p>Joins individual comment lines into multi-line comments. The
+  input is a list of entries representing individual comment lines,
+  <em>in order of decreasing line-numbers</em>; see
+  <seemfa marker="#scan_lines/1">scan_lines/1</seemfa> for details. The result is a list of
+  entries representing <em>multi-line</em> comments, <em>still listed
+  in order of decreasing line-numbers</em>, but where for each entry,
+  <c>Text</c> is a list of consecutive comment lines in order of
+  <em>increasing</em> line-numbers (i.e., top-down).
+ </p>
+<p><em>See also:</em> <seemfa marker="#scan_lines/1">scan_lines/1</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">scan_lines(Text::string()) -&gt; [<seeerl marker="#type-commentLine">commentLine()</seeerl>]</name>
+<fsummary>Extracts individual comment lines from a source code string.</fsummary>
+
+<desc><marker id="scan_lines-1"/>
+
+<p>Extracts individual comment lines from a source code string.
+  Returns a list of comment lines found in the text, listed in order of
+  <em>decreasing</em> line-numbers, i.e., the last comment line in the
+  input is first in the resulting list. <c>Text</c> is a single
+  string, containing all characters following (but not including) the
+  first comment-introducing <c>%</c> character on the line, up
+  to (but not including) the line-terminating newline. For details on
+  <c>Line</c>, <c>Column</c> and <c>Indent</c>, see <seemfa marker="#file/1">file/1</seemfa>.</p>
+</desc></func>
+<func>
+<name since="">string(Text::string()) -&gt; [<seeerl marker="#type-comment">comment()</seeerl>]</name>
+<fsummary>Extracts comments from a string containing Erlang source code.</fsummary>
+
+<desc><marker id="string-1"/>
+
+<p>Extracts comments from a string containing Erlang source code.
+  Except for reading directly from a string, the behaviour is the same
+  as for <seemfa marker="#file/1">file/1</seemfa>.
+ </p>
+<p><em>See also:</em> <seemfa marker="#file/1">file/1</seemfa>.</p>
+</desc></func></funcs>
+
+<authors>
+
+<aname>Richard Carlsson</aname>
+<email>carlsson.richard@gmail.com</email></authors></erlref>

@@ -1,0 +1,310 @@
+<module name="erl_scan">
+<type>
+  <name>category</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-category">category()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>char_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-char_spec">char_spec()</marker> = <seetype marker="erlang#string">string()</seetype> | eof</typehead></typedecl>
+</type>
+<type>
+  <name>error_description</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error_description">error_description()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>error_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-error_info">error_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erl_anno#location">erl_anno:location()</seetype>, <seetype marker="erlang#module">module()</seetype>, <seetype marker="#error_description">error_description()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option">option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>return | return_white_spaces | return_comments | text |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reserved_word_fun, <seetype marker="#resword_fun">resword_fun()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{text_fun, <seetype marker="#text_fun">text_fun()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{compiler_internal, [<seetype marker="erlang#term">term()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-options">options()</marker> = <seetype marker="#option">option()</seetype> | [<seetype marker="#option">option()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>resword_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-resword_fun">resword_fun()</marker> = fun((<seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>return_cont</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-return_cont">return_cont()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>symbol</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-symbol">symbol()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#float">float()</seetype> | <seetype marker="erlang#integer">integer()</seetype> | <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>text_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-text_fun">text_fun()</marker> = fun((<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>token</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-token">token()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#category">category()</seetype>, Anno :: <seetype marker="erl_anno#anno">erl_anno:anno()</seetype>, <seetype marker="#symbol">symbol()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#category">category()</seetype>, Anno :: <seetype marker="erl_anno#anno">erl_anno:anno()</seetype>}</typehead></typedecl>
+  <anno>Anno</anno>
+</type>
+<type>
+  <name>tokens</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tokens">tokens()</marker> = [<seetype marker="#token">token()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>tokens_result</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tokens_result">tokens_result()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Tokens :: <seetype marker="#tokens">tokens()</seetype>, EndLocation :: <seetype marker="erl_anno#location">erl_anno:location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, EndLocation :: <seetype marker="erl_anno#location">erl_anno:location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ErrorInfo :: <seetype marker="#error_info">error_info()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>EndLocation :: <seetype marker="erl_anno#location">erl_anno:location()</seetype>}</typehead></typedecl>
+  <anno>EndLocation</anno>
+  <anno>ErrorInfo</anno>
+  <anno>Tokens</anno>
+</type>
+<spec>
+  <name>category</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>category(Token) -&gt; <seetype marker="#category">category()</seetype></head>
+      <guard>
+        <subtype><typename>Token</typename><string>Token = <seetype marker="#token">token()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Token</anno>
+</spec>
+<spec>
+  <name>column</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>column(Token) -&gt; <seetype marker="erl_anno#column">erl_anno:column()</seetype> | undefined</head>
+      <guard>
+        <subtype><typename>Token</typename><string>Token = <seetype marker="#token">token()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Token</anno>
+</spec>
+<spec>
+  <name>continuation_location</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>end_location</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>end_location(Token) -&gt; <seetype marker="erl_anno#location">erl_anno:location()</seetype> | undefined</head>
+      <guard>
+        <subtype><typename>Token</typename><string>Token = <seetype marker="#token">token()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Token</anno>
+</spec>
+<spec>
+  <name>f_reserved_word</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(ErrorDescriptor) -&gt; <seetype marker="erlang#string">string()</seetype></head>
+      <guard>
+        <subtype><typename>ErrorDescriptor</typename><string>ErrorDescriptor = <seetype marker="#error_description">error_description()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ErrorDescriptor</anno>
+</spec>
+<spec>
+  <name>line</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>line(Token) -&gt; <seetype marker="erl_anno#line">erl_anno:line()</seetype></head>
+      <guard>
+        <subtype><typename>Token</typename><string>Token = <seetype marker="#token">token()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Token</anno>
+</spec>
+<spec>
+  <name>location</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>location(Token) -&gt; <seetype marker="erl_anno#location">erl_anno:location()</seetype></head>
+      <guard>
+        <subtype><typename>Token</typename><string>Token = <seetype marker="#token">token()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Token</anno>
+</spec>
+<spec>
+  <name>reserved_word</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>reserved_word(Atom :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Atom</anno>
+</spec>
+<spec>
+  <name>string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>string(String) -&gt; Return</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Return</typename><string>Return = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Tokens :: <seetype marker="#tokens">tokens()</seetype>, EndLocation} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo :: <seetype marker="#error_info">error_info()</seetype>, ErrorLocation}</string></subtype>
+        <subtype><typename>EndLocation</typename><string>EndLocation = ErrorLocation = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>ErrorLocation</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EndLocation</anno>
+  <anno>ErrorInfo</anno>
+  <anno>ErrorLocation</anno>
+  <anno>Return</anno>
+  <anno>String</anno>
+  <anno>Tokens</anno>
+</spec>
+<spec>
+  <name>string</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>string(String, StartLocation) -&gt; Return</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Return</typename><string>Return = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Tokens :: <seetype marker="#tokens">tokens()</seetype>, EndLocation} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo :: <seetype marker="#error_info">error_info()</seetype>, ErrorLocation}</string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = EndLocation = ErrorLocation = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>EndLocation</typename><string></string></subtype>
+        <subtype><typename>ErrorLocation</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EndLocation</anno>
+  <anno>ErrorInfo</anno>
+  <anno>ErrorLocation</anno>
+  <anno>Return</anno>
+  <anno>StartLocation</anno>
+  <anno>String</anno>
+  <anno>Tokens</anno>
+</spec>
+<spec>
+  <name>string</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>string(String, StartLocation, Options) -&gt; Return</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Return</typename><string>Return = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Tokens :: <seetype marker="#tokens">tokens()</seetype>, EndLocation} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo :: <seetype marker="#error_info">error_info()</seetype>, ErrorLocation}</string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = EndLocation = ErrorLocation = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>EndLocation</typename><string></string></subtype>
+        <subtype><typename>ErrorLocation</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EndLocation</anno>
+  <anno>ErrorInfo</anno>
+  <anno>ErrorLocation</anno>
+  <anno>Options</anno>
+  <anno>Return</anno>
+  <anno>StartLocation</anno>
+  <anno>String</anno>
+  <anno>Tokens</anno>
+</spec>
+<spec>
+  <name>symbol</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>symbol(Token) -&gt; <seetype marker="#symbol">symbol()</seetype></head>
+      <guard>
+        <subtype><typename>Token</typename><string>Token = <seetype marker="#token">token()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Token</anno>
+</spec>
+<spec>
+  <name>text</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>text(Token) -&gt; <seetype marker="erl_anno#text">erl_anno:text()</seetype> | undefined</head>
+      <guard>
+        <subtype><typename>Token</typename><string>Token = <seetype marker="#token">token()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Token</anno>
+</spec>
+<spec>
+  <name>tokens</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>tokens(Continuation, CharSpec, StartLocation) -&gt; Return</head>
+      <guard>
+        <subtype><typename>Continuation</typename><string>Continuation = <seetype marker="#return_cont">return_cont()</seetype> | []</string></subtype>
+        <subtype><typename>CharSpec</typename><string>CharSpec = <seetype marker="#char_spec">char_spec()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>Return</typename><string>Return = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{done,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result :: <seetype marker="#tokens_result">tokens_result()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>LeftOverChars :: <seetype marker="#char_spec">char_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{more, Continuation1 :: <seetype marker="#return_cont">return_cont()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CharSpec</anno>
+  <anno>Continuation</anno>
+  <anno>Continuation1</anno>
+  <anno>LeftOverChars</anno>
+  <anno>Result</anno>
+  <anno>Return</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>tokens</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>tokens(Continuation, CharSpec, StartLocation, Options) -&gt; Return</head>
+      <guard>
+        <subtype><typename>Continuation</typename><string>Continuation = <seetype marker="#return_cont">return_cont()</seetype> | []</string></subtype>
+        <subtype><typename>CharSpec</typename><string>CharSpec = <seetype marker="#char_spec">char_spec()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="erl_anno#location">erl_anno:location()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="#options">options()</seetype></string></subtype>
+        <subtype><typename>Return</typename><string>Return = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{done,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result :: <seetype marker="#tokens_result">tokens_result()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>LeftOverChars :: <seetype marker="#char_spec">char_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{more, Continuation1 :: <seetype marker="#return_cont">return_cont()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CharSpec</anno>
+  <anno>Continuation</anno>
+  <anno>Continuation1</anno>
+  <anno>LeftOverChars</anno>
+  <anno>Options</anno>
+  <anno>Result</anno>
+  <anno>Return</anno>
+  <anno>StartLocation</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:21.</timestamp>
+</module>

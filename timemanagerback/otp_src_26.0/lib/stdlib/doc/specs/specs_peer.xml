@@ -1,0 +1,261 @@
+<module name="peer">
+<type>
+  <name>connection</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-connection">connection()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>0..65535 | {<seetype marker="inet#ip_address">inet:ip_address()</seetype>, 0..65535} | standard_io</typehead></typedecl>
+</type>
+<type>
+  <name>disconnect_timeout</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-disconnect_timeout">disconnect_timeout()</marker> = 1000..4294967295 | infinity</typehead></typedecl>
+</type>
+<type>
+  <name>exec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exec">exec()</marker> = <seetype marker="file#name">file:name()</seetype> | {<seetype marker="file#name">file:name()</seetype>, [<seetype marker="erlang#string">string()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>peer_state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-peer_state">peer_state()</marker> = booting | running | {down, Reason :: <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+  <anno>Reason</anno>
+</type>
+<type>
+  <name>server_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_ref">server_ref()</marker> = <seetype marker="erlang#pid">pid()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>start_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-start_options">start_options()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{name =&gt; <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>longnames =&gt; <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>host =&gt; <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>peer_down =&gt; stop | continue | crash,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>connection =&gt; <seetype marker="#connection">connection()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>exec =&gt; <seetype marker="#exec">exec()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>detached =&gt; <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>args =&gt; [<seetype marker="erlang#string">string()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>post_process_args =&gt; fun(([<seetype marker="erlang#string">string()</seetype>]) -&gt; [<seetype marker="erlang#string">string()</seetype>]),<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>env =&gt; [{<seetype marker="erlang#string">string()</seetype>, <seetype marker="erlang#string">string()</seetype>}],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>wait_boot =&gt; <seetype marker="#wait_boot">wait_boot()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>shutdown =&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>close | halt |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{halt, <seetype marker="#disconnect_timeout">disconnect_timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#disconnect_timeout">disconnect_timeout()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>state</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-state">state()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#peer_state{options = <seetype marker="#start_options">start_options()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>node = <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>exec = <seetype marker="file#name">file:name()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>args = [<seetype marker="erlang#string">string()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>connection =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>undefined | <seetype marker="erlang#port">port()</seetype> | <seetype marker="gen_tcp#socket">gen_tcp:socket()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>listen_socket = undefined | <seetype marker="gen_tcp#socket">gen_tcp:socket()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>stdio = <seetype marker="erlang#binary">binary()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>peer_state = <seetype marker="#peer_state">peer_state()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>notify = false | {<seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#reference">reference()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>seq = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>outstanding =<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#{<seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> =&gt; {<seetype marker="erlang#reference">reference()</seetype>, <seetype marker="erlang#pid">pid()</seetype>}}}</typehead></typedecl>
+</type>
+<type>
+  <name>wait_boot</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wait_boot">wait_boot()</marker> = <seetype marker="erlang#timeout">timeout()</seetype> | {<seetype marker="erlang#pid">pid()</seetype>, Tag :: <seetype marker="erlang#term">term()</seetype>} | false</typehead></typedecl>
+  <anno>Tag</anno>
+</type>
+<spec>
+  <name>call</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>call(Dest :: <seetype marker="#server_ref">server_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Module :: <seetype marker="erlang#module">module()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Function :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Args :: [<seetype marker="erlang#term">term()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result :: <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Dest</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>call</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>call(Dest :: <seetype marker="#server_ref">server_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Module :: <seetype marker="erlang#module">module()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Function :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Args :: [<seetype marker="erlang#term">term()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Timeout :: <seetype marker="erlang#timeout">timeout()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result :: <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Dest</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>cast</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>cast(Dest :: <seetype marker="#server_ref">server_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Module :: <seetype marker="erlang#module">module()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Function :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Args :: [<seetype marker="erlang#term">term()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Dest</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>get_state</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_state(Dest :: <seetype marker="#server_ref">server_ref()</seetype>) -&gt; <seetype marker="#peer_state">peer_state()</seetype></head></clause>
+  </contract>
+  <anno>Dest</anno>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(X1 :: [Name :: <seetype marker="erlang#atom">atom()</seetype>, ...]) -&gt; {ok, <seetype marker="#state">state()</seetype>}</head></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>init_supervision</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>init_supervision(Parent :: <seetype marker="erlang#term">term()</seetype>, InSupTree :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#no_return">no_return()</seetype></head></clause>
+  </contract>
+  <anno>InSupTree</anno>
+  <anno>Parent</anno>
+</spec>
+<spec>
+  <name>random_name</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>random_name() -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>random_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>random_name(Prefix :: <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>Prefix</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send(Dest :: <seetype marker="#server_ref">server_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>To :: <seetype marker="erlang#pid">pid()</seetype> | <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Message :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Dest</anno>
+  <anno>Message</anno>
+  <anno>To</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; <seetype marker="erlang#pid">pid()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(Options :: <seetype marker="#start_options">start_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#pid">pid()</seetype>} | {ok, <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#node">node()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_link() -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#node">node()</seetype>} | {error, Reason :: <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start_link(Options :: <seetype marker="#start_options">start_options()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#pid">pid()</seetype>} | {ok, <seetype marker="erlang#pid">pid()</seetype>, <seetype marker="erlang#node">node()</seetype>} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>start_supervision</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(Dest :: <seetype marker="#server_ref">server_ref()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Dest</anno>
+</spec>
+<spec>
+  <name>supervision_child_spec</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_code_change</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_continue</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_get_state</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_replace_state</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>system_terminate</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>terminate(Reason :: <seetype marker="erlang#term">term()</seetype>, Peer_state :: <seetype marker="#state">state()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Peer_state</anno>
+  <anno>Reason</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:24.</timestamp>
+</module>

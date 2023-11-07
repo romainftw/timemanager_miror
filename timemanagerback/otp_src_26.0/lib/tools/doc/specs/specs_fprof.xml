@@ -1,0 +1,557 @@
+<module name="fprof">
+<type>
+  <name>analyse_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyse_option">analyse_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>append | callers |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{callers, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cols, Cols :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>dest |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{dest, Dest :: <seetype marker="erlang#pid">pid()</seetype> | (Destfile :: <seetype marker="file#filename">file:filename()</seetype>)} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>details |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{details, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>no_callers | no_details |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sort, SortSpec :: acc | own} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>totals |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{totals, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+  <anno>Cols</anno>
+  <anno>Dest</anno>
+  <anno>Destfile</anno>
+  <anno>SortSpec</anno>
+</type>
+<type>
+  <name>apply_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-apply_option">apply_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>continue |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{procs, PidList :: [<seetype marker="erlang#pid">pid()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>start |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(TraceStartOption :: <seetype marker="#trace_option">trace_option()</seetype>)</typehead></typedecl>
+  <anno>PidList</anno>
+  <anno>TraceStartOption</anno>
+</type>
+<type>
+  <name>pid_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pid_spec">pid_spec()</marker> = <seetype marker="erlang#pid">pid()</seetype> | <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>profile_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-profile_option">profile_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>append | dump |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{dump, <seetype marker="erlang#pid">pid()</seetype> | (Dump :: (Dumpfile :: <seetype marker="file#filename">file:filename()</seetype> | []))} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>file |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file, Filename :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>start | stop</typehead></typedecl>
+  <anno>Dump</anno>
+  <anno>Dumpfile</anno>
+  <anno>Filename</anno>
+</type>
+<type>
+  <name>trace_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-trace_option">trace_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>cpu_time |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cpu_time, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>file |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file, Filename :: <seetype marker="file#filename">file:filename()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{procs, PidSpec :: <seetype marker="#pid_spec">pid_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{procs, [PidSpec :: <seetype marker="#pid_spec">pid_spec()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>start | stop |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tracer, Tracer :: <seetype marker="erlang#pid">pid()</seetype> | <seetype marker="erlang#port">port()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>verbose |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+  <anno>Filename</anno>
+  <anno>PidSpec</anno>
+  <anno>Tracer</anno>
+</type>
+<spec>
+  <name>'$code_change'</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>analyse() -&gt; ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse(OptionName) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionName</typename><string>OptionName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionName</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse(Option :: {OptionName, OptionValue}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionName</typename><string>OptionName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>OptionValue</typename><string>OptionValue = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>OptionName</anno>
+  <anno>OptionValue</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>analyse(OptionList) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionList</typename><string>OptionList = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <seetype marker="#analyse_option">analyse_option()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>OptionList</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>analyse(OptionName, OptionValue) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionName</typename><string>OptionName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>OptionValue</typename><string>OptionValue = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionName</anno>
+  <anno>OptionValue</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>apply</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>apply(Func, Args) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#function">function()</seetype> | {Module :: <seetype marker="erlang#module">module()</seetype>, Function :: <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Func</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>apply</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>apply(Module, Function, Args) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+</spec>
+<spec>
+  <name>apply</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>apply(Func, Args, OptionList) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Func</typename><string>Func = <seetype marker="erlang#function">function()</seetype> | {Module :: <seetype marker="erlang#module">module()</seetype>, Function :: <seetype marker="erlang#atom">atom()</seetype>}</string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>OptionList</typename><string>OptionList = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <seetype marker="#apply_option">apply_option()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Func</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Option</anno>
+  <anno>OptionList</anno>
+</spec>
+<spec>
+  <name>apply</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>apply(Module, Function, Args, OptionList) -&gt; <seetype marker="erlang#term">term()</seetype></head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>OptionList</typename><string>OptionList = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <seetype marker="#apply_option">apply_option()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Option</anno>
+  <anno>OptionList</anno>
+</spec>
+<spec>
+  <name>call</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>code_change</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_state</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getopts</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>just_call</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>load_profile</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>load_profile</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>load_profile</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>parsify</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>print_called</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>print_callers</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>print_func</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>println</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>profile() -&gt; ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>profile(OptionName) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Tracer} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionName</typename><string>OptionName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Tracer</typename><string>Tracer = ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionName</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+  <anno>Tracer</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>profile(Option :: {OptionName, OptionValue}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Tracer} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionName</typename><string>OptionName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>OptionValue</typename><string>OptionValue = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Tracer</typename><string>Tracer = ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>OptionName</anno>
+  <anno>OptionValue</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+  <anno>Tracer</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>profile(OptionList) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Tracer} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionList</typename><string>OptionList = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <seetype marker="#profile_option">profile_option()</seetype></string></subtype>
+        <subtype><typename>Tracer</typename><string>Tracer = ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>OptionList</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+  <anno>Tracer</anno>
+</spec>
+<spec>
+  <name>profile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>profile(OptionName, OptionValue) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Tracer} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, Reason} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionName</typename><string>OptionName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>OptionValue</typename><string>OptionValue = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Tracer</typename><string>Tracer = ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionName</anno>
+  <anno>OptionValue</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+  <anno>Tracer</anno>
+</spec>
+<spec>
+  <name>reply</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>save_profile</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>save_profile</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>save_profile</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setopts</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; {ok, Pid} | {error, {already_started, Pid}}</head>
+      <guard>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(Reason) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>trace(Option :: verbose) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>trace(OptionName) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionName</typename><string>OptionName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionName</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>trace(Option :: {OptionName, OptionValue}) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionName</typename><string>OptionName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>OptionValue</typename><string>OptionValue = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>OptionName</anno>
+  <anno>OptionValue</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>trace(OptionList) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionList</typename><string>OptionList = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <seetype marker="#trace_option">trace_option()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>OptionList</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>trace(OptionName :: start, Filename) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>OptionName</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>trace(OptionName :: verbose, Filename) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>OptionName</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>trace</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>trace(OptionName, OptionValue) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason} | {'EXIT', ServerPid, Reason}</head>
+      <guard>
+        <subtype><typename>OptionName</typename><string>OptionName = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>OptionValue</typename><string>OptionValue = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>ServerPid</typename><string>ServerPid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionName</anno>
+  <anno>OptionValue</anno>
+  <anno>Reason</anno>
+  <anno>ServerPid</anno>
+</spec>
+<spec>
+  <name>trace_call_collapse</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>trace_off</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>trace_on</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:03.</timestamp>
+</module>

@@ -1,0 +1,330 @@
+<module name="wxStaticBoxSizer">
+<type>
+  <name>wxStaticBoxSizer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxStaticBoxSizer">wxStaticBoxSizer()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>add</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>add</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>addSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>addStretchSpacer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>addStretchSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>calcMin</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>clear</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxStaticBoxSizer">wxStaticBoxSizer()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>detach</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fit</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>fitInside</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getChildren</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getItem</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getMinSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getOrientation</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getPosition</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getSize</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getStaticBox</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getStaticBox(This) -&gt; <seetype marker="wxStaticBox#wxStaticBox">wxStaticBox:wxStaticBox()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxStaticBoxSizer">wxStaticBoxSizer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insert</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insertSpacer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insertStretchSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>insertStretchSpacer</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>isShown</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>layout</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Orient, Parent) -&gt; <seetype marker="#wxStaticBoxSizer">wxStaticBoxSizer()</seetype></head>
+      <guard>
+        <subtype><typename>Orient</typename><string>Orient = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Orient</anno>
+  <anno>Parent</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Box, Orient) -&gt; <seetype marker="#wxStaticBoxSizer">wxStaticBoxSizer()</seetype></head>
+      <guard>
+        <subtype><typename>Box</typename><string>Box = <seetype marker="wxStaticBox#wxStaticBox">wxStaticBox:wxStaticBox()</seetype></string></subtype>
+        <subtype><typename>Orient</typename><string>Orient = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Box</anno>
+  <anno>Orient</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>new(Orient, Parent, Options :: [Option]) -&gt; <seetype marker="#wxStaticBoxSizer">wxStaticBoxSizer()</seetype></head>
+      <guard>
+        <subtype><typename>Orient</typename><string>Orient = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Parent</typename><string>Parent = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {label, <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Orient</anno>
+  <anno>Parent</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prepend</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prependSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prependStretchSpacer</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>prependStretchSpacer</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>recalcSizes</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>remove</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>replace</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>replace</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDimension</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDimension</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setItemMinSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setItemMinSize</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setMinSize</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setSizeHints</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setVirtualSizeHints</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>showItems</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:50.</timestamp>
+</module>

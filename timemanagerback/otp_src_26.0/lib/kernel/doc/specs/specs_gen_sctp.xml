@@ -1,0 +1,537 @@
+<module name="gen_sctp">
+<type>
+  <name>assoc_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-assoc_id">assoc_id()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>elementary_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-elementary_option">elementary_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{active, true | false | once | -32768..32767} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{buffer, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{debug, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{dontroute, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{exclusiveaddruse, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{high_msgq_watermark, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{linger, {<seetype marker="erlang#boolean">boolean()</seetype>, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{low_msgq_watermark, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mode, list | binary} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>list | binary |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{priority, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{recbuf, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reuseaddr, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reuseport, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{reuseport_lb, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipv6_v6only, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sndbuf, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_autoclose, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_disable_fragments, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_i_want_mapped_v4_addr, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_maxseg, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_nodelay, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tos, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tclass, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ttl, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{recvtos, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{recvtclass, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{recvttl, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>elementary_option_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-elementary_option_name">elementary_option_name()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>active | buffer | debug | dontroute | exclusiveaddruse |<br/><nbsp/><nbsp/><nbsp/><nbsp/>high_msgq_watermark | linger | low_msgq_watermark | mode |<br/><nbsp/><nbsp/><nbsp/><nbsp/>priority | recbuf | reuseaddr | reuseport | reuseport_lb |<br/><nbsp/><nbsp/><nbsp/><nbsp/>ipv6_v6only | sctp_autoclose | sctp_disable_fragments |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sctp_i_want_mapped_v4_addr | sctp_maxseg | sctp_nodelay |<br/><nbsp/><nbsp/><nbsp/><nbsp/>sndbuf | tos | tclass | ttl | recvtos | recvtclass | recvttl</typehead></typedecl>
+</type>
+<type>
+  <name>option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option">option()</marker> = <seetype marker="#elementary_option">elementary_option()</seetype> | <seetype marker="#record_option">record_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>option_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option_name">option_name()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#elementary_option_name">elementary_option_name()</seetype> | <seetype marker="#record_option">record_option()</seetype> | <seetype marker="#ro_option">ro_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>option_value</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-option_value">option_value()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#elementary_option">elementary_option()</seetype> | <seetype marker="#record_option">record_option()</seetype> | <seetype marker="#ro_option">ro_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>record_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-record_option">record_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_adaptation_layer, #sctp_setadaptation{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_associnfo, #sctp_assocparams{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_default_send_param, #sctp_sndrcvinfo{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_delayed_ack_time, #sctp_assoc_value{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_events, #sctp_event_subscribe{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_initmsg, #sctp_initmsg{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_peer_addr_params, #sctp_paddrparams{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_primary_addr, #sctp_prim{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_rtoinfo, #sctp_rtoinfo{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_set_peer_primary_addr, #sctp_setpeerprim{}}</typehead></typedecl>
+</type>
+<type>
+  <name>ro_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ro_option">ro_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_get_peer_addr_info, #sctp_paddrinfo{}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{sctp_status, #sctp_status{}}</typehead></typedecl>
+</type>
+<type>
+  <name>sctp_socket</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sctp_socket">sctp_socket()</marker> = <seetype marker="erlang#port">port()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>abort</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>abort(Socket, Assoc) -&gt; ok | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Assoc</typename><string>Assoc = #sctp_assoc_change{}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Assoc</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>close(Socket) -&gt; ok | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>connect(Socket, SockAddr, Opts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, #sctp_assoc_change{state = comm_up}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, #sctp_assoc_change{state = cant_assoc}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>SockAddr</typename><string>SockAddr = <seetype marker="socket#sockaddr_in">socket:sockaddr_in()</seetype> | <seetype marker="socket#sockaddr_in6">socket:sockaddr_in6()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt :: <seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>SockAddr</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>connect(Socket, SockAddr, Opts, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, #sctp_assoc_change{state = comm_up}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, #sctp_assoc_change{state = cant_assoc}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>SockAddr</typename><string>SockAddr = <seetype marker="socket#sockaddr_in">socket:sockaddr_in()</seetype> | <seetype marker="socket#sockaddr_in6">socket:sockaddr_in6()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt :: <seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>SockAddr</anno>
+  <anno>Socket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>connect(Socket, Addr, Port, Opts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, #sctp_assoc_change{state = comm_up}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, #sctp_assoc_change{state = cant_assoc}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Addr</typename><string>Addr = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt :: <seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Addr</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Port</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>connect(Socket, Addr, Port, Opts, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, #sctp_assoc_change{state = comm_up}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, #sctp_assoc_change{state = cant_assoc}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Addr</typename><string>Addr = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [Opt :: <seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Addr</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Port</anno>
+  <anno>Socket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>connect_init</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>connect_init(Socket, SockAddr, Opts) -&gt; ok | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>SockAddr</typename><string>SockAddr = <seetype marker="socket#sockaddr_in">socket:sockaddr_in()</seetype> | <seetype marker="socket#sockaddr_in6">socket:sockaddr_in6()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Opts</anno>
+  <anno>SockAddr</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>connect_init</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>connect_init(Socket, SockAddr, Opts, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>SockAddr</typename><string>SockAddr = <seetype marker="socket#sockaddr_in">socket:sockaddr_in()</seetype> | <seetype marker="socket#sockaddr_in6">socket:sockaddr_in6()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Opts</anno>
+  <anno>SockAddr</anno>
+  <anno>Socket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>connect_init</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>connect_init(Socket, Addr, Port, Opts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Addr</typename><string>Addr = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Addr</anno>
+  <anno>Opts</anno>
+  <anno>Port</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>connect_init</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>connect_init(Socket, Addr, Port, Opts, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Addr</typename><string>Addr = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Addr</anno>
+  <anno>Opts</anno>
+  <anno>Port</anno>
+  <anno>Socket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>connectx_init</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>connectx_init(Socket, SockAddrs, Opts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#assoc_id">assoc_id()</seetype>} | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>SockAddrs</typename><string>SockAddrs = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{<seetype marker="inet#ip_address">inet:ip_address()</seetype>, <seetype marker="inet#port_number">inet:port_number()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#family_address">inet:family_address()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="socket#sockaddr_in">socket:sockaddr_in()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="socket#sockaddr_in6">socket:sockaddr_in6()</seetype>]</string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Opts</anno>
+  <anno>SockAddrs</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>connectx_init</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>connectx_init(Socket, Addrs, Port, Opts) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#assoc_id">assoc_id()</seetype>} | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Addrs</typename><string>Addrs = [<seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype>]</string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#option">option()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Addrs</anno>
+  <anno>Opts</anno>
+  <anno>Port</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>connectx_init</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>connectx_init(Socket, Addrs, Port, Opts, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#assoc_id">assoc_id()</seetype>} | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Addrs</typename><string>Addrs = [<seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype>]</string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#option">option()</seetype>]</string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Addrs</anno>
+  <anno>Opts</anno>
+  <anno>Port</anno>
+  <anno>Socket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>controlling_process</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>controlling_process(Socket, Pid) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = closed | not_owner | badarg | <seetype marker="inet#posix">inet:posix()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pid</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>eof</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>eof(Socket, Assoc) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Assoc</typename><string>Assoc = #sctp_assoc_change{}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Assoc</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>error_string</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>error_string(ErrorNumber) -&gt; ok | <seetype marker="erlang#string">string()</seetype> | unknown_error</head>
+      <guard>
+        <subtype><typename>ErrorNumber</typename><string>ErrorNumber = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ErrorNumber</anno>
+</spec>
+<spec>
+  <name>listen</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>listen(Socket, IsServer) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>IsServer</typename><string>IsServer = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IsServer</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>listen</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>listen(Socket, Backlog) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Backlog</typename><string>Backlog = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Backlog</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>open() -&gt; {ok, Socket} | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>open(Port) -&gt; {ok, Socket} | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Port</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>open(Opts) -&gt; {ok, Socket} | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ifaddr, IP | SockAddr} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ip, IP} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, Port} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#address_family">inet:address_family()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{type, SockType} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{netns, <seetype marker="file#filename_all">file:filename_all()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{bind_to_device, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#option">option()</seetype></string></subtype>
+        <subtype><typename>IP</typename><string>IP = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | any | loopback</string></subtype>
+        <subtype><typename>SockAddr</typename><string>SockAddr = <seetype marker="socket#sockaddr_in">socket:sockaddr_in()</seetype> | <seetype marker="socket#sockaddr_in6">socket:sockaddr_in6()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>SockType</typename><string>SockType = seqpacket | stream</string></subtype>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IP</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Port</anno>
+  <anno>SockAddr</anno>
+  <anno>SockType</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>open</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>open(Port, Opts) -&gt; {ok, Socket} | {error, <seetype marker="inet#posix">inet:posix()</seetype>}</head>
+      <guard>
+        <subtype><typename>Opts</typename><string>Opts = [Opt]</string></subtype>
+        <subtype><typename>Opt</typename><string>Opt = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ifaddr, IP | SockAddr} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ip, IP} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, Port} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#address_family">inet:address_family()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{type, SockType} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{netns, <seetype marker="file#filename_all">file:filename_all()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{bind_to_device, <seetype marker="erlang#binary">binary()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#option">option()</seetype></string></subtype>
+        <subtype><typename>IP</typename><string>IP = <seetype marker="inet#ip_address">inet:ip_address()</seetype> | any | loopback</string></subtype>
+        <subtype><typename>SockAddr</typename><string>SockAddr = <seetype marker="socket#sockaddr_in">socket:sockaddr_in()</seetype> | <seetype marker="socket#sockaddr_in6">socket:sockaddr_in6()</seetype></string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>SockType</typename><string>SockType = seqpacket | stream</string></subtype>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IP</anno>
+  <anno>Opt</anno>
+  <anno>Opts</anno>
+  <anno>Port</anno>
+  <anno>SockAddr</anno>
+  <anno>SockType</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>peeloff</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>peeloff(Socket, Assoc) -&gt; {ok, NewSocket} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Assoc</typename><string>Assoc = #sctp_assoc_change{} | <seetype marker="#assoc_id">assoc_id()</seetype></string></subtype>
+        <subtype><typename>NewSocket</typename><string>NewSocket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Assoc</anno>
+  <anno>NewSocket</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>recv</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>recv(Socket) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {FromIP, FromPort, AncData, Data}} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>FromIP</typename><string>FromIP = <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>FromPort</typename><string>FromPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>AncData</typename><string>AncData = [#sctp_sndrcvinfo{} | <seetype marker="inet#ancillary_data">inet:ancillary_data()</seetype>]</string></subtype>
+        <subtype><typename>Data</typename><string>Data = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#binary">binary()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#string">string()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_sndrcvinfo{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_assoc_change{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_paddr_change{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_adaptation_event{}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#posix">inet:posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_send_failed{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_paddr_change{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_pdapi_event{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_remote_error{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_shutdown_event{}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AncData</anno>
+  <anno>Data</anno>
+  <anno>FromIP</anno>
+  <anno>FromPort</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>recv</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>recv(Socket, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {FromIP, FromPort, AncData, Data}} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>FromIP</typename><string>FromIP = <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>FromPort</typename><string>FromPort = <seetype marker="inet#port_number">inet:port_number()</seetype></string></subtype>
+        <subtype><typename>AncData</typename><string>AncData = [#sctp_sndrcvinfo{} | <seetype marker="inet#ancillary_data">inet:ancillary_data()</seetype>]</string></subtype>
+        <subtype><typename>Data</typename><string>Data = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#binary">binary()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#string">string()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_sndrcvinfo{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_assoc_change{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_paddr_change{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_adaptation_event{}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#posix">inet:posix()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_send_failed{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_paddr_change{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_pdapi_event{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_remote_error{} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>#sctp_shutdown_event{}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>AncData</anno>
+  <anno>Data</anno>
+  <anno>FromIP</anno>
+  <anno>FromPort</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send(Socket, SndRcvInfo, Data) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>SndRcvInfo</typename><string>SndRcvInfo = #sctp_sndrcvinfo{}</string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Reason</anno>
+  <anno>SndRcvInfo</anno>
+  <anno>Socket</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>send(Socket, Assoc, Stream, Data) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Socket</typename><string>Socket = <seetype marker="#sctp_socket">sctp_socket()</seetype></string></subtype>
+        <subtype><typename>Assoc</typename><string>Assoc = #sctp_assoc_change{} | <seetype marker="#assoc_id">assoc_id()</seetype></string></subtype>
+        <subtype><typename>Stream</typename><string>Stream = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Assoc</anno>
+  <anno>Data</anno>
+  <anno>Reason</anno>
+  <anno>Socket</anno>
+  <anno>Stream</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:48.</timestamp>
+</module>

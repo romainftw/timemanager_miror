@@ -1,0 +1,476 @@
+<module name="queue">
+<type>
+  <name>queue</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-queue">queue()</marker> = <seetype marker="#queue">queue</seetype>(<seetype marker="erlang#term">term()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>queue</name>
+  <n_vars>1</n_vars>
+  <typedecl>
+      <typehead><marker id="type-queue">queue(Item)</marker></typehead></typedecl>
+  <anno>Item</anno>
+</type>
+<spec>
+  <name>all</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>all(Pred, Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Pred</typename><string>Pred = fun((Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Pred</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>any</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>any(Pred, Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Pred</typename><string>Pred = fun((Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Pred</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>cons</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cons(Item, Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>daeh</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>daeh(Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Item</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>delete</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete(Item, Q1) -&gt; Q2</head>
+      <guard>
+        <subtype><typename>Item</typename><string>Item = T</string></subtype>
+        <subtype><typename>Q1</typename><string>Q1 = Q2 = <seetype marker="#queue">queue</seetype>(T)</string></subtype>
+        <subtype><typename>Q2</typename><string/></subtype>
+        <subtype><typename>T</typename><string>T = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+  <anno>T</anno>
+</spec>
+<spec>
+  <name>delete_r</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete_r(Item, Q1) -&gt; Q2</head>
+      <guard>
+        <subtype><typename>Item</typename><string>Item = T</string></subtype>
+        <subtype><typename>Q1</typename><string>Q1 = Q2 = <seetype marker="#queue">queue</seetype>(T)</string></subtype>
+        <subtype><typename>Q2</typename><string/></subtype>
+        <subtype><typename>T</typename><string>T = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+  <anno>T</anno>
+</spec>
+<spec>
+  <name>delete_with</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete_with(Pred, Q1) -&gt; Q2</head>
+      <guard>
+        <subtype><typename>Pred</typename><string>Pred = fun((Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</string></subtype>
+        <subtype><typename>Q1</typename><string>Q1 = Q2 = <seetype marker="#queue">queue</seetype>(Item)</string></subtype>
+        <subtype><typename>Q2</typename><string/></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Pred</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>delete_with_r</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>delete_with_r(Pred, Q1) -&gt; Q2</head>
+      <guard>
+        <subtype><typename>Pred</typename><string>Pred = fun((Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</string></subtype>
+        <subtype><typename>Q1</typename><string>Q1 = Q2 = <seetype marker="#queue">queue</seetype>(Item)</string></subtype>
+        <subtype><typename>Q2</typename><string/></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Pred</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>drop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>drop(Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>drop_r</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>drop_r(Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>filter</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>filter(Fun, Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype> | [Item])</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>filtermap</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>filtermap(Fun, Q1) -&gt; Q2</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Item) -&gt; <seetype marker="erlang#boolean">boolean()</seetype> | {true, Value})</string></subtype>
+        <subtype><typename>Q1</typename><string>Q1 = <seetype marker="#queue">queue</seetype>(Item)</string></subtype>
+        <subtype><typename>Q2</typename><string>Q2 = <seetype marker="#queue">queue</seetype>(Item | Value)</string></subtype>
+        <subtype><typename>Item</typename><string>Item = Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>fold</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>fold(Fun, Acc0, Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Acc1</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Item, AccIn) -&gt; AccOut)</string></subtype>
+        <subtype><typename>Acc0</typename><string>Acc0 = Acc1 = AccIn = AccOut = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Acc1</typename><string></string></subtype>
+        <subtype><typename>AccIn</typename><string></string></subtype>
+        <subtype><typename>AccOut</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Acc0</anno>
+  <anno>Acc1</anno>
+  <anno>AccIn</anno>
+  <anno>AccOut</anno>
+  <anno>Fun</anno>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>from_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>from_list(L :: [Item]) -&gt; <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>L</anno>
+</spec>
+<spec>
+  <name>get</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get(Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Item</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>get_r</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_r(Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Item</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>head</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>head(Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Item</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>in</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>in(Item, Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>in_r</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>in_r(Item, Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>is_empty</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_empty(Q :: <seetype marker="#queue">queue()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>is_queue</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_queue(Term :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>join</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>join(Q1 :: <seetype marker="#queue">queue</seetype>(Item), Q2 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q3 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+  <anno>Q3</anno>
+</spec>
+<spec>
+  <name>lait</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>lait(Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>last</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>last(Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Item</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>len</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>len(Q :: <seetype marker="#queue">queue()</seetype>) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>liat</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>liat(Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>member</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>member(Item, Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#queue">queue</seetype>(<seetype marker="erlang#none">none()</seetype>)</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>out</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>out(Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{{value, Item}, Q2 :: <seetype marker="#queue">queue</seetype>(Item)} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{empty, Q1 :: <seetype marker="#queue">queue</seetype>(Item)}</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>out_r</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>out_r(Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{{value, Item}, Q2 :: <seetype marker="#queue">queue</seetype>(Item)} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{empty, Q1 :: <seetype marker="#queue">queue</seetype>(Item)}</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>peek</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>peek(Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; empty | {value, Item}</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>peek_r</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>peek_r(Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; empty | {value, Item}</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<spec>
+  <name>reverse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>reverse(Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>snoc</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>snoc(Q1 :: <seetype marker="#queue">queue</seetype>(Item), Item) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>split</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>split(N :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>, Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Q2 :: <seetype marker="#queue">queue</seetype>(Item), Q3 :: <seetype marker="#queue">queue</seetype>(Item)}</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>N</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+  <anno>Q3</anno>
+</spec>
+<spec>
+  <name>tail</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tail(Q1 :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; Q2 :: <seetype marker="#queue">queue</seetype>(Item)</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q1</anno>
+  <anno>Q2</anno>
+</spec>
+<spec>
+  <name>to_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_list(Q :: <seetype marker="#queue">queue</seetype>(Item)) -&gt; [Item]</head></clause>
+  </contract>
+  <anno>Item</anno>
+  <anno>Q</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:25.</timestamp>
+</module>

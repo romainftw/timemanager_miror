@@ -1,0 +1,96 @@
+<module name="wxEvtHandler">
+<type>
+  <name>event</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-event">event()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxActivateEvent#wxActivate">wxActivateEvent:wxActivate()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxAuiManagerEvent#wxAuiManager">wxAuiManagerEvent:wxAuiManager()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxAuiNotebookEvent#wxAuiNotebook">wxAuiNotebookEvent:wxAuiNotebook()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxBookCtrlEvent#wxBookCtrl">wxBookCtrlEvent:wxBookCtrl()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxCalendarEvent#wxCalendar">wxCalendarEvent:wxCalendar()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxChildFocusEvent#wxChildFocus">wxChildFocusEvent:wxChildFocus()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxClipboardTextEvent#wxClipboardText">wxClipboardTextEvent:wxClipboardText()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxCloseEvent#wxClose">wxCloseEvent:wxClose()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxColourPickerEvent#wxColourPicker">wxColourPickerEvent:wxColourPicker()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxCommandEvent#wxCommand">wxCommandEvent:wxCommand()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxContextMenuEvent#wxContextMenu">wxContextMenuEvent:wxContextMenu()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxDateEvent#wxDate">wxDateEvent:wxDate()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxDisplayChangedEvent#wxDisplayChanged">wxDisplayChangedEvent:wxDisplayChanged()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxDropFilesEvent#wxDropFiles">wxDropFilesEvent:wxDropFiles()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxEraseEvent#wxErase">wxEraseEvent:wxErase()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxFileDirPickerEvent#wxFileDirPicker">wxFileDirPickerEvent:wxFileDirPicker()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxFocusEvent#wxFocus">wxFocusEvent:wxFocus()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxFontPickerEvent#wxFontPicker">wxFontPickerEvent:wxFontPicker()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridEvent#wxGrid">wxGridEvent:wxGrid()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxHelpEvent#wxHelp">wxHelpEvent:wxHelp()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxHtmlLinkEvent#wxHtmlLink">wxHtmlLinkEvent:wxHtmlLink()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxIconizeEvent#wxIconize">wxIconizeEvent:wxIconize()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxIdleEvent#wxIdle">wxIdleEvent:wxIdle()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxInitDialogEvent#wxInitDialog">wxInitDialogEvent:wxInitDialog()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxJoystickEvent#wxJoystick">wxJoystickEvent:wxJoystick()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxKeyEvent#wxKey">wxKeyEvent:wxKey()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxListEvent#wxList">wxListEvent:wxList()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMaximizeEvent#wxMaximize">wxMaximizeEvent:wxMaximize()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMenuEvent#wxMenu">wxMenuEvent:wxMenu()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMouseCaptureChangedEvent#wxMouseCaptureChanged">wxMouseCaptureChangedEvent:wxMouseCaptureChanged()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMouseCaptureLostEvent#wxMouseCaptureLost">wxMouseCaptureLostEvent:wxMouseCaptureLost()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMouseEvent#wxMouse">wxMouseEvent:wxMouse()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMoveEvent#wxMove">wxMoveEvent:wxMove()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxNavigationKeyEvent#wxNavigationKey">wxNavigationKeyEvent:wxNavigationKey()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxPaintEvent#wxPaint">wxPaintEvent:wxPaint()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxPaletteChangedEvent#wxPaletteChanged">wxPaletteChangedEvent:wxPaletteChanged()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxQueryNewPaletteEvent#wxQueryNewPalette">wxQueryNewPaletteEvent:wxQueryNewPalette()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSashEvent#wxSash">wxSashEvent:wxSash()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxScrollEvent#wxScroll">wxScrollEvent:wxScroll()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxScrollWinEvent#wxScrollWin">wxScrollWinEvent:wxScrollWin()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSetCursorEvent#wxSetCursor">wxSetCursorEvent:wxSetCursor()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxShowEvent#wxShow">wxShowEvent:wxShow()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizeEvent#wxSize">wxSizeEvent:wxSize()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSpinEvent#wxSpin">wxSpinEvent:wxSpin()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSplitterEvent#wxSplitter">wxSplitterEvent:wxSplitter()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxStyledTextEvent#wxStyledText">wxStyledTextEvent:wxStyledText()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSysColourChangedEvent#wxSysColourChanged">wxSysColourChangedEvent:wxSysColourChanged()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxTaskBarIconEvent#wxTaskBarIcon">wxTaskBarIconEvent:wxTaskBarIcon()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxTreeEvent#wxTree">wxTreeEvent:wxTree()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxUpdateUIEvent#wxUpdateUI">wxUpdateUIEvent:wxUpdateUI()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWebViewEvent#wxWebView">wxWebViewEvent:wxWebView()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWindowCreateEvent#wxWindowCreate">wxWindowCreateEvent:wxWindowCreate()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWindowDestroyEvent#wxWindowDestroy">wxWindowDestroyEvent:wxWindowDestroy()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>wx</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wx">wx()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#wx{id = <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>obj = <seetype marker="wx#wx_object">wx:wx_object()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>userData = <seetype marker="erlang#term">term()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>event = <seetype marker="#event">event()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>wxEventType</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxEventType">wxEventType()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxActivateEvent#wxActivateEventType">wxActivateEvent:wxActivateEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxAuiManagerEvent#wxAuiManagerEventType">wxAuiManagerEvent:wxAuiManagerEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxAuiNotebookEvent#wxAuiNotebookEventType">wxAuiNotebookEvent:wxAuiNotebookEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxBookCtrlEvent#wxBookCtrlEventType">wxBookCtrlEvent:wxBookCtrlEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxCalendarEvent#wxCalendarEventType">wxCalendarEvent:wxCalendarEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxChildFocusEvent#wxChildFocusEventType">wxChildFocusEvent:wxChildFocusEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxClipboardTextEvent#wxClipboardTextEventType">wxClipboardTextEvent:wxClipboardTextEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxCloseEvent#wxCloseEventType">wxCloseEvent:wxCloseEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxColourPickerEvent#wxColourPickerEventType">wxColourPickerEvent:wxColourPickerEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxCommandEvent#wxCommandEventType">wxCommandEvent:wxCommandEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxContextMenuEvent#wxContextMenuEventType">wxContextMenuEvent:wxContextMenuEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxDateEvent#wxDateEventType">wxDateEvent:wxDateEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxDisplayChangedEvent#wxDisplayChangedEventType">wxDisplayChangedEvent:wxDisplayChangedEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxDropFilesEvent#wxDropFilesEventType">wxDropFilesEvent:wxDropFilesEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxEraseEvent#wxEraseEventType">wxEraseEvent:wxEraseEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxFileDirPickerEvent#wxFileDirPickerEventType">wxFileDirPickerEvent:wxFileDirPickerEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxFocusEvent#wxFocusEventType">wxFocusEvent:wxFocusEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxFontPickerEvent#wxFontPickerEventType">wxFontPickerEvent:wxFontPickerEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxGridEvent#wxGridEventType">wxGridEvent:wxGridEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxHelpEvent#wxHelpEventType">wxHelpEvent:wxHelpEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxHtmlLinkEvent#wxHtmlLinkEventType">wxHtmlLinkEvent:wxHtmlLinkEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxIconizeEvent#wxIconizeEventType">wxIconizeEvent:wxIconizeEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxIdleEvent#wxIdleEventType">wxIdleEvent:wxIdleEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxInitDialogEvent#wxInitDialogEventType">wxInitDialogEvent:wxInitDialogEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxJoystickEvent#wxJoystickEventType">wxJoystickEvent:wxJoystickEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxKeyEvent#wxKeyEventType">wxKeyEvent:wxKeyEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxListEvent#wxListEventType">wxListEvent:wxListEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMaximizeEvent#wxMaximizeEventType">wxMaximizeEvent:wxMaximizeEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMenuEvent#wxMenuEventType">wxMenuEvent:wxMenuEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMouseCaptureChangedEvent#wxMouseCaptureChangedEventType">wxMouseCaptureChangedEvent:wxMouseCaptureChangedEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMouseCaptureLostEvent#wxMouseCaptureLostEventType">wxMouseCaptureLostEvent:wxMouseCaptureLostEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMouseEvent#wxMouseEventType">wxMouseEvent:wxMouseEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxMoveEvent#wxMoveEventType">wxMoveEvent:wxMoveEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxNavigationKeyEvent#wxNavigationKeyEventType">wxNavigationKeyEvent:wxNavigationKeyEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxPaintEvent#wxPaintEventType">wxPaintEvent:wxPaintEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxPaletteChangedEvent#wxPaletteChangedEventType">wxPaletteChangedEvent:wxPaletteChangedEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxQueryNewPaletteEvent#wxQueryNewPaletteEventType">wxQueryNewPaletteEvent:wxQueryNewPaletteEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSashEvent#wxSashEventType">wxSashEvent:wxSashEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxScrollEvent#wxScrollEventType">wxScrollEvent:wxScrollEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxScrollWinEvent#wxScrollWinEventType">wxScrollWinEvent:wxScrollWinEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSetCursorEvent#wxSetCursorEventType">wxSetCursorEvent:wxSetCursorEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxShowEvent#wxShowEventType">wxShowEvent:wxShowEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSizeEvent#wxSizeEventType">wxSizeEvent:wxSizeEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSpinEvent#wxSpinEventType">wxSpinEvent:wxSpinEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSplitterEvent#wxSplitterEventType">wxSplitterEvent:wxSplitterEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxStyledTextEvent#wxStyledTextEventType">wxStyledTextEvent:wxStyledTextEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxSysColourChangedEvent#wxSysColourChangedEventType">wxSysColourChangedEvent:wxSysColourChangedEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxTaskBarIconEvent#wxTaskBarIconEventType">wxTaskBarIconEvent:wxTaskBarIconEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxTreeEvent#wxTreeEventType">wxTreeEvent:wxTreeEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxUpdateUIEvent#wxUpdateUIEventType">wxUpdateUIEvent:wxUpdateUIEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWebViewEvent#wxWebViewEventType">wxWebViewEvent:wxWebViewEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWindowCreateEvent#wxWindowCreateEventType">wxWindowCreateEvent:wxWindowCreateEventType()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxWindowDestroyEvent#wxWindowDestroyEventType">wxWindowDestroyEvent:wxWindowDestroyEventType()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>wxEvtHandler</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxEvtHandler">wxEvtHandler()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>connect</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>connect(This :: <seetype marker="#wxEvtHandler">wxEvtHandler()</seetype>, EventType :: <seetype marker="#wxEventType">wxEventType()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>EventType</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>connect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>connect(This :: <seetype marker="#wxEvtHandler">wxEvtHandler()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>EventType :: <seetype marker="#wxEventType">wxEventType()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{id, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{lastId, <seetype marker="erlang#integer">integer()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{skip, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>callback |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{callback, <seetype marker="erlang#function">function()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{userData, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EventType</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>connect_impl</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>disconnect(This :: <seetype marker="#wxEvtHandler">wxEvtHandler()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>disconnect(This :: <seetype marker="#wxEvtHandler">wxEvtHandler()</seetype>, EventType :: <seetype marker="#wxEventType">wxEventType()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>EventType</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>disconnect</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>disconnect(This :: <seetype marker="#wxEvtHandler">wxEvtHandler()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>EventType :: <seetype marker="#wxEventType">wxEventType()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Opts :: [Option]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{id, <seetype marker="erlang#integer">integer()</seetype>} | {lastId, <seetype marker="erlang#integer">integer()</seetype>} | {callback, <seetype marker="erlang#function">function()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EventType</anno>
+  <anno>Option</anno>
+  <anno>Opts</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>disconnect_impl</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:29.</timestamp>
+</module>

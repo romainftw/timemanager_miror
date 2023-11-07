@@ -1,0 +1,533 @@
+<module name="wxBitmap">
+<type>
+  <name>wxBitmap</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxBitmap">wxBitmap()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>convertToImage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>convertToImage(This) -&gt; <seetype marker="wxImage#wxImage">wxImage:wxImage()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>copyFromIcon</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>copyFromIcon(This, Icon) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Icon</typename><string>Icon = <seetype marker="wxIcon#wxIcon">wxIcon:wxIcon()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Icon</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>create(This, Sz) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Sz</typename><string>Sz = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Sz</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>create(This, Width, Height) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>create(This, Sz, Height :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Sz</typename><string>Sz = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {depth, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>Sz</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>create(This, Width, Height, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {depth, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>create</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>create(This, Width, Height, Dc) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Dc</typename><string>Dc = <seetype marker="wxDC#wxDC">wxDC:wxDC()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dc</anno>
+  <anno>Height</anno>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxBitmap">wxBitmap()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDepth</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDepth(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getHeight</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getHeight(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMask</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMask(This) -&gt; <seetype marker="wxMask#wxMask">wxMask:wxMask()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPalette</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPalette(This) -&gt; <seetype marker="wxPalette#wxPalette">wxPalette:wxPalette()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSubBitmap</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getSubBitmap(This, Rect) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Rect</typename><string>Rect = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{X :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Y :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>W :: <seetype marker="erlang#integer">integer()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Rect</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getWidth</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getWidth(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isOk</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isOk(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>loadFile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>loadFile(This, Name) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>loadFile</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>loadFile(This, Name, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {type, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Name) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Sz) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Sz</typename><string>Sz = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Sz</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(Img) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Img</typename><string>Img = <seetype marker="wxImage#wxImage">wxImage:wxImage()</seetype> | <seetype marker="wxBitmap#wxBitmap">wxBitmap:wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Img</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Width, Height) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Name, Height :: [Option]) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {type, <seetype marker="wx#wx_enum">wx:wx_enum()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Name</anno>
+  <anno>Option</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Sz, Height :: [Option]) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Sz</typename><string>Sz = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {depth, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>Sz</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>new(Img, Height :: [Option]) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Img</typename><string>Img = <seetype marker="wxImage#wxImage">wxImage:wxImage()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {depth, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Img</anno>
+  <anno>Option</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>new(Bits, Width, Height) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Bits</typename><string>Bits = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bits</anno>
+  <anno>Height</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>new(Width, Height, Height :: [Option]) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {depth, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>new(Bits, Width, Height, Options :: [Option]) -&gt; <seetype marker="#wxBitmap">wxBitmap()</seetype></head>
+      <guard>
+        <subtype><typename>Bits</typename><string>Bits = <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string/></subtype>
+        <subtype><typename>Option</typename><string>Option = {depth, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bits</anno>
+  <anno>Height</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>ok</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ok(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>saveFile</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>saveFile(This, Name, Type) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>This</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>saveFile</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>saveFile(This, Name, Type, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {palette, <seetype marker="wxPalette#wxPalette">wxPalette:wxPalette()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>setDepth</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDepth(This, Depth) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Depth</typename><string>Depth = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Depth</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setHeight</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setHeight(This, Height) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Height</typename><string>Height = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setMask</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMask(This, Mask) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Mask</typename><string>Mask = <seetype marker="wxMask#wxMask">wxMask:wxMask()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Mask</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPalette</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPalette(This, Palette) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Palette</typename><string>Palette = <seetype marker="wxPalette#wxPalette">wxPalette:wxPalette()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Palette</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setWidth</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setWidth(This, Width) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxBitmap">wxBitmap()</seetype></string></subtype>
+        <subtype><typename>Width</typename><string>Width = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>Width</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:22.</timestamp>
+</module>

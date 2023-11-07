@@ -1,0 +1,618 @@
+<module name="maps">
+<type>
+  <name>iterator</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-iterator">iterator()</marker> = <seetype marker="#iterator">iterator</seetype>(<seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>iterator</name>
+  <n_vars>2</n_vars>
+  <typedecl>
+      <typehead><marker id="type-iterator">iterator(Key, Value)</marker></typehead></typedecl>
+  <anno>Key</anno>
+  <anno>Value</anno>
+</type>
+<type>
+  <name>iterator_order</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-iterator_order">iterator_order()</marker> = <seetype marker="#iterator_order">iterator_order</seetype>(<seetype marker="erlang#term">term()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>iterator_order</name>
+  <n_vars>1</n_vars>
+  <typedecl>
+      <typehead><marker id="type-iterator_order">iterator_order(Key)</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>undefined | ordered | reversed |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((A :: Key, B :: Key) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+  <anno>A</anno>
+  <anno>B</anno>
+  <anno>Key</anno>
+</type>
+<spec>
+  <name>filter</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>filter(Pred, MapOrIter) -&gt; Map</head>
+      <guard>
+        <subtype><typename>Pred</typename><string>Pred = fun((Key, Value) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</string></subtype>
+        <subtype><typename>MapOrIter</typename><string>MapOrIter = #{Key =&gt; Value} | <seetype marker="#iterator">iterator</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Map</typename><string>Map = #{Key =&gt; Value}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Map</anno>
+  <anno>MapOrIter</anno>
+  <anno>Pred</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>filtermap</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>filtermap(Fun, MapOrIter) -&gt; Map</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Key, Value1) -&gt; <seetype marker="erlang#boolean">boolean()</seetype> | {true, Value2})</string></subtype>
+        <subtype><typename>MapOrIter</typename><string>MapOrIter = #{Key =&gt; Value1} | <seetype marker="#iterator">iterator</seetype>(Key, Value1)</string></subtype>
+        <subtype><typename>Map</typename><string>Map = #{Key =&gt; Value1 | Value2}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Key</anno>
+  <anno>Map</anno>
+  <anno>MapOrIter</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>find</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>find(Key, Map) -&gt; {ok, Value} | error</head>
+      <guard>
+        <subtype><typename>Map</typename><string>Map = #{Key =&gt; Value, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Map</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>fold</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>fold(Fun, Init, MapOrIter) -&gt; Acc</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Key, Value, AccIn) -&gt; AccOut)</string></subtype>
+        <subtype><typename>Init</typename><string>Init = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Acc</typename><string>Acc = AccOut</string></subtype>
+        <subtype><typename>AccIn</typename><string>AccIn = Init | AccOut</string></subtype>
+        <subtype><typename>MapOrIter</typename><string>MapOrIter = #{Key =&gt; Value} | <seetype marker="#iterator">iterator</seetype>(Key, Value)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Acc</anno>
+  <anno>AccIn</anno>
+  <anno>AccOut</anno>
+  <anno>Fun</anno>
+  <anno>Init</anno>
+  <anno>Key</anno>
+  <anno>MapOrIter</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>foreach</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>foreach(Fun, MapOrIter) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Key, Value) -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>MapOrIter</typename><string>MapOrIter = #{Key =&gt; Value} | <seetype marker="#iterator">iterator</seetype>(Key, Value)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Key</anno>
+  <anno>MapOrIter</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>from_keys</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>from_keys(Keys, Value) -&gt; Map</head>
+      <guard>
+        <subtype><typename>Keys</typename><string>Keys = <seetype marker="erlang#list">list()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Map</typename><string>Map = <seetype marker="erlang#map">map()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Keys</anno>
+  <anno>Map</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>from_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>from_list(List) -&gt; Map</head>
+      <guard>
+        <subtype><typename>List</typename><string>List = [{Key, Value}]</string></subtype>
+        <subtype><typename>Key</typename><string>Key = Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string/></subtype>
+        <subtype><typename>Map</typename><string>Map = <seetype marker="erlang#map">map()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>List</anno>
+  <anno>Map</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>get</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get(Key, Map) -&gt; Value</head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Map</typename><string>Map = <seetype marker="erlang#map">map()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Map</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>get</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get(Key, Map, Default) -&gt; Value | Default</head>
+      <guard>
+        <subtype><typename>Map</typename><string>Map = #{Key =&gt; Value, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Default</anno>
+  <anno>Key</anno>
+  <anno>Map</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>groups_from_list</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>groups_from_list(KeyFun, List) -&gt; GroupsMap</head>
+      <guard>
+        <subtype><typename>KeyFun</typename><string>KeyFun = fun((Elem) -&gt; Key)</string></subtype>
+        <subtype><typename>GroupsMap</typename><string>GroupsMap = #{Key =&gt; Group}</string></subtype>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>List</typename><string>List = Group = [Elem]</string></subtype>
+        <subtype><typename>Group</typename><string/></subtype>
+        <subtype><typename>Elem</typename><string>Elem = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Elem</anno>
+  <anno>Group</anno>
+  <anno>GroupsMap</anno>
+  <anno>Key</anno>
+  <anno>KeyFun</anno>
+  <anno>List</anno>
+</spec>
+<spec>
+  <name>groups_from_list</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>groups_from_list(KeyFun, ValueFun, List) -&gt; GroupsMap</head>
+      <guard>
+        <subtype><typename>KeyFun</typename><string>KeyFun = fun((Elem) -&gt; Key)</string></subtype>
+        <subtype><typename>ValueFun</typename><string>ValueFun = fun((Elem) -&gt; Value)</string></subtype>
+        <subtype><typename>GroupsMap</typename><string>GroupsMap = #{Key := Group}</string></subtype>
+        <subtype><typename>Key</typename><string>Key = Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string/></subtype>
+        <subtype><typename>List</typename><string>List = [Elem]</string></subtype>
+        <subtype><typename>Group</typename><string>Group = [Value]</string></subtype>
+        <subtype><typename>Elem</typename><string>Elem = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Elem</anno>
+  <anno>Group</anno>
+  <anno>GroupsMap</anno>
+  <anno>Key</anno>
+  <anno>KeyFun</anno>
+  <anno>List</anno>
+  <anno>Value</anno>
+  <anno>ValueFun</anno>
+</spec>
+<spec>
+  <name>intersect</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>intersect(Map1, Map2) -&gt; Map3</head>
+      <guard>
+        <subtype><typename>Map1</typename><string>Map1 = #{Key =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Map2</typename><string>Map2 = #{<seetype marker="erlang#term">term()</seetype> =&gt; Value2}</string></subtype>
+        <subtype><typename>Map3</typename><string>Map3 = #{Key =&gt; Value2}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>Map3</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>intersect_with</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>intersect_with(Combiner, Map1, Map2) -&gt; Map3</head>
+      <guard>
+        <subtype><typename>Map1</typename><string>Map1 = #{Key =&gt; Value1}</string></subtype>
+        <subtype><typename>Map2</typename><string>Map2 = #{<seetype marker="erlang#term">term()</seetype> =&gt; Value2}</string></subtype>
+        <subtype><typename>Combiner</typename><string>Combiner = fun((Key, Value1, Value2) -&gt; CombineResult)</string></subtype>
+        <subtype><typename>Map3</typename><string>Map3 = #{Key =&gt; CombineResult}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CombineResult</anno>
+  <anno>Combiner</anno>
+  <anno>Key</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>Map3</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>is_iterator_valid</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_iterator_valid(MaybeIter) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>MaybeIter</typename><string>MaybeIter = <seetype marker="#iterator">iterator()</seetype> | <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>MaybeIter</anno>
+</spec>
+<spec>
+  <name>is_key</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>is_key(Key, Map) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Map</typename><string>Map = <seetype marker="erlang#map">map()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Map</anno>
+</spec>
+<spec>
+  <name>iterator</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>iterator(Map) -&gt; Iterator</head>
+      <guard>
+        <subtype><typename>Map</typename><string>Map = #{Key =&gt; Value}</string></subtype>
+        <subtype><typename>Iterator</typename><string>Iterator = <seetype marker="#iterator">iterator</seetype>(Key, Value)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Iterator</anno>
+  <anno>Key</anno>
+  <anno>Map</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>iterator</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>iterator(Map, Order) -&gt; Iterator</head>
+      <guard>
+        <subtype><typename>Map</typename><string>Map = #{Key =&gt; Value}</string></subtype>
+        <subtype><typename>Order</typename><string>Order = <seetype marker="#iterator_order">iterator_order</seetype>(Key)</string></subtype>
+        <subtype><typename>Iterator</typename><string>Iterator = <seetype marker="#iterator">iterator</seetype>(Key, Value)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Iterator</anno>
+  <anno>Key</anno>
+  <anno>Map</anno>
+  <anno>Order</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>keys</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>keys(Map) -&gt; Keys</head>
+      <guard>
+        <subtype><typename>Map</typename><string>Map = #{Key =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Keys</typename><string>Keys = [Key]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Keys</anno>
+  <anno>Map</anno>
+</spec>
+<spec>
+  <name>map</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>map(Fun, MapOrIter) -&gt; Map</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Key, Value1) -&gt; Value2)</string></subtype>
+        <subtype><typename>MapOrIter</typename><string>MapOrIter = #{Key =&gt; Value1} | <seetype marker="#iterator">iterator</seetype>(Key, Value1)</string></subtype>
+        <subtype><typename>Map</typename><string>Map = #{Key =&gt; Value2}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Key</anno>
+  <anno>Map</anno>
+  <anno>MapOrIter</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>merge</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>merge(Map1, Map2) -&gt; Map3</head>
+      <guard>
+        <subtype><typename>Map1</typename><string>Map1 = Map2 = Map3 = <seetype marker="erlang#map">map()</seetype></string></subtype>
+        <subtype><typename>Map2</typename><string></string></subtype>
+        <subtype><typename>Map3</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>Map3</anno>
+</spec>
+<spec>
+  <name>merge_with</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>merge_with(Combiner, Map1, Map2) -&gt; Map3</head>
+      <guard>
+        <subtype><typename>Map1</typename><string>Map1 = #{Key1 =&gt; Value1}</string></subtype>
+        <subtype><typename>Map2</typename><string>Map2 = #{Key2 =&gt; Value2}</string></subtype>
+        <subtype><typename>Combiner</typename><string>Combiner = fun((Key1, Value1, Value2) -&gt; CombineResult)</string></subtype>
+        <subtype><typename>Map3</typename><string>Map3 = #{Key1 =&gt; CombineResult, Key1 =&gt; Value1, Key2 =&gt; Value2}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CombineResult</anno>
+  <anno>Combiner</anno>
+  <anno>Key1</anno>
+  <anno>Key2</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>Map3</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; Map</head>
+      <guard>
+        <subtype><typename>Map</typename><string>Map = #{}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Map</anno>
+</spec>
+<spec>
+  <name>next</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>next(Iterator) -&gt; {Key, Value, NextIterator} | none</head>
+      <guard>
+        <subtype><typename>Iterator</typename><string>Iterator = NextIterator = <seetype marker="#iterator">iterator</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>NextIterator</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Iterator</anno>
+  <anno>Key</anno>
+  <anno>NextIterator</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>put</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>put(Key, Value, Map1) -&gt; Map2</head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string/></subtype>
+        <subtype><typename>Map1</typename><string>Map1 = Map2 = <seetype marker="erlang#map">map()</seetype></string></subtype>
+        <subtype><typename>Map2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>remove</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>remove(Key, Map1) -&gt; Map2</head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Map1</typename><string>Map1 = Map2 = <seetype marker="erlang#map">map()</seetype></string></subtype>
+        <subtype><typename>Map2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+</spec>
+<spec>
+  <name>size</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>size(Map) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Map</typename><string>Map = <seetype marker="erlang#map">map()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Map</anno>
+</spec>
+<spec>
+  <name>take</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>take(Key, Map1) -&gt; {Value, Map2} | error</head>
+      <guard>
+        <subtype><typename>Map1</typename><string>Map1 = #{Key =&gt; Value, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Map2</typename><string>Map2 = #{<seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>to_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_list(MapOrIterator) -&gt; [{Key, Value}]</head>
+      <guard>
+        <subtype><typename>MapOrIterator</typename><string>MapOrIterator = #{Key =&gt; Value} | <seetype marker="#iterator">iterator</seetype>(Key, Value)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>MapOrIterator</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update(Key, Value, Map1) -&gt; Map2</head>
+      <guard>
+        <subtype><typename>Map1</typename><string>Map1 = #{Key := <seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Map2</typename><string>Map2 = #{Key := Value, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>update_with</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_with(Key, Fun, Map1) -&gt; Map2</head>
+      <guard>
+        <subtype><typename>Map1</typename><string>Map1 = #{Key := Value1, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Map2</typename><string>Map2 = #{Key := Value2, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = fun((Value1) -&gt; Value2)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Key</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>update_with</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>update_with(Key, Fun, Init, Map1) -&gt; Map2</head>
+      <guard>
+        <subtype><typename>Map1</typename><string>Map1 = #{Key =&gt; Value1, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Map2</typename><string>Map2 = #{Key := Value2 | Init, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = fun((Value1) -&gt; Value2)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Init</anno>
+  <anno>Key</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>values</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>values(Map) -&gt; Values</head>
+      <guard>
+        <subtype><typename>Map</typename><string>Map = #{<seetype marker="erlang#term">term()</seetype> =&gt; Value}</string></subtype>
+        <subtype><typename>Values</typename><string>Values = [Value]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Map</anno>
+  <anno>Value</anno>
+  <anno>Values</anno>
+</spec>
+<spec>
+  <name>with</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>with(Ks, Map1) -&gt; Map2</head>
+      <guard>
+        <subtype><typename>Ks</typename><string>Ks = [K]</string></subtype>
+        <subtype><typename>Map1</typename><string>Map1 = #{K =&gt; V, <seetype marker="erlang#term">term()</seetype> =&gt; <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Map2</typename><string>Map2 = #{K =&gt; V}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>K</anno>
+  <anno>Ks</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+  <anno>V</anno>
+</spec>
+<spec>
+  <name>without</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>without(Ks, Map1) -&gt; Map2</head>
+      <guard>
+        <subtype><typename>Ks</typename><string>Ks = [K]</string></subtype>
+        <subtype><typename>Map1</typename><string>Map1 = Map2 = <seetype marker="erlang#map">map()</seetype></string></subtype>
+        <subtype><typename>Map2</typename><string/></subtype>
+        <subtype><typename>K</typename><string>K = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>K</anno>
+  <anno>Ks</anno>
+  <anno>Map1</anno>
+  <anno>Map2</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:24.</timestamp>
+</module>

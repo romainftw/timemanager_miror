@@ -1,6 +1,21 @@
+<!-- 
+
+  Modale pour afficher la liste des horaires de travail d'un utilisateur avec la possibilité d'ajouter un horaire
+  Workingtimes for one user modal
+
+-->
+
 <template>
   <section>
-    <h5>Horaire de travail de {{ username }}</h5>
+    <h5>Horaires de travail de {{ username }}</h5>
+
+    <button class="btn" @click="toggleWorkingTimeModal">
+        <i class="bi bi-plus-square text-info"></i>
+    </button>
+    
+    <modal :show="show" >
+    </modal>
+
     <article class="mt-5">
       <table class="table">
         <thead>
@@ -11,7 +26,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-if="workingTimes.length === 0">
+          <tr v-if="workingTimes.length === 0" class="ml-5">
             pas encore définies
           </tr>
           <tr v-for="workingtime in workingTimes" :key="workingtime.id">
@@ -24,10 +39,7 @@
               <button class="btn ms-2" @click="deleteWorkingTime(workingtime.id)">
                 <i class="bi bi-trash3-fill text-danger"></i>
               </button> -->
-              <RouterLink
-                :to="`/workigTime/${userID}/${workingtime.id}/${username}`"
-                class="btn btn-outline-dark"
-              >
+              <RouterLink :to="`/workingTime/${userID}/${workingtime.id}/${username}`" class="btn btn-outline-dark">
                 Voir
               </RouterLink>
             </td>
@@ -38,12 +50,12 @@
   </section>
 </template>
 
-<script steup>
+<script>
 import config from '../../config'
 import axios from 'axios'
 import { formatDate } from '../../functions'
 import { RouterLink } from 'vue-router'
-import { watchEffect } from 'vue'
+
 export default {
   name: 'workingTimes',
   props: ['userID', 'username'],
@@ -55,36 +67,39 @@ export default {
 
   methods: {
     getWorkingTimes: async function () {
-      try {
-        const response = await axios.get(`${config.back_uri}/workingtime_by_user/${this.userID}`)
-        this.workingTimes = response.data.data
-        console.log(response.data)
-      } catch (error) {
-        this.$notify({
-          title: 'Erreur',
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+      if(!this.userID) {
+        try {
+          const response = await axios.get(`${config.back_uri}/workingtimes`)
+          this.workingTimes = response.data.data
+          console.log(response.data)
+        } catch (error) {
+          this.$notify({
+            title: 'Erreur',
+            text: "Une erreur s'est produite",
+            type: 'error'
+          })
+        }
+      } else {
+        try {
+          const response = await axios.get(`${config.back_uri}/workingtime_by_user/${this.userID}`)
+          this.workingTimes = response.data.data
+          console.log(response.data)
+        } catch (error) {
+          this.$notify({
+            title: 'Erreur',
+            text: "Une erreur s'est produite",
+            type: 'error'
+          })
+        }
       }
+      
+    },
+    toggleWorkingTimeModal: function () {
+      this.showEditModal = !this.showEditModal
     },
     formattedDate: function (date) {
-      return formatDate(date)
+      return formatDate(date, 'D MMMM YYYY [à] hh:mm A')
     }
-    // deleteWorkingTime: async function (id) {
-    //   try {
-    //     const response = await axios.delete(`${config.back_uri}/workingtimes/${id}`)
-    //     this.workingTimes = this.workingTimes.filter((workingtime) => workingtime.id !== id)
-    //     this.$notify({
-    //       text: 'Les horaires ont été supprimées',
-    //       type: 'success'
-    //     })
-    //   } catch (error) {
-    //     this.$notify({
-    //       text: "Une erreur s'est produite",
-    //       type: 'error'
-    //     })
-    //   }
-    // }
   },
   mounted() {},
   created() {

@@ -20,6 +20,19 @@ defmodule TimemanagerWeb.WorkingtimeJSON do
       id: workingtime.id,
       start: workingtime.start,
       end: workingtime.end,
+
     }
   end
+  def render("getUserWorkingHours.json", %{data: result}) do
+    %{data: result}
+  end
+
+
+  def render("getUserWorkingHoursToday.json", %{data: result}) do
+    %{data: result}
+  end
+  def render("getUserWorkingHoursThisWeek.json", %{data: result}) do
+    %{data: result}
+  end
+
 end

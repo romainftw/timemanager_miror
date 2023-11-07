@@ -1,0 +1,1090 @@
+<module name="string">
+<type>
+  <name>direction</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-direction">direction()</marker> = leading | trailing</typehead></typedecl>
+</type>
+<type>
+  <name>grapheme_cluster</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-grapheme_cluster">grapheme_cluster()</marker> = <seetype marker="erlang#char">char()</seetype> | [<seetype marker="erlang#char">char()</seetype>]</typehead></typedecl>
+</type>
+<spec>
+  <name>casefold</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>casefold(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>centre(String, Number) -&gt; Centered</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Centered = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Centered</typename><string/></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Centered</anno>
+  <anno>Number</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>centre(String, Number, Character) -&gt; Centered</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Centered = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Centered</typename><string/></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Centered</anno>
+  <anno>Character</anno>
+  <anno>Number</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>chars</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>chars(Character, Number) -&gt; String</head>
+      <guard>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Character</anno>
+  <anno>Number</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>chars</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>chars(Character, Number, Tail) -&gt; String</head>
+      <guard>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Tail</typename><string>Tail = String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>String</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Character</anno>
+  <anno>Number</anno>
+  <anno>String</anno>
+  <anno>Tail</anno>
+</spec>
+<spec>
+  <name>chomp</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>chomp(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>chr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>chr(String, Character) -&gt; Index</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Character</anno>
+  <anno>Index</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>concat</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>concat(String1, String2) -&gt; String3</head>
+      <guard>
+        <subtype><typename>String1</typename><string>String1 = String2 = String3 = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>String2</typename><string></string></subtype>
+        <subtype><typename>String3</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>String1</anno>
+  <anno>String2</anno>
+  <anno>String3</anno>
+</spec>
+<spec>
+  <name>copies</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>copies(String, Number) -&gt; Copies</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Copies = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Copies</typename><string/></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Copies</anno>
+  <anno>Number</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>cspan</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cspan(String, Chars) -&gt; Length</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Chars = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Chars</typename><string/></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Chars</anno>
+  <anno>Length</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>equal</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>equal(A, B) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>A</typename><string>A = B = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>B</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>A</anno>
+  <anno>B</anno>
+</spec>
+<spec>
+  <name>equal</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>equal(A, B, IgnoreCase) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>A</typename><string>A = B = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>B</typename><string/></subtype>
+        <subtype><typename>IgnoreCase</typename><string>IgnoreCase = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>A</anno>
+  <anno>B</anno>
+  <anno>IgnoreCase</anno>
+</spec>
+<spec>
+  <name>equal</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>equal(A, B, IgnoreCase, Norm) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>A</typename><string>A = B = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>B</typename><string/></subtype>
+        <subtype><typename>IgnoreCase</typename><string>IgnoreCase = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Norm</typename><string>Norm = none | nfc | nfd | nfkc | nfkd</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>A</anno>
+  <anno>B</anno>
+  <anno>IgnoreCase</anno>
+  <anno>Norm</anno>
+</spec>
+<spec>
+  <name>find</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>find(String, SearchPattern) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype> | nomatch</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SearchPattern = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>SearchPattern</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>SearchPattern</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>find</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>find(String, SearchPattern, Dir) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype> | nomatch</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SearchPattern = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>SearchPattern</typename><string/></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#direction">direction()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>SearchPattern</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>is_empty</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_empty(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>join</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>join(StringList, Separator) -&gt; String</head>
+      <guard>
+        <subtype><typename>StringList</typename><string>StringList = [<seetype marker="erlang#string">string()</seetype>]</string></subtype>
+        <subtype><typename>Separator</typename><string>Separator = String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>String</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Separator</anno>
+  <anno>String</anno>
+  <anno>StringList</anno>
+</spec>
+<spec>
+  <name>left</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>left(String, Number) -&gt; Left</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Left = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Left</typename><string/></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Left</anno>
+  <anno>Number</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>left</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>left(String, Number, Character) -&gt; Left</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Left = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Left</typename><string/></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Character</anno>
+  <anno>Left</anno>
+  <anno>Number</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>len</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>len(String) -&gt; Length</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Length</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>length</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>length(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>lexemes</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>lexemes(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>SeparatorList :: [<seetype marker="#grapheme_cluster">grapheme_cluster()</seetype>]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="unicode#chardata">unicode:chardata()</seetype>]</head></clause>
+  </contract>
+  <anno>SeparatorList</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>list_to_float</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_to_float(String) -&gt; {Float, Rest} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Float</typename><string>Float = <seetype marker="erlang#float">float()</seetype></string></subtype>
+        <subtype><typename>Rest</typename><string>Rest = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = no_float | not_a_list</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Float</anno>
+  <anno>Reason</anno>
+  <anno>Rest</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>list_to_integer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>list_to_integer(String) -&gt; {Int, Rest} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Int</typename><string>Int = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Rest</typename><string>Rest = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = no_integer | not_a_list</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Int</anno>
+  <anno>Reason</anno>
+  <anno>Rest</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>lowercase</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>lowercase(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>next_codepoint</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>next_codepoint(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#maybe_improper_list">maybe_improper_list</seetype>(<seetype marker="erlang#char">char()</seetype>, <seetype marker="unicode#chardata">unicode:chardata()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>next_grapheme</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>next_grapheme(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#maybe_improper_list">maybe_improper_list</seetype>(<seetype marker="#grapheme_cluster">grapheme_cluster()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="unicode#chardata">unicode:chardata()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>nth_lexeme</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>nth_lexeme(String, N, SeparatorList) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>SeparatorList</typename><string>SeparatorList = [<seetype marker="#grapheme_cluster">grapheme_cluster()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>N</anno>
+  <anno>SeparatorList</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>pad</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pad(String, Length) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Length</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>pad</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>pad(String, Length, Dir) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#direction">direction()</seetype> | both</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>Length</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>pad</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>pad(String, Length, Dir, Char) -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#direction">direction()</seetype> | both</string></subtype>
+        <subtype><typename>Char</typename><string>Char = <seetype marker="#grapheme_cluster">grapheme_cluster()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Char</anno>
+  <anno>Dir</anno>
+  <anno>Length</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>prefix</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>prefix(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>, Prefix :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>nomatch | <seetype marker="unicode#chardata">unicode:chardata()</seetype></head></clause>
+  </contract>
+  <anno>Prefix</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>rchr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rchr(String, Character) -&gt; Index</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Character</anno>
+  <anno>Index</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>replace</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>replace(String, SearchPattern, Replacement) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="unicode#chardata">unicode:chardata()</seetype>]</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SearchPattern = Replacement = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>SearchPattern</typename><string></string></subtype>
+        <subtype><typename>Replacement</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Replacement</anno>
+  <anno>SearchPattern</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>replace</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>replace(String, SearchPattern, Replacement, Where) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="unicode#chardata">unicode:chardata()</seetype>]</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SearchPattern = Replacement = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>SearchPattern</typename><string/></subtype>
+        <subtype><typename>Replacement</typename><string/></subtype>
+        <subtype><typename>Where</typename><string>Where = <seetype marker="#direction">direction()</seetype> | all</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Replacement</anno>
+  <anno>SearchPattern</anno>
+  <anno>String</anno>
+  <anno>Where</anno>
+</spec>
+<spec>
+  <name>reverse</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>reverse(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt; [<seetype marker="#grapheme_cluster">grapheme_cluster()</seetype>]</head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>right</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>right(String, Number) -&gt; Right</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Right = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Right</typename><string/></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Number</anno>
+  <anno>Right</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>right</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>right(String, Number, Character) -&gt; Right</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Right = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Right</typename><string/></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Character</anno>
+  <anno>Number</anno>
+  <anno>Right</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>rstr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rstr(String, SubString) -&gt; Index</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SubString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>SubString</typename><string/></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>String</anno>
+  <anno>SubString</anno>
+</spec>
+<spec>
+  <name>slice</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>slice(String, Start) -&gt; Slice</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Start</typename><string>Start = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Slice</typename><string>Slice = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Slice</anno>
+  <anno>Start</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>slice</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>slice(String, Start, Length) -&gt; Slice</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Start</typename><string>Start = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = infinity | <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Slice</typename><string>Slice = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Length</anno>
+  <anno>Slice</anno>
+  <anno>Start</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>span</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>span(String, Chars) -&gt; Length</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Chars = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Chars</typename><string/></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Chars</anno>
+  <anno>Length</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>split</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>split(String, SearchPattern) -&gt; [<seetype marker="unicode#chardata">unicode:chardata()</seetype>]</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SearchPattern = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>SearchPattern</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>SearchPattern</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>split</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>split(String, SearchPattern, Where) -&gt; [<seetype marker="unicode#chardata">unicode:chardata()</seetype>]</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SearchPattern = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>SearchPattern</typename><string/></subtype>
+        <subtype><typename>Where</typename><string>Where = <seetype marker="#direction">direction()</seetype> | all</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>SearchPattern</anno>
+  <anno>String</anno>
+  <anno>Where</anno>
+</spec>
+<spec>
+  <name>str</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>str(String, SubString) -&gt; Index</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SubString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>SubString</typename><string/></subtype>
+        <subtype><typename>Index</typename><string>Index = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Index</anno>
+  <anno>String</anno>
+  <anno>SubString</anno>
+</spec>
+<spec>
+  <name>strip</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>strip(String :: <seetype marker="erlang#string">string()</seetype>) -&gt; <seetype marker="erlang#string">string()</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>strip</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>strip(String, Direction) -&gt; Stripped</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Stripped = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Stripped</typename><string/></subtype>
+        <subtype><typename>Direction</typename><string>Direction = left | right | both</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Direction</anno>
+  <anno>String</anno>
+  <anno>Stripped</anno>
+</spec>
+<spec>
+  <name>strip</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>strip(String, Direction, Character) -&gt; Stripped</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Stripped = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Stripped</typename><string/></subtype>
+        <subtype><typename>Direction</typename><string>Direction = left | right | both</string></subtype>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Character</anno>
+  <anno>Direction</anno>
+  <anno>String</anno>
+  <anno>Stripped</anno>
+</spec>
+<spec>
+  <name>sub_string</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>sub_string(String, Start) -&gt; SubString</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SubString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>SubString</typename><string/></subtype>
+        <subtype><typename>Start</typename><string>Start = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Start</anno>
+  <anno>String</anno>
+  <anno>SubString</anno>
+</spec>
+<spec>
+  <name>sub_string</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>sub_string(String, Start, Stop) -&gt; SubString</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SubString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>SubString</typename><string/></subtype>
+        <subtype><typename>Start</typename><string>Start = Stop = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Stop</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Start</anno>
+  <anno>Stop</anno>
+  <anno>String</anno>
+  <anno>SubString</anno>
+</spec>
+<spec>
+  <name>sub_word</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>sub_word(String, Number) -&gt; Word</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Word = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Word</typename><string/></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Number</anno>
+  <anno>String</anno>
+  <anno>Word</anno>
+</spec>
+<spec>
+  <name>sub_word</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>sub_word(String, Number, Character) -&gt; Word</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Word = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Word</typename><string/></subtype>
+        <subtype><typename>Number</typename><string>Number = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Character</anno>
+  <anno>Number</anno>
+  <anno>String</anno>
+  <anno>Word</anno>
+</spec>
+<spec>
+  <name>substr</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>substr(String, Start) -&gt; SubString</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SubString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>SubString</typename><string/></subtype>
+        <subtype><typename>Start</typename><string>Start = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Start</anno>
+  <anno>String</anno>
+  <anno>SubString</anno>
+</spec>
+<spec>
+  <name>substr</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>substr(String, Start, Length) -&gt; SubString</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SubString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>SubString</typename><string/></subtype>
+        <subtype><typename>Start</typename><string>Start = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Length</typename><string>Length = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Length</anno>
+  <anno>Start</anno>
+  <anno>String</anno>
+  <anno>SubString</anno>
+</spec>
+<spec>
+  <name>take</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>take(String, Characters) -&gt; {Leading, Trailing}</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Characters</typename><string>Characters = [<seetype marker="#grapheme_cluster">grapheme_cluster()</seetype>]</string></subtype>
+        <subtype><typename>Leading</typename><string>Leading = Trailing = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Trailing</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Characters</anno>
+  <anno>Leading</anno>
+  <anno>String</anno>
+  <anno>Trailing</anno>
+</spec>
+<spec>
+  <name>take</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>take(String, Characters, Complement) -&gt; {Leading, Trailing}</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Characters</typename><string>Characters = [<seetype marker="#grapheme_cluster">grapheme_cluster()</seetype>]</string></subtype>
+        <subtype><typename>Complement</typename><string>Complement = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Leading</typename><string>Leading = Trailing = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Trailing</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Characters</anno>
+  <anno>Complement</anno>
+  <anno>Leading</anno>
+  <anno>String</anno>
+  <anno>Trailing</anno>
+</spec>
+<spec>
+  <name>take</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>take(String, Characters, Complement, Dir) -&gt; {Leading, Trailing}</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Characters</typename><string>Characters = [<seetype marker="#grapheme_cluster">grapheme_cluster()</seetype>]</string></subtype>
+        <subtype><typename>Complement</typename><string>Complement = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#direction">direction()</seetype></string></subtype>
+        <subtype><typename>Leading</typename><string>Leading = Trailing = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Trailing</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Characters</anno>
+  <anno>Complement</anno>
+  <anno>Dir</anno>
+  <anno>Leading</anno>
+  <anno>String</anno>
+  <anno>Trailing</anno>
+</spec>
+<spec>
+  <name>titlecase</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>titlecase(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>to_float</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_float(String) -&gt; {Float, Rest} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Float</typename><string>Float = <seetype marker="erlang#float">float()</seetype></string></subtype>
+        <subtype><typename>Rest</typename><string>Rest = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = no_float | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Float</anno>
+  <anno>Reason</anno>
+  <anno>Rest</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>to_graphemes</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_graphemes(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt; [<seetype marker="#grapheme_cluster">grapheme_cluster()</seetype>]</head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>to_integer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_integer(String) -&gt; {Int, Rest} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Int</typename><string>Int = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Rest</typename><string>Rest = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = no_integer | badarg</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Int</anno>
+  <anno>Reason</anno>
+  <anno>Rest</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>to_lower</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_lower(String) -&gt; Result</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Result = <seetype marker="io_lib#latin1_string">io_lib:latin1_string()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Result</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>to_lower</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_lower(Char) -&gt; CharResult</head>
+      <guard>
+        <subtype><typename>Char</typename><string>Char = CharResult = <seetype marker="erlang#char">char()</seetype></string></subtype>
+        <subtype><typename>CharResult</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Char</anno>
+  <anno>CharResult</anno>
+</spec>
+<spec>
+  <name>to_upper</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_upper(String) -&gt; Result</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = Result = <seetype marker="io_lib#latin1_string">io_lib:latin1_string()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Result</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>to_upper</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_upper(Char) -&gt; CharResult</head>
+      <guard>
+        <subtype><typename>Char</typename><string>Char = CharResult = <seetype marker="erlang#char">char()</seetype></string></subtype>
+        <subtype><typename>CharResult</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Char</anno>
+  <anno>CharResult</anno>
+</spec>
+<spec>
+  <name>tokens</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>tokens(String, SeparatorList) -&gt; Tokens</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = SeparatorList = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>SeparatorList</typename><string/></subtype>
+        <subtype><typename>Tokens</typename><string>Tokens = [Token :: <seetype marker="erlang#nonempty_string">nonempty_string()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>SeparatorList</anno>
+  <anno>String</anno>
+  <anno>Token</anno>
+  <anno>Tokens</anno>
+</spec>
+<spec>
+  <name>trim</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>trim(String) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>trim</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>trim(String, Dir) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#direction">direction()</seetype> | both</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Dir</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>trim</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>trim(String, Dir, Characters) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Dir</typename><string>Dir = <seetype marker="#direction">direction()</seetype> | both</string></subtype>
+        <subtype><typename>Characters</typename><string>Characters = [<seetype marker="#grapheme_cluster">grapheme_cluster()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Characters</anno>
+  <anno>Dir</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>uppercase</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>uppercase(String :: <seetype marker="unicode#chardata">unicode:chardata()</seetype>) -&gt; <seetype marker="unicode#chardata">unicode:chardata()</seetype></head></clause>
+  </contract>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>words</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>words(String) -&gt; Count</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Count</typename><string>Count = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Count</anno>
+  <anno>String</anno>
+</spec>
+<spec>
+  <name>words</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>words(String, Character) -&gt; Count</head>
+      <guard>
+        <subtype><typename>String</typename><string>String = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Character</typename><string>Character = <seetype marker="erlang#char">char()</seetype></string></subtype>
+        <subtype><typename>Count</typename><string>Count = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Character</anno>
+  <anno>Count</anno>
+  <anno>String</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:27.</timestamp>
+</module>

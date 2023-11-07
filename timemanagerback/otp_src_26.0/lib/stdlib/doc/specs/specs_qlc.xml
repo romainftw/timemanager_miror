@@ -1,0 +1,751 @@
+<module name="qlc">
+<type>
+  <name>abstract_expr</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-abstract_expr">abstract_expr()</marker> = <seetype marker="erl_parse#abstract_expr">erl_parse:abstract_expr()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>answer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-answer">answer()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>answers</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-answers">answers()</marker> = [<seetype marker="#answer">answer()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>cache</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-cache">cache()</marker> = ets | list | no</typehead></typedecl>
+</type>
+<type>
+  <name>key_pos</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-key_pos">key_pos()</marker> = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | [<seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>match_expression</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-match_expression">match_expression()</marker> = <seetype marker="ets#match_spec">ets:match_spec()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>max_list_size</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-max_list_size">max_list_size()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>no_files</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-no_files">no_files()</marker> = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>order</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-order">order()</marker> = ascending | descending | <seetype marker="#order_fun">order_fun()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>order_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-order_fun">order_fun()</marker> = fun((<seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>query_cursor</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-query_cursor">query_cursor()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>query_handle</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-query_handle">query_handle()</marker></typehead></typedecl>
+</type>
+<type>
+  <name>query_handle_or_list</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-query_handle_or_list">query_handle_or_list()</marker> = <seetype marker="#query_handle">query_handle()</seetype> | <seetype marker="erlang#list">list()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>query_list_comprehension</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-query_list_comprehension">query_list_comprehension()</marker> = <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>sort_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sort_option">sort_option()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{compressed, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_files, <seetype marker="#no_files">no_files()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{order, <seetype marker="#order">order()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{size, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir, <seetype marker="#tmp_directory">tmp_directory()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>sort_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-sort_options">sort_options()</marker> = [<seetype marker="#sort_option">sort_option()</seetype>] | <seetype marker="#sort_option">sort_option()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>spawn_options</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-spawn_options">spawn_options()</marker> = default | [<seetype marker="proc_lib#spawn_option">proc_lib:spawn_option()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>tmp_directory</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tmp_directory">tmp_directory()</marker> = [] | <seetype marker="file#name">file:name()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>tmp_file_usage</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tmp_file_usage">tmp_file_usage()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>allowed | not_allowed | info_msg | warning_msg | error_msg</typehead></typedecl>
+</type>
+<spec>
+  <name>all_selections</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>append</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>append(QHL) -&gt; QH</head>
+      <guard>
+        <subtype><typename>QHL</typename><string>QHL = [<seetype marker="#query_handle_or_list">query_handle_or_list()</seetype>]</string></subtype>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>QH</anno>
+  <anno>QHL</anno>
+</spec>
+<spec>
+  <name>append</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>append(QH1, QH2) -&gt; QH3</head>
+      <guard>
+        <subtype><typename>QH1</typename><string>QH1 = QH2 = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>QH2</typename><string/></subtype>
+        <subtype><typename>QH3</typename><string>QH3 = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>QH1</anno>
+  <anno>QH2</anno>
+  <anno>QH3</anno>
+</spec>
+<spec>
+  <name>aux_name</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>cursor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cursor(QH) -&gt; Cursor</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Cursor</typename><string>Cursor = <seetype marker="#query_cursor">query_cursor()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cursor</anno>
+  <anno>QH</anno>
+</spec>
+<spec>
+  <name>cursor</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cursor(QH, Options) -&gt; Cursor</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option] | Option</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cache_all, <seetype marker="#cache">cache()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>cache_all |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_list_size, <seetype marker="#max_list_size">max_list_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{spawn_options, <seetype marker="#spawn_options">spawn_options()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir_usage, <seetype marker="#tmp_file_usage">tmp_file_usage()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir, <seetype marker="#tmp_directory">tmp_directory()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique_all, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unique_all</string></subtype>
+        <subtype><typename>Cursor</typename><string>Cursor = <seetype marker="#query_cursor">query_cursor()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cursor</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>QH</anno>
+</spec>
+<spec>
+  <name>delete_cursor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>delete_cursor(QueryCursor) -&gt; ok</head>
+      <guard>
+        <subtype><typename>QueryCursor</typename><string>QueryCursor = <seetype marker="#query_cursor">query_cursor()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>QueryCursor</anno>
+</spec>
+<spec>
+  <name>e</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>e(QH) -&gt; Answers | Error</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Answers</typename><string>Answers = <seetype marker="#answers">answers()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="file_sorter#reason">file_sorter:reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answers</anno>
+  <anno>Error</anno>
+  <anno>QH</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>e</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>e(QH, Options) -&gt; Answers | Error</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option] | Option</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cache_all, <seetype marker="#cache">cache()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>cache_all |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_list_size, <seetype marker="#max_list_size">max_list_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir_usage, <seetype marker="#tmp_file_usage">tmp_file_usage()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir, <seetype marker="#tmp_directory">tmp_directory()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique_all, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unique_all</string></subtype>
+        <subtype><typename>Answers</typename><string>Answers = <seetype marker="#answers">answers()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="file_sorter#reason">file_sorter:reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answers</anno>
+  <anno>Error</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>QH</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>eval</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>eval(QH) -&gt; Answers | Error</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Answers</typename><string>Answers = <seetype marker="#answers">answers()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="file_sorter#reason">file_sorter:reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answers</anno>
+  <anno>Error</anno>
+  <anno>QH</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>eval</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>eval(QH, Options) -&gt; Answers | Error</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Answers</typename><string>Answers = <seetype marker="#answers">answers()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option] | Option</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cache_all, <seetype marker="#cache">cache()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>cache_all |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_list_size, <seetype marker="#max_list_size">max_list_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir_usage, <seetype marker="#tmp_file_usage">tmp_file_usage()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir, <seetype marker="#tmp_directory">tmp_directory()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique_all, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unique_all</string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="file_sorter#reason">file_sorter:reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answers</anno>
+  <anno>Error</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>QH</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>fold</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>fold(Function, Acc0, QH) -&gt; Acc1 | Error</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = fun((<seetype marker="#answer">answer()</seetype>, AccIn) -&gt; AccOut)</string></subtype>
+        <subtype><typename>Acc0</typename><string>Acc0 = Acc1 = AccIn = AccOut = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Acc1</typename><string/></subtype>
+        <subtype><typename>AccIn</typename><string/></subtype>
+        <subtype><typename>AccOut</typename><string/></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="file_sorter#reason">file_sorter:reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Acc0</anno>
+  <anno>Acc1</anno>
+  <anno>AccIn</anno>
+  <anno>AccOut</anno>
+  <anno>Error</anno>
+  <anno>Function</anno>
+  <anno>QH</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>fold</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>fold(Function, Acc0, QH, Options) -&gt; Acc1 | Error</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = fun((<seetype marker="#answer">answer()</seetype>, AccIn) -&gt; AccOut)</string></subtype>
+        <subtype><typename>Acc0</typename><string>Acc0 = Acc1 = AccIn = AccOut = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Acc1</typename><string/></subtype>
+        <subtype><typename>AccIn</typename><string/></subtype>
+        <subtype><typename>AccOut</typename><string/></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option] | Option</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cache_all, <seetype marker="#cache">cache()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>cache_all |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_list_size, <seetype marker="#max_list_size">max_list_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir_usage, <seetype marker="#tmp_file_usage">tmp_file_usage()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir, <seetype marker="#tmp_directory">tmp_directory()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique_all, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unique_all</string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="file_sorter#reason">file_sorter:reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Acc0</anno>
+  <anno>Acc1</anno>
+  <anno>AccIn</anno>
+  <anno>AccOut</anno>
+  <anno>Error</anno>
+  <anno>Function</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>QH</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(Error) -&gt; Chars</head>
+      <guard>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>Chars</typename><string>Chars = <seetype marker="io_lib#chars">io_lib:chars()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Chars</anno>
+  <anno>Error</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(QH) -&gt; Info</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="#abstract_expr">abstract_expr()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Info</anno>
+  <anno>QH</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>info(QH, Options) -&gt; Info</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option] | Option</string></subtype>
+        <subtype><typename>Option</typename><string>Option = EvalOption | ReturnOption</string></subtype>
+        <subtype><typename>EvalOption</typename><string>EvalOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cache_all, <seetype marker="#cache">cache()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>cache_all |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_list_size, <seetype marker="#max_list_size">max_list_size()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir_usage, <seetype marker="#tmp_file_usage">tmp_file_usage()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{tmpdir, <seetype marker="#tmp_directory">tmp_directory()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique_all, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unique_all</string></subtype>
+        <subtype><typename>ReturnOption</typename><string>ReturnOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{depth, Depth} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{flat, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{format, Format} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{n_elements, NElements}</string></subtype>
+        <subtype><typename>Depth</typename><string>Depth = infinity | <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = abstract_code | string</string></subtype>
+        <subtype><typename>NElements</typename><string>NElements = infinity | <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="#abstract_expr">abstract_expr()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Depth</anno>
+  <anno>EvalOption</anno>
+  <anno>Format</anno>
+  <anno>Info</anno>
+  <anno>NElements</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>QH</anno>
+  <anno>ReturnOption</anno>
+</spec>
+<spec>
+  <name>keysort</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>keysort(KeyPos, QH1) -&gt; QH2</head>
+      <guard>
+        <subtype><typename>KeyPos</typename><string>KeyPos = <seetype marker="#key_pos">key_pos()</seetype></string></subtype>
+        <subtype><typename>QH1</typename><string>QH1 = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>QH2</typename><string>QH2 = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>KeyPos</anno>
+  <anno>QH1</anno>
+  <anno>QH2</anno>
+</spec>
+<spec>
+  <name>keysort</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>keysort(KeyPos, QH1, SortOptions) -&gt; QH2</head>
+      <guard>
+        <subtype><typename>KeyPos</typename><string>KeyPos = <seetype marker="#key_pos">key_pos()</seetype></string></subtype>
+        <subtype><typename>SortOptions</typename><string>SortOptions = <seetype marker="#sort_options">sort_options()</seetype></string></subtype>
+        <subtype><typename>QH1</typename><string>QH1 = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>QH2</typename><string>QH2 = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>KeyPos</anno>
+  <anno>QH1</anno>
+  <anno>QH2</anno>
+  <anno>SortOptions</anno>
+</spec>
+<spec>
+  <name>name_suffix</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>next_answers</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>next_answers(QueryCursor) -&gt; Answers | Error</head>
+      <guard>
+        <subtype><typename>QueryCursor</typename><string>QueryCursor = <seetype marker="#query_cursor">query_cursor()</seetype></string></subtype>
+        <subtype><typename>Answers</typename><string>Answers = <seetype marker="#answers">answers()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="file_sorter#reason">file_sorter:reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answers</anno>
+  <anno>Error</anno>
+  <anno>QueryCursor</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>next_answers</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>next_answers(QueryCursor, NumberOfAnswers) -&gt; Answers | Error</head>
+      <guard>
+        <subtype><typename>QueryCursor</typename><string>QueryCursor = <seetype marker="#query_cursor">query_cursor()</seetype></string></subtype>
+        <subtype><typename>Answers</typename><string>Answers = <seetype marker="#answers">answers()</seetype></string></subtype>
+        <subtype><typename>NumberOfAnswers</typename><string>NumberOfAnswers = all_remaining | <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="file_sorter#reason">file_sorter:reason()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answers</anno>
+  <anno>Error</anno>
+  <anno>NumberOfAnswers</anno>
+  <anno>QueryCursor</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>parse_transform</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>parse_transform(Forms, Options) -&gt; Forms2</head>
+      <guard>
+        <subtype><typename>Forms</typename><string>Forms = Forms2 = [<seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype>]</string></subtype>
+        <subtype><typename>Forms2</typename><string/></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = type_checker | <seetype marker="compile#option">compile:option()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Forms</anno>
+  <anno>Forms2</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>parse_transform_info</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>parse_transform_info() -&gt; #{error_location =&gt; column}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>q</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>q(QLC) -&gt; QH</head>
+      <guard>
+        <subtype><typename>QLC</typename><string>QLC = <seetype marker="#query_list_comprehension">query_list_comprehension()</seetype></string></subtype>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>QH</anno>
+  <anno>QLC</anno>
+</spec>
+<spec>
+  <name>q</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>q(QLC, Options) -&gt; QH</head>
+      <guard>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option] | Option</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_lookup, MaxLookup} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cache, <seetype marker="#cache">cache()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>cache |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{join, Join} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{lookup, Lookup} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unique</string></subtype>
+        <subtype><typename>MaxLookup</typename><string>MaxLookup = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | infinity</string></subtype>
+        <subtype><typename>Join</typename><string>Join = any | lookup | merge | nested_loop</string></subtype>
+        <subtype><typename>Lookup</typename><string>Lookup = <seetype marker="erlang#boolean">boolean()</seetype> | any</string></subtype>
+        <subtype><typename>QLC</typename><string>QLC = <seetype marker="#query_list_comprehension">query_list_comprehension()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Join</anno>
+  <anno>Lookup</anno>
+  <anno>MaxLookup</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>QH</anno>
+  <anno>QLC</anno>
+</spec>
+<spec>
+  <name>sort</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sort(QH1) -&gt; QH2</head>
+      <guard>
+        <subtype><typename>QH1</typename><string>QH1 = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>QH2</typename><string>QH2 = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>QH1</anno>
+  <anno>QH2</anno>
+</spec>
+<spec>
+  <name>sort</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>sort(QH1, SortOptions) -&gt; QH2</head>
+      <guard>
+        <subtype><typename>SortOptions</typename><string>SortOptions = <seetype marker="#sort_options">sort_options()</seetype></string></subtype>
+        <subtype><typename>QH1</typename><string>QH1 = <seetype marker="#query_handle_or_list">query_handle_or_list()</seetype></string></subtype>
+        <subtype><typename>QH2</typename><string>QH2 = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>QH1</anno>
+  <anno>QH2</anno>
+  <anno>SortOptions</anno>
+</spec>
+<spec>
+  <name>string_to_handle</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>string_to_handle(QueryString) -&gt; QH | Error</head>
+      <guard>
+        <subtype><typename>QueryString</typename><string>QueryString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype> | <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Error</anno>
+  <anno>QH</anno>
+  <anno>QueryString</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>string_to_handle</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>string_to_handle(QueryString, Options) -&gt; QH | Error</head>
+      <guard>
+        <subtype><typename>QueryString</typename><string>QueryString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option] | Option</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_lookup, MaxLookup} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cache, <seetype marker="#cache">cache()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>cache |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{join, Join} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{lookup, Lookup} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unique</string></subtype>
+        <subtype><typename>MaxLookup</typename><string>MaxLookup = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | infinity</string></subtype>
+        <subtype><typename>Join</typename><string>Join = any | lookup | merge | nested_loop</string></subtype>
+        <subtype><typename>Lookup</typename><string>Lookup = <seetype marker="erlang#boolean">boolean()</seetype> | any</string></subtype>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype> | <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Error</anno>
+  <anno>Join</anno>
+  <anno>Lookup</anno>
+  <anno>MaxLookup</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>QH</anno>
+  <anno>QueryString</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>string_to_handle</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>string_to_handle(QueryString, Options, Bindings) -&gt; QH | Error</head>
+      <guard>
+        <subtype><typename>QueryString</typename><string>QueryString = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option] | Option</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_lookup, MaxLookup} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cache, <seetype marker="#cache">cache()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>cache |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{join, Join} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{lookup, Lookup} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unique, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>unique</string></subtype>
+        <subtype><typename>MaxLookup</typename><string>MaxLookup = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> | infinity</string></subtype>
+        <subtype><typename>Join</typename><string>Join = any | lookup | merge | nested_loop</string></subtype>
+        <subtype><typename>Lookup</typename><string>Lookup = <seetype marker="erlang#boolean">boolean()</seetype> | any</string></subtype>
+        <subtype><typename>Bindings</typename><string>Bindings = <seetype marker="erl_eval#binding_struct">erl_eval:binding_struct()</seetype></string></subtype>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype> | <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bindings</anno>
+  <anno>Error</anno>
+  <anno>Join</anno>
+  <anno>Lookup</anno>
+  <anno>MaxLookup</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>QH</anno>
+  <anno>QueryString</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>table</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>table(TraverseFun, Options) -&gt; QH</head>
+      <guard>
+        <subtype><typename>TraverseFun</typename><string>TraverseFun = TraverseFun0 | TraverseFun1</string></subtype>
+        <subtype><typename>TraverseFun0</typename><string>TraverseFun0 = fun(() -&gt; TraverseResult)</string></subtype>
+        <subtype><typename>TraverseFun1</typename><string>TraverseFun1 = fun((<seetype marker="#match_expression">match_expression()</seetype>) -&gt; TraverseResult)</string></subtype>
+        <subtype><typename>TraverseResult</typename><string>TraverseResult = Objects | <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Objects</typename><string>Objects = [] | [<seetype marker="erlang#term">term()</seetype> | ObjectList]</string></subtype>
+        <subtype><typename>ObjectList</typename><string>ObjectList = TraverseFun0 | Objects</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [Option] | Option</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{format_fun, FormatFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{info_fun, InfoFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{lookup_fun, LookupFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{parent_fun, ParentFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{post_fun, PostFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pre_fun, PreFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{key_equality, KeyComparison}</string></subtype>
+        <subtype><typename>FormatFun</typename><string>FormatFun = undefined | fun((SelectedObjects) -&gt; FormatedTable)</string></subtype>
+        <subtype><typename>SelectedObjects</typename><string>SelectedObjects = <br/><nbsp/><nbsp/><nbsp/><nbsp/>all |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{all, NElements, DepthFun} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{match_spec, <seetype marker="#match_expression">match_expression()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{lookup, Position, Keys} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{lookup, Position, Keys, NElements, DepthFun}</string></subtype>
+        <subtype><typename>NElements</typename><string>NElements = infinity | <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>DepthFun</typename><string>DepthFun = fun((<seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>FormatedTable</typename><string>FormatedTable = {Mod, Fun, Args} | <seetype marker="#abstract_expr">abstract_expr()</seetype> | <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>InfoFun</typename><string>InfoFun = undefined | fun((InfoTag) -&gt; InfoValue)</string></subtype>
+        <subtype><typename>InfoTag</typename><string>InfoTag = indices | is_unique_objects | keypos | num_of_objects</string></subtype>
+        <subtype><typename>InfoValue</typename><string>InfoValue = undefined | <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>LookupFun</typename><string>LookupFun = undefined | fun((Position, Keys) -&gt; LookupResult)</string></subtype>
+        <subtype><typename>LookupResult</typename><string>LookupResult = [<seetype marker="erlang#term">term()</seetype>] | <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>ParentFun</typename><string>ParentFun = undefined | fun(() -&gt; ParentFunValue)</string></subtype>
+        <subtype><typename>PostFun</typename><string>PostFun = undefined | fun(() -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>PreFun</typename><string>PreFun = undefined | fun((PreArgs) -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>PreArgs</typename><string>PreArgs = [PreArg]</string></subtype>
+        <subtype><typename>PreArg</typename><string>PreArg = {parent_value, ParentFunValue} | {stop_fun, StopFun}</string></subtype>
+        <subtype><typename>ParentFunValue</typename><string>ParentFunValue = undefined | <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>StopFun</typename><string>StopFun = undefined | fun(() -&gt; <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>KeyComparison</typename><string>KeyComparison = '=:=' | '=='</string></subtype>
+        <subtype><typename>Position</typename><string>Position = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></string></subtype>
+        <subtype><typename>Keys</typename><string>Keys = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Mod</typename><string>Mod = Fun = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Fun</typename><string/></subtype>
+        <subtype><typename>Args</typename><string>Args = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>QH</typename><string>QH = <seetype marker="#query_handle">query_handle()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>DepthFun</anno>
+  <anno>FormatFun</anno>
+  <anno>FormatedTable</anno>
+  <anno>Fun</anno>
+  <anno>InfoFun</anno>
+  <anno>InfoTag</anno>
+  <anno>InfoValue</anno>
+  <anno>KeyComparison</anno>
+  <anno>Keys</anno>
+  <anno>LookupFun</anno>
+  <anno>LookupResult</anno>
+  <anno>Mod</anno>
+  <anno>NElements</anno>
+  <anno>ObjectList</anno>
+  <anno>Objects</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>ParentFun</anno>
+  <anno>ParentFunValue</anno>
+  <anno>Position</anno>
+  <anno>PostFun</anno>
+  <anno>PreArg</anno>
+  <anno>PreArgs</anno>
+  <anno>PreFun</anno>
+  <anno>QH</anno>
+  <anno>SelectedObjects</anno>
+  <anno>StopFun</anno>
+  <anno>TraverseFun</anno>
+  <anno>TraverseFun0</anno>
+  <anno>TraverseFun1</anno>
+  <anno>TraverseResult</anno>
+</spec>
+<spec>
+  <name>template_state</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>transform_from_evaluator</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>transform_from_evaluator(LC, Bs) -&gt; Return</head>
+      <guard>
+        <subtype><typename>LC</typename><string>LC = <seetype marker="#abstract_expr">abstract_expr()</seetype></string></subtype>
+        <subtype><typename>Bs</typename><string>Bs = <seetype marker="erl_eval#binding_struct">erl_eval:binding_struct()</seetype></string></subtype>
+        <subtype><typename>Return</typename><string>Return = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#abstract_expr">abstract_expr()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{not_ok, {error, <seetype marker="erlang#module">module()</seetype>, Reason :: <seetype marker="erlang#term">term()</seetype>}}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Bs</anno>
+  <anno>LC</anno>
+  <anno>Reason</anno>
+  <anno>Return</anno>
+</spec>
+<spec>
+  <name>var_fold</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>var_ufold</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>vars</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:25.</timestamp>
+</module>

@@ -1,0 +1,1327 @@
+<module name="wxAuiPaneInfo">
+<type>
+  <name>wxAuiPaneInfo</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxAuiPaneInfo">wxAuiPaneInfo()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>bestSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>bestSize(This, Size) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>bestSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>bestSize(This, X, Y) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>bottom</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>bottom(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>bottomDockable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>bottomDockable(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>bottomDockable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>bottomDockable(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {b, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>caption</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>caption(This, C) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>C</typename><string>C = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>captionVisible</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>captionVisible(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>captionVisible</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>captionVisible(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {visible, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>centre</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>centre(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>centrePane</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>centrePane(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>closeButton</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>closeButton(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>closeButton</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>closeButton(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {visible, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>defaultPane</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>defaultPane(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroyOnClose</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroyOnClose(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>destroyOnClose</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>destroyOnClose(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {b, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>direction</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>direction(This, Direction) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Direction</typename><string>Direction = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Direction</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>dock</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>dock(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>dockable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>dockable(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>dockable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>dockable(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {b, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>fixed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>fixed(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>float</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>float(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>floatable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>floatable(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>floatable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>floatable(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {b, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>floatingPosition</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>floatingPosition(This, Pos) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Pos</typename><string>Pos = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pos</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>floatingPosition</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>floatingPosition(This, X, Y) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>floatingSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>floatingSize(This, Size) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>floatingSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>floatingSize(This, X, Y) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getDirection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDirection(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFloatingPosition</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFloatingPosition(This) -&gt; {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getFloatingSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFloatingSize(This) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getFrame</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFrame(This) -&gt; <seetype marker="wxFrame#wxFrame">wxFrame:wxFrame()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getLayer</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getLayer(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPosition</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPosition(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getRow</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getRow(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getWindow</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getWindow(This) -&gt; <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>gripper</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>gripper(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>gripper</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>gripper(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {visible, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>gripperTop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>gripperTop(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>gripperTop</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>gripperTop(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {attop, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasBorder</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasBorder(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasCaption</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasCaption(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasCloseButton</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasCloseButton(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasFlag</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>hasFlag(This, Flag) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasGripper</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasGripper(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasGripperTop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasGripperTop(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasMaximizeButton</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasMaximizeButton(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasMinimizeButton</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasMinimizeButton(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hasPinButton</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hasPinButton(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>hide</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hide(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isBottomDockable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isBottomDockable(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isDocked</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isDocked(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isFixed</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isFixed(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isFloatable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isFloatable(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isFloating</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isFloating(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isLeftDockable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isLeftDockable(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isMovable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isMovable(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isOk</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isOk(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isResizable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isResizable(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isRightDockable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isRightDockable(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isShown</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isShown(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isToolbar</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isToolbar(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isTopDockable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isTopDockable(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>layer</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>layer(This, Layer) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Layer</typename><string>Layer = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Layer</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>left</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>left(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>leftDockable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>leftDockable(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>leftDockable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>leftDockable(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {b, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>maxSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>maxSize(This, Size) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>maxSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>maxSize(This, X, Y) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>maximizeButton</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>maximizeButton(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>maximizeButton</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>maximizeButton(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {visible, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>minSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>minSize(This, Size) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>minSize</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>minSize(This, X, Y) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>minimizeButton</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>minimizeButton(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>minimizeButton</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>minimizeButton(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {visible, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>movable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>movable(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>movable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>movable(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {b, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>name</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>name(This, N) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>N</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(C) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>C</typename><string>C = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>C</anno>
+</spec>
+<spec>
+  <name>paneBorder</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>paneBorder(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>paneBorder</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>paneBorder(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {visible, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>pinButton</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>pinButton(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>pinButton</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pinButton(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {visible, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>position</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>position(This, Pos) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Pos</typename><string>Pos = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pos</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>resizable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>resizable(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>resizable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>resizable(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {resizable, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>right</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>right(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>rightDockable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rightDockable(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>rightDockable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>rightDockable(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {b, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>row</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>row(This, Row) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Row</typename><string>Row = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Row</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>safeSet</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>safeSet(This, Source) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = Source = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Source</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Source</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFlag</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>setFlag(This, Flag, Option_state) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Option_state</typename><string>Option_state = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>Option_state</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>show(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>show(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {show, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>toolbarPane</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>toolbarPane(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>top</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>top(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>topDockable</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>topDockable(This) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>topDockable</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>topDockable(This, Options :: [Option]) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {b, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>window</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>window(This, W) -&gt; <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxAuiPaneInfo">wxAuiPaneInfo()</seetype></string></subtype>
+        <subtype><typename>W</typename><string>W = <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:21.</timestamp>
+</module>

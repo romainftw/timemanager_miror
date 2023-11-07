@@ -1,0 +1,353 @@
+<module name="net">
+<type>
+  <name>address_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-address_info">address_info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{family := <seetype marker="socket#domain">socket:domain()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>socktype := <seetype marker="socket#type">socket:type()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>protocol := <seetype marker="socket#protocol">socket:protocol()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>address := <seetype marker="socket#sockaddr">socket:sockaddr()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>ifaddrs</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ifaddrs">ifaddrs()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{name := <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>flags := <seetype marker="#ifaddrs_flags">ifaddrs_flags()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>addr =&gt; <seetype marker="socket#sockaddr">socket:sockaddr()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>netmask =&gt; <seetype marker="socket#sockaddr">socket:sockaddr()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>broadaddr =&gt; <seetype marker="socket#sockaddr">socket:sockaddr()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>dstaddr =&gt; <seetype marker="socket#sockaddr">socket:sockaddr()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>ifaddrs_filter</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ifaddrs_filter">ifaddrs_filter()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>all | default | inet | inet6 | packet |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ifaddrs_filter_map">ifaddrs_filter_map()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ifaddrs_filter_fun">ifaddrs_filter_fun()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>ifaddrs_filter_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ifaddrs_filter_fun">ifaddrs_filter_fun()</marker> = fun((<seetype marker="#ifaddrs">ifaddrs()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>ifaddrs_filter_map</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ifaddrs_filter_map">ifaddrs_filter_map()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{family := default | inet | inet6 | packet | all,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>flags := any | [<seetype marker="#ifaddrs_flag">ifaddrs_flag()</seetype>]}</typehead></typedecl>
+</type>
+<type>
+  <name>ifaddrs_flag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ifaddrs_flag">ifaddrs_flag()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>up | broadcast | debug | loopback | pointopoint | notrailers |<br/><nbsp/><nbsp/><nbsp/><nbsp/>running | noarp | promisc | master | slave | multicast |<br/><nbsp/><nbsp/><nbsp/><nbsp/>portsel | automedia | dynamic</typehead></typedecl>
+</type>
+<type>
+  <name>ifaddrs_flags</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ifaddrs_flags">ifaddrs_flags()</marker> = [<seetype marker="#ifaddrs_flag">ifaddrs_flag()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>name_info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-name_info">name_info()</marker> = #{host := <seetype marker="erlang#string">string()</seetype>, service := <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>name_info_flag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-name_info_flag">name_info_flag()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>namereqd | dgram | nofqdn | numerichost | numericserv</typehead></typedecl>
+</type>
+<type>
+  <name>name_info_flag_ext</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-name_info_flag_ext">name_info_flag_ext()</marker> = idn</typehead></typedecl>
+</type>
+<type>
+  <name>name_info_flags</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-name_info_flags">name_info_flags()</marker> = [<seetype marker="#name_info_flag">name_info_flag()</seetype> | <seetype marker="#name_info_flag_ext">name_info_flag_ext()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>network_interface_index</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-network_interface_index">network_interface_index()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>network_interface_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-network_interface_name">network_interface_name()</marker> = <seetype marker="erlang#string">string()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>broadcast</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>call</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>cast</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>command</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>command(Cmd :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Cmd</anno>
+</spec>
+<spec>
+  <name>getaddrinfo</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getaddrinfo(Host) -&gt; {ok, Info} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = [<seetype marker="#address_info">address_info()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Info</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>getaddrinfo</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getaddrinfo(Host, Service :: undefined) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Info} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = [<seetype marker="#address_info">address_info()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Info</anno>
+  <anno>Reason</anno>
+  <anno>Service</anno>
+</spec>
+<spec>
+  <name>getaddrinfo</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getaddrinfo(Host :: undefined, Service) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Info} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Service</typename><string>Service = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = [<seetype marker="#address_info">address_info()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Info</anno>
+  <anno>Reason</anno>
+  <anno>Service</anno>
+</spec>
+<spec>
+  <name>getaddrinfo</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getaddrinfo(Host, Service) -&gt; {ok, Info} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = Service = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Service</typename><string/></subtype>
+        <subtype><typename>Info</typename><string>Info = [<seetype marker="#address_info">address_info()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Host</anno>
+  <anno>Info</anno>
+  <anno>Reason</anno>
+  <anno>Service</anno>
+</spec>
+<spec>
+  <name>gethostname</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>gethostname() -&gt; {ok, HostName} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>HostName</typename><string>HostName = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>HostName</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>getifaddrs</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getifaddrs() -&gt; {ok, IfAddrs} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IfAddrs</typename><string>IfAddrs = [<seetype marker="#ifaddrs">ifaddrs()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IfAddrs</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>getifaddrs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getifaddrs(Filter) -&gt; {ok, IfAddrs} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#ifaddrs_filter">ifaddrs_filter()</seetype></string></subtype>
+        <subtype><typename>IfAddrs</typename><string>IfAddrs = [<seetype marker="#ifaddrs">ifaddrs()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filter</anno>
+  <anno>IfAddrs</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>getifaddrs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getifaddrs(Namespace) -&gt; {ok, IfAddrs} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Namespace</typename><string>Namespace = <seetype marker="file#filename_all">file:filename_all()</seetype></string></subtype>
+        <subtype><typename>IfAddrs</typename><string>IfAddrs = [<seetype marker="#ifaddrs">ifaddrs()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IfAddrs</anno>
+  <anno>Namespace</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>getifaddrs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getifaddrs(Filter, Namespace) -&gt; {ok, IfAddrs} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Filter</typename><string>Filter = <seetype marker="#ifaddrs_filter">ifaddrs_filter()</seetype></string></subtype>
+        <subtype><typename>Namespace</typename><string>Namespace = <seetype marker="file#filename_all">file:filename_all()</seetype></string></subtype>
+        <subtype><typename>IfAddrs</typename><string>IfAddrs = [<seetype marker="#ifaddrs">ifaddrs()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filter</anno>
+  <anno>IfAddrs</anno>
+  <anno>Namespace</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>getnameinfo</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getnameinfo(SockAddr) -&gt; {ok, Info} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SockAddr</typename><string>SockAddr = <seetype marker="socket#sockaddr">socket:sockaddr()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="#name_info">name_info()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Info</anno>
+  <anno>Reason</anno>
+  <anno>SockAddr</anno>
+</spec>
+<spec>
+  <name>getnameinfo</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>getnameinfo(SockAddr, Flags) -&gt; {ok, Info} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SockAddr</typename><string>SockAddr = <seetype marker="socket#sockaddr">socket:sockaddr()</seetype></string></subtype>
+        <subtype><typename>Flags</typename><string>Flags = <seetype marker="#name_info_flags">name_info_flags()</seetype> | undefined</string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="#name_info">name_info()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flags</anno>
+  <anno>Info</anno>
+  <anno>Reason</anno>
+  <anno>SockAddr</anno>
+</spec>
+<spec>
+  <name>if_index2name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>if_index2name(Idx) -&gt; {ok, Name} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Idx</typename><string>Idx = <seetype marker="#network_interface_index">network_interface_index()</seetype></string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#network_interface_name">network_interface_name()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Idx</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>if_name2index</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>if_name2index(Name) -&gt; {ok, Idx} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="#network_interface_name">network_interface_name()</seetype></string></subtype>
+        <subtype><typename>Idx</typename><string>Idx = <seetype marker="#network_interface_index">network_interface_index()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Idx</anno>
+  <anno>Name</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>if_names</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>if_names() -&gt; {ok, Names} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Names</typename><string>Names = [{Idx, If}]</string></subtype>
+        <subtype><typename>Idx</typename><string>Idx = <seetype marker="#network_interface_index">network_interface_index()</seetype></string></subtype>
+        <subtype><typename>If</typename><string>If = <seetype marker="#network_interface_name">network_interface_name()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Idx</anno>
+  <anno>If</anno>
+  <anno>Names</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>info() -&gt; <seetype marker="erlang#map">map()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>ping</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>sleep</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:50.</timestamp>
+</module>

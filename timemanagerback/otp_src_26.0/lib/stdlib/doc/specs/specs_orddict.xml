@@ -1,0 +1,367 @@
+<module name="orddict">
+<type>
+  <name>orddict</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-orddict">orddict()</marker> = <seetype marker="#orddict">orddict</seetype>(<seetype marker="erlang#term">term()</seetype>, <seetype marker="erlang#term">term()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>orddict</name>
+  <n_vars>2</n_vars>
+  <typedecl>
+      <typehead><marker id="type-orddict">orddict(Key, Value)</marker> = [{Key, Value}]</typehead></typedecl>
+  <anno>Key</anno>
+  <anno>Value</anno>
+</type>
+<spec>
+  <name>append</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>append(Key, Value, Orddict1) -&gt; Orddict2</head>
+      <guard>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Orddict2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>append_list</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>append_list(Key, ValList, Orddict1) -&gt; Orddict2</head>
+      <guard>
+        <subtype><typename>ValList</typename><string>ValList = [Value]</string></subtype>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Orddict2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>ValList</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>erase</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>erase(Key, Orddict1) -&gt; Orddict2</head>
+      <guard>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Orddict2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>fetch</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>fetch(Key, Orddict) -&gt; Value</head>
+      <guard>
+        <subtype><typename>Orddict</typename><string>Orddict = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Orddict</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>fetch_keys</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>fetch_keys(Orddict) -&gt; Keys</head>
+      <guard>
+        <subtype><typename>Orddict</typename><string>Orddict = <seetype marker="#orddict">orddict</seetype>(Key, Value :: <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+        <subtype><typename>Keys</typename><string>Keys = [Key]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Keys</anno>
+  <anno>Orddict</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>filter</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>filter(Pred, Orddict1) -&gt; Orddict2</head>
+      <guard>
+        <subtype><typename>Pred</typename><string>Pred = fun((Key, Value) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</string></subtype>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Orddict2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>Pred</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>find</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>find(Key, Orddict) -&gt; {ok, Value} | error</head>
+      <guard>
+        <subtype><typename>Orddict</typename><string>Orddict = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Orddict</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>fold</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>fold(Fun, Acc0, Orddict) -&gt; Acc1</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Key, Value, AccIn) -&gt; AccOut)</string></subtype>
+        <subtype><typename>Orddict</typename><string>Orddict = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Acc0</typename><string>Acc0 = Acc1 = AccIn = AccOut = Acc</string></subtype>
+        <subtype><typename>Acc1</typename><string></string></subtype>
+        <subtype><typename>AccIn</typename><string></string></subtype>
+        <subtype><typename>AccOut</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Acc</anno>
+  <anno>Acc0</anno>
+  <anno>Acc1</anno>
+  <anno>AccIn</anno>
+  <anno>AccOut</anno>
+  <anno>Fun</anno>
+  <anno>Key</anno>
+  <anno>Orddict</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>from_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>from_list(List) -&gt; Orddict</head>
+      <guard>
+        <subtype><typename>List</typename><string>List = [{Key, Value}]</string></subtype>
+        <subtype><typename>Orddict</typename><string>Orddict = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>List</anno>
+  <anno>Orddict</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>is_empty</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>is_empty(Orddict) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Orddict</typename><string>Orddict = <seetype marker="#orddict">orddict()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Orddict</anno>
+</spec>
+<spec>
+  <name>is_key</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>is_key(Key, Orddict) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Orddict</typename><string>Orddict = <seetype marker="#orddict">orddict</seetype>(Key, Value :: <seetype marker="erlang#term">term()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Orddict</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>map</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>map(Fun, Orddict1) -&gt; Orddict2</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Key, Value1) -&gt; Value2)</string></subtype>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = <seetype marker="#orddict">orddict</seetype>(Key, Value1)</string></subtype>
+        <subtype><typename>Orddict2</typename><string>Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value2)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>merge</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>merge(Fun, Orddict1, Orddict2) -&gt; Orddict3</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Key, Value1, Value2) -&gt; Value)</string></subtype>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = <seetype marker="#orddict">orddict</seetype>(Key, Value1)</string></subtype>
+        <subtype><typename>Orddict2</typename><string>Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value2)</string></subtype>
+        <subtype><typename>Orddict3</typename><string>Orddict3 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>Orddict3</anno>
+  <anno>Value</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#orddict">orddict</seetype>(<seetype marker="erlang#none">none()</seetype>, <seetype marker="erlang#none">none()</seetype>)</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>size</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>size(Orddict) -&gt; <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></head>
+      <guard>
+        <subtype><typename>Orddict</typename><string>Orddict = <seetype marker="#orddict">orddict()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Orddict</anno>
+</spec>
+<spec>
+  <name>store</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>store(Key, Value, Orddict1) -&gt; Orddict2</head>
+      <guard>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Orddict2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>take</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>take(Key, Orddict) -&gt; {Value, Orddict1} | error</head>
+      <guard>
+        <subtype><typename>Orddict</typename><string>Orddict = Orddict1 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Orddict1</typename><string/></subtype>
+        <subtype><typename>Key</typename><string>Key = Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Orddict</anno>
+  <anno>Orddict1</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>to_list</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>to_list(Orddict) -&gt; List</head>
+      <guard>
+        <subtype><typename>Orddict</typename><string>Orddict = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>List</typename><string>List = [{Key, Value}]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>List</anno>
+  <anno>Orddict</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update(Key, Fun, Orddict1) -&gt; Orddict2</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = fun((Value1 :: Value) -&gt; Value2 :: Value)</string></subtype>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Orddict2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>Value</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>update(Key, Fun, Initial, Orddict1) -&gt; Orddict2</head>
+      <guard>
+        <subtype><typename>Initial</typename><string>Initial = Value</string></subtype>
+        <subtype><typename>Fun</typename><string>Fun = fun((Value1 :: Value) -&gt; Value2 :: Value)</string></subtype>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Orddict2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Initial</anno>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>Value</anno>
+  <anno>Value1</anno>
+  <anno>Value2</anno>
+</spec>
+<spec>
+  <name>update_counter</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>update_counter(Key, Increment, Orddict1) -&gt; Orddict2</head>
+      <guard>
+        <subtype><typename>Orddict1</typename><string>Orddict1 = Orddict2 = <seetype marker="#orddict">orddict</seetype>(Key, Value)</string></subtype>
+        <subtype><typename>Orddict2</typename><string/></subtype>
+        <subtype><typename>Increment</typename><string>Increment = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Increment</anno>
+  <anno>Key</anno>
+  <anno>Orddict1</anno>
+  <anno>Orddict2</anno>
+  <anno>Value</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:24.</timestamp>
+</module>

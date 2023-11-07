@@ -1,0 +1,552 @@
+<module name="ssh_connection">
+<type>
+  <name>channel_id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-channel_id">channel_id()</marker> = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>channel_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-channel_msg">channel_msg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#data_ch_msg">data_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#eof_ch_msg">eof_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#closed_ch_msg">closed_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#pty_ch_msg">pty_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#env_ch_msg">env_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#shell_ch_msg">shell_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exec_ch_msg">exec_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#signal_ch_msg">signal_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#window_change_ch_msg">window_change_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exit_status_ch_msg">exit_status_ch_msg()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#exit_signal_ch_msg">exit_signal_ch_msg()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>closed_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-closed_ch_msg">closed_ch_msg()</marker> = {closed, <seetype marker="ssh#channel_id">ssh:channel_id()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>connection_ref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-connection_ref">connection_ref()</marker> = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>data_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-data_ch_msg">data_ch_msg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{data,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh#channel_id">ssh:channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#ssh_data_type_code">ssh_data_type_code()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Data :: <seetype marker="erlang#binary">binary()</seetype>}</typehead></typedecl>
+  <anno>Data</anno>
+</type>
+<type>
+  <name>env_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-env_ch_msg">env_ch_msg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{env,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh#channel_id">ssh:channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#want_reply">want_reply()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Var :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Value :: <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+  <anno>Value</anno>
+  <anno>Var</anno>
+</type>
+<type>
+  <name>eof_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-eof_ch_msg">eof_ch_msg()</marker> = {eof, <seetype marker="ssh#channel_id">ssh:channel_id()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>event</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-event">event()</marker> = {ssh_cm, <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype>, <seetype marker="#channel_msg">channel_msg()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>exec_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exec_ch_msg">exec_ch_msg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{exec, <seetype marker="ssh#channel_id">ssh:channel_id()</seetype>, <seetype marker="#want_reply">want_reply()</seetype>, Command :: <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+  <anno>Command</anno>
+</type>
+<type>
+  <name>exit_signal_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exit_signal_ch_msg">exit_signal_ch_msg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{exit_signal,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh#channel_id">ssh:channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ExitSignal :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ErrorMsg :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>LanguageString :: <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+  <anno>ErrorMsg</anno>
+  <anno>ExitSignal</anno>
+  <anno>LanguageString</anno>
+</type>
+<type>
+  <name>exit_status_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-exit_status_ch_msg">exit_status_ch_msg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{exit_status,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh#channel_id">ssh:channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ExitStatus :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+  <anno>ExitStatus</anno>
+</type>
+<type>
+  <name>pty_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pty_ch_msg">pty_ch_msg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{pty,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh#channel_id">ssh:channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#want_reply">want_reply()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{Terminal :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CharWidth :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>RowHeight :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PixelWidth :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PixelHeight :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TerminalModes :: [<seetype marker="#term_mode">term_mode()</seetype>]}}</typehead></typedecl>
+  <anno>CharWidth</anno>
+  <anno>PixelHeight</anno>
+  <anno>PixelWidth</anno>
+  <anno>RowHeight</anno>
+  <anno>Terminal</anno>
+  <anno>TerminalModes</anno>
+</type>
+<type>
+  <name>reason</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-reason">reason()</marker> = closed | timeout</typehead></typedecl>
+</type>
+<type>
+  <name>req_status</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-req_status">req_status()</marker> = success | failure</typehead></typedecl>
+</type>
+<type>
+  <name>result</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-result">result()</marker> = <seetype marker="#req_status">req_status()</seetype> | {error, <seetype marker="#reason">reason()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>shell_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-shell_ch_msg">shell_ch_msg()</marker> = {shell, <seetype marker="ssh#channel_id">ssh:channel_id()</seetype>, <seetype marker="#want_reply">want_reply()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>signal_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-signal_ch_msg">signal_ch_msg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{signal, <seetype marker="ssh#channel_id">ssh:channel_id()</seetype>, SignalName :: <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+  <anno>SignalName</anno>
+</type>
+<type>
+  <name>ssh_data_type_code</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-ssh_data_type_code">ssh_data_type_code()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>term_mode</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-term_mode">term_mode()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{Opcode :: <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#byte">byte()</seetype>, Value :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+  <anno>Opcode</anno>
+  <anno>Value</anno>
+</type>
+<type>
+  <name>want_reply</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-want_reply">want_reply()</marker> = <seetype marker="erlang#boolean">boolean()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>window_change_ch_msg</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-window_change_ch_msg">window_change_ch_msg()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{window_change,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh#channel_id">ssh:channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>CharWidth :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>RowHeight :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PixelWidth :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PixelHeight :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+  <anno>CharWidth</anno>
+  <anno>PixelHeight</anno>
+  <anno>PixelWidth</anno>
+  <anno>RowHeight</anno>
+</type>
+<spec>
+  <name>adjust_window</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>adjust_window(ConnectionRef, ChannelId, NumOfBytes) -&gt; ok</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+        <subtype><typename>NumOfBytes</typename><string>NumOfBytes = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+  <anno>NumOfBytes</anno>
+</spec>
+<spec>
+  <name>channel_adjust_window_msg</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_close_msg</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_data</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_data_msg</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_eof_msg</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_failure_msg</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_open_confirmation_msg</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_open_failure_msg</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_open_msg</name>
+  <arity>5</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_request_msg</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_status_msg</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>channel_success_msg</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>close</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>close(ConnectionRef, ChannelId) -&gt; ok</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+</spec>
+<spec>
+  <name>decode_pty_opts</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>dummy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>dummy(X1 :: <seetype marker="#event">event()</seetype>) -&gt; false</head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>encode_ip</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>encode_pty_opts</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>exec</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>exec(ConnectionRef, ChannelId, Command, Timeout) -&gt; <seetype marker="#result">result()</seetype></head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+        <subtype><typename>Command</typename><string>Command = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>Command</anno>
+  <anno>ConnectionRef</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>exit_status</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>exit_status(ConnectionRef, ChannelId, Status) -&gt; ok</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+        <subtype><typename>Status</typename><string>Status = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+  <anno>Status</anno>
+</spec>
+<spec>
+  <name>handle_msg</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_stop</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>open_channel</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>ptty_alloc</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>ptty_alloc(ConnectionRef, ChannelId, Options) -&gt; <seetype marker="#result">result()</seetype></head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="proplists#proplist">proplists:proplist()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>ptty_alloc</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>ptty_alloc(ConnectionRef, ChannelId, Options, Timeout) -&gt; <seetype marker="#result">result()</seetype></head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="proplists#proplist">proplists:proplist()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+  <anno>Options</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>reply_request</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>reply_request(ConnectionRef, WantReply, Status, ChannelId) -&gt; ok</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>WantReply</typename><string>WantReply = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Status</typename><string>Status = <seetype marker="#req_status">req_status()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+  <anno>Status</anno>
+  <anno>WantReply</anno>
+</spec>
+<spec>
+  <name>request_failure_msg</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>request_global_msg</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>request_success_msg</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send(ConnectionHandler :: <seetype marker="#connection_ref">connection_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ChannelId :: <seetype marker="#channel_id">channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Data :: <seetype marker="erlang#iodata">iodata()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, timeout | closed}</head></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionHandler</anno>
+  <anno>Data</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>send(ConnectionHandler :: <seetype marker="#connection_ref">connection_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ChannelId :: <seetype marker="#channel_id">channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Data :: <seetype marker="erlang#iodata">iodata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TimeOut :: <seetype marker="erlang#timeout">timeout()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="#reason">reason()</seetype>}</head></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionHandler</anno>
+  <anno>Data</anno>
+  <anno>TimeOut</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>send(ConnectionHandler :: <seetype marker="#connection_ref">connection_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ChannelId :: <seetype marker="#channel_id">channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Data :: <seetype marker="#ssh_data_type_code">ssh_data_type_code()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TimeOut :: <seetype marker="erlang#iodata">iodata()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="#reason">reason()</seetype>}</head></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionHandler</anno>
+  <anno>Data</anno>
+  <anno>TimeOut</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>send(ConnectionHandler :: <seetype marker="#connection_ref">connection_ref()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ChannelId :: <seetype marker="#channel_id">channel_id()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Type :: <seetype marker="#ssh_data_type_code">ssh_data_type_code()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Data :: <seetype marker="erlang#iodata">iodata()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TimeOut :: <seetype marker="erlang#timeout">timeout()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="#reason">reason()</seetype>}</head></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionHandler</anno>
+  <anno>Data</anno>
+  <anno>TimeOut</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>send_environment_vars</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>send_eof</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send_eof(ConnectionRef, ChannelId) -&gt; ok | {error, closed}</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+</spec>
+<spec>
+  <name>session_channel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>session_channel(ConnectionRef, Timeout) -&gt; Result</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="ssh#channel_id">ssh:channel_id()</seetype>} | {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectionRef</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>session_channel</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>session_channel(ConnectionRef, InitialWindowSize, MaxPacketSize,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>InitialWindowSize</typename><string>InitialWindowSize = MaxPacketSize = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype> | undefined</string></subtype>
+        <subtype><typename>MaxPacketSize</typename><string/></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = {ok, <seetype marker="ssh#channel_id">ssh:channel_id()</seetype>} | {error, <seetype marker="#reason">reason()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ConnectionRef</anno>
+  <anno>InitialWindowSize</anno>
+  <anno>MaxPacketSize</anno>
+  <anno>Result</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>setenv</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>setenv(ConnectionRef, ChannelId, Var, Value, Timeout) -&gt; success</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+        <subtype><typename>Var</typename><string>Var = Value = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string/></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+  <anno>Timeout</anno>
+  <anno>Value</anno>
+  <anno>Var</anno>
+</spec>
+<spec>
+  <name>shell</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>shell(ConnectionRef, ChannelId) -&gt; Result</head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | success | failure | {error, timeout}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>signal</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>subsystem</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>subsystem(ConnectionRef, ChannelId, Subsystem, Timeout) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#result">result()</seetype></head>
+      <guard>
+        <subtype><typename>ConnectionRef</typename><string>ConnectionRef = <seetype marker="ssh#connection_ref">ssh:connection_ref()</seetype></string></subtype>
+        <subtype><typename>ChannelId</typename><string>ChannelId = <seetype marker="ssh#channel_id">ssh:channel_id()</seetype></string></subtype>
+        <subtype><typename>Subsystem</typename><string>Subsystem = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Timeout</typename><string>Timeout = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ChannelId</anno>
+  <anno>ConnectionRef</anno>
+  <anno>Subsystem</anno>
+  <anno>Timeout</anno>
+</spec>
+<spec>
+  <name>window_change</name>
+  <arity>4</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>window_change</name>
+  <arity>6</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:53.</timestamp>
+</module>

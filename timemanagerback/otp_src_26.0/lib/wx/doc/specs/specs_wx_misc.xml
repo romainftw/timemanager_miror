@@ -1,0 +1,313 @@
+<module name="wx_misc">
+<spec>
+  <name>beginBusyCursor</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>beginBusyCursor() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>beginBusyCursor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>beginBusyCursor(Options :: [Option]) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = {cursor, <seetype marker="wxCursor#wxCursor">wxCursor:wxCursor()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>bell</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>bell() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>displaySize</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>displaySize() -&gt; {Width :: <seetype marker="erlang#integer">integer()</seetype>, Height :: <seetype marker="erlang#integer">integer()</seetype>}</head></clause>
+  </contract>
+  <anno>Height</anno>
+  <anno>Width</anno>
+</spec>
+<spec>
+  <name>endBusyCursor</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>endBusyCursor() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>findMenuItemId</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>findMenuItemId(Frame, MenuString, ItemString) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>Frame</typename><string>Frame = <seetype marker="wxFrame#wxFrame">wxFrame:wxFrame()</seetype></string></subtype>
+        <subtype><typename>MenuString</typename><string>MenuString = ItemString = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>ItemString</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Frame</anno>
+  <anno>ItemString</anno>
+  <anno>MenuString</anno>
+</spec>
+<spec>
+  <name>findWindowAtPoint</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>findWindowAtPoint(Pt) -&gt; <seetype marker="wxWindow#wxWindow">wxWindow:wxWindow()</seetype></head>
+      <guard>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getCurrentId</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getCurrentId() -&gt; <seetype marker="erlang#integer">integer()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>getEmailAddress</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getEmailAddress() -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>getHomeDir</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getHomeDir() -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>getKeyState</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getKeyState(Key) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Key</typename><string>Key = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Key</anno>
+</spec>
+<spec>
+  <name>getMousePosition</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getMousePosition() -&gt; {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</head></clause>
+  </contract>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getMouseState</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getMouseState() -&gt; <seetype marker="wx#wx_wxMouseState">wx:wx_wxMouseState()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>getOsDescription</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getOsDescription() -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>getUserId</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getUserId() -&gt; <seetype marker="unicode#charlist">unicode:charlist()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>isBusy</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>isBusy() -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>isPlatform64Bit</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>isPlatform64Bit() -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>isPlatformLittleEndian</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>isPlatformLittleEndian() -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>launchDefaultBrowser</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>launchDefaultBrowser(Url) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Url</typename><string>Url = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Url</anno>
+</spec>
+<spec>
+  <name>launchDefaultBrowser</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>launchDefaultBrowser(Url, Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Url</typename><string>Url = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = {flags, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Url</anno>
+</spec>
+<spec>
+  <name>mSWSetEmulationLevel</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>mSWSetEmulationLevel(Level) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>mSWSetEmulationLevel</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>mSWSetEmulationLevel(Level, Executable) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Level</typename><string>Level = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+        <subtype><typename>Executable</typename><string>Executable = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Executable</anno>
+  <anno>Level</anno>
+</spec>
+<spec>
+  <name>newId</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>newId() -&gt; <seetype marker="erlang#integer">integer()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>registerId</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>registerId(Id) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+</spec>
+<spec>
+  <name>setCursor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>setCursor(Cursor) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Cursor</typename><string>Cursor = <seetype marker="wxCursor#wxCursor">wxCursor:wxCursor()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Cursor</anno>
+</spec>
+<spec>
+  <name>setDetectableAutoRepeat</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>setDetectableAutoRepeat(Flag) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+</spec>
+<spec>
+  <name>shell</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>shell() -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>shell</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>shell(Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = {command, <seetype marker="unicode#chardata">unicode:chardata()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>shutdown</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>shutdown() -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>shutdown</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>shutdown(Options :: [Option]) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Option</typename><string>Option = {flags, <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:55.</timestamp>
+</module>

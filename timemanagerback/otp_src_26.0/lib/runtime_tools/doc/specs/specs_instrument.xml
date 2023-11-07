@@ -1,0 +1,97 @@
+<module name="instrument">
+<type>
+  <name>allocation_summary</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-allocation_summary">allocation_summary()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{HistogramStart :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>UnscannedSize :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Allocations ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#{Origin :: <seetype marker="erlang#atom">atom()</seetype> =&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>#{Type :: <seetype marker="erlang#atom">atom()</seetype> =&gt; <seetype marker="#block_histogram">block_histogram()</seetype>}}}</typehead></typedecl>
+  <anno>Allocations</anno>
+  <anno>HistogramStart</anno>
+  <anno>Origin</anno>
+  <anno>Type</anno>
+  <anno>UnscannedSize</anno>
+</type>
+<type>
+  <name>block_histogram</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-block_histogram">block_histogram()</marker> = <seetype marker="erlang#tuple">tuple()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>carrier_info_list</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-carrier_info_list">carrier_info_list()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{HistogramStart :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Carriers ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{AllocatorType :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>InPool :: <seetype marker="erlang#boolean">boolean()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>TotalSize :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>UnscannedSize :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Allocations ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{Type :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Count :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Size :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>FreeBlocks :: <seetype marker="#block_histogram">block_histogram()</seetype>}]}</typehead></typedecl>
+  <anno>Allocations</anno>
+  <anno>AllocatorType</anno>
+  <anno>Carriers</anno>
+  <anno>Count</anno>
+  <anno>FreeBlocks</anno>
+  <anno>HistogramStart</anno>
+  <anno>InPool</anno>
+  <anno>Size</anno>
+  <anno>TotalSize</anno>
+  <anno>Type</anno>
+  <anno>UnscannedSize</anno>
+</type>
+<spec>
+  <name>allocations</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>allocations() -&gt; {ok, Result} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#allocation_summary">allocation_summary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = not_enabled</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>allocations</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>allocations(Options) -&gt; {ok, Result} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#allocation_summary">allocation_summary()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = not_enabled</string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{scheduler_ids =&gt; [<seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>allocator_types =&gt; [<seetype marker="erlang#atom">atom()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>histogram_start =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>histogram_width =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>carriers</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>carriers() -&gt; {ok, Result} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#carrier_info_list">carrier_info_list()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = not_enabled</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>carriers</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>carriers(Options) -&gt; {ok, Result} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#carrier_info_list">carrier_info_list()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = not_enabled</string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/>#{scheduler_ids =&gt; [<seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>allocator_types =&gt; [<seetype marker="erlang#atom">atom()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>histogram_start =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>histogram_width =&gt; <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>Result</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:16.</timestamp>
+</module>

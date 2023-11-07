@@ -1,0 +1,832 @@
+<module name="io">
+<type>
+  <name>device</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-device">device()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>encoding</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-encoding">encoding()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>latin1 | unicode | utf8 | utf16 | utf32 |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{utf16, big | little} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{utf32, big | little}</typehead></typedecl>
+</type>
+<type>
+  <name>expand_fun</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-expand_fun">expand_fun()</marker> = fun((<seetype marker="erlang#string">string()</seetype>) -&gt; {yes | no, <seetype marker="erlang#string">string()</seetype>, <seetype marker="erlang#list">list()</seetype>})</typehead></typedecl>
+</type>
+<type>
+  <name>format</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-format">format()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>get_opt_pair</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-get_opt_pair">get_opt_pair()</marker> = <seetype marker="#opt_pair">opt_pair()</seetype> | {terminal, <seetype marker="erlang#boolean">boolean()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>location</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-location">location()</marker> = <seetype marker="erl_anno#location">erl_anno:location()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>opt_pair</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-opt_pair">opt_pair()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{binary, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{echo, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{expand_fun, <seetype marker="#expand_fun">expand_fun()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{encoding, <seetype marker="#encoding">encoding()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>parse_form_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-parse_form_ret">parse_form_ret()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>AbsForm :: <seetype marker="erl_parse#abstract_form">erl_parse:abstract_form()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>EndLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, EndLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ErrorInfo :: <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ErrorLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#server_no_data">server_no_data()</seetype></typehead></typedecl>
+  <anno>AbsForm</anno>
+  <anno>EndLocation</anno>
+  <anno>ErrorInfo</anno>
+  <anno>ErrorLocation</anno>
+</type>
+<type>
+  <name>parse_ret</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-parse_ret">parse_ret()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ExprList :: [<seetype marker="erl_parse#abstract_expr">erl_parse:abstract_expr()</seetype>],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>EndLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, EndLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ErrorInfo :: <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ErrorLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#server_no_data">server_no_data()</seetype></typehead></typedecl>
+  <anno>EndLocation</anno>
+  <anno>ErrorInfo</anno>
+  <anno>ErrorLocation</anno>
+  <anno>ExprList</anno>
+</type>
+<type>
+  <name>prompt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-prompt">prompt()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="unicode#chardata">unicode:chardata()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>server_no_data</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-server_no_data">server_no_data()</marker> = {error, ErrorDescription :: <seetype marker="erlang#term">term()</seetype>} | eof</typehead></typedecl>
+  <anno>ErrorDescription</anno>
+</type>
+<type>
+  <name>setopt</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-setopt">setopt()</marker> = binary | list | <seetype marker="#opt_pair">opt_pair()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>columns</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>columns() -&gt; {ok, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} | {error, enotsup}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>columns</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>columns(IoDevice) -&gt; {ok, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} | {error, enotsup}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format(Format) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="#format">format()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format(Format, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="#format">format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>format(IoDevice, Format, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="#format">format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>IoDevice</anno>
+</spec>
+<spec>
+  <name>fread</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>fread(Prompt, Format) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="#format">format()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Terms :: [<seetype marker="erlang#term">term()</seetype>]} | eof | {error, What :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>Terms</anno>
+  <anno>What</anno>
+</spec>
+<spec>
+  <name>fread</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>fread(IoDevice, Prompt, Format) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="#format">format()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Terms :: [<seetype marker="erlang#term">term()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, {fread, FreadError :: <seetype marker="io_lib#fread_error">io_lib:fread_error()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#server_no_data">server_no_data()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+  <anno>FreadError</anno>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>Terms</anno>
+</spec>
+<spec>
+  <name>fwrite</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>fwrite(Format) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="#format">format()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>fwrite</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>fwrite(Format, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="#format">format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>fwrite</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>fwrite(IoDevice, Format, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="#format">format()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+  <anno>IoDevice</anno>
+</spec>
+<spec>
+  <name>get_chars</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_chars(Prompt, Count) -&gt; Data | <seetype marker="#server_no_data">server_no_data()</seetype></head>
+      <guard>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Count</typename><string>Count = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="unicode#unicode_binary">unicode:unicode_binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Count</anno>
+  <anno>Data</anno>
+  <anno>Prompt</anno>
+</spec>
+<spec>
+  <name>get_chars</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>get_chars(IoDevice, Prompt, Count) -&gt; Data | <seetype marker="#server_no_data">server_no_data()</seetype></head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Count</typename><string>Count = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="unicode#unicode_binary">unicode:unicode_binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Count</anno>
+  <anno>Data</anno>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+</spec>
+<spec>
+  <name>get_line</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_line(Prompt) -&gt; Data | <seetype marker="#server_no_data">server_no_data()</seetype></head>
+      <guard>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="unicode#unicode_binary">unicode:unicode_binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Prompt</anno>
+</spec>
+<spec>
+  <name>get_line</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_line(IoDevice, Prompt) -&gt; Data | <seetype marker="#server_no_data">server_no_data()</seetype></head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#string">string()</seetype> | <seetype marker="unicode#unicode_binary">unicode:unicode_binary()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+</spec>
+<spec>
+  <name>get_password</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_password</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>getopts</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>getopts() -&gt; [<seetype marker="#get_opt_pair">get_opt_pair()</seetype>] | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>getopts</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getopts(IoDevice) -&gt; [<seetype marker="#get_opt_pair">get_opt_pair()</seetype>] | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>nl</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>nl() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>nl</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>nl(IoDevice) -&gt; ok</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+</spec>
+<spec>
+  <name>parse_erl_exprs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>parse_erl_exprs(Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#parse_ret">parse_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>parse_erl_exprs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>parse_erl_exprs(IoDevice, Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#parse_ret">parse_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>parse_erl_exprs</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>parse_erl_exprs(IoDevice, Prompt, StartLocation) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#parse_ret">parse_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>parse_erl_exprs</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>parse_erl_exprs(IoDevice, Prompt, StartLocation, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="erl_scan#options">erl_scan:options()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#parse_ret">parse_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Options</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>parse_erl_form</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>parse_erl_form(Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#parse_form_ret">parse_form_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>parse_erl_form</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>parse_erl_form(IoDevice, Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#parse_form_ret">parse_form_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>parse_erl_form</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>parse_erl_form(IoDevice, Prompt, StartLocation) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#parse_form_ret">parse_form_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>parse_erl_form</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>parse_erl_form(IoDevice, Prompt, StartLocation, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="erl_scan#options">erl_scan:options()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="#parse_form_ret">parse_form_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Options</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>printable_range</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>printable_range() -&gt; unicode | latin1</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>put_chars</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>put_chars(CharData) -&gt; ok</head>
+      <guard>
+        <subtype><typename>CharData</typename><string>CharData = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CharData</anno>
+</spec>
+<spec>
+  <name>put_chars</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>put_chars(IoDevice, CharData) -&gt; ok</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>CharData</typename><string>CharData = <seetype marker="unicode#chardata">unicode:chardata()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CharData</anno>
+  <anno>IoDevice</anno>
+</spec>
+<spec>
+  <name>read</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>read(Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Term :: <seetype marker="erlang#term">term()</seetype>} | <seetype marker="#server_no_data">server_no_data()</seetype> | {error, ErrorInfo}</string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ErrorInfo</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>read</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>read(IoDevice, Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Term :: <seetype marker="erlang#term">term()</seetype>} | <seetype marker="#server_no_data">server_no_data()</seetype> | {error, ErrorInfo}</string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>ErrorInfo</anno>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>read</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>read(IoDevice, Prompt, StartLocation) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Term :: <seetype marker="erlang#term">term()</seetype>, EndLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, EndLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#server_no_data">server_no_data()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo, ErrorLocation :: <seetype marker="#location">location()</seetype>}</string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EndLocation</anno>
+  <anno>ErrorInfo</anno>
+  <anno>ErrorLocation</anno>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>read</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>read(IoDevice, Prompt, StartLocation, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="erl_scan#options">erl_scan:options()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Term :: <seetype marker="erlang#term">term()</seetype>, EndLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{eof, EndLocation :: <seetype marker="#location">location()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#server_no_data">server_no_data()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, ErrorInfo, ErrorLocation :: <seetype marker="#location">location()</seetype>}</string></subtype>
+        <subtype><typename>ErrorInfo</typename><string>ErrorInfo = <seetype marker="erl_scan#error_info">erl_scan:error_info()</seetype> | <seetype marker="erl_parse#error_info">erl_parse:error_info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>EndLocation</anno>
+  <anno>ErrorInfo</anno>
+  <anno>ErrorLocation</anno>
+  <anno>IoDevice</anno>
+  <anno>Options</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>request</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>request</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>requests</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>requests</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>rows</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>rows() -&gt; {ok, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} | {error, enotsup}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>rows</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>rows(IoDevice) -&gt; {ok, <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype>} | {error, enotsup}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+</spec>
+<spec>
+  <name>scan_erl_exprs</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>scan_erl_exprs(Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erl_scan#tokens_result">erl_scan:tokens_result()</seetype> | <seetype marker="#server_no_data">server_no_data()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>scan_erl_exprs</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>scan_erl_exprs(Device, Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Device</typename><string>Device = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erl_scan#tokens_result">erl_scan:tokens_result()</seetype> | <seetype marker="#server_no_data">server_no_data()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Device</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>scan_erl_exprs</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>scan_erl_exprs(Device, Prompt, StartLocation) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Device</typename><string>Device = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erl_scan#tokens_result">erl_scan:tokens_result()</seetype> | <seetype marker="#server_no_data">server_no_data()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Device</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>scan_erl_exprs</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>scan_erl_exprs(Device, Prompt, StartLocation, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Device</typename><string>Device = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="erl_scan#options">erl_scan:options()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erl_scan#tokens_result">erl_scan:tokens_result()</seetype> | <seetype marker="#server_no_data">server_no_data()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Device</anno>
+  <anno>Options</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>scan_erl_form</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>scan_erl_form(Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erl_scan#tokens_result">erl_scan:tokens_result()</seetype> | <seetype marker="#server_no_data">server_no_data()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>scan_erl_form</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>scan_erl_form(IoDevice, Prompt) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erl_scan#tokens_result">erl_scan:tokens_result()</seetype> | <seetype marker="#server_no_data">server_no_data()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>scan_erl_form</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>scan_erl_form(IoDevice, Prompt, StartLocation) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erl_scan#tokens_result">erl_scan:tokens_result()</seetype> | <seetype marker="#server_no_data">server_no_data()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>scan_erl_form</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>scan_erl_form(IoDevice, Prompt, StartLocation, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Prompt</typename><string>Prompt = <seetype marker="#prompt">prompt()</seetype></string></subtype>
+        <subtype><typename>StartLocation</typename><string>StartLocation = <seetype marker="#location">location()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = <seetype marker="erl_scan#options">erl_scan:options()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="erl_scan#tokens_result">erl_scan:tokens_result()</seetype> | <seetype marker="#server_no_data">server_no_data()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Options</anno>
+  <anno>Prompt</anno>
+  <anno>Result</anno>
+  <anno>StartLocation</anno>
+</spec>
+<spec>
+  <name>setopts</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>setopts(Opts) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#setopt">setopt()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>setopts</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setopts(IoDevice, Opts) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [<seetype marker="#setopt">setopt()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Opts</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>write</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>write(Term) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>write</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>write(IoDevice, Term) -&gt; ok</head>
+      <guard>
+        <subtype><typename>IoDevice</typename><string>IoDevice = <seetype marker="#device">device()</seetype></string></subtype>
+        <subtype><typename>Term</typename><string>Term = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>IoDevice</anno>
+  <anno>Term</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:23.</timestamp>
+</module>

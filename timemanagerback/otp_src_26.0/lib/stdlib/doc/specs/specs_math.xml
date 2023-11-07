@@ -1,0 +1,313 @@
+<module name="math">
+<spec>
+  <name>acos</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>acos(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>acosh</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>acosh(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>asin</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>asin(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>asinh</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>asinh(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>atan</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>atan(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>atan2</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>atan2(Y, X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>Y</typename><string>Y = X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>X</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>atanh</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>atanh(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>ceil</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ceil(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>cos</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cos(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>cosh</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cosh(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>erf</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>erf(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>erfc</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>erfc(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>exp</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>exp(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>floor</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>floor(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>fmod</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>fmod(X, Y) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>log(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>log10</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>log10(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>log2</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>log2(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>pi</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>pi() -&gt; <seetype marker="erlang#float">float()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>pow</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>pow(X, Y) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = Y = <seetype marker="erlang#number">number()</seetype></string></subtype>
+        <subtype><typename>Y</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>sin</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sin(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>sinh</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sinh(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>sqrt</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sqrt(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>tan</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tan(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>tanh</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tanh(X) -&gt; <seetype marker="erlang#float">float()</seetype></head>
+      <guard>
+        <subtype><typename>X</typename><string>X = <seetype marker="erlang#number">number()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>X</anno>
+</spec>
+<spec>
+  <name>tau</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>tau() -&gt; <seetype marker="erlang#float">float()</seetype></head></clause>
+  </contract>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:24.</timestamp>
+</module>

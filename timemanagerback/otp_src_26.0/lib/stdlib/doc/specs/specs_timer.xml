@@ -1,0 +1,537 @@
+<module name="timer">
+<type>
+  <name>time</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-time">time()</marker> = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>tref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tref">tref()</marker></typehead></typedecl>
+</type>
+<spec>
+  <name>apply_after</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>apply_after(Time, Module, Function, Arguments) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TRef} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arguments</typename><string>Arguments = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>TRef</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>apply_interval</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>apply_interval(Time, Module, Function, Arguments) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TRef} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arguments</typename><string>Arguments = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>TRef</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>apply_repeatedly</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>apply_repeatedly(Time, Module, Function, Arguments) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TRef} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arguments</typename><string>Arguments = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Reason</anno>
+  <anno>TRef</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>cancel</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cancel(TRef) -&gt; {ok, cancel} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>TRef</anno>
+</spec>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>code_change(OldVsn :: <seetype marker="erlang#term">term()</seetype>, State, Extra :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, State}</head></clause>
+  </contract>
+  <anno>Extra</anno>
+  <anno>OldVsn</anno>
+  <anno>State</anno>
+</spec>
+<spec>
+  <name>exit_after</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>exit_after(Time, Reason1) -&gt; {ok, TRef} | {error, Reason2}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason1</typename><string>Reason1 = Reason2 = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason1</anno>
+  <anno>Reason2</anno>
+  <anno>TRef</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>exit_after</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>exit_after(Time, Target, Reason1) -&gt; {ok, TRef} | {error, Reason2}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="erlang#pid">pid()</seetype> | (RegName :: <seetype marker="erlang#atom">atom()</seetype>)</string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason1</typename><string>Reason1 = Reason2 = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason2</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason1</anno>
+  <anno>Reason2</anno>
+  <anno>RegName</anno>
+  <anno>TRef</anno>
+  <anno>Target</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>handle_call(Req :: <seetype marker="erlang#term">term()</seetype>, From :: <seetype marker="erlang#term">term()</seetype>, Tab) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{reply, <seetype marker="erlang#term">term()</seetype>, Tab} | {noreply, Tab}</head>
+      <guard>
+        <subtype><typename>Tab</typename><string>Tab = <seetype marker="ets#tid">ets:tid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>From</anno>
+  <anno>Req</anno>
+  <anno>Tab</anno>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_cast(Req :: <seetype marker="erlang#term">term()</seetype>, Tab) -&gt; {noreply, Tab}</head>
+      <guard>
+        <subtype><typename>Tab</typename><string>Tab = <seetype marker="ets#tid">ets:tid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Req</anno>
+  <anno>Tab</anno>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>handle_info(Req :: <seetype marker="erlang#term">term()</seetype>, Tab) -&gt; {noreply, Tab}</head>
+      <guard>
+        <subtype><typename>Tab</typename><string>Tab = <seetype marker="ets#tid">ets:tid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Req</anno>
+  <anno>Tab</anno>
+</spec>
+<spec>
+  <name>hms</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>hms(Hours, Minutes, Seconds) -&gt; MilliSeconds</head>
+      <guard>
+        <subtype><typename>Hours</typename><string>Hours = Minutes = Seconds = MilliSeconds = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>Minutes</typename><string></string></subtype>
+        <subtype><typename>Seconds</typename><string></string></subtype>
+        <subtype><typename>MilliSeconds</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Hours</anno>
+  <anno>MilliSeconds</anno>
+  <anno>Minutes</anno>
+  <anno>Seconds</anno>
+</spec>
+<spec>
+  <name>hours</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>hours(Hours) -&gt; MilliSeconds</head>
+      <guard>
+        <subtype><typename>Hours</typename><string>Hours = MilliSeconds = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>MilliSeconds</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Hours</anno>
+  <anno>MilliSeconds</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>init(X1 :: []) -&gt; {ok, <seetype marker="ets#tid">ets:tid()</seetype>}</head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>kill_after</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>kill_after(Time) -&gt; {ok, TRef} | {error, Reason2}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason2</typename><string>Reason2 = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason2</anno>
+  <anno>TRef</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>kill_after</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>kill_after(Time, Target) -&gt; {ok, TRef} | {error, Reason2}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>Target</typename><string>Target = <seetype marker="erlang#pid">pid()</seetype> | (RegName :: <seetype marker="erlang#atom">atom()</seetype>)</string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason2</typename><string>Reason2 = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason2</anno>
+  <anno>RegName</anno>
+  <anno>TRef</anno>
+  <anno>Target</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>minutes</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>minutes(Minutes) -&gt; MilliSeconds</head>
+      <guard>
+        <subtype><typename>Minutes</typename><string>Minutes = MilliSeconds = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>MilliSeconds</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>MilliSeconds</anno>
+  <anno>Minutes</anno>
+</spec>
+<spec>
+  <name>now_diff</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>now_diff(T2, T1) -&gt; Tdiff</head>
+      <guard>
+        <subtype><typename>T1</typename><string>T1 = T2 = <seetype marker="erlang#timestamp">erlang:timestamp()</seetype></string></subtype>
+        <subtype><typename>T2</typename><string/></subtype>
+        <subtype><typename>Tdiff</typename><string>Tdiff = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>T1</anno>
+  <anno>T2</anno>
+  <anno>Tdiff</anno>
+</spec>
+<spec>
+  <name>seconds</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>seconds(Seconds) -&gt; MilliSeconds</head>
+      <guard>
+        <subtype><typename>Seconds</typename><string>Seconds = MilliSeconds = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>MilliSeconds</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>MilliSeconds</anno>
+  <anno>Seconds</anno>
+</spec>
+<spec>
+  <name>send_after</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send_after(Time, Message) -&gt; {ok, TRef} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>Message</typename><string>Message = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Message</anno>
+  <anno>Reason</anno>
+  <anno>TRef</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>send_after</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send_after(Time, Destination, Message) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TRef} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>Destination</typename><string>Destination = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(RegName :: <seetype marker="erlang#atom">atom()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{RegName :: <seetype marker="erlang#atom">atom()</seetype>, Node :: <seetype marker="erlang#node">node()</seetype>}</string></subtype>
+        <subtype><typename>Message</typename><string>Message = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Destination</anno>
+  <anno>Message</anno>
+  <anno>Node</anno>
+  <anno>Reason</anno>
+  <anno>RegName</anno>
+  <anno>TRef</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>send_interval</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>send_interval(Time, Message) -&gt; {ok, TRef} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>Message</typename><string>Message = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Message</anno>
+  <anno>Reason</anno>
+  <anno>TRef</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>send_interval</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>send_interval(Time, Destination, Message) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, TRef} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="#time">time()</seetype></string></subtype>
+        <subtype><typename>Destination</typename><string>Destination = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>(RegName :: <seetype marker="erlang#atom">atom()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{RegName :: <seetype marker="erlang#atom">atom()</seetype>, Node :: <seetype marker="erlang#node">node()</seetype>}</string></subtype>
+        <subtype><typename>Message</typename><string>Message = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>TRef</typename><string>TRef = <seetype marker="#tref">tref()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Destination</anno>
+  <anno>Message</anno>
+  <anno>Node</anno>
+  <anno>Reason</anno>
+  <anno>RegName</anno>
+  <anno>TRef</anno>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>sleep</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>sleep(Time) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#timeout">timeout()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Time</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_link() -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>tc</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tc(Fun) -&gt; {Time, Value}</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Time</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>tc</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>tc(Fun, Arguments) -&gt; {Time, Value}</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+        <subtype><typename>Arguments</typename><string>Arguments = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Fun</anno>
+  <anno>Time</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>tc</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>tc(Fun, TimeUnit) -&gt; {Time, Value}</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+        <subtype><typename>TimeUnit</typename><string>TimeUnit = <seetype marker="erlang#time_unit">erlang:time_unit()</seetype></string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Fun</anno>
+  <anno>Time</anno>
+  <anno>TimeUnit</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>tc</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>tc(Module, Function, Arguments) -&gt; {Time, Value}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arguments</typename><string>Arguments = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Time</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>tc</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>tc(Fun, Arguments, TimeUnit) -&gt; {Time, Value}</head>
+      <guard>
+        <subtype><typename>Fun</typename><string>Fun = <seetype marker="erlang#function">function()</seetype></string></subtype>
+        <subtype><typename>Arguments</typename><string>Arguments = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>TimeUnit</typename><string>TimeUnit = <seetype marker="erlang#time_unit">erlang:time_unit()</seetype></string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Fun</anno>
+  <anno>Time</anno>
+  <anno>TimeUnit</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>tc</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>tc(Module, Function, Arguments, TimeUnit) -&gt; {Time, Value}</head>
+      <guard>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Function</typename><string>Function = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Arguments</typename><string>Arguments = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>TimeUnit</typename><string>TimeUnit = <seetype marker="erlang#time_unit">erlang:time_unit()</seetype></string></subtype>
+        <subtype><typename>Time</typename><string>Time = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Arguments</anno>
+  <anno>Function</anno>
+  <anno>Module</anno>
+  <anno>Time</anno>
+  <anno>TimeUnit</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>terminate(Reason :: <seetype marker="erlang#term">term()</seetype>, _Tab) -&gt; ok</head></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>_Tab</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:28.</timestamp>
+</module>

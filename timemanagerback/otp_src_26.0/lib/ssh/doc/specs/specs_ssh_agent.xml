@@ -1,0 +1,123 @@
+<module name="ssh_agent">
+<type>
+  <name>call_ssh_file_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-call_ssh_file_option">call_ssh_file_option()</marker> = {call_ssh_file, <seetype marker="erlang#atom">atom()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>socket_path_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-socket_path_option">socket_path_option()</marker> = {socket_path, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>timeout_option</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-timeout_option">timeout_option()</marker> = {timeout, <seetype marker="erlang#integer">integer()</seetype>}</typehead></typedecl>
+</type>
+<spec>
+  <name>add_host_key</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_host_key(Host :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PublicKey :: <seetype marker="public_key#public_key">public_key:public_key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Error :: <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_client_key_api#client_key_cb_options">ssh_client_key_api:client_key_cb_options</seetype>(<seetype marker="#call_ssh_file_option">call_ssh_file_option()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Error</anno>
+  <anno>Host</anno>
+  <anno>Options</anno>
+  <anno>PublicKey</anno>
+</spec>
+<spec>
+  <name>add_host_key</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>add_host_key(Host,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>PublicKey :: <seetype marker="public_key#public_key">public_key:public_key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Result</head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#ip_address">inet:ip_address()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#hostname">inet:hostname()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_client_key_api#client_key_cb_options">ssh_client_key_api:client_key_cb_options</seetype>(<seetype marker="#call_ssh_file_option">call_ssh_file_option()</seetype>)</string></subtype>
+        <subtype><typename>Result</typename><string>Result = ok | {error, Error :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Error</anno>
+  <anno>Host</anno>
+  <anno>Options</anno>
+  <anno>Port</anno>
+  <anno>PublicKey</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>is_host_key</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>is_host_key(Key :: <seetype marker="public_key#public_key">public_key:public_key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Host :: <seetype marker="erlang#string">string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Algorithm :: <seetype marker="ssh#pubkey_alg">ssh:pubkey_alg()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_client_key_api#client_key_cb_options">ssh_client_key_api:client_key_cb_options</seetype>(<seetype marker="#call_ssh_file_option">call_ssh_file_option()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>Host</anno>
+  <anno>Key</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>is_host_key</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>is_host_key(Key :: <seetype marker="public_key#public_key">public_key:public_key()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Host,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Port :: <seetype marker="inet#port_number">inet:port_number()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Algorithm :: <seetype marker="ssh#pubkey_alg">ssh:pubkey_alg()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>Host</typename><string>Host = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#ip_address">inet:ip_address()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="inet#hostname">inet:hostname()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="inet#ip_address">inet:ip_address()</seetype> | <seetype marker="inet#hostname">inet:hostname()</seetype>]</string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_client_key_api#client_key_cb_options">ssh_client_key_api:client_key_cb_options</seetype>(<seetype marker="#call_ssh_file_option">call_ssh_file_option()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>Host</anno>
+  <anno>Key</anno>
+  <anno>Options</anno>
+  <anno>Port</anno>
+</spec>
+<spec>
+  <name>send</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>sign</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>sign(PubKeyBlob :: <seetype marker="erlang#binary">binary()</seetype>, SigData :: <seetype marker="erlang#binary">binary()</seetype>, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Blob :: <seetype marker="erlang#binary">binary()</seetype></head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_client_key_api#client_key_cb_options">ssh_client_key_api:client_key_cb_options</seetype>(<seetype marker="#socket_path_option">socket_path_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#timeout_option">timeout_option()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Blob</anno>
+  <anno>Options</anno>
+  <anno>PubKeyBlob</anno>
+  <anno>SigData</anno>
+</spec>
+<spec>
+  <name>user_key</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>user_key(Algorithm :: <seetype marker="ssh#pubkey_alg">ssh:pubkey_alg()</seetype>, Options) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="public_key#private_key">public_key:private_key()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, {ssh2_pubkey, PubKeyBlob :: <seetype marker="erlang#binary">binary()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+        <subtype><typename>Options</typename><string>Options = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="ssh_client_key_api#client_key_cb_options">ssh_client_key_api:client_key_cb_options</seetype>(<seetype marker="#socket_path_option">socket_path_option()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#timeout_option">timeout_option()</seetype>)</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Algorithm</anno>
+  <anno>Options</anno>
+  <anno>PubKeyBlob</anno>
+  <anno>Result</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:53.</timestamp>
+</module>

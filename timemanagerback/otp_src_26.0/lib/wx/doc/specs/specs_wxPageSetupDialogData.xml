@@ -1,0 +1,439 @@
+<module name="wxPageSetupDialogData">
+<type>
+  <name>wxPageSetupDialogData</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxPageSetupDialogData">wxPageSetupDialogData()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableHelp</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableHelp(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableMargins</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableMargins(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableOrientation</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableOrientation(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enablePaper</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enablePaper(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enablePrinter</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enablePrinter(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultInfo</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultInfo(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getDefaultMinMargins</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getDefaultMinMargins(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getEnableHelp</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getEnableHelp(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getEnableMargins</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getEnableMargins(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getEnableOrientation</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getEnableOrientation(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getEnablePaper</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getEnablePaper(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getEnablePrinter</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getEnablePrinter(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMarginBottomRight</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMarginBottomRight(This) -&gt; {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getMarginTopLeft</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMarginTopLeft(This) -&gt; {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getMinMarginBottomRight</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMinMarginBottomRight(This) -&gt; {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getMinMarginTopLeft</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMinMarginTopLeft(This) -&gt; {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>getPaperId</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPaperId(This) -&gt; <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPaperSize</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPaperSize(This) -&gt; {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>getPrintData</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPrintData(This) -&gt; <seetype marker="wxPrintData#wxPrintData">wxPrintData:wxPrintData()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isOk</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isOk(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(PrintData) -&gt; <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></head>
+      <guard>
+        <subtype><typename>PrintData</typename><string>PrintData = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxPrintData#wxPrintData">wxPrintData:wxPrintData()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxPageSetupDialogData#wxPageSetupDialogData">wxPageSetupDialogData:wxPageSetupDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PrintData</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setDefaultInfo</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDefaultInfo(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setDefaultMinMargins</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setDefaultMinMargins(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setMarginBottomRight</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMarginBottomRight(This, Pt) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setMarginTopLeft</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMarginTopLeft(This, Pt) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setMinMarginBottomRight</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMinMarginBottomRight(This, Pt) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setMinMarginTopLeft</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMinMarginTopLeft(This, Pt) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Pt</typename><string>Pt = {X :: <seetype marker="erlang#integer">integer()</seetype>, Y :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pt</anno>
+  <anno>This</anno>
+  <anno>X</anno>
+  <anno>Y</anno>
+</spec>
+<spec>
+  <name>setPaperId</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPaperId(This, Id) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Id</typename><string>Id = <seetype marker="wx#wx_enum">wx:wx_enum()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Id</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPaperSize</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPaperSize(This, Size) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>Size</typename><string>Size = {W :: <seetype marker="erlang#integer">integer()</seetype>, H :: <seetype marker="erlang#integer">integer()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>H</anno>
+  <anno>Size</anno>
+  <anno>This</anno>
+  <anno>W</anno>
+</spec>
+<spec>
+  <name>setPrintData</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPrintData(This, PrintData) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPageSetupDialogData">wxPageSetupDialogData()</seetype></string></subtype>
+        <subtype><typename>PrintData</typename><string>PrintData = <seetype marker="wxPrintData#wxPrintData">wxPrintData:wxPrintData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PrintData</anno>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:43.</timestamp>
+</module>

@@ -1,0 +1,1018 @@
+<module name="xref">
+<type>
+  <name>add_dir_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-add_dir_rsn">add_dir_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="#file">file()</seetype>, <seetype marker="#file_error">file_error()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_filename, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_options, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unrecognized_file, <seetype marker="#file">file()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="beam_lib#chnk_rsn">beam_lib:chnk_rsn()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>add_mod_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-add_mod_rsn">add_mod_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="#file">file()</seetype>, <seetype marker="#file_error">file_error()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_filename, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_options, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{module_clash, {<seetype marker="erlang#module">module()</seetype>, <seetype marker="#file">file()</seetype>, <seetype marker="#file">file()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_debug_info, <seetype marker="#file">file()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="beam_lib#chnk_rsn">beam_lib:chnk_rsn()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>analysis</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analysis">analysis()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>undefined_function_calls | undefined_functions |<br/><nbsp/><nbsp/><nbsp/><nbsp/>locals_not_used | exports_not_used |<br/><nbsp/><nbsp/><nbsp/><nbsp/>deprecated_function_calls |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{deprecated_function_calls, DeprFlag :: <seetype marker="#depr_flag">depr_flag()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>deprecated_functions |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{deprecated_functions, DeprFlag :: <seetype marker="#depr_flag">depr_flag()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{call, FuncSpec :: <seetype marker="#func_spec">func_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{use, FuncSpec :: <seetype marker="#func_spec">func_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{module_call, ModSpec :: <seetype marker="#mod_spec">mod_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{module_use, ModSpec :: <seetype marker="#mod_spec">mod_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{application_call, AppSpec :: <seetype marker="#app_spec">app_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{application_use, AppSpec :: <seetype marker="#app_spec">app_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{release_call, RelSpec :: <seetype marker="#rel_spec">rel_spec()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{release_use, RelSpec :: <seetype marker="#rel_spec">rel_spec()</seetype>}</typehead></typedecl>
+  <anno>AppSpec</anno>
+  <anno>DeprFlag</anno>
+  <anno>FuncSpec</anno>
+  <anno>ModSpec</anno>
+  <anno>RelSpec</anno>
+</type>
+<type>
+  <name>analyze_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-analyze_rsn">analyze_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_options, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{parse_error, <seetype marker="#string_position">string_position()</seetype>, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unavailable_analysis, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unknown_analysis, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unknown_constant, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unknown_variable, <seetype marker="#variable">variable()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>answer</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-answer">answer()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>false |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[<seetype marker="#constant">constant()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[(Call :: <seetype marker="#call">call()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>(ComponentCall :: {<seetype marker="#component">component()</seetype>, <seetype marker="#component">component()</seetype>})] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[Component :: <seetype marker="#component">component()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[DefineAt :: <seetype marker="#define_at">define_at()</seetype>] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[CallAt :: {<seetype marker="#funcall">funcall()</seetype>, LineNumbers :: [<seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>]}] |<br/><nbsp/><nbsp/><nbsp/><nbsp/>[AllLines ::<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{{<seetype marker="#define_at">define_at()</seetype>, <seetype marker="#define_at">define_at()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>LineNumbers :: [<seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>]}]</typehead></typedecl>
+  <anno>AllLines</anno>
+  <anno>Call</anno>
+  <anno>CallAt</anno>
+  <anno>Component</anno>
+  <anno>ComponentCall</anno>
+  <anno>DefineAt</anno>
+  <anno>LineNumbers</anno>
+</type>
+<type>
+  <name>app_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-app_spec">app_spec()</marker> = <seetype marker="#application">application()</seetype> | [<seetype marker="#application">application()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>application</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-application">application()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>call</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-call">call()</marker> = {<seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#atom">atom()</seetype>} | <seetype marker="#funcall">funcall()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>component</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-component">component()</marker> = [<seetype marker="#constant">constant()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>constant</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-constant">constant()</marker> = <seetype marker="#xmfa">xmfa()</seetype> | <seetype marker="erlang#module">module()</seetype> | <seetype marker="#application">application()</seetype> | <seetype marker="#release">release()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>define_at</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-define_at">define_at()</marker> = {<seetype marker="#xmfa">xmfa()</seetype>, LineNumber :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}</typehead></typedecl>
+  <anno>LineNumber</anno>
+</type>
+<type>
+  <name>depr_flag</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-depr_flag">depr_flag()</marker> = next_version | next_major_release | eventually</typehead></typedecl>
+</type>
+<type>
+  <name>directory</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-directory">directory()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="file#filename">file:filename()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>file</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file">file()</marker> = <seetype marker="file#filename">file:filename()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>file_error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-file_error">file_error()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>func_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-func_spec">func_spec()</marker> = <seetype marker="#xmfa">xmfa()</seetype> | [<seetype marker="#xmfa">xmfa()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>funcall</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-funcall">funcall()</marker> = {<seetype marker="#xmfa">xmfa()</seetype>, <seetype marker="#xmfa">xmfa()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>function_name</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-function_name">function_name()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>info</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-info">info()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{application, Application :: [<seetype marker="#application">application()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{builtins, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{directory, <seetype marker="#directory">directory()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{library_path, <seetype marker="#library_path">library_path()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{mode, <seetype marker="#mode">mode()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_analyzed_modules, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_applications, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_calls,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{NoResolved :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NoUnresolved :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_function_calls,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{NoLocal :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NoResolvedExternal :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NoUnresolved :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_functions,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{NoLocal :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>NoExternal :: <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_inter_function_calls, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_releases, <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{release, Release :: [<seetype marker="#release">release()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{version, Version :: [<seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype>]}</typehead></typedecl>
+  <anno>Application</anno>
+  <anno>NoExternal</anno>
+  <anno>NoLocal</anno>
+  <anno>NoResolved</anno>
+  <anno>NoResolvedExternal</anno>
+  <anno>NoUnresolved</anno>
+  <anno>Release</anno>
+  <anno>Version</anno>
+</type>
+<type>
+  <name>library</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-library">library()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>library_path</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-library_path">library_path()</marker> = <seetype marker="#path">path()</seetype> | code_path</typehead></typedecl>
+</type>
+<type>
+  <name>mod_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mod_spec">mod_spec()</marker> = <seetype marker="erlang#module">module()</seetype> | [<seetype marker="erlang#module">module()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>mode</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-mode">mode()</marker> = functions | modules</typehead></typedecl>
+</type>
+<type>
+  <name>path</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-path">path()</marker> = [<seetype marker="#file">file()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>q_rsn</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-q_rsn">q_rsn()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_options, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{parse_error, <seetype marker="#string_position">string_position()</seetype>, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{type_error, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{type_mismatch, <seetype marker="erlang#string">string()</seetype>, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unknown_analysis, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unknown_constant, <seetype marker="erlang#string">string()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unknown_variable, <seetype marker="#variable">variable()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{variable_reassigned, <seetype marker="erlang#string">string()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>rel_spec</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-rel_spec">rel_spec()</marker> = <seetype marker="#release">release()</seetype> | [<seetype marker="#release">release()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>release</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-release">release()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>string_position</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-string_position">string_position()</marker> = <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>variable</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-variable">variable()</marker> = <seetype marker="erlang#atom">atom()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>xarity</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xarity">xarity()</marker> = <seetype marker="erlang#arity">arity()</seetype> | -1</typehead></typedecl>
+</type>
+<type>
+  <name>xmfa</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xmfa">xmfa()</marker> = {<seetype marker="erlang#module">module()</seetype>, <seetype marker="#function_name">function_name()</seetype>, <seetype marker="#xarity">xarity()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>xref</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-xref">xref()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>add_application</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_application(XrefServer, Directory) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#application">application()</seetype>} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="#directory">directory()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{application_clash, {<seetype marker="#application">application()</seetype>, <seetype marker="#directory">directory()</seetype>, <seetype marker="#directory">directory()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_dir_rsn">add_dir_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Directory</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>add_application</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_application(XrefServer, Directory, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#application">application()</seetype>} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="#directory">directory()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{builtins, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{name, <seetype marker="#application">application()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>builtins | verbose | warnings</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{application_clash, {<seetype marker="#application">application()</seetype>, <seetype marker="#directory">directory()</seetype>, <seetype marker="#directory">directory()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_dir_rsn">add_dir_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Directory</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>add_directory</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_directory(XrefServer, Directory) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Modules} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="#directory">directory()</seetype></string></subtype>
+        <subtype><typename>Modules</typename><string>Modules = [<seetype marker="erlang#module">module()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{application_clash, {<seetype marker="#application">application()</seetype>, <seetype marker="#directory">directory()</seetype>, <seetype marker="#directory">directory()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_dir_rsn">add_dir_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Directory</anno>
+  <anno>Modules</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>add_directory</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_directory(XrefServer, Directory, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Modules} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="#directory">directory()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{builtins, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{recurse, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>builtins | recurse | verbose | warnings</string></subtype>
+        <subtype><typename>Modules</typename><string>Modules = [<seetype marker="erlang#module">module()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#add_dir_rsn">add_dir_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Directory</anno>
+  <anno>Modules</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>add_module</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_module(XrefServer, File) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#module">module()</seetype>} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#add_mod_rsn">add_mod_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>add_module</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_module(XrefServer, File, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#module">module()</seetype>} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="file#filename">file:filename()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{builtins, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>builtins | verbose | warnings</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#add_mod_rsn">add_mod_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>add_release</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_release(XrefServer, Directory) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#release">release()</seetype>} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="#directory">directory()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{application_clash, {<seetype marker="#application">application()</seetype>, <seetype marker="#directory">directory()</seetype>, <seetype marker="#directory">directory()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{release_clash, {<seetype marker="#release">release()</seetype>, <seetype marker="#directory">directory()</seetype>, <seetype marker="#directory">directory()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_dir_rsn">add_dir_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Directory</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>add_release</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>add_release(XrefServer, Directory, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#release">release()</seetype>} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="#directory">directory()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{builtins, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{name, <seetype marker="#release">release()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>builtins | verbose | warnings</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{application_clash, {<seetype marker="#application">application()</seetype>, <seetype marker="#directory">directory()</seetype>, <seetype marker="#directory">directory()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{release_clash, {<seetype marker="#release">release()</seetype>, <seetype marker="#directory">directory()</seetype>, <seetype marker="#directory">directory()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_dir_rsn">add_dir_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Directory</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>analyse(XrefServer, Analysis) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Answer} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Analysis</typename><string>Analysis = <seetype marker="#analysis">analysis()</seetype></string></subtype>
+        <subtype><typename>Answer</typename><string>Answer = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#analyze_rsn">analyze_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Analysis</anno>
+  <anno>Answer</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>analyse</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>analyse(XrefServer, Analysis, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Answer} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Analysis</typename><string>Analysis = <seetype marker="#analysis">analysis()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {verbose, <seetype marker="erlang#boolean">boolean()</seetype>} | verbose</string></subtype>
+        <subtype><typename>Answer</typename><string>Answer = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#analyze_rsn">analyze_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Analysis</anno>
+  <anno>Answer</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>analyze(XrefServer, Analysis) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Answer} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Analysis</typename><string>Analysis = <seetype marker="#analysis">analysis()</seetype></string></subtype>
+        <subtype><typename>Answer</typename><string>Answer = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#analyze_rsn">analyze_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Analysis</anno>
+  <anno>Answer</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>analyze</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>analyze(XrefServer, Analysis, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Answer} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Analysis</typename><string>Analysis = <seetype marker="#analysis">analysis()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {verbose, <seetype marker="erlang#boolean">boolean()</seetype>} | verbose</string></subtype>
+        <subtype><typename>Answer</typename><string>Answer = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#analyze_rsn">analyze_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Analysis</anno>
+  <anno>Answer</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>code_change</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>d</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>d(Directory) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[DebugInfoResult] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[NoDebugInfoResult] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="#directory">directory()</seetype></string></subtype>
+        <subtype><typename>DebugInfoResult</typename><string>DebugInfoResult = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{deprecated, [<seetype marker="#funcall">funcall()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{undefined, [<seetype marker="#funcall">funcall()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unused, [<seetype marker="erlang#mfa">mfa()</seetype>]}</string></subtype>
+        <subtype><typename>NoDebugInfoResult</typename><string>NoDebugInfoResult = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{deprecated, [<seetype marker="#xmfa">xmfa()</seetype>]} | {undefined, [<seetype marker="#xmfa">xmfa()</seetype>]}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="#file">file()</seetype>, <seetype marker="#file_error">file_error()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_filename, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unrecognized_file, <seetype marker="#file">file()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="beam_lib#chnk_rsn">beam_lib:chnk_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DebugInfoResult</anno>
+  <anno>Directory</anno>
+  <anno>NoDebugInfoResult</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>forget</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>forget(XrefServer) -&gt; ok</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>forget</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>forget(XrefServer, Variables) -&gt; ok | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Variables</typename><string>Variables = <seetype marker="#variable">variable()</seetype> | [<seetype marker="#variable">variable()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {not_user_variable, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Variables</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>format_error</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>format_error(Error) -&gt; <seetype marker="io_lib#chars">io_lib:chars()</seetype></head>
+      <guard>
+        <subtype><typename>Error</typename><string>Error = {error, <seetype marker="erlang#module">module()</seetype>, Reason :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Error</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>get_default</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_default(XrefServer) -&gt; [{Option, Value}]</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = builtins | recurse | verbose | warnings</string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Value</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>get_default</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_default(XrefServer, Option) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Value} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = builtins | recurse | verbose | warnings</string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {invalid_options, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Reason</anno>
+  <anno>Value</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>get_library_path</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_library_path(XrefServer) -&gt; {ok, LibraryPath}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>LibraryPath</typename><string>LibraryPath = <seetype marker="#library_path">library_path()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>LibraryPath</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>handle_call</name>
+  <arity>3</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_cast</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>handle_info</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(XrefServer) -&gt; [Info]</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="#info">info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Info</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>info(XrefServer, Category) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{Item, [Info]}] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="erlang#module">module()</seetype>, {no_such_info, Category}}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Category</typename><string>Category = modules | applications | releases | libraries</string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#module">module()</seetype> | <seetype marker="#application">application()</seetype> | <seetype marker="#release">release()</seetype> | <seetype marker="#library">library()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="#info">info()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Info</anno>
+  <anno>Item</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>info(XrefServer, Category, Items) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[{Item, [Info]}] | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Category</typename><string>Category = modules | applications | releases | libraries</string></subtype>
+        <subtype><typename>Items</typename><string>Items = Item | [Item]</string></subtype>
+        <subtype><typename>Item</typename><string>Item = <seetype marker="erlang#module">module()</seetype> | <seetype marker="#application">application()</seetype> | <seetype marker="#release">release()</seetype> | <seetype marker="#library">library()</seetype></string></subtype>
+        <subtype><typename>Info</typename><string>Info = <seetype marker="#info">info()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_such_application, Item} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_such_info, Category} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_such_library, Item} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_such_module, Item} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_such_release, Item}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Category</anno>
+  <anno>Info</anno>
+  <anno>Item</anno>
+  <anno>Items</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>init</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>m</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>m(FileOrModule) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[DebugInfoResult] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[NoDebugInfoResult] |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>FileOrModule</typename><string>FileOrModule = <seetype marker="file#filename">file:filename()</seetype> | <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>DebugInfoResult</typename><string>DebugInfoResult = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{deprecated, [<seetype marker="#funcall">funcall()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{undefined, [<seetype marker="#funcall">funcall()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unused, [<seetype marker="erlang#mfa">mfa()</seetype>]}</string></subtype>
+        <subtype><typename>NoDebugInfoResult</typename><string>NoDebugInfoResult = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{deprecated, [<seetype marker="#xmfa">xmfa()</seetype>]} | {undefined, [<seetype marker="#xmfa">xmfa()</seetype>]}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{cover_compiled, Module :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="#file">file()</seetype>, <seetype marker="#file_error">file_error()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{interpreted, Module :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_filename, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_such_module, Module :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="beam_lib#chnk_rsn">beam_lib:chnk_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DebugInfoResult</anno>
+  <anno>FileOrModule</anno>
+  <anno>Module</anno>
+  <anno>NoDebugInfoResult</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>q</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>q(XrefServer, Query) -&gt; {ok, Answer} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Query</typename><string>Query = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Answer</typename><string>Answer = <seetype marker="#answer">answer()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#q_rsn">q_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answer</anno>
+  <anno>Query</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>q</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>q(XrefServer, Query, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Answer} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Query</typename><string>Query = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {verbose, <seetype marker="erlang#boolean">boolean()</seetype>} | verbose</string></subtype>
+        <subtype><typename>Answer</typename><string>Answer = <seetype marker="#answer">answer()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="#q_rsn">q_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Answer</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Query</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>remove_application</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>remove_application(XrefServer, Applications) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Applications</typename><string>Applications = <seetype marker="#application">application()</seetype> | [<seetype marker="#application">application()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {no_such_application, <seetype marker="#application">application()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Applications</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>remove_module</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>remove_module(XrefServer, Modules) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Modules</typename><string>Modules = <seetype marker="erlang#module">module()</seetype> | [<seetype marker="erlang#module">module()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {no_such_module, <seetype marker="erlang#module">module()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Modules</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>remove_release</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>remove_release(XrefServer, Releases) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Releases</typename><string>Releases = <seetype marker="#release">release()</seetype> | [<seetype marker="#release">release()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {no_such_release, <seetype marker="#release">release()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+  <anno>Releases</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>replace_application</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>replace_application(XrefServer, Application, Directory) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Application} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="#application">application()</seetype></string></subtype>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="#directory">directory()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {no_such_application, Application} | <seetype marker="#add_dir_rsn">add_dir_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Directory</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>replace_application</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>replace_application(XrefServer, Application, Directory, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Application} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Application</typename><string>Application = <seetype marker="#application">application()</seetype></string></subtype>
+        <subtype><typename>Directory</typename><string>Directory = <seetype marker="#directory">directory()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{builtins, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>builtins | verbose | warnings</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{application_clash, {<seetype marker="#application">application()</seetype>, <seetype marker="#directory">directory()</seetype>, <seetype marker="#directory">directory()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_such_application, Application} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_dir_rsn">add_dir_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Application</anno>
+  <anno>Directory</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>replace_module</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>replace_module(XrefServer, Module, File) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Module} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="#file">file()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{module_mismatch, Module, ReadModule :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_such_module, Module} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_mod_rsn">add_mod_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Module</anno>
+  <anno>ReadModule</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>replace_module</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>replace_module(XrefServer, Module, File, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Module} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Module</typename><string>Module = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>File</typename><string>File = <seetype marker="#file">file()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>verbose | warnings</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{module_mismatch, Module, ReadModule :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{no_such_module, Module} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_mod_rsn">add_mod_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>File</anno>
+  <anno>Module</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>ReadModule</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>set_default</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_default(XrefServer, OptionValues) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>OptionValues</typename><string>OptionValues = OptionValue | [OptionValue]</string></subtype>
+        <subtype><typename>OptionValue</typename><string>OptionValue = {Option, Value}</string></subtype>
+        <subtype><typename>Option</typename><string>Option = builtins | recurse | verbose | warnings</string></subtype>
+        <subtype><typename>Value</typename><string>Value = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {invalid_options, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>OptionValue</anno>
+  <anno>OptionValues</anno>
+  <anno>Reason</anno>
+  <anno>Value</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>set_default</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_default(XrefServer, Option, Value) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, OldValue} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Option</typename><string>Option = builtins | recurse | verbose | warnings</string></subtype>
+        <subtype><typename>Value</typename><string>Value = OldValue = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+        <subtype><typename>OldValue</typename><string/></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {invalid_options, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OldValue</anno>
+  <anno>Option</anno>
+  <anno>Reason</anno>
+  <anno>Value</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>set_library_path</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_library_path(XrefServer, LibraryPath) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>LibraryPath</typename><string>LibraryPath = <seetype marker="#library_path">library_path()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{file_error, <seetype marker="#file">file()</seetype>, <seetype marker="#file_error">file_error()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_options, <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{invalid_path, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>LibraryPath</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>set_library_path</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_library_path(XrefServer, LibraryPath, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>LibraryPath</typename><string>LibraryPath = <seetype marker="#library_path">library_path()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {verbose, <seetype marker="erlang#boolean">boolean()</seetype>} | verbose</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = {invalid_options, <seetype marker="erlang#term">term()</seetype>} | {invalid_path, <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>LibraryPath</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>start(NameOrOptions) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, {already_started, <seetype marker="erlang#pid">pid()</seetype>}}</head>
+      <guard>
+        <subtype><typename>NameOrOptions</typename><string>NameOrOptions = Name | Options</string></subtype>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {xref_mode, <seetype marker="#mode">mode()</seetype>} | <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>NameOrOptions</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>start(Name, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, {already_started, <seetype marker="erlang#pid">pid()</seetype>}}</head>
+      <guard>
+        <subtype><typename>Name</typename><string>Name = <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = {xref_mode, <seetype marker="#mode">mode()</seetype>} | <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Name</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stop(XrefServer) -&gt; stopped</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>terminate</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>update(XrefServer) -&gt; {ok, Modules} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Modules</typename><string>Modules = [<seetype marker="erlang#module">module()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{module_mismatch, <seetype marker="erlang#module">module()</seetype>, ReadModule :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_mod_rsn">add_mod_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Modules</anno>
+  <anno>ReadModule</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>update</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>update(XrefServer, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Modules} | {error, <seetype marker="erlang#module">module()</seetype>, Reason}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{warnings, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>verbose | warnings</string></subtype>
+        <subtype><typename>Modules</typename><string>Modules = [<seetype marker="erlang#module">module()</seetype>]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{module_mismatch, <seetype marker="erlang#module">module()</seetype>, ReadModule :: <seetype marker="erlang#module">module()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#add_mod_rsn">add_mod_rsn()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Modules</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>ReadModule</anno>
+  <anno>Reason</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>variables</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>variables(XrefServer) -&gt; {ok, [VariableInfo]}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>VariableInfo</typename><string>VariableInfo = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{predefined, [<seetype marker="#variable">variable()</seetype>]} | {user, [<seetype marker="#variable">variable()</seetype>]}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>VariableInfo</anno>
+  <anno>XrefServer</anno>
+</spec>
+<spec>
+  <name>variables</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>variables(XrefServer, Options) -&gt; {ok, [VariableInfo]}</head>
+      <guard>
+        <subtype><typename>XrefServer</typename><string>XrefServer = <seetype marker="#xref">xref()</seetype></string></subtype>
+        <subtype><typename>Options</typename><string>Options = Option | [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = predefined | user | {verbose, <seetype marker="erlang#boolean">boolean()</seetype>} | verbose</string></subtype>
+        <subtype><typename>VariableInfo</typename><string>VariableInfo = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{predefined, [<seetype marker="#variable">variable()</seetype>]} | {user, [<seetype marker="#variable">variable()</seetype>]}</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>VariableInfo</anno>
+  <anno>XrefServer</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:04.</timestamp>
+</module>

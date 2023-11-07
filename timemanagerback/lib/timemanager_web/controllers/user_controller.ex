@@ -1,9 +1,9 @@
 defmodule TimemanagerWeb.UserController do
   use TimemanagerWeb, :controller
 
- # @derive {Jason.Encoder, only: [:id, :username, :email, :inserted_at, :updated_at]}
   alias Timemanager.Users
   alias Timemanager.Users.User
+  alias TimemanagerWeb.Users.Guardian
 
   action_fallback TimemanagerWeb.FallbackController
 
@@ -19,6 +19,23 @@ defmodule TimemanagerWeb.UserController do
      user = Users.get_user_by_username!(username: username, email: email)
      #query = Timemanager.User |> Ecto.Query.where(email: email)
      render(conn, :show, user: user) |> halt
+  end
+
+  def login(conn, %{"email" => email, "password" => password}) do
+    case Guardian.authenticate(email, password) do
+      {:ok, user, token} ->
+        conn
+        |> put_status(:ok)
+        |> json(%{user: user, token: token})
+      {:error, :unauthorized} ->
+        conn
+        |> put_status(:unauthorized)
+        |> json(%{error: "Unauthorized"})
+      _ ->
+        conn
+        |> put_status(:internal_server_error)
+        |> json(%{error: "Internal Server Error"})
+    end
   end
 
   def index(conn, _params) do
@@ -56,4 +73,5 @@ defmodule TimemanagerWeb.UserController do
       send_resp(conn, :no_content, "") |> halt
     end
   end
+
 end

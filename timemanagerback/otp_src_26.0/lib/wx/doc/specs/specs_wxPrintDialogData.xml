@@ -1,0 +1,357 @@
+<module name="wxPrintDialogData">
+<type>
+  <name>wxPrintDialogData</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-wxPrintDialogData">wxPrintDialogData()</marker> = <seetype marker="wx#wx_object">wx:wx_object()</seetype></typehead></typedecl>
+</type>
+<spec>
+  <name>destroy</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>destroy(This :: <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableHelp</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableHelp(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enablePageNumbers</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enablePageNumbers(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enablePrintToFile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enablePrintToFile(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>enableSelection</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>enableSelection(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getAllPages</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getAllPages(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getCollate</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getCollate(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getFromPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getFromPage(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMaxPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMaxPage(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getMinPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getMinPage(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getNoCopies</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getNoCopies(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPrintData</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPrintData(This) -&gt; <seetype marker="wxPrintData#wxPrintData">wxPrintData:wxPrintData()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getPrintToFile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getPrintToFile(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getSelection</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getSelection(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>getToPage</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>getToPage(This) -&gt; <seetype marker="erlang#integer">integer()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>isOk</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>isOk(This) -&gt; <seetype marker="erlang#boolean">boolean()</seetype></head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>new() -&gt; <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>new</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>new(DialogData) -&gt; <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></head>
+      <guard>
+        <subtype><typename>DialogData</typename><string>DialogData = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxPrintDialogData#wxPrintDialogData">wxPrintDialogData:wxPrintDialogData()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="wxPrintData#wxPrintData">wxPrintData:wxPrintData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>DialogData</anno>
+</spec>
+<spec>
+  <name>parent_class</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>setCollate</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setCollate(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setFromPage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setFromPage(This, Page) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setMaxPage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMaxPage(This, Page) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setMinPage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setMinPage(This, Page) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setNoCopies</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setNoCopies(This, N) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>N</typename><string>N = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>N</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPrintData</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPrintData(This, PrintData) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>PrintData</typename><string>PrintData = <seetype marker="wxPrintData#wxPrintData">wxPrintData:wxPrintData()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>PrintData</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setPrintToFile</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setPrintToFile(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setSelection</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setSelection(This, Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+  <anno>This</anno>
+</spec>
+<spec>
+  <name>setToPage</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>setToPage(This, Page) -&gt; ok</head>
+      <guard>
+        <subtype><typename>This</typename><string>This = <seetype marker="#wxPrintDialogData">wxPrintDialogData()</seetype></string></subtype>
+        <subtype><typename>Page</typename><string>Page = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Page</anno>
+  <anno>This</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:36:45.</timestamp>
+</module>

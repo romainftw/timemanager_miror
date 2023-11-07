@@ -1,0 +1,274 @@
+<module name="merl">
+<type>
+  <name>default_action</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-default_action">default_action()</marker> = fun(() -&gt; <seetype marker="erlang#any">any()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>env</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-env">env()</marker> = [{Key :: <seetype marker="#id">id()</seetype>, <seetype marker="#pattern_or_patterns">pattern_or_patterns()</seetype>}]</typehead></typedecl>
+  <anno>Key</anno>
+</type>
+<type>
+  <name>guard_test</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-guard_test">guard_test()</marker> = fun((<seetype marker="#env">env()</seetype>) -&gt; <seetype marker="erlang#boolean">boolean()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>guarded_action</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-guarded_action">guarded_action()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#switch_action">switch_action()</seetype> | {<seetype marker="#guard_test">guard_test()</seetype>, <seetype marker="#switch_action">switch_action()</seetype>}</typehead></typedecl>
+</type>
+<type>
+  <name>guarded_actions</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-guarded_actions">guarded_actions()</marker> = <seetype marker="#guarded_action">guarded_action()</seetype> | [<seetype marker="#guarded_action">guarded_action()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>id</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-id">id()</marker> = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#integer">integer()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>location</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-location">location()</marker> = <seetype marker="erl_anno#location">erl_anno:location()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>pattern</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pattern">pattern()</marker> = <seetype marker="#tree">tree()</seetype> | <seetype marker="#template">template()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>pattern_or_patterns</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-pattern_or_patterns">pattern_or_patterns()</marker> = <seetype marker="#pattern">pattern()</seetype> | [<seetype marker="#pattern">pattern()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>switch_action</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-switch_action">switch_action()</marker> = fun((<seetype marker="#env">env()</seetype>) -&gt; <seetype marker="erlang#any">any()</seetype>)</typehead></typedecl>
+</type>
+<type>
+  <name>switch_clause</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-switch_clause">switch_clause()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#pattern_or_patterns">pattern_or_patterns()</seetype>, <seetype marker="#guarded_actions">guarded_actions()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#pattern_or_patterns">pattern_or_patterns()</seetype>, <seetype marker="#guard_test">guard_test()</seetype>, <seetype marker="#switch_action">switch_action()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#default_action">default_action()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>template</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-template">template()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#tree">tree()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="#id">id()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{'*', <seetype marker="#id">id()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{template, <seetype marker="erlang#atom">atom()</seetype>, <seetype marker="erlang#term">term()</seetype>, [[<seetype marker="#template">template()</seetype>]]}</typehead></typedecl>
+</type>
+<type>
+  <name>template_or_templates</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-template_or_templates">template_or_templates()</marker> = <seetype marker="#template">template()</seetype> | [<seetype marker="#template">template()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>text</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-text">text()</marker> = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype> | [<seetype marker="erlang#string">string()</seetype>] | [<seetype marker="erlang#binary">binary()</seetype>]</typehead></typedecl>
+</type>
+<type>
+  <name>tree</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tree">tree()</marker> = <seetype marker="erl_syntax#syntaxTree">erl_syntax:syntaxTree()</seetype></typehead></typedecl>
+</type>
+<type>
+  <name>tree_or_trees</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-tree_or_trees">tree_or_trees()</marker> = <seetype marker="#tree">tree()</seetype> | [<seetype marker="#tree">tree()</seetype>]</typehead></typedecl>
+</type>
+<spec>
+  <name>alpha</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>alpha(Trees :: <seetype marker="#pattern_or_patterns">pattern_or_patterns()</seetype>, Env :: [{<seetype marker="#id">id()</seetype>, <seetype marker="#id">id()</seetype>}]) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#template_or_templates">template_or_templates()</seetype></head></clause>
+  </contract>
+  <anno>Env</anno>
+  <anno>Trees</anno>
+</spec>
+<spec>
+  <name>compile</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>compile</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>compile_and_load</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>compile_and_load</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>match</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>match(Patterns :: <seetype marker="#pattern_or_patterns">pattern_or_patterns()</seetype>, Trees :: <seetype marker="#tree_or_trees">tree_or_trees()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="#env">env()</seetype>} | error</head></clause>
+  </contract>
+  <anno>Patterns</anno>
+  <anno>Trees</anno>
+</spec>
+<spec>
+  <name>meta_template</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>meta_template(Templates :: <seetype marker="#template_or_templates">template_or_templates()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#tree_or_trees">tree_or_trees()</seetype></head></clause>
+  </contract>
+  <anno>Templates</anno>
+</spec>
+<spec>
+  <name>print</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>qquote</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>qquote(Text :: <seetype marker="#text">text()</seetype>, Env :: <seetype marker="#env">env()</seetype>) -&gt; <seetype marker="#tree_or_trees">tree_or_trees()</seetype></head></clause>
+  </contract>
+  <anno>Env</anno>
+  <anno>Text</anno>
+</spec>
+<spec>
+  <name>qquote</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>qquote(StartPos :: <seetype marker="#location">location()</seetype>, Text :: <seetype marker="#text">text()</seetype>, Env :: <seetype marker="#env">env()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#tree_or_trees">tree_or_trees()</seetype></head></clause>
+  </contract>
+  <anno>Env</anno>
+  <anno>StartPos</anno>
+  <anno>Text</anno>
+</spec>
+<spec>
+  <name>quote</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>quote(Text :: <seetype marker="#text">text()</seetype>) -&gt; <seetype marker="#tree_or_trees">tree_or_trees()</seetype></head></clause>
+  </contract>
+  <anno>Text</anno>
+</spec>
+<spec>
+  <name>quote</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>quote(StartPos :: <seetype marker="#location">location()</seetype>, Text :: <seetype marker="#text">text()</seetype>) -&gt; <seetype marker="#tree_or_trees">tree_or_trees()</seetype></head></clause>
+  </contract>
+  <anno>StartPos</anno>
+  <anno>Text</anno>
+</spec>
+<spec>
+  <name>show</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>subst</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>subst(Trees :: <seetype marker="#pattern_or_patterns">pattern_or_patterns()</seetype>, Env :: <seetype marker="#env">env()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#tree_or_trees">tree_or_trees()</seetype></head></clause>
+  </contract>
+  <anno>Env</anno>
+  <anno>Trees</anno>
+</spec>
+<spec>
+  <name>switch</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>switch(Trees :: <seetype marker="#tree_or_trees">tree_or_trees()</seetype>, Cs :: [<seetype marker="#switch_clause">switch_clause()</seetype>]) -&gt; <seetype marker="erlang#any">any()</seetype></head></clause>
+  </contract>
+  <anno>Cs</anno>
+  <anno>Trees</anno>
+</spec>
+<spec>
+  <name>template</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>template(Trees :: <seetype marker="#pattern_or_patterns">pattern_or_patterns()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#template_or_templates">template_or_templates()</seetype></head></clause>
+  </contract>
+  <anno>Trees</anno>
+</spec>
+<spec>
+  <name>template_vars</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>template_vars(Template :: <seetype marker="#template_or_templates">template_or_templates()</seetype>) -&gt; [<seetype marker="#id">id()</seetype>]</head></clause>
+  </contract>
+  <anno>Template</anno>
+</spec>
+<spec>
+  <name>term</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>term(Term :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="#tree">tree()</seetype></head></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>tree</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tree(Templates :: <seetype marker="#template_or_templates">template_or_templates()</seetype>) -&gt; <seetype marker="#tree_or_trees">tree_or_trees()</seetype></head></clause>
+  </contract>
+  <anno>Templates</anno>
+</spec>
+<spec>
+  <name>tsubst</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>tsubst(Trees :: <seetype marker="#pattern_or_patterns">pattern_or_patterns()</seetype>, Env :: <seetype marker="#env">env()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="#template_or_templates">template_or_templates()</seetype></head></clause>
+  </contract>
+  <anno>Env</anno>
+  <anno>Trees</anno>
+</spec>
+<spec>
+  <name>var</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>var(Name :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="#tree">tree()</seetype></head></clause>
+  </contract>
+  <anno>Name</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:37:23.</timestamp>
+</module>

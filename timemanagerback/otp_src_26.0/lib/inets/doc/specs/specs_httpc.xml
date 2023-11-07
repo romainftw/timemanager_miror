@@ -1,0 +1,677 @@
+<module name="httpc">
+<spec>
+  <name>cancel_request</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cancel_request(RequestId) -&gt; ok</head>
+      <guard>
+        <subtype><typename>RequestId</typename><string>RequestId = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>RequestId</anno>
+</spec>
+<spec>
+  <name>cancel_request</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cancel_request(RequestId, Profile) -&gt; ok</head>
+      <guard>
+        <subtype><typename>RequestId</typename><string>RequestId = <seetype marker="erlang#any">any()</seetype></string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Profile</anno>
+  <anno>RequestId</anno>
+</spec>
+<spec>
+  <name>cookie_header</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>cookie_header(Url) -&gt; HttpHeader | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Url</typename><string>Url = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>HttpHeader</typename><string>HttpHeader = {Field :: [<seetype marker="erlang#byte">byte()</seetype>], Value :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Field</anno>
+  <anno>HttpHeader</anno>
+  <anno>Reason</anno>
+  <anno>Url</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>cookie_header</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>cookie_header(Url, ProfileOrOpts) -&gt; HttpHeader | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Url</typename><string>Url = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>HttpHeader</typename><string>HttpHeader = {Field :: [<seetype marker="erlang#byte">byte()</seetype>], Value :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>}</string></subtype>
+        <subtype><typename>ProfileOrOpts</typename><string>ProfileOrOpts = Profile | Opts</string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [CookieHeaderOpt]</string></subtype>
+        <subtype><typename>CookieHeaderOpt</typename><string>CookieHeaderOpt = {ipv6_host_with_brackets, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CookieHeaderOpt</anno>
+  <anno>Field</anno>
+  <anno>HttpHeader</anno>
+  <anno>Opts</anno>
+  <anno>Profile</anno>
+  <anno>ProfileOrOpts</anno>
+  <anno>Reason</anno>
+  <anno>Url</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>cookie_header</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>cookie_header(Url, Opts, Profile) -&gt; HttpHeader | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Url</typename><string>Url = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>HttpHeader</typename><string>HttpHeader = {Field :: [<seetype marker="erlang#byte">byte()</seetype>], Value :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>}</string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Opts</typename><string>Opts = [CookieHeaderOpt]</string></subtype>
+        <subtype><typename>CookieHeaderOpt</typename><string>CookieHeaderOpt = {ipv6_host_with_brackets, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CookieHeaderOpt</anno>
+  <anno>Field</anno>
+  <anno>HttpHeader</anno>
+  <anno>Opts</anno>
+  <anno>Profile</anno>
+  <anno>Reason</anno>
+  <anno>Url</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>default_profile</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_option</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_option</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>get_options</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>get_options(OptionItems) -&gt; {ok, Values} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>OptionItems</typename><string>OptionItems = all | [OptionItem]</string></subtype>
+        <subtype><typename>OptionItem</typename><string>OptionItem = <br/><nbsp/><nbsp/><nbsp/><nbsp/>proxy | https_proxy | max_sessions | keep_alive_timeout |<br/><nbsp/><nbsp/><nbsp/><nbsp/>max_keep_alive_length | pipeline_timeout |<br/><nbsp/><nbsp/><nbsp/><nbsp/>max_pipeline_length | cookies | ipfamily | ip | port |<br/><nbsp/><nbsp/><nbsp/><nbsp/>socket_opts | verbose | unix_socket</string></subtype>
+        <subtype><typename>Values</typename><string>Values = [{OptionItem, <seetype marker="erlang#term">term()</seetype>}]</string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionItem</anno>
+  <anno>OptionItems</anno>
+  <anno>Reason</anno>
+  <anno>Values</anno>
+</spec>
+<spec>
+  <name>get_options</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>get_options(OptionItems, Profile) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Values} | {error, Reason}</head>
+      <guard>
+        <subtype><typename>OptionItems</typename><string>OptionItems = all | [OptionItem]</string></subtype>
+        <subtype><typename>OptionItem</typename><string>OptionItem = <br/><nbsp/><nbsp/><nbsp/><nbsp/>proxy | https_proxy | max_sessions | keep_alive_timeout |<br/><nbsp/><nbsp/><nbsp/><nbsp/>max_keep_alive_length | pipeline_timeout |<br/><nbsp/><nbsp/><nbsp/><nbsp/>max_pipeline_length | cookies | ipfamily | ip | port |<br/><nbsp/><nbsp/><nbsp/><nbsp/>socket_opts | verbose | unix_socket</string></subtype>
+        <subtype><typename>Values</typename><string>Values = [{OptionItem, <seetype marker="erlang#term">term()</seetype>}]</string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>OptionItem</anno>
+  <anno>OptionItems</anno>
+  <anno>Profile</anno>
+  <anno>Reason</anno>
+  <anno>Values</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>info() -&gt; <seetype marker="erlang#list">list()</seetype> | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info(Profile) -&gt; <seetype marker="erlang#list">list()</seetype> | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Profile</anno>
+  <anno>Reason</anno>
+</spec>
+<spec>
+  <name>profile_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>profile_name(Profile :: <seetype marker="erlang#pid">pid()</seetype>) -&gt; <seetype marker="erlang#pid">pid()</seetype></head></clause>
+  </contract>
+  <anno>Profile</anno>
+</spec>
+<spec>
+  <name>profile_name</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>profile_name(Profile :: <seetype marker="erlang#atom">atom()</seetype>) -&gt; <seetype marker="erlang#pid">pid()</seetype> | <seetype marker="erlang#atom">atom()</seetype></head></clause>
+  </contract>
+  <anno>Profile</anno>
+</spec>
+<spec>
+  <name>profile_name</name>
+  <arity>2</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>request</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>request(Url :: <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Result} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{StatusLine :: {HttpVersion, StatusCode, <seetype marker="erlang#string">string()</seetype>},<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[HttpHeader],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>HttpBodyResult} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{StatusCode, HttpBodyResult} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>RequestId | saved_to_file</string></subtype>
+        <subtype><typename>HttpBodyResult</typename><string>HttpBodyResult = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>HttpVersion</typename><string>HttpVersion = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>StatusCode</typename><string>StatusCode = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>HttpHeader</typename><string>HttpHeader = {Field :: [<seetype marker="erlang#byte">byte()</seetype>], Value :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>}</string></subtype>
+        <subtype><typename>RequestId</typename><string>RequestId = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Field</anno>
+  <anno>HttpBodyResult</anno>
+  <anno>HttpHeader</anno>
+  <anno>HttpVersion</anno>
+  <anno>RequestId</anno>
+  <anno>Result</anno>
+  <anno>StatusCode</anno>
+  <anno>StatusLine</anno>
+  <anno>Url</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>request</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>request(Url, Profile) -&gt; {ok, Result} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Url</typename><string>Url = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{StatusLine, [HttpHeader], HttpBodyResult} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{StatusCode, HttpBodyResult} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>RequestId | saved_to_file</string></subtype>
+        <subtype><typename>HttpHeader</typename><string>HttpHeader = {Field :: [<seetype marker="erlang#byte">byte()</seetype>], Value :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>}</string></subtype>
+        <subtype><typename>HttpBodyResult</typename><string>HttpBodyResult = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>StatusLine</typename><string>StatusLine = {HttpVersion, StatusCode, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+        <subtype><typename>HttpVersion</typename><string>HttpVersion = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>StatusCode</typename><string>StatusCode = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>RequestId</typename><string>RequestId = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Field</anno>
+  <anno>HttpBodyResult</anno>
+  <anno>HttpHeader</anno>
+  <anno>HttpVersion</anno>
+  <anno>Profile</anno>
+  <anno>RequestId</anno>
+  <anno>Result</anno>
+  <anno>StatusCode</anno>
+  <anno>StatusLine</anno>
+  <anno>Url</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>request</name>
+  <arity>4</arity>
+  <contract>
+    <clause>
+      <head>request(Method, Request, HttpOptions, Options) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Result} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Method</typename><string>Method = <br/><nbsp/><nbsp/><nbsp/><nbsp/>head | get | put | patch | post | trace | options | delete</string></subtype>
+        <subtype><typename>Request</typename><string>Request = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype>, [HttpHeader]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[HttpHeader],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ContentType :: <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>HttpBody}</string></subtype>
+        <subtype><typename>HttpBody</typename><string>HttpBody = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#iolist">iolist()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#binary">binary()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{fun((Accumulator :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>eof | {ok, <seetype marker="erlang#iolist">iolist()</seetype>, Accumulator :: <seetype marker="erlang#term">term()</seetype>}),<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Accumulator :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{chunkify,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Accumulator :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>eof | {ok, <seetype marker="erlang#iolist">iolist()</seetype>, Accumulator :: <seetype marker="erlang#term">term()</seetype>}),<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Accumulator :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>HttpOptions</typename><string>HttpOptions = [HttpOption]</string></subtype>
+        <subtype><typename>HttpOption</typename><string>HttpOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{connect_timeout, <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl, [<seetype marker="ssl#tls_option">ssl:tls_option()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{autoredirect, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{proxy_auth, {<seetype marker="erlang#string">string()</seetype>, <seetype marker="erlang#string">string()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{version, HttpVersion} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{relaxed, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [OptionRequest]</string></subtype>
+        <subtype><typename>OptionRequest</typename><string>OptionRequest = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{sync, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{stream, StreamTo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{body_format, BodyFormat} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{full_result, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{headers_as_is, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_opts, [SocketOpt]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{receiver, Receiver} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipv6_host_with_brackets, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>StreamTo</typename><string>StreamTo = none | self | {self, once} | <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>SocketOpt</typename><string>SocketOpt = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>BodyFormat</typename><string>BodyFormat = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>Receiver</typename><string>Receiver = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ReceiverModule :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ReceiverFunction :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ReceiverArgs :: <seetype marker="erlang#list">list()</seetype>}</string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{StatusLine, [HttpHeader], HttpBodyResult} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{StatusCode, HttpBodyResult} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>RequestId | saved_to_file</string></subtype>
+        <subtype><typename>StatusCode</typename><string>StatusCode = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>StatusLine</typename><string>StatusLine = {HttpVersion, StatusCode, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+        <subtype><typename>HttpVersion</typename><string>HttpVersion = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>HttpHeader</typename><string>HttpHeader = {Field :: [<seetype marker="erlang#byte">byte()</seetype>], Value :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>}</string></subtype>
+        <subtype><typename>HttpBodyResult</typename><string>HttpBodyResult = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>RequestId</typename><string>RequestId = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Accumulator</anno>
+  <anno>BodyFormat</anno>
+  <anno>ContentType</anno>
+  <anno>Field</anno>
+  <anno>HttpBody</anno>
+  <anno>HttpBodyResult</anno>
+  <anno>HttpHeader</anno>
+  <anno>HttpOption</anno>
+  <anno>HttpOptions</anno>
+  <anno>HttpVersion</anno>
+  <anno>Method</anno>
+  <anno>OptionRequest</anno>
+  <anno>Options</anno>
+  <anno>Receiver</anno>
+  <anno>ReceiverArgs</anno>
+  <anno>ReceiverFunction</anno>
+  <anno>ReceiverModule</anno>
+  <anno>Request</anno>
+  <anno>RequestId</anno>
+  <anno>Result</anno>
+  <anno>SocketOpt</anno>
+  <anno>StatusCode</anno>
+  <anno>StatusLine</anno>
+  <anno>StreamTo</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>request</name>
+  <arity>5</arity>
+  <contract>
+    <clause>
+      <head>request(Method, Request, HttpOptions, Options, Profile) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, Result} | {error, <seetype marker="erlang#term">term()</seetype>}</head>
+      <guard>
+        <subtype><typename>Method</typename><string>Method = <br/><nbsp/><nbsp/><nbsp/><nbsp/>head | get | put | patch | post | trace | options | delete</string></subtype>
+        <subtype><typename>Request</typename><string>Request = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype>, [HttpHeader]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{<seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>[HttpHeader],<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ContentType :: <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>HttpBody}</string></subtype>
+        <subtype><typename>HttpBody</typename><string>HttpBody = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#iolist">iolist()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#binary">binary()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{fun((Accumulator :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>eof | {ok, <seetype marker="erlang#iolist">iolist()</seetype>, Accumulator :: <seetype marker="erlang#term">term()</seetype>}),<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Accumulator :: <seetype marker="erlang#term">term()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{chunkify,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>fun((Accumulator :: <seetype marker="erlang#term">term()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>eof | {ok, <seetype marker="erlang#iolist">iolist()</seetype>, Accumulator :: <seetype marker="erlang#term">term()</seetype>}),<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>Accumulator :: <seetype marker="erlang#term">term()</seetype>}</string></subtype>
+        <subtype><typename>HttpHeader</typename><string>HttpHeader = {Field :: [<seetype marker="erlang#byte">byte()</seetype>], Value :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>}</string></subtype>
+        <subtype><typename>HttpOptions</typename><string>HttpOptions = [HttpOption]</string></subtype>
+        <subtype><typename>HttpOption</typename><string>HttpOption = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{timeout, <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{connect_timeout, <seetype marker="erlang#timeout">timeout()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ssl, [<seetype marker="ssl#tls_option">ssl:tls_option()</seetype>]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{autoredirect, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{proxy_auth, {<seetype marker="erlang#string">string()</seetype>, <seetype marker="erlang#string">string()</seetype>}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{version, HttpVersion} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{relaxed, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>Options</typename><string>Options = [OptionRequest]</string></subtype>
+        <subtype><typename>OptionRequest</typename><string>OptionRequest = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{sync, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{stream, StreamTo} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{body_format, BodyFormat} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{full_result, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{headers_as_is, <seetype marker="erlang#boolean">boolean()</seetype>} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_opts, [SocketOpt]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{receiver, Receiver} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipv6_host_with_brackets, <seetype marker="erlang#boolean">boolean()</seetype>}</string></subtype>
+        <subtype><typename>StreamTo</typename><string>StreamTo = none | self | {self, once} | <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>BodyFormat</typename><string>BodyFormat = <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#atom">atom()</seetype></string></subtype>
+        <subtype><typename>SocketOpt</typename><string>SocketOpt = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Receiver</typename><string>Receiver = <br/><nbsp/><nbsp/><nbsp/><nbsp/><seetype marker="erlang#pid">pid()</seetype> |<br/><nbsp/><nbsp/><nbsp/><nbsp/>fun((<seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype>) |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ReceiverModule :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ReceiverFunction :: <seetype marker="erlang#atom">atom()</seetype>,<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ReceiverArgs :: <seetype marker="erlang#list">list()</seetype>}</string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>HttpVersion</typename><string>HttpVersion = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{StatusLine, [HttpHeader], HttpBodyResult} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{StatusCode, HttpBodyResult} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>RequestId | saved_to_file</string></subtype>
+        <subtype><typename>StatusLine</typename><string>StatusLine = {HttpVersion, StatusCode, <seetype marker="erlang#string">string()</seetype>}</string></subtype>
+        <subtype><typename>StatusCode</typename><string>StatusCode = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>HttpBodyResult</typename><string>HttpBodyResult = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype> | <seetype marker="erlang#binary">binary()</seetype></string></subtype>
+        <subtype><typename>RequestId</typename><string>RequestId = <seetype marker="erlang#any">any()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Accumulator</anno>
+  <anno>BodyFormat</anno>
+  <anno>ContentType</anno>
+  <anno>Field</anno>
+  <anno>HttpBody</anno>
+  <anno>HttpBodyResult</anno>
+  <anno>HttpHeader</anno>
+  <anno>HttpOption</anno>
+  <anno>HttpOptions</anno>
+  <anno>HttpVersion</anno>
+  <anno>Method</anno>
+  <anno>OptionRequest</anno>
+  <anno>Options</anno>
+  <anno>Profile</anno>
+  <anno>Receiver</anno>
+  <anno>ReceiverArgs</anno>
+  <anno>ReceiverFunction</anno>
+  <anno>ReceiverModule</anno>
+  <anno>Request</anno>
+  <anno>RequestId</anno>
+  <anno>Result</anno>
+  <anno>SocketOpt</anno>
+  <anno>StatusCode</anno>
+  <anno>StatusLine</anno>
+  <anno>StreamTo</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>reset_cookies</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>reset_cookies() -&gt; Void</head>
+      <guard>
+        <subtype><typename>Void</typename><string>Void = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Void</anno>
+</spec>
+<spec>
+  <name>reset_cookies</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>reset_cookies(Profile) -&gt; Void</head>
+      <guard>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Void</typename><string>Void = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Profile</anno>
+  <anno>Void</anno>
+</spec>
+<spec>
+  <name>service_info</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>services</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>set_option</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_option(Key :: <seetype marker="erlang#atom">atom()</seetype>, Value :: <seetype marker="erlang#term">term()</seetype>) -&gt; ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>set_option</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>set_option(Key :: <seetype marker="erlang#atom">atom()</seetype>, Value :: <seetype marker="erlang#term">term()</seetype>, Profile :: <seetype marker="erlang#atom">atom()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Key</anno>
+  <anno>Profile</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>set_options</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>set_options(Options) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{proxy, {Proxy, NoProxy}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{https_proxy, {Proxy, NoProxy}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_sessions, MaxSessions} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_keep_alive_length, MaxKeepAlive} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive_timeout, KeepAliveTimeout} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_pipeline_length, MaxPipeline} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pipeline_timeout, PipelineTimeout} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cookies, CookieMode} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipfamily, IpFamily} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ip, IpAddress} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, Port} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_opts, SocketOpts} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, VerboseMode} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unix_socket, UnixSocket}</string></subtype>
+        <subtype><typename>Proxy</typename><string>Proxy = {HostName, Port}</string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>NoProxy</typename><string>NoProxy = [DomainDesc | HostName | IpAddressDesc]</string></subtype>
+        <subtype><typename>MaxSessions</typename><string>MaxSessions = MaxKeepAlive = KeepAliveTimeout = MaxPipeline = PipelineTimeout = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>MaxKeepAlive</typename><string/></subtype>
+        <subtype><typename>KeepAliveTimeout</typename><string/></subtype>
+        <subtype><typename>MaxPipeline</typename><string/></subtype>
+        <subtype><typename>PipelineTimeout</typename><string/></subtype>
+        <subtype><typename>CookieMode</typename><string>CookieMode = enabled | disabled | verify</string></subtype>
+        <subtype><typename>IpFamily</typename><string>IpFamily = inet | inet6 | local | inet6fb4</string></subtype>
+        <subtype><typename>IpAddressDesc</typename><string>IpAddressDesc = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>IpAddress</typename><string>IpAddress = <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>VerboseMode</typename><string>VerboseMode = false | verbose | debug | trace</string></subtype>
+        <subtype><typename>SocketOpts</typename><string>SocketOpts = [SocketOpt]</string></subtype>
+        <subtype><typename>SocketOpt</typename><string>SocketOpt = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>UnixSocket</typename><string>UnixSocket = <seetype marker="file#name_all">file:name_all()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>DomainDesc</typename><string>DomainDesc = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>HostName</typename><string>HostName = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CookieMode</anno>
+  <anno>DomainDesc</anno>
+  <anno>HostName</anno>
+  <anno>IpAddress</anno>
+  <anno>IpAddressDesc</anno>
+  <anno>IpFamily</anno>
+  <anno>KeepAliveTimeout</anno>
+  <anno>MaxKeepAlive</anno>
+  <anno>MaxPipeline</anno>
+  <anno>MaxSessions</anno>
+  <anno>NoProxy</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>PipelineTimeout</anno>
+  <anno>Port</anno>
+  <anno>Proxy</anno>
+  <anno>Reason</anno>
+  <anno>SocketOpt</anno>
+  <anno>SocketOpts</anno>
+  <anno>UnixSocket</anno>
+  <anno>VerboseMode</anno>
+</spec>
+<spec>
+  <name>set_options</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>set_options(Options, Profile) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>Options</typename><string>Options = [Option]</string></subtype>
+        <subtype><typename>Option</typename><string>Option = <br/><nbsp/><nbsp/><nbsp/><nbsp/>{proxy, {Proxy, NoProxy}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{https_proxy, {Proxy, NoProxy}} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_sessions, MaxSessions} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_keep_alive_length, MaxKeepAlive} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{keep_alive_timeout, KeepAliveTimeout} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{max_pipeline_length, MaxPipeline} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{pipeline_timeout, PipelineTimeout} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{cookies, CookieMode} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ipfamily, IpFamily} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{ip, IpAddress} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{port, Port} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{socket_opts, [SocketOpt]} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{verbose, VerboseMode} |<br/><nbsp/><nbsp/><nbsp/><nbsp/>{unix_socket, UnixSocket}</string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>SocketOpt</typename><string>SocketOpt = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Proxy</typename><string>Proxy = {HostName, Port}</string></subtype>
+        <subtype><typename>Port</typename><string>Port = <seetype marker="erlang#non_neg_integer">integer() &gt;= 0</seetype></string></subtype>
+        <subtype><typename>NoProxy</typename><string>NoProxy = [DomainDesc | HostName | IpAddressDesc]</string></subtype>
+        <subtype><typename>MaxSessions</typename><string>MaxSessions = MaxKeepAlive = KeepAliveTimeout = MaxPipeline = PipelineTimeout = <seetype marker="erlang#integer">integer()</seetype></string></subtype>
+        <subtype><typename>MaxKeepAlive</typename><string/></subtype>
+        <subtype><typename>KeepAliveTimeout</typename><string/></subtype>
+        <subtype><typename>MaxPipeline</typename><string/></subtype>
+        <subtype><typename>PipelineTimeout</typename><string/></subtype>
+        <subtype><typename>CookieMode</typename><string>CookieMode = enabled | disabled | verify</string></subtype>
+        <subtype><typename>IpFamily</typename><string>IpFamily = inet | inet6 | local | inet6fb4</string></subtype>
+        <subtype><typename>IpAddressDesc</typename><string>IpAddressDesc = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+        <subtype><typename>IpAddress</typename><string>IpAddress = <seetype marker="inet#ip_address">inet:ip_address()</seetype></string></subtype>
+        <subtype><typename>VerboseMode</typename><string>VerboseMode = false | verbose | debug | trace</string></subtype>
+        <subtype><typename>UnixSocket</typename><string>UnixSocket = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>DomainDesc</typename><string>DomainDesc = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>HostName</typename><string>HostName = <seetype marker="uri_string#uri_string">uri_string:uri_string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CookieMode</anno>
+  <anno>DomainDesc</anno>
+  <anno>HostName</anno>
+  <anno>IpAddress</anno>
+  <anno>IpAddressDesc</anno>
+  <anno>IpFamily</anno>
+  <anno>KeepAliveTimeout</anno>
+  <anno>MaxKeepAlive</anno>
+  <anno>MaxPipeline</anno>
+  <anno>MaxSessions</anno>
+  <anno>NoProxy</anno>
+  <anno>Option</anno>
+  <anno>Options</anno>
+  <anno>PipelineTimeout</anno>
+  <anno>Port</anno>
+  <anno>Profile</anno>
+  <anno>Proxy</anno>
+  <anno>Reason</anno>
+  <anno>SocketOpt</anno>
+  <anno>UnixSocket</anno>
+  <anno>VerboseMode</anno>
+</spec>
+<spec>
+  <name>ssl_verify_host_options</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>ssl_verify_host_options(WildcardHostName) -&gt; <seetype marker="erlang#list">list()</seetype></head>
+      <guard>
+        <subtype><typename>WildcardHostName</typename><string>WildcardHostName = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>WildcardHostName</anno>
+</spec>
+<spec>
+  <name>start_service</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>start_standalone</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>stop_service</name>
+  <arity>1</arity>
+  <contract/>
+</spec>
+<spec>
+  <name>store_cookies</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>store_cookies(SetCookieHeaders, Url) -&gt; ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SetCookieHeaders</typename><string>SetCookieHeaders = [HttpHeader]</string></subtype>
+        <subtype><typename>HttpHeader</typename><string>HttpHeader = {Field :: [<seetype marker="erlang#byte">byte()</seetype>], Value :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>}</string></subtype>
+        <subtype><typename>Url</typename><string>Url = Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Field</anno>
+  <anno>HttpHeader</anno>
+  <anno>Reason</anno>
+  <anno>SetCookieHeaders</anno>
+  <anno>Url</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>store_cookies</name>
+  <arity>3</arity>
+  <contract>
+    <clause>
+      <head>store_cookies(SetCookieHeaders, Url, Profile) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok | {error, Reason}</head>
+      <guard>
+        <subtype><typename>SetCookieHeaders</typename><string>SetCookieHeaders = [HttpHeader]</string></subtype>
+        <subtype><typename>HttpHeader</typename><string>HttpHeader = {Field :: [<seetype marker="erlang#byte">byte()</seetype>], Value :: <seetype marker="erlang#binary">binary()</seetype> | <seetype marker="erlang#iolist">iolist()</seetype>}</string></subtype>
+        <subtype><typename>Url</typename><string>Url = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>Reason</typename><string>Reason = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Field</anno>
+  <anno>HttpHeader</anno>
+  <anno>Profile</anno>
+  <anno>Reason</anno>
+  <anno>SetCookieHeaders</anno>
+  <anno>Url</anno>
+  <anno>Value</anno>
+</spec>
+<spec>
+  <name>stream_next</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>stream_next(Pid) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Pid</typename><string>Pid = <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Pid</anno>
+</spec>
+<spec>
+  <name>which_cookies</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>which_cookies() -&gt; [CookieStores]</head>
+      <guard>
+        <subtype><typename>CookieStores</typename><string>CookieStores = {cookies, Cookies} | {session_cookies, Cookies}</string></subtype>
+        <subtype><typename>Cookies</typename><string>Cookies = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CookieStores</anno>
+  <anno>Cookies</anno>
+</spec>
+<spec>
+  <name>which_cookies</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>which_cookies(Profile) -&gt; [CookieStores]</head>
+      <guard>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>CookieStores</typename><string>CookieStores = {cookies, Cookies} | {session_cookies, Cookies}</string></subtype>
+        <subtype><typename>Cookies</typename><string>Cookies = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CookieStores</anno>
+  <anno>Cookies</anno>
+  <anno>Profile</anno>
+</spec>
+<spec>
+  <name>which_sessions</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>which_sessions() -&gt; SessionInfo</head>
+      <guard>
+        <subtype><typename>SessionInfo</typename><string>SessionInfo = {GoodSession, BadSessions, NonSessions}</string></subtype>
+        <subtype><typename>GoodSession</typename><string>GoodSession = [Session]</string></subtype>
+        <subtype><typename>BadSessions</typename><string>BadSessions = NonSessions = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>NonSessions</typename><string/></subtype>
+        <subtype><typename>Session</typename><string>Session = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BadSessions</anno>
+  <anno>GoodSession</anno>
+  <anno>NonSessions</anno>
+  <anno>Session</anno>
+  <anno>SessionInfo</anno>
+</spec>
+<spec>
+  <name>which_sessions</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>which_sessions(Profile) -&gt; SessionInfo</head>
+      <guard>
+        <subtype><typename>Profile</typename><string>Profile = <seetype marker="erlang#atom">atom()</seetype> | <seetype marker="erlang#pid">pid()</seetype></string></subtype>
+        <subtype><typename>SessionInfo</typename><string>SessionInfo = {GoodSession, BadSessions, NonSessions}</string></subtype>
+        <subtype><typename>GoodSession</typename><string>GoodSession = [Session]</string></subtype>
+        <subtype><typename>BadSessions</typename><string>BadSessions = NonSessions = [<seetype marker="erlang#term">term()</seetype>]</string></subtype>
+        <subtype><typename>NonSessions</typename><string/></subtype>
+        <subtype><typename>Session</typename><string>Session = <seetype marker="erlang#term">term()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>BadSessions</anno>
+  <anno>GoodSession</anno>
+  <anno>NonSessions</anno>
+  <anno>Profile</anno>
+  <anno>Session</anno>
+  <anno>SessionInfo</anno>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:35:23.</timestamp>
+</module>

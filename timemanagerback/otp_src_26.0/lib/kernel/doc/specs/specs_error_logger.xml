@@ -1,0 +1,379 @@
+<module name="error_logger">
+<type>
+  <name>open_error</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-open_error">open_error()</marker> = <seetype marker="file#posix">file:posix()</seetype> | badarg | system_limit</typehead></typedecl>
+</type>
+<type>
+  <name>report</name>
+  <n_vars>0</n_vars>
+  <typedecl>
+      <typehead><marker id="type-report">report()</marker> = <br/><nbsp/><nbsp/><nbsp/><nbsp/>[{Tag :: <seetype marker="erlang#term">term()</seetype>, Data :: <seetype marker="erlang#term">term()</seetype>} | <seetype marker="erlang#term">term()</seetype>] | <seetype marker="erlang#string">string()</seetype> | <seetype marker="erlang#term">term()</seetype></typehead></typedecl>
+  <anno>Data</anno>
+  <anno>Tag</anno>
+</type>
+<spec>
+  <name>add_report_handler</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>add_report_handler(Handler) -&gt; <seetype marker="erlang#any">any()</seetype></head>
+      <guard>
+        <subtype><typename>Handler</typename><string>Handler = <seetype marker="erlang#module">module()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Handler</anno>
+</spec>
+<spec>
+  <name>add_report_handler</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>add_report_handler(Handler, Args) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Handler</typename><string>Handler = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Args</typename><string>Args = <seetype marker="gen_event#handler_args">gen_event:handler_args()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="gen_event#add_handler_ret">gen_event:add_handler_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Args</anno>
+  <anno>Handler</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>adding_handler</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>adding_handler(Config :: <seetype marker="logger#handler_config">logger:handler_config()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>{ok, <seetype marker="logger#handler_config">logger:handler_config()</seetype>} | {error, <seetype marker="erlang#term">term()</seetype>}</head></clause>
+  </contract>
+  <anno>Config</anno>
+</spec>
+<spec>
+  <name>delete_report_handler</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>delete_report_handler(Handler) -&gt; Result</head>
+      <guard>
+        <subtype><typename>Handler</typename><string>Handler = <seetype marker="erlang#module">module()</seetype></string></subtype>
+        <subtype><typename>Result</typename><string>Result = <seetype marker="gen_event#del_handler_ret">gen_event:del_handler_ret()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Handler</anno>
+  <anno>Result</anno>
+</spec>
+<spec>
+  <name>error_info</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>error_info(Error :: <seetype marker="erlang#any">any()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>Error</anno>
+</spec>
+<spec>
+  <name>error_msg</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>error_msg(Format) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>error_msg</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>error_msg(Format, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>error_report</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>error_report(Report) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Report</typename><string>Report = <seetype marker="#report">report()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Report</anno>
+</spec>
+<spec>
+  <name>error_report</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>error_report(Type, Report) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="erlang#term">term()</seetype></string></subtype>
+        <subtype><typename>Report</typename><string>Report = <seetype marker="#report">report()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Report</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>format</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>format(Format, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>get_format_depth</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>get_format_depth() -&gt; unlimited | <seetype marker="erlang#pos_integer">integer() &gt;= 1</seetype></head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>info_msg</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info_msg(Format) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>info_msg</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>info_msg(Format, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>info_report</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>info_report(Report) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Report</typename><string>Report = <seetype marker="#report">report()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Report</anno>
+</spec>
+<spec>
+  <name>info_report</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>info_report(Type, Report) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="erlang#any">any()</seetype></string></subtype>
+        <subtype><typename>Report</typename><string>Report = <seetype marker="#report">report()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Report</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>limit_term</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>limit_term(Term :: <seetype marker="erlang#term">term()</seetype>) -&gt; <seetype marker="erlang#term">term()</seetype></head></clause>
+  </contract>
+  <anno>Term</anno>
+</spec>
+<spec>
+  <name>log</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>log(X1 :: <seetype marker="logger#log_event">logger:log_event()</seetype>, Config :: <seetype marker="logger#handler_config">logger:handler_config()</seetype>) -&gt;<br/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/>ok</head></clause>
+  </contract>
+  <anno>Config</anno>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>logfile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>logfile(Request :: {open, Filename}) -&gt; ok | {error, OpenReason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>OpenReason</typename><string>OpenReason = allready_have_logfile | <seetype marker="#open_error">open_error()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>OpenReason</anno>
+  <anno>Request</anno>
+</spec>
+<spec>
+  <name>logfile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>logfile(Request :: close) -&gt; ok | {error, CloseReason}</head>
+      <guard>
+        <subtype><typename>CloseReason</typename><string>CloseReason = module_not_found</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>CloseReason</anno>
+  <anno>Request</anno>
+</spec>
+<spec>
+  <name>logfile</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>logfile(Request :: filename) -&gt; Filename | {error, FilenameReason}</head>
+      <guard>
+        <subtype><typename>Filename</typename><string>Filename = <seetype marker="file#name">file:name()</seetype></string></subtype>
+        <subtype><typename>FilenameReason</typename><string>FilenameReason = no_log_file</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Filename</anno>
+  <anno>FilenameReason</anno>
+  <anno>Request</anno>
+</spec>
+<spec>
+  <name>removing_handler</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>removing_handler(X1 :: <seetype marker="logger#handler_config">logger:handler_config()</seetype>) -&gt; ok</head></clause>
+  </contract>
+  <anno>X1</anno>
+</spec>
+<spec>
+  <name>start</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start() -&gt; ok | {error, <seetype marker="erlang#any">any()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>start_link</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>start_link() -&gt; {ok, <seetype marker="erlang#pid">pid()</seetype>} | {error, <seetype marker="erlang#any">any()</seetype>}</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>stop</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>stop() -&gt; ok</head></clause>
+  </contract>
+</spec>
+<spec>
+  <name>tty</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>tty(Flag) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Flag</typename><string>Flag = <seetype marker="erlang#boolean">boolean()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Flag</anno>
+</spec>
+<spec>
+  <name>warning_map</name>
+  <arity>0</arity>
+  <contract>
+    <clause>
+      <head>warning_map() -&gt; Tag</head>
+      <guard>
+        <subtype><typename>Tag</typename><string>Tag = error | warning | info</string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Tag</anno>
+</spec>
+<spec>
+  <name>warning_msg</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>warning_msg(Format) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>warning_msg</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>warning_msg(Format, Data) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Format</typename><string>Format = <seetype marker="erlang#string">string()</seetype></string></subtype>
+        <subtype><typename>Data</typename><string>Data = <seetype marker="erlang#list">list()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Data</anno>
+  <anno>Format</anno>
+</spec>
+<spec>
+  <name>warning_report</name>
+  <arity>1</arity>
+  <contract>
+    <clause>
+      <head>warning_report(Report) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Report</typename><string>Report = <seetype marker="#report">report()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Report</anno>
+</spec>
+<spec>
+  <name>warning_report</name>
+  <arity>2</arity>
+  <contract>
+    <clause>
+      <head>warning_report(Type, Report) -&gt; ok</head>
+      <guard>
+        <subtype><typename>Type</typename><string>Type = <seetype marker="erlang#any">any()</seetype></string></subtype>
+        <subtype><typename>Report</typename><string>Report = <seetype marker="#report">report()</seetype></string></subtype>
+      </guard></clause>
+  </contract>
+  <anno>Report</anno>
+  <anno>Type</anno>
+</spec>
+<spec>
+  <name>which_report_handlers</name>
+  <arity>0</arity>
+  <contract/>
+</spec>
+<timestamp>Generated by EDoc, May 15 2023, 21:34:48.</timestamp>
+</module>
