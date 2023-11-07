@@ -2,9 +2,9 @@ name: Docker Image CI and Elixir Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "azur" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "azur" ]
 
 jobs:
   tu_back:
