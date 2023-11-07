@@ -13,7 +13,7 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v2
     - name: Install libncurses5
-      run: sudo apt-get update && sudo apt-get install -y libncurses5
+      run: sudo apt-get update && sudo apt-get install -y libncurses5 libssl1.0.0
     - name: Setup Elixir
       uses: actions/setup-elixir@v1
       with:
