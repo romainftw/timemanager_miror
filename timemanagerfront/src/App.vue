@@ -20,17 +20,19 @@ import { RouterLink, RouterView } from 'vue-router'
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav m-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <RouterLink to="/" class="nav-link active" aria-current="page">Accueil</RouterLink>
+              <RouterLink to="/" class="nav-link active" aria-current="page">
+                Accueil
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <RouterLink to="/user" class="nav-link active" aria-current="page"
-                >Utilisateurs</RouterLink
-              >
+              <RouterLink to="/user" class="nav-link active" aria-current="page">
+                Utilisateurs
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <RouterLink to="/workingTimes" class="nav-link active" aria-current="page"
-                >Horaires</RouterLink
-              >
+              <RouterLink to="/workingTimes" class="nav-link active" aria-current="page">
+                Horaires
+              </RouterLink>
             </li>
           </ul>
         </div>

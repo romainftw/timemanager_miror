@@ -1,10 +1,22 @@
+<!-- 
+
+  Modale pour afficher la liste des horaires de travail d'un utilisateur avec la possibilité d'ajouter un horaire
+  Workingtimes for one user modal
+
+-->
+
 <template>
   <section>
     <h5>Horaires de travail de {{ username }}</h5>
 
-    <button class="btn" @click="toggleModale">
+    <button class="btn" @click="toggleWorkingTimeModal">
         <i class="bi bi-plus-square text-info"></i>
-      </button>
+    </button>
+    
+    <myModal :show="workingTimeModal" :toggleModale="toggleWorkingTimeModal">
+      <WorkingTimeForm :userId="userID" @callback="toggleWorkingTimeModal"/>
+    </myModal>
+
     <article class="mt-5">
       <table class="table">
         <thead>
@@ -15,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-if="workingTimes.length === 0">
+          <tr v-if="workingTimes.length === 0" class="ml-5">
             pas encore définies
           </tr>
           <tr v-for="workingtime in workingTimes" :key="workingtime.id">
@@ -28,10 +40,7 @@
               <button class="btn ms-2" @click="deleteWorkingTime(workingtime.id)">
                 <i class="bi bi-trash3-fill text-danger"></i>
               </button> -->
-              <RouterLink
-                :to="`/workingTime/${userID}/${workingtime.id}/${username}`"
-                class="btn btn-outline-dark"
-              >
+              <RouterLink :to="`/workingTime/${userID}/${workingtime.id}/${username}`" class="btn btn-outline-dark">
                 Voir
               </RouterLink>
             </td>
@@ -42,22 +51,27 @@
   </section>
 </template>
 
-<script steup>
+<script>
 import config from '../../config'
 import axios from 'axios'
 import { formatDate } from '../../functions'
 import { RouterLink } from 'vue-router'
-import { watchEffect } from 'vue'
+import WorkingTimeForm from './WorkingTimeForm.vue'
+import Modal from './ModaleItem.vue'
 
 export default {
   name: 'workingTimes',
   props: ['userID', 'username'],
   data() {
     return {
-      workingTimes: []
+      workingTimes: [],
+      workingTimeModal: false
     }
   },
-
+  components: {
+    WorkingTimeForm,
+    myModal: Modal
+  },
   methods: {
     getWorkingTimes: async function () {
       if(!this.userID) {
@@ -86,6 +100,9 @@ export default {
         }
       }
       
+    },
+    toggleWorkingTimeModal: function () {
+      this.workingTimeModal = !this.workingTimeModal
     },
     formattedDate: function (date) {
       return formatDate(date, 'D MMMM YYYY [à] hh:mm A')

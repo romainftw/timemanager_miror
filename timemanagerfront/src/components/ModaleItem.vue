@@ -11,12 +11,14 @@
     </div>
   </section>
 </template>
+
 <script>
 export default {
   name: 'Modale',
   props: ['show', 'toggleModale']
 }
 </script>
+
 <style scoped>
 .bloc-modale {
   display: flex;

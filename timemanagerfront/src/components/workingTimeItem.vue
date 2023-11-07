@@ -8,6 +8,7 @@
         <i class="bi bi-plus-square text-info"></i>
       </button>
     </h5>
+
     <!-- create new workingtime modal  -->
     <modal :show="show" :toggleModale="toggleModale">
       <section class="row justify-content-center">
@@ -27,13 +28,13 @@
               placeholder="Email"
               required
             />
-
             <button class="btn btn-info col-12 mt-4" type="submit">Ajouter</button>
           </form>
         </div>
       </section>
     </modal>
     <!-- end  create new workingtime modal  -->
+
     <div v-if="showWorkingTime" class="d-flex align-items-baseline">
       <p>
         du {{ formattedDate(showWorkingTime.workingtime.start) }} au
@@ -82,6 +83,7 @@ import axios from 'axios'
 import config from '../../config'
 import Modal from './ModaleItem.vue'
 import { formatDate } from '../../functions'
+
 export default {
   name: 'workingTime',
   components: {
@@ -183,7 +185,6 @@ export default {
     toggleEditModale: function () {
       this.showEditModal = !this.showEditModal
     },
-
     formattedDate: function (date) {
       return formatDate(date, 'D MMMM YYYY [à] hh:mm A')
     }

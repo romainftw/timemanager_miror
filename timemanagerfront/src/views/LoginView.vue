@@ -19,7 +19,7 @@ export default {
     goBack() {
       this.$router.go(-1)
     }
-  }
+  },
 }
 </script>
 
@@ -32,9 +32,9 @@ export default {
           <div class="card">
             <div class="card-header">Connexion</div>
             <div class="card-body">
-              <form @submit="login">
+              <form @submit="login" autocomplete="off">
                 <div class="form-group">
-                  <label for="username">Nom d'utilisateur :</label>
+                  <label for="username">Nom d'utiliddddsateur :</label>
                   <input type="text" class="form-control" id="username" v-model="username" />
                 </div>
                 <div class="form-group">
