@@ -1,6 +1,8 @@
 <script>
 import axios from 'axios'
 import config from '../../config'
+import MyNotifications from '../utils/notifications'
+
 export default {
   data() {
     return {
@@ -14,18 +16,10 @@ export default {
     createNewUser: async function () {
       try {
         const response = await axios.post(`${config.back_uri}/users`, this.user)
-        console.log(response)
-        this.$notify({
-          text: "L'utilisateur a été rajouté",
-          type: 'success'
-        })
+        MyNotifications.success("L'utilisateur a été rajouté")
         this.goBack()
       } catch (error) {
-        this.$notify({
-          title: 'Erreur',
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+        MyNotifications.error()
       }
     },
     goBack() {
@@ -34,6 +28,8 @@ export default {
   }
 }
 </script>
+
+
 <template>
   <section>
     <h1>créer un nouveau utilisateur</h1>

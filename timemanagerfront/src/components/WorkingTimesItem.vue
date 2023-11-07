@@ -1,17 +1,16 @@
 <!-- 
-
   Modale pour afficher la liste des horaires de travail d'un utilisateur avec la possibilité d'ajouter un horaire
   Workingtimes for one user modal
-
 -->
 
 <template>
   <section>
-    <h5>Horaires de travail de {{ username }}</h5>
-
-    <button class="btn" @click="toggleWorkingTimeModal">
-        <i class="bi bi-plus-square text-info"></i>
-    </button>
+    <div class="modal-header">
+      <h5>Horaires de travail de {{ username }}</h5>
+      <button class="btn mr-auto" @click="toggleWorkingTimeModal">
+          <i class="bi bi-plus-square text-info"></i>
+      </button>
+    </div>
     
     <myModal :show="workingTimeModal" :toggleModale="toggleWorkingTimeModal">
       <WorkingTimeForm :userId="userID" @callback="toggleWorkingTimeModal"/>
@@ -58,6 +57,7 @@ import { formatDate } from '../../functions'
 import { RouterLink } from 'vue-router'
 import WorkingTimeForm from './WorkingTimeForm.vue'
 import Modal from './ModaleItem.vue'
+import MyNotifications from '../utils/notifications'
 
 export default {
   name: 'workingTimes',
@@ -80,11 +80,7 @@ export default {
           this.workingTimes = response.data.data
           console.log(response.data)
         } catch (error) {
-          this.$notify({
-            title: 'Erreur',
-            text: "Une erreur s'est produite",
-            type: 'error'
-          })
+          MyNotifications.error()
         }
       } else {
         try {
@@ -92,11 +88,7 @@ export default {
           this.workingTimes = response.data.data
           console.log(response.data)
         } catch (error) {
-          this.$notify({
-            title: 'Erreur',
-            text: "Une erreur s'est produite",
-            type: 'error'
-          })
+          MyNotifications.error()
         }
       }
       

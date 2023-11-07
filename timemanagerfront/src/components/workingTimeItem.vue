@@ -1,3 +1,8 @@
+<!-- 
+  Affiche la liste de toutes les horaires d'un employé
+  Show all working times for one employee
+-->
+
 <template>
   <div>
     <button class="btn mb-5" @click="goBack"><i class="bi bi-arrow-left-short"></i> Retour</button>
@@ -83,6 +88,8 @@ import axios from 'axios'
 import config from '../../config'
 import Modal from './ModaleItem.vue'
 import { formatDate } from '../../functions'
+import MyNotifications from '../utils/notifications'
+
 
 export default {
   name: 'workingTime',
@@ -118,10 +125,7 @@ export default {
         const response = await axios.get(`${config.back_uri}/workingtimes/${this.workingTimeId}`)
         this.showWorkingTime.workingtime = response.data.data
       } catch (error) {
-        this.$notify({
-          text: "imppssible de récupérer l'horaire",
-          type: 'error'
-        })
+        MyNotifications.error("Impossible de récupérer l'horaire")
       }
     },
     createWorkingTime: async function () {
@@ -130,16 +134,10 @@ export default {
         const response = await axios.post(`${config.back_uri}/workingtimes`, this.data)
         this.data.workingtime.start = ''
         this.data.workingtime.end = ''
-        this.$notify({
-          text: 'Les horaires ont été ajoutées',
-          type: 'success'
-        })
+        MyNotifications.success('Les horaires ont été ajoutées')
         // this.goBack()
       } catch (error) {
-        this.$notify({
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+        MyNotifications.error()
       }
     },
     updateWorkingTime: async function () {
@@ -150,30 +148,18 @@ export default {
         )
         this.showWorkingTime.workingtime = response.data.data
         this.toggleEditModale()
-        this.$notify({
-          text: 'Les horaires ont été modifiées',
-          type: 'success'
-        })
+        MyNotifications.success('Les horaires ont été modifiées')
       } catch (error) {
-        this.$notify({
-          text: "Impossible de mettre à jour l'horaire de travail",
-          type: 'error'
-        })
+        MyNotifications.error("Impossible de mettre à jour l'horaire de travail")
       }
     },
     deleteWorkingTime: async function () {
       try {
         const response = await axios.delete(`${config.back_uri}/workingtimes/${this.workingTimeId}`)
         this.showWorkingTime = null
-        this.$notify({
-          text: 'Les horaires ont été supprimées',
-          type: 'success'
-        })
+        MyNotifications.success('Les horaires ont été supprimées')
       } catch (error) {
-        this.$notify({
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+        MyNotifications.error()
       }
     },
     goBack() {

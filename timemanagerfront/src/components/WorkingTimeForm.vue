@@ -1,3 +1,7 @@
+<!-- 
+  Add and edit form for working time
+-->
+
 <template>
   <div>
     <section class="row justify-content-center">
@@ -17,6 +21,7 @@
 import axios from 'axios'
 import config from '../../config'
 import Modal from './ModaleItem.vue'
+import MyNotifications from '../utils/notifications'
 
 export default {
   name: 'workingTime',
@@ -62,10 +67,7 @@ export default {
         const response = await axios.get(`${config.back_uri}/workingtimes/${this.workingTimeId}`)
         this.showWorkingTime.workingtime = response.data.data
       } catch (error) {
-        this.$notify({
-          text: "impossible de récupérer l'horaire",
-          type: 'error'
-        })
+        MyNotifications.error("Impossible de récupérer l'horaire")
       }
     },
     createWorkingTime: async function () {
@@ -76,10 +78,7 @@ export default {
         this.data.workingtime.end = ''
         this.successCbk('Les horaires ont été ajoutées')
       } catch (error) {
-        this.$notify({
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+        MyNotifications.error("Une erreur s'est produite")
       }
     },
     updateWorkingTime: async function () {
@@ -91,18 +90,12 @@ export default {
         this.showWorkingTime.workingtime = response.data.data
         this.successCbk('Les horaires ont été modifiées')
       } catch (error) {
-        this.$notify({
-          text: "Impossible de mettre à jour l'horaire de travail",
-          type: 'error'
-        })
+        MyNotifications.error("Impossible de mettre à jour l'horaire de travail")
       }
     },
     successCbk (msg) {
-      this.$notify({
-          text: msg,
-          type: 'success'
-        })
-        this.$emit('callback');
+      MyNotifications.success(msg)
+      this.$emit('callback');
     },
   },
   created() {

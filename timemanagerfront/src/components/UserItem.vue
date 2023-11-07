@@ -2,7 +2,8 @@
 import axios from 'axios'
 import config from '../../config'
 import Modale from './ModaleItem.vue'
-import WorkingTimes from './WorkingTimesItem.vue'
+import WorkingTimes from './WorkingTimesItem.vue' // Modale
+import MyNotifications from '../utils/notifications.js'
 
 export default {
   name: 'UserItem',
@@ -16,7 +17,8 @@ export default {
       newUser: {
         user: {
           username: '',
-          email: ''
+          email: '',
+          role: ''
         }
       },
       editUser: {
@@ -29,7 +31,12 @@ export default {
       addingNewUser: false,
       showModale: false,
       modaleData: null,
-      showModaleEditUser: false
+      showModaleEditUser: false,
+      options: [
+        { value: 'employee', label: 'Employé' },
+        { value: 'manager', label: 'Manager' },
+        { value: 'teamLead', label: "Chef d'équipe" },
+      ],
     }
   },
   methods: {
@@ -43,23 +50,16 @@ export default {
         this.users = users
         this.users.sort((a, b) => (a.id > b.id ? 1 : -1))
       } catch (error) {
-        this.$notify({
-          title: 'Erreur',
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+        MyNotifications.error()
       }
     },
     deleteUser: async function (userID) {
       try {
         const response = await axios.delete(`${config.back_uri}/users/${userID}`)
         this.users = response && this.users.filter((user) => user.id !== userID)
+        MyNotifications.success("L'utilisateur a bien été supprimé")
       } catch (error) {
-        this.$notify({
-          title: 'Erreur',
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+        MyNotifications.error()
       }
     },
     clockAtWorkingTime: async function (userID) {
@@ -68,19 +68,10 @@ export default {
         const response = await axios.post(`${config.back_uri}/clocks`, {clock})
 
         if(response){ 
-          this.$notify({
-            title: 'Succès',
-            text: "L'heure a été pointée pour l'utilisateur",
-            type: 'success'
-          })
+          MyNotifications.success("L'heure a été pointée pour l'utilisateur")
         }
       } catch (error) {
-        console.log(error)
-        this.$notify({
-          title: 'Erreur',
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+        MyNotifications.error()
       }
     },
     createNewUser: async function () {
@@ -95,16 +86,9 @@ export default {
           this.newUser[key] = ""
         })
         this.addingUser()
-        this.$notify({
-          title: 'Succès',
-          text: "L'utilisateur a été rajouté",
-          type: 'success'
-        })
+        MyNotifications.success("L'utilisateur a été rajouté")
       } catch (error) {
-        this.$notify({
-          text: "Une erreur s'est produite",
-          type: 'error'
-        })
+        MyNotifications.error()
       }
     },
     updateUser: async function () {
@@ -116,16 +100,10 @@ export default {
         )
         console.log(response)
         this.fetchUsers()
-        this.$notify({
-          text: "L'utilisateur a été mis à jour",
-          type: 'success'
-        })
+        MyNotifications.success("L'utilisateur a été mis à jour")
         this.showModaleEditUser = !this.showModaleEditUser
       } catch (error) {
-        this.$notify({
-          text: "Impossible de mettre à jour l'utilisateur",
-          type: 'error'
-        })
+        MyNotifications.success("Impossible de mettre à jour l'utilisateur")
       }
     },
     addingUser: function () {
@@ -190,6 +168,9 @@ export default {
           autocomplete="new-password"
           required
         />
+        <select v-model="newUser.user.role" class="form-control mt-4 select-with-arrow" placeholder="Rôle" >
+          <option v-for="option in options" :value="option.value" :key="option.value">{{ option.label }}</option>
+        </select>
         <button class="btn btn-info col-12 mt-4" type="submit">Ajouter</button>
       </form>
     </article>
@@ -259,3 +240,15 @@ export default {
     </modale>
   </section>
 </template>
+
+
+<style>
+.select-with-arrow::after {
+  content: '\25BC'; 
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+</style>

@@ -49,6 +49,7 @@ import {
   LinearScale,
   ArcElement
 } from 'chart.js'
+import MyNotifications from '../utils/notifications'
 
 ChartJS.register(ArcElement, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 export default {
@@ -88,10 +89,7 @@ export default {
           ]
         }
       } catch (error) {
-        this.$notify({
-          text: 'Impossible de récupérer les données par mois',
-          type: 'error'
-        })
+        MyNotifications.error('Impossible de récupérer les données par mois')
       }
     },
     getWorkingHoursByDay: async function () {
@@ -109,10 +107,7 @@ export default {
           ]
         }
       } catch (error) {
-        this.$notify({
-          text: 'Impossible de récupérer les données du jour',
-          type: 'error'
-        })
+        MyNotifications.error('Impossible de récupérer les données du jour')
       }
     },
     getWorkingHoursByWeek: async function () {
@@ -140,10 +135,7 @@ export default {
           ]
         }
       } catch (error) {
-        this.$notify({
-          text: 'Impossible de récupérer les données de cette semaine',
-          type: 'error'
-        })
+        MyNotifications.error('Impossible de récupérer les données de cette semaine')
       }
     }
   },
