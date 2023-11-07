@@ -14,6 +14,10 @@ defmodule TimemanagerWeb.Router do
     plug CORSPlug
     plug :accepts, ["json"]
   end
+  pipeline :authed_api do
+    plug Timemanager.Users.Pipeline
+  end
+
 
   scope "/", TimemanagerWeb do
     pipe_through :browser
@@ -23,11 +27,14 @@ defmodule TimemanagerWeb.Router do
 
   scope "/api", TimemanagerWeb do
     pipe_through :api
+    post "/login", AuthenticationController, :login
+    post "/users", UserController, :create
+
+    pipe_through :authed_api
 
     options "/*users", CommonController, :options
     resources "/users", UserController
     get "/user", UserController, :user
-    post "/login", UserController, :login
 
     options "/*clocks", CommonController, :options
     resources "/clocks", ClockController

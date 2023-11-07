@@ -9,6 +9,8 @@ defmodule TimemanagerWeb.ClockController do
   alias Timemanager.Workingtimes
   alias Timemanager.Workingtimes.Workingtime
 
+  plug Timemanager.Authorize, resource: Timemanager.Clocks.Clock
+
   action_fallback TimemanagerWeb.FallbackController
 
   def create(conn, %{"clock" => clock_params}) do
@@ -35,9 +37,20 @@ defmodule TimemanagerWeb.ClockController do
 
   end
 
+  # def show(conn, %{"id" => id}) do
+  #   clock = Clocks.get_clock!(id)
+  #   render(conn, :show, clock: clock)
+  # end
   def show(conn, %{"id" => id}) do
-    clock = Clocks.get_clock!(id)
-    render(conn, :show, clock: clock)
+    case Clocks.get_clock!(id) do
+      clock when clock != nil ->
+        render(conn, :show, clock: clock)
+      nil ->
+        conn
+        |> put_status(404)
+        |> put_resp_content_type("application/json")
+        |> json(%{error: "Not found"})
+    end
   end
 
 
