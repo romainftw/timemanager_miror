@@ -2,7 +2,7 @@
   <div>
     <section class="row justify-content-center">
       <div class="col-12">
-        <form @submit.prevent="updateWorkingTime">
+        <form @submit.prevent="createWorkingTime">
           <input type="datetime-local" v-model="showWorkingTime.workingtime.start" class="form-control mt-4" placeholder="Nom" required />
           <input type="datetime-local" v-model="showWorkingTime.workingtime.end" class="form-control mt-4" placeholder="Email" required />
           <button class="btn btn-info col-12 mt-4" type="submit">{{ buttonText }}</button>
@@ -23,11 +23,7 @@ export default {
   components: {
     modal: Modal
   },
-  props: {
-    id: workingTimeId,
-    start,
-    end
-  },
+  props: ["userId"],
   data() {
     return {
       userID: null,
@@ -53,11 +49,12 @@ export default {
     }
   },
   created() {
-    if(id){ // Edit form
-      this.buttonText = "Modifier",
-      this.showWorkingTime.workingtime.start = this.start
-      this.showWorkingTime.workingtime.end = this.end
-    }
+    console.log(this.userId)
+    //if(id){ // Edit form
+    //  this.buttonText = "Modifier",
+    //  this.showWorkingTime.workingtime.start = this.start
+    //  this.showWorkingTime.workingtime.end = this.end
+    //}
   },
   methods: {
     getWorkingTime: async function () {
@@ -72,9 +69,9 @@ export default {
       }
     },
     createWorkingTime: async function () {
-      console.log(this.data)
       try {
-        const response = await axios.post(`${config.back_uri}/workingtimes`, this.data)
+        console.log(this.showWorkingTime)
+        const response = await axios.post(`${config.back_uri}/workingtimes`, this.showWorkingTime)
         this.data.workingtime.start = ''
         this.data.workingtime.end = ''
         this.successCbk('Les horaires ont été ajoutées')
@@ -109,16 +106,14 @@ export default {
     },
   },
   created() {
-    this.userID = this.$route.params.userID
-    this.data.workingtime.user_id = parseInt(this.userID)
+    this.data.workingtime.user_id = parseInt(this.userId)
     this.username = this.$route.params.name
     this.workingTimeId = this.$route.params.id
-    this.showWorkingTime.workingtime.user_id = this.userID
+    this.showWorkingTime.workingtime.user_id = this.userId
 
-    this.getWorkingTime()
+    //this.getWorkingTime()
   }
 }
 
 </script>
 <style lang=""></style>
-  

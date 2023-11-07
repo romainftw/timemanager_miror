@@ -13,8 +13,9 @@
         <i class="bi bi-plus-square text-info"></i>
     </button>
     
-    <modal :show="show" >
-    </modal>
+    <myModal :show="workingTimeModal" :toggleModale="toggleWorkingTimeModal">
+      <WorkingTimeForm :userId="userID" @callback="toggleWorkingTimeModal"/>
+    </myModal>
 
     <article class="mt-5">
       <table class="table">
@@ -55,16 +56,22 @@ import config from '../../config'
 import axios from 'axios'
 import { formatDate } from '../../functions'
 import { RouterLink } from 'vue-router'
+import WorkingTimeForm from './WorkingTimeForm.vue'
+import Modal from './ModaleItem.vue'
 
 export default {
   name: 'workingTimes',
   props: ['userID', 'username'],
   data() {
     return {
-      workingTimes: []
+      workingTimes: [],
+      workingTimeModal: false
     }
   },
-
+  components: {
+    WorkingTimeForm,
+    myModal: Modal
+  },
   methods: {
     getWorkingTimes: async function () {
       if(!this.userID) {
@@ -95,7 +102,7 @@ export default {
       
     },
     toggleWorkingTimeModal: function () {
-      this.showEditModal = !this.showEditModal
+      this.workingTimeModal = !this.workingTimeModal
     },
     formattedDate: function (date) {
       return formatDate(date, 'D MMMM YYYY [à] hh:mm A')
