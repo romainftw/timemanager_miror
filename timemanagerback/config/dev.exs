@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :my_app, MyApp.Repo,
-  username: "mon_nom_utilisateur",
-  password: "mon_mot_de_passe",
+  username: "postgres",
+  password: "Epitech1",
   hostname: "timemanagerprod.database.windows.net",
   database: "timemanager",
   port: "1433",

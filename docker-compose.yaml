@@ -1,11 +1,11 @@
-version: '3'
+version: '3.8'
 services:
   frontend:
     build:
       context: ./timemanagerfront
       dockerfile: Dockerfile
     ports:
-      - 3000:8080
+      - "3000:8080"
     depends_on:
       - backend
     restart: always
@@ -14,30 +14,14 @@ services:
       context: ./timemanagerback
       dockerfile: Dockerfile
     ports:
-      - 4000:4000
-    depends_on:
-      - db
-    restart: always
-  db:
-    image: postgres:latest
-    restart: always
+      - "4000:4000"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: app_dev
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    environment:
-      PGADMIN_DEFAULT_EMAIL: user@mail.com
-      PGADMIN_DEFAULT_PASSWORD: password
-    ports:
-      - 5050:80
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
-volumes:
-  postgres_data: 
-  pgadmin_data:
+      DATABASE_USERNAME: "postgres"
+      DATABASE_PASSWORD: "Epitech1"
+      DATABASE_NAME: "timemanager"
+      DATABASE_HOST: "timemanagerprod.database.windows.net"
+      DATABASE_PORT: "5432"
+      DATABASE_POOL_SIZE: "10"
+      DATABASE_SSL: "true"
+      # Ajoutez d'autres variables d'environnement nécessaires ici
+    restart: always
