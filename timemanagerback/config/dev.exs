@@ -1,12 +1,12 @@
 import Config
 
 # Configure your database
-config :my_app, MyApp.Repo,
+config :timemanager, Timemanager.Repo,
   username: "postgres",
   password: "Epitech1",
-  hostname: "timemanagerprod.database.windows.net",
-  database: "timemanager",
-  port: "1433",
+  hostname: "timemanagerdb.postgres.database.azure.com",
+  database: "timemanagerdb",
+  port: "5432",
   ssl: true,
   pool_size: 10
 
