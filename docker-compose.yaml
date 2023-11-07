@@ -20,7 +20,7 @@ services:
       DATABASE_PASSWORD: "Epitech1"
       DATABASE_NAME: "timemanager"
       DATABASE_HOST: "timemanagerprod.database.windows.net"
-      DATABASE_PORT: "5432"
+      DATABASE_PORT: "1433"
       DATABASE_POOL_SIZE: "10"
       DATABASE_SSL: "true"
       # Ajoutez d'autres variables d'environnement nécessaires ici
