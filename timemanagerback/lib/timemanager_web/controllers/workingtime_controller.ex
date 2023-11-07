@@ -4,6 +4,8 @@ defmodule TimemanagerWeb.WorkingtimeController do
   alias Timemanager.Workingtimes
   alias Timemanager.Workingtimes.Workingtime
 
+  plug Timemanager.Authorize, resource: Timemanager.Workingtimes.Workingtime
+
   action_fallback TimemanagerWeb.FallbackController
 
   def index(conn,  _params) do

@@ -35,8 +35,13 @@ defmodule Timemanager.Clocks do
       ** (Ecto.NoResultsError)
 
   """
-  def get_clock!(id), do: Repo.get!(Clock, id)
-
+  # def get_clock!(id), do: Repo.get!(Clock, id)
+  def get_clock!(id) do
+    case Repo.get(Clock, id) do
+      nil -> nil
+      clock -> clock
+    end
+  end
   @doc """
   Creates a clock.
 
