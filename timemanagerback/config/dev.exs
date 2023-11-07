@@ -1,13 +1,13 @@
 import Config
 
 # Configure your database
-config :timemanager, Timemanager.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "timemanager_dev",
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
+config :my_app, MyApp.Repo,
+  username: "mon_nom_utilisateur",
+  password: "mon_mot_de_passe",
+  hostname: "timemanagerprod.database.windows.net",
+  database: "timemanager",
+  port: "1433",
+  ssl: true,
   pool_size: 10
 
 # For development, we disable any cache and enable
