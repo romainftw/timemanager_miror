@@ -164,7 +164,7 @@ export default {
         <i class="bi bi-plus-lg fs-6 text-info"></i>
       </button>
     </article>
-    
+
     <article v-if="addingNewUser">
       <form @submit.prevent="createNewUser">
         <input
@@ -179,6 +179,7 @@ export default {
           v-model="newUser.user.email"
           class="form-control mt-4"
           placeholder="Email"
+          autocomplete="off"
           required
         />
         <input
@@ -186,6 +187,7 @@ export default {
           v-model="newUser.user.password"
           class="form-control mt-4"
           placeholder="Mot de passe"
+          autocomplete="new-password"
           required
         />
         <button class="btn btn-info col-12 mt-4" type="submit">Ajouter</button>
@@ -229,12 +231,12 @@ export default {
       </table>
     </article>
 
-    <modale v-bind:show="showModale" v-bind:toggleModale="toggleModale"
-      ><workingTimes
+    <modale v-bind:show="showModale" v-bind:toggleModale="toggleModale">
+      <workingTimes
         v-bind:userID="this.modaleData.id"
-        v-bind:username="this.modaleData.username"
-      ></workingTimes>
+        v-bind:username="this.modaleData.username"/>
     </modale>
+
     <!-- edit user modale  -->
     <modale :show="showModaleEditUser" :toggleModale="toggleModaleEditUser">
       <form @submit.prevent="updateUser()">
