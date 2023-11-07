@@ -17,6 +17,8 @@ jobs:
       with:
         elixir-version: 1.11.x
         otp-version: 23.x
+    - name: Install libncurses5
+      run: sudo apt-get update && sudo apt-get install -y libncurses5
     - name: Install Dependencies
       run: mix deps.get
     - name: Run Tests
