@@ -16,12 +16,8 @@ services:
     ports:
       - "4000:4000"
     environment:
-      DATABASE_USERNAME: "postgres"
-      DATABASE_PASSWORD: "Epitech1"
-      DATABASE_NAME: "timemanager"
-      DATABASE_HOST: "timemanagerprod.database.windows.net"
-      DATABASE_PORT: "1433"
-      DATABASE_POOL_SIZE: "10"
-      DATABASE_SSL: "true"
-      # Ajoutez d'autres variables d'environnement nécessaires ici
+      DATABASE_URL: "ecto://postgres:Epitech1@timemanagerdb.postgres.database.azure.com:5432/timemanagerdb"
+      POOL_SIZE: "10"
+      SECRET_KEY_BASE: "NAUeCxlFPyiSbnLhqEH0Zszalm1b9Q3J3wW/JW5DFTDQLR6LuRMaGSQ1ZoRPfEJv"
+      PHX_SERVER: "true"
     restart: always
