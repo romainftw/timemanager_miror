@@ -1,0 +1,51 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy container app to Azure Web App - timemanager5
+
+on:
+  push:
+    branches:
+      - azur
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Log in to registry
+      uses: docker/login-action@v2
+      with:
+        registry: https://timemanagercont.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_00649ece7f8e442cb54e69d14f7d98b2 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_81e01f93b2f247f990efc6994125d093 }}
+
+    - name: Build and push container image to registry
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        tags: timemanagercont.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_00649ece7f8e442cb54e69d14f7d98b2 }}/time-manager-front:${{ github.sha }}
+        file: ./Dockerfile
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'timemanager5'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_31d19f7b47e84e2fbb49284a26b20f23 }}
+        images: 'timemanagercont.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_00649ece7f8e442cb54e69d14f7d98b2 }}/time-manager-front:${{ github.sha }}'
