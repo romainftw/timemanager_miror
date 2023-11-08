@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://timemanagercont.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_00649ece7f8e442cb54e69d14f7d98b2 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_81e01f93b2f247f990efc6994125d093 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_52d1835351e242e39fc47de26a53f72d }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_87027ff3452f42f69db89bfade2c6301 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: timemanagercont.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_00649ece7f8e442cb54e69d14f7d98b2 }}/time-manager-front:${{ github.sha }}
+        tags: timemanagercont.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_52d1835351e242e39fc47de26a53f72d }}/timemanagercont.azurecr.io/time-manager-front:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'timemanager5'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_31d19f7b47e84e2fbb49284a26b20f23 }}
-        images: 'timemanagercont.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_00649ece7f8e442cb54e69d14f7d98b2 }}/time-manager-front:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7c3a6914ab6b41238a5cfab779941419 }}
+        images: 'timemanagercont.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_52d1835351e242e39fc47de26a53f72d }}/timemanagercont.azurecr.io/time-manager-front:${{ github.sha }}'
