@@ -97,4 +97,4 @@ USER nobody
 
 EXPOSE 4000
 
-CMD ["/app/bin/server"]
+CMD ["/app/bin/timemanager", "start"]
