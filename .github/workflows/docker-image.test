@@ -2,9 +2,9 @@ name: Docker Image CI and Elixir Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "azur" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "azur" ]
 
 jobs:
   tu_back:
@@ -12,6 +12,10 @@ jobs:
     steps:
     - name: Check out repository code
       uses: actions/checkout@v2
+    - name: Install libncurses5
+      run: |
+          sudo apt-get update
+          sudo apt-get install -y libncurses5 libssl1.1
     - name: Setup Elixir
       uses: actions/setup-elixir@v1
       with:

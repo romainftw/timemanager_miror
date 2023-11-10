@@ -7,7 +7,15 @@ import Config
 # before starting your production server.
 config :timemanager, TimemanagerWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json"
-
+  
+config :timemanager, Timemanager.Repo,
+  username: "postgres",
+  password: "Epitech1",
+  hostname: "timemanagerdb.postgres.database.azure.com",
+  database: "timemanagerdb",
+  port: "5432",
+  ssl: true,
+  pool_size: 10
 # Configures Swoosh API Client
 config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: Timemanager.Finch
 

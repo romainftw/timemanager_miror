@@ -1,11 +1,11 @@
-version: '3'
+version: '3.8'
 services:
   frontend:
     build:
       context: ./timemanagerfront
       dockerfile: Dockerfile
     ports:
-      - 3000:8080
+      - "3001:8080"
     depends_on:
       - backend
     restart: always
@@ -14,9 +14,12 @@ services:
       context: ./timemanagerback
       dockerfile: Dockerfile
     ports:
-      - 4000:4000
-    depends_on:
-      - db
+      - "4000:4000"
+    environment:
+      DATABASE_URL: "ecto://postgres:postgres@db:5432/postgres"
+      POOL_SIZE: "10"
+      SECRET_KEY_BASE: "NAUeCxlFPyiSbnLhqEH0Zszalm1b9Q3J3wW/JW5DFTDQLR6LuRMaGSQ1ZoRPfEJv"
+      PHX_SERVER: "true"
     restart: always
   db:
     image: postgres:latest
@@ -24,20 +27,10 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: app_dev
+      POSTGRES_DB: postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    environment:
-      PGADMIN_DEFAULT_EMAIL: user@mail.com
-      PGADMIN_DEFAULT_PASSWORD: password
-    ports:
-      - 5050:80
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - "5432:5432"
 volumes:
-  postgres_data: 
-  pgadmin_data:
+  postgres_data:

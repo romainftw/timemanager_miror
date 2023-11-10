@@ -68,4 +68,13 @@ config :timemanager, TimemanagerWeb.Users.Guardian,
   secret_key: "NAUeCxlFPyiSbnLhqEH0Zszalm1b9Q3J3wW/JW5DFTDQLR6LuRMaGSQ1ZoRPfEJv" # put the result of the mix command above here
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
+config :timemanager, Timemanager.Repo,
+  username: System.get_env("DATABASE_USERNAME") || "postgres",
+  password: System.get_env("DATABASE_PASSWORD") || "Epitech1",
+  database: System.get_env("DATABASE_NAME"),
+  hostname: System.get_env("DATABASE_HOST"),
+  port: String.to_integer(System.get_env("DATABASE_PORT") || "5432"),
+  pool_size: String.to_integer(System.get_env("DATABASE_POOL_SIZE") || "10"),
+  ssl: System.get_env("DATABASE_SSL") == "true"
+  
 import_config "#{config_env()}.exs"
