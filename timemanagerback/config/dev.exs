@@ -3,10 +3,10 @@ import Config
 # Configure your database
 config :timemanager, Timemanager.Repo,
   username: "postgres",
-  password: "Epitech1",
-  hostname: "timemanagerdb.postgres.database.azure.com",
-  database: "timemanagerdb",
-  port: "5432",
+  password: "postgres",
+  hostname: "db",
+  database: "postgres",
+  port: 5432,
   ssl: true,
   pool_size: 10
 

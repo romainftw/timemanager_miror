@@ -5,7 +5,7 @@ services:
       context: ./timemanagerfront
       dockerfile: Dockerfile
     ports:
-      - "3000:8080"
+      - "3001:8080"
     depends_on:
       - backend
     restart: always
@@ -16,8 +16,21 @@ services:
     ports:
       - "4000:4000"
     environment:
-      DATABASE_URL: "ecto://postgres:Epitech1@timemanagerdb.postgres.database.azure.com:5432/timemanagerdb"
+      DATABASE_URL: "ecto://postgres:postgres@db:5432/postgres"
       POOL_SIZE: "10"
       SECRET_KEY_BASE: "NAUeCxlFPyiSbnLhqEH0Zszalm1b9Q3J3wW/JW5DFTDQLR6LuRMaGSQ1ZoRPfEJv"
       PHX_SERVER: "true"
     restart: always
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  postgres_data:
