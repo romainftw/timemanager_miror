@@ -4,8 +4,11 @@ services:
     build:
       context: ./timemanagerfront
       dockerfile: Dockerfile
+    image: timemanager5.azurecr.io/timemanager_front
     ports:
       - "3001:8080"
+    networks:
+      - timemanager_miror_default      
     depends_on:
       - backend
     restart: always
@@ -13,8 +16,11 @@ services:
     build:
       context: ./timemanagerback
       dockerfile: Dockerfile
+      image: timemanager5.azurecr.io/timemanager_back
     ports:
       - "4000:4000"
+    networks:
+      - timemanager_miror_default      
     environment:
       DATABASE_URL: "ecto://postgres:postgres@db:5432/postgres"
       POOL_SIZE: "10"
@@ -32,5 +38,10 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - timemanager_miror_default  
 volumes:
   postgres_data:
+networks:
+  timemanager_miror_default:
+    external : true
